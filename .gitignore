@@ -1,3 +1,4 @@
 *~
 *.ob_bak
 *.swp
+*.ob.lock
