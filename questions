@@ -1,0 +1,9 @@
+
+        ?
+<MDT> ----> <AmbulanceTracker>
+
+        ?
+<GPS> ----> <AmbulanceTracker>
+
+            ?          ?
+<InfoProc> ---> <MDT> ---> <Ambulance Crew>
