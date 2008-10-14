@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg3781"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="goal.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs3783">
+    <marker
+       id="ArrowRefinementDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="stroke: black; stroke-width: 2;fill: rgb(246, 222, 63);"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0 0 L -30 15 L -23 0 L -30 -15 z"
+         id="path77" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3789" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="266.2757"
+     inkscape:cy="632.9482"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="754"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata3786">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 353,376.36218 L 536,454.36218"
+       id="path4620" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 188,450.36218 L 353,375.36218 L 353,309.36218"
+       id="path4618"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path151"
+       style="fill:#d7e6ee;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 434.53352,449.22033 L 619.39124,449.22033 L 603.98084,485.43476 L 418.3526,485.43476 L 434.53352,449.22033 z"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       x="519.2572"
+       y="448.83508"
+       id="text153"
+       style="font-size:9.24623775000000059px;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <tspan
+         dy="10.787277"
+         x="519.2572"
+         id="tspan155"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">Achieve</tspan>
+      <tspan
+         dy="10.787277"
+         x="519.2572"
+         id="tspan157"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">[AppropriateMedicalCareGivenWh</tspan>
+      <tspan
+         dy="10.787277"
+         x="519.2572"
+         id="tspan159"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">enCallReceived]</tspan>
+    </text>
+    <path
+       id="path244"
+       style="fill:#f6de3f;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 100.41745,449.22033 L 286.04569,449.22033 L 269.86477,485.43476 L 84.23653,485.43476 L 100.41745,449.22033 z"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       x="185.52637"
+       y="454.2287"
+       id="text246"
+       style="font-size:9.24623775000000059px;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <tspan
+         dy="10.787277"
+         x="185.52637"
+         id="tspan248"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">Achieve</tspan>
+      <tspan
+         dy="10.787277"
+         x="185.52637"
+         id="tspan250"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">[CallReceivedWhenInjuredPeople]</tspan>
+    </text>
+    <path
+       id="path255"
+       style="fill:#d7e6ee;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 267.47546,292.80481 L 452.33318,292.80481 L 436.92278,329.01924 L 251.29454,329.01924 L 267.47546,292.80481 z"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       x="352.19913"
+       y="292.41956"
+       id="text257"
+       style="font-size:9.24623775000000059px;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <tspan
+         dy="10.787277"
+         x="352.19913"
+         id="tspan259"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">Achieve</tspan>
+      <tspan
+         dy="10.787277"
+         x="352.19913"
+         id="tspan261"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">[AppropriateMedicalCareGivenWh</tspan>
+      <tspan
+         dy="10.787277"
+         x="352.19913"
+         id="tspan263"
+         style="text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">enInjuredPeople]</tspan>
+    </text>
+    <ellipse
+       cx="1083.5"
+       cy="137.5"
+       rx="7.5"
+       ry="7.5"
+       style="fill:#f6de3f;stroke:#000000;stroke-width:1.29782518;stroke-miterlimit:4;stroke-dasharray:none"
+       id="ellipse819"
+       sodipodi:cx="1083.5"
+       sodipodi:cy="137.5"
+       sodipodi:rx="7.5"
+       sodipodi:ry="7.5"
+       transform="matrix(0.7705198,0,0,0.7705198,-482.27382,269.68922)" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#f6de3f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path4622"
+       sodipodi:sides="3"
+       sodipodi:cx="351.375"
+       sodipodi:cy="332.23718"
+       sodipodi:r1="5.6471786"
+       sodipodi:r2="2.8235893"
+       sodipodi:arg1="-1.5707963"
+       sodipodi:arg2="-0.52359875"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 351.375,326.59 L 353.8203,330.82539 L 356.2656,335.06077 L 351.375,335.06077 L 346.4844,335.06077 L 348.9297,330.82539 L 351.375,326.59 z"
+       transform="translate(1.625,3.125)" />
+  </g>
+</svg>
