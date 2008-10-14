@@ -2,3 +2,5 @@
 *.ob_bak
 *.swp
 *.ob.lock
+*.log
+*.aux
