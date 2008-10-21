@@ -1,41 +1,71 @@
-Nous avons choisi un ensemble d'opération que nous avons alors détaillé
-et analyser afin de s'assurer de leur correct fondement, de leur cohérence
-avec les autres modèles et de la correcte controlabilité/monitoribilité
-des agents qui doivent procéder à ces opérations.
+Cette section présente un ensemble d'opération. Nous avons choisi les quatres
+opérations correspondant à des buts feuilles et assignées à des agents logiciels
+à développer.
 
-\subsection{RecordAmbulanceAvailability}
+Afin d'illustrer les liens entre les modèles, nous reprenons le nom du but
+qui est opérationnalisé par l'opération, le nom de l'agent qui effectuera 
+l'opération, l'état à atteindre après cette opération et enfin, l'évènement
+attaché à cette opération.
 
-Avant tout chose, il est nécessaire de situer l'opération dans le modèle
-des buts. La figure \ref{fig:tab:RecordAmbulanceAvailability:goal} montre
-où est situé le but correspondant à l'opération ainsi que l'agent responsable
-de la bonne réalisation de ce but.
-\begin{figure}[!h]
-	\begin{center}
-		\includegraphics[scale=1]{images/RecordAmbulanceAvailabilitGoal.png}
-		\caption{Le but attaché à l'opération RecordAmbulanceAvailability.}\label{fig:tab:RecordAmbulanceAvailability:goal}
-	\end{center}
-\end{figure}
+\subsection{processIncidentInfo}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & IncidentInfoProcessed \\ \hline
+			Event & IncidentInfoProcessing \\ \hline
+			In & $i: IncidentInfo$ \\ \hline
+			Out & $i: IncidentInfo$ \\ \hline
+			Pre & $\exists c: Call, \exists j: Incident (c.about \rightarrow j \wedge c.reporting \rightarrow i)$ \\ \hline
+			Post & $i.pos != '' \wedge i.ambulanceKindNeeded != ''$  \\
+				 & La position (pos) contenue dans i correspond à la position (localisation) de i sous forme exploitabular par le système 
+				  Le type d'ambulance nécessaire de i est calculé selon les règles données par le gouvernement et sur base des 
+				  informations présentent dans i \\ \hline
+		\end{tabularx}
+		\caption{processIncidentInfo}
+	\end{table}
 
-Nous pouvons donc synthétiser ces informations dans le tableau \ref{tab:RecordAmbulanceAvailability:goalandagent}
-\begin{table}
-	\begin{tabular}{|l|l|}\hline
-	But correspondant & Achieve[AmbulanceAvailabiltyRecordedWhenAmbulanceAvailabilitySent] \\ \hline
-	Agent & AmbulanceTracker
-	\end{tabular}
-	\caption{Récapitulatif du but opérationnalisé et de l'agent qui va procéder à cette opération.}\label{tab:RecordAmbulanceAvailability:goalandagent}
-\end{table}
+\subsection{recordAccurateAmbulancePosition}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[AccurateAmbulancePositionRecorded\\ &WhenAccurateAmbulancePositionSent] \\ \hline
+			Agent & AmbulanceTracker \\ \hline
+			Goal state & AmbulancePositionAccurate and AmbulancePositionKnown \\ \hline
+			Event & AccurateAmbulancePositionRecording \\ \hline
+			In & $a: Ambulance$ \\ \hline
+			Out & $b: AmbulanceInfo$ \\ \hline
+			Pre & $\exists b: ambulanceInfo : a.id = b.id$ \\ \hline
+			Post & $b.pos = a.pos$ \\ \hline
+		\end{tabularx}
+		\caption{recordAccurateAmbulancePosition}
+	\end{table}
 
-Les objets nécessaires à la réalisation de cette opération sont \textit{AmbulanceInfo}
-et \textit{AvailabilityMessage}.
+\subsection{choseAmbulance}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[AmbulanceChosenWhen\\ & AvailabilityKnownAnd \\ & AmbulanceKindKnownAnd \\ & AccurateAmbulancePositionKnown] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & AmbulanceChosen \\ \hline
+			Event & AmbulanceChoice \\ \hline
+			In & $i: IncidentInfo$ \\ \hline
+			Out & $a: AmbulanceInfo$ \\ \hline
+			Pre & $\exists a: AmbulanceInfo : \#a.mobilisation = 0 \wedge \#a.choice = 0$ \\ \hline
+			Post & $\#a.choice = 1 \wedge \#i.choice = 1 \wedge i.choice \rightarrow a$ \\ \hline
+		\end{tabularx}
+		\caption{choseAmbulance}
+	\end{table}
 
-\begin{table}
-	\begin{tabular}{|l|l|}\hline
-In:  	&avlbM: AvailabilityMessage, AmbulanceInfo\\ \hline
-Pre: 	&Exists amb: AmbulanceInfo : amb.ambulanceName = avlbM.ambulanceName\\ \hline
-
-Out:  	&amb: AmbulanceInfo\\ \hline
-Post:	&mdtM.availability = true $<=>$ amb.infoMobilization is not null \\ \hline
-	&mdtM.availability = false $<=>$ amb.infoMobilitzation is null\\ \hline
-	\end{tabular}
-	\caption{fff}
-\end{table}
+\subsection{sendMobilizationOrder}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[MobilizationOrderSentWhenBestAmbulanceChosen] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & MobilizationOrderTransmitted \\ \hline
+			Event & MobilizationOrderTransmittion \\ \hline
+			In & $a: Ambulance, i: Incident$ \\ \hline
+			Out & $m: MobilizationOrder$ \\ \hline
+			Pre & $\#a.choice = 1 \wedge a.choice \rightarrow i$ \\ \hline
+			Post & $\exists m: MobilizationOrder : m.ambulance = a \wedge m.incident = i$ \\ \hline
+		\end{tabularx}
+		\caption{sendMobilizationOrder}
+	\end{table}
