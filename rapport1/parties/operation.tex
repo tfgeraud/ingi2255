@@ -1,0 +1,71 @@
+Cette section présente un ensemble d'opération. Nous avons choisi les quatres
+opérations correspondant à des buts feuilles et assignées à des agents logiciels
+à développer.
+
+Afin d'illustrer les liens entre les modèles, nous reprenons le nom du but
+qui est opérationnalisé par l'opération, le nom de l'agent qui effectuera 
+l'opération, l'état à atteindre après cette opération et enfin, l'évènement
+attaché à cette opération.
+
+\subsection{processIncidentInfo}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & IncidentInfoProcessed \\ \hline
+			Event & IncidentInfoProcessing \\ \hline
+			In & $i: IncidentInfo$ \\ \hline
+			Out & $i: IncidentInfo$ \\ \hline
+			Pre & $\exists c: Call, \exists j: Incident (c.about \rightarrow j \wedge c.reporting \rightarrow i)$ \\ \hline
+			Post & $i.pos != '' \wedge i.ambulanceKindNeeded != ''$  \\
+				 & La position (pos) contenue dans i correspond à la position (localisation) de i sous forme exploitabular par le système 
+				  Le type d'ambulance nécessaire de i est calculé selon les règles données par le gouvernement et sur base des 
+				  informations présentent dans i \\ \hline
+		\end{tabularx}
+		\caption{processIncidentInfo}
+	\end{table}
+
+\subsection{recordAccurateAmbulancePosition}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[AccurateAmbulancePositionRecorded\\ &WhenAccurateAmbulancePositionSent] \\ \hline
+			Agent & AmbulanceTracker \\ \hline
+			Goal state & AmbulancePositionAccurate and AmbulancePositionKnown \\ \hline
+			Event & AccurateAmbulancePositionRecording \\ \hline
+			In & $a: Ambulance$ \\ \hline
+			Out & $b: AmbulanceInfo$ \\ \hline
+			Pre & $\exists b: ambulanceInfo : a.id = b.id$ \\ \hline
+			Post & $b.pos = a.pos$ \\ \hline
+		\end{tabularx}
+		\caption{recordAccurateAmbulancePosition}
+	\end{table}
+
+\subsection{choseAmbulance}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[AmbulanceChosenWhen\\ & AvailabilityKnownAnd \\ & AmbulanceKindKnownAnd \\ & AccurateAmbulancePositionKnown] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & AmbulanceChosen \\ \hline
+			Event & AmbulanceChoice \\ \hline
+			In & $i: IncidentInfo$ \\ \hline
+			Out & $a: AmbulanceInfo$ \\ \hline
+			Pre & $\exists a: AmbulanceInfo : \#a.mobilisation = 0 \wedge \#a.choice = 0$ \\ \hline
+			Post & $\#a.choice = 1 \wedge \#i.choice = 1 \wedge i.choice \rightarrow a$ \\ \hline
+		\end{tabularx}
+		\caption{choseAmbulance}
+	\end{table}
+
+\subsection{sendMobilizationOrder}
+	\begin{table}[!h] \centering
+		\begin{tabularx}{\textwidth}{|l|X|} \hline
+			Goal & Achieve[MobilizationOrderSentWhenBestAmbulanceChosen] \\ \hline
+			Agent & InfoProcessor \\ \hline
+			Goal state & MobilizationOrderTransmitted \\ \hline
+			Event & MobilizationOrderTransmittion \\ \hline
+			In & $a: Ambulance, i: Incident$ \\ \hline
+			Out & $m: MobilizationOrder$ \\ \hline
+			Pre & $\#a.choice = 1 \wedge a.choice \rightarrow i$ \\ \hline
+			Post & $\exists m: MobilizationOrder : m.ambulance = a \wedge m.incident = i$ \\ \hline
+		\end{tabularx}
+		\caption{sendMobilizationOrder}
+	\end{table}

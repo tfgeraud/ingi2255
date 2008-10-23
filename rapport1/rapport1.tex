@@ -4,12 +4,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{graphicx}
+\usepackage{tabularx}
 
 % L'en-tête et la mise en page sera différente
 % Merci de ne pas faire de mise en page dans le document !
 \title{Rapport 1 du projet de genlog}
 \author{Grp 2}
 \date{\today}
+
+% Pour modifier la géométrie de la page
+\usepackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
+
 
 \newcommand{\insertfigure}[2]{%
 \begin{figure}[!h]
@@ -25,12 +31,15 @@
 \setlength{\parskip}{1em}
 
 \maketitle
+\tableofcontents
 
 \chapter*{Introduction}
 	\input{parties/introduction.tex}
-
 \chapter{Analyse}
 	\input{parties/analyse.tex}
+
+\chapter{Résolution d'obstacles}
+	\input{parties/obstacles.tex}
 
 \chapter{Cahier des charges}
 	\section{Modèle de buts}
@@ -50,5 +59,8 @@
 
 \chapter*{Conclusion}
 	\input{parties/conclusion.tex}
+
+\chapter{Annexe: Évaluation d'Objectiver}
+	\input{parties/objectiver.tex}
 
 \end{document}

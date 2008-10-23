@@ -1,0 +1,82 @@
+\section{Achieve[AccurateAmbulancePositionRecorded When AccurateAmbulancePositionSent]}
+	\insertfigure{Obstacle3}{Diagramme de résolution d'obstacle}
+	Le but qui nous concerne ici est d'assurer que la précision des
+	données envoyées est garantie à la réception et que ces données
+	puissent être enregistrées. Les obstacles et leur résolution coulent 
+	de source.
+
+\section{Achieve[AccurateAmbulancePositionSent]}
+	\insertfigure{Obstacle2}{Diagramme de résolution d'obstacle}
+	Ce but correspond à l'envoi des données de l'AVLS et de s'assurer
+	que celles-ci sont correctes. 
+
+	L'obstacle dont la résolution est la plus intéressante est le non
+	fonctionnement du matériel responsable de l'exécution de ce but.
+
+	La résolution distingue deux cas, celui où l'ambulance est libre, et celui
+	où elle est mobilisée. Dans le premier cas, on envoie directement
+	l'ambulance à une station où elle sera réparée. Dans le second
+	cas, l'ambulance effectue son travail et retourne ensuite à la 
+	station pour réparation.
+
+	Cette résolution est incomplète car notre modèle des buts et objet
+	ne permet pas de gérer les objectifs suivants : 
+	\begin{itemize}
+		\item Empècher de choisir ou de mobiliser l'ambulance lorsqu'elle
+		doit être réparée ou est en réparation,
+		\item Ne pas mobiliser une ambulance choisie si elle a eu un
+		problème entre temps.
+	\end{itemize}
+
+	De plus, d'autres soucis apparaissent; L'état "AmbulanceOnScene"
+	ne saura être détecté par le systême informatique dans le
+	cas d'une ambulance dysfonctionelle.
+
+	Pour résoudre ces problèmes il faut ajouter un attribut broken
+	à l'ambulance et modifier les définitions des buts de choix et
+	de mobilisation de l'ambulance. 
+
+	De plus l'AVLS et le systême de transmission ne sont sans doute pas
+	les seuls appareils de l'ambulance pouvant tomber en panne, le but
+	de réparation correspond très certainement à un but de général de
+	plus haut niveau consistant à maintenir l'ambulance en état de marche.
+
+\section{Achieve[AmbulanceOnScene When AmbulanceMobilized]}
+	\insertfigure{Obstacle1}{Diagramme de résolution d'obstacle}
+	Ce but correspond à l'arrivée de l'ambulance sur les lieux indiqués
+	de l'incident après sa mobilisation.
+	
+	Le raffinement consistant à démobiliser une ambulance accidentée ou
+	coincée peut sembler superflu, mais est justifié par le respect des
+	cardinalités de notre modèle objet. 
+
+	Le but \emph{Achieve[MedicalCareGivenByOtherAmbulance When AmbulanceDemobilized]}
+	n'est manifestement pas complet ni suffisemment raffiné.
+	
+	En fait, deux alternatives s'offrent à nous. La première et la moins bonne
+	consiste à répliquer l'entièreté de l'arbre des buts \emph{Achieve[MedicalCareGiven When AmbulanceMobilized}
+	comme raffinement du précédent. L'autre alternative consiste à modifier
+	les buts parents afin qu'ils se chargent de mobiliser l'ambulance de 
+	secours. Pour cela, il faut transformer \emph{Achieve[AmbulanceMobilized When IncidentInformationKnown]}
+	par un \emph{Maintain[WorkingAnbulanceMobilized When IncidentInformationKnownAndNotResolved]}
+	Ce but s'assurera donc qu'il y a toujours une ambulance en état de marche 
+	mobilisée pour chaque incident. 
+	
+	Cependant cela nécéssite de définir deux états supplémentaires:  
+	\emph{Working(a:Ambulance)} et \emph{Resolved(i:IncidentInformation)}. 
+	L'ajout de ces deux états nécessite de modifier notre modèle objet 
+	et d'ajouter de nouveaux buts et raffinements, à identifier lors d'une 
+	deuxième passe d'analyse et de réflexion sur notre modêle.
+
+	Enfin, Cette résolution n'est pas non plus complète. Il faut en effet
+	modifier la représentation de la carte du systême de routage et de choix
+	d'ambulance pour que celui ci n'envoie pas une deuxième ambulance dans
+	un embouteillage. 
+
+	Pour finir, il faut aller rechercher l'ambulance accidentée et la 
+	réparer. 
+
+	Ces deux buts sont à rattacher comme raffinements de buts plus généraux
+	qui ne se trouvent pas dans notre modèle actuel. Cela révèle une fois de
+	plus la nécessité d'une seconde passe d'analyse.
+
