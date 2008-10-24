@@ -1,9 +1,26 @@
+Le but principal de la découverte d'obstacles est de rendre l'analyse du 
+problème plus complète en y incluant les cas limites et les exceptions.  La 
+démarche est la suivante : prendre un but feuille (exigence ou hypothèse), 
+le nier, raffiner autant que possible cette négation pour enfin résoudre chacun 
+de ces raffinements.  Cela permet alors de définir de nouvelles exigences et 
+hypothèses qui résolvent les cas limites et d'exception et ainsi obtenir un 
+modèle plus complet et plus sûr.
+
+Pour être complet, il faudrait obstruer chaque but feuille du modèle de buts 
+idéal.  Dans le présent rapport, seuls quelques buts feuilles intéressants ont 
+été obstrués.
+
 \section{Achieve[AccurateAmbulancePositionRecorded When AccurateAmbulancePositionSent]}
 	\insertfigure{Obstacle3}{Diagramme de résolution d'obstacle}
 	Le but qui nous concerne ici est d'assurer que la précision des
 	données envoyées est garantie à la réception et que ces données
 	puissent être enregistrées. Les obstacles et leur résolution coulent 
 	de source.
+	
+	La propriété du domaine \emph{Always[HighTransmissionFrequency]} est assurée 
+	par une configuration correcte de l'AVLS.  \emph{Always[MemorySpaceFree]} 
+	est, quant à elle, assurée par l'utilisation d'un matériel informatique 
+	adéquat pour faire tourner le système logiciel. 
 
 \section{Achieve[AccurateAmbulancePositionSent]}
 	\insertfigure{Obstacle2}{Diagramme de résolution d'obstacle}
@@ -32,13 +49,13 @@
 	ne saura être détecté par le systême informatique dans le
 	cas d'une ambulance dysfonctionelle.
 
-	Pour résoudre ces problèmes il faut ajouter un attribut broken
+	Pour résoudre ces problèmes il faut ajouter un attribut "broken"
 	à l'ambulance et modifier les définitions des buts de choix et
 	de mobilisation de l'ambulance. 
 
 	De plus l'AVLS et le systême de transmission ne sont sans doute pas
 	les seuls appareils de l'ambulance pouvant tomber en panne, le but
-	de réparation correspond très certainement à un but de général de
+	de réparation correspond très certainement à un but de
 	plus haut niveau consistant à maintenir l'ambulance en état de marche.
 
 \section{Achieve[AmbulanceOnScene When AmbulanceMobilized]}
@@ -51,26 +68,28 @@
 	cardinalités de notre modèle objet. 
 
 	Le but \emph{Achieve[MedicalCareGivenByOtherAmbulance When AmbulanceDemobilized]}
-	n'est manifestement pas complet ni suffisemment raffiné.
+	n'est manifestement pas complet ni suffisamment raffiné.
 	
 	En fait, deux alternatives s'offrent à nous. La première et la moins bonne
-	consiste à répliquer l'entièreté de l'arbre des buts \emph{Achieve[MedicalCareGiven When AmbulanceMobilized}
+	consiste à répliquer l'entièreté de l'arbre des buts 
+	\emph{Achieve[MedicalCareGiven When AmbulanceMobilized]}
 	comme raffinement du précédent. L'autre alternative consiste à modifier
 	les buts parents afin qu'ils se chargent de mobiliser l'ambulance de 
-	secours. Pour cela, il faut transformer \emph{Achieve[AmbulanceMobilized When IncidentInformationKnown]}
+	secours. Pour cela, il faut transformer 
+	\emph{Achieve[AmbulanceMobilized When IncidentInformationKnown]}
 	par un \emph{Maintain[WorkingAnbulanceMobilized When IncidentInformationKnownAndNotResolved]}
 	Ce but s'assurera donc qu'il y a toujours une ambulance en état de marche 
 	mobilisée pour chaque incident. 
 	
-	Cependant cela nécéssite de définir deux états supplémentaires:  
+	Cependant cela nécessite de définir deux états supplémentaires:  
 	\emph{Working(a:Ambulance)} et \emph{Resolved(i:IncidentInformation)}. 
 	L'ajout de ces deux états nécessite de modifier notre modèle objet 
 	et d'ajouter de nouveaux buts et raffinements, à identifier lors d'une 
-	deuxième passe d'analyse et de réflexion sur notre modêle.
+	deuxième passe d'analyse et de réflexion sur notre modèle.
 
 	Enfin, Cette résolution n'est pas non plus complète. Il faut en effet
-	modifier la représentation de la carte du systême de routage et de choix
-	d'ambulance pour que celui ci n'envoie pas une deuxième ambulance dans
+	modifier la représentation de la carte du système de routage et de choix
+	d'ambulance pour que celui-ci n'envoie pas une deuxième ambulance dans
 	un embouteillage. 
 
 	Pour finir, il faut aller rechercher l'ambulance accidentée et la 
