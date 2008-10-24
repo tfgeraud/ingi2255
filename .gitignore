@@ -4,3 +4,5 @@
 *.ob.lock
 *.log
 *.aux
+*.toc
+rapport1/rapport1.pdf
