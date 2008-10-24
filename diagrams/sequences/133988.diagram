@@ -1,0 +1,80 @@
+format 61
+
+classinstance 128100 class_ref 129508 // InfoProcessor
+  name ""   xyz 185 9 2000 life_line_z 2000
+classinstance 128484 class_ref 129636 // AmbulanceTracker
+  name ""   xyz 447 9 2000 life_line_z 2000
+classinstance 128612 class_ref 133604 // AmbulanceAndCrew
+  name ""   xyz 725 9 2000 life_line_z 2000
+note 131940 "Free"
+  xyzwh 801 274 2000 50 35
+note 132068 "Mobilized"
+  xyzwh 802 398 2000 73 35
+note 132196 "MobilizationOrderTransmited"
+  xyzwh 803 339 2000 164 35
+note 132324 "MobilizationConfirmed"
+  xyzwh 22 423 2000 139 35
+note 132452 "MobilizationOrderTransmited"
+  xyzwh 21 321 2000 165 35
+note 132836 "BestAmbulanceChosen"
+  xyzwh 22 252 2000 145 35
+note 132964 "IncidentInfoKnown"
+  xyzwh 29 56 2000 110 35
+durationcanvas 128740 classinstance_ref 128100 // :InfoProcessor
+  xyzwh 220 85 2010 11 340
+  overlappingdurationcanvas 131428
+    xyzwh 226 100 2020 11 25
+  end
+  overlappingdurationcanvas 131684
+    xyzwh 226 172 2020 11 25
+  end
+  overlappingdurationcanvas 132580
+    xyzwh 226 238 2020 11 25
+  end
+end
+durationcanvas 128868 classinstance_ref 128484 // :AmbulanceTracker
+  xyzwh 494 285 2010 11 146
+end
+durationcanvas 129124 classinstance_ref 128612 // :AmbulanceAndCrew
+  xyzwh 773 320 2010 11 72
+end
+msg 128996 synchronous
+  from durationcanvas_ref 128740
+  to durationcanvas_ref 128868
+  yz 300 2015 explicitmsg "Send( m: MobilizationOrder )"
+  show_full_operations_definition default drawing_language default
+  label_xy 283 283
+msg 129252 synchronous
+  from durationcanvas_ref 128868
+  to durationcanvas_ref 129124
+  yz 332 2015 explicitmsg "Send( m: MobilizationOrder )"
+  show_full_operations_definition default drawing_language default
+  label_xy 565 317
+msg 129892 return
+  from durationcanvas_ref 129124
+  to durationcanvas_ref 128868
+  yz 381 2015 explicitmsg "Send( m: MobilizationOrder  )"
+  show_full_operations_definition default drawing_language default
+  label_xy 566 367
+msg 130020 return
+  from durationcanvas_ref 128868
+  to durationcanvas_ref 128740
+  yz 407 2015 explicitmsg "Send( m: MobilizationOrder )"
+  show_full_operations_definition default drawing_language default
+  label_xy 287 389
+reflexivemsg 131556 synchronous
+  to durationcanvas_ref 131428
+  yz 100 2025 explicitmsg "AmbulanceAvailabilityRequest"
+  show_full_operations_definition default drawing_language default
+  label_xy 241 84
+reflexivemsg 131812 synchronous
+  to durationcanvas_ref 131684
+  yz 172 2025 explicitmsg "AmbulancePositionRequest"
+  show_full_operations_definition default drawing_language default
+  label_xy 239 155
+reflexivemsg 132708 synchronous
+  to durationcanvas_ref 132580
+  yz 238 2025 explicitmsg "BestAmbulanceChosen"
+  show_full_operations_definition default drawing_language default
+  label_xy 240 219
+end
