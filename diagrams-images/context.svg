@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="context.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="223.13491"
+     inkscape:cy="946.66935"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="641"
+     inkscape:window-height="719"
+     inkscape:window-x="120"
+     inkscape:window-y="-109" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3280"
+       transform="matrix(-1,0,0,-1,808.3482,644.22436)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3282"
+         d="M 390.5,313.86218 L 390.5,207.86218"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3284"
+         d="M 390.86914,305.31047 L 375.73157,286.26175 L 390.28971,294.01161 L 403.23633,284.14321 L 390.86914,305.31047 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3254"
+       transform="translate(66.96157,114)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3256"
+         d="M 390.5,313.86218 L 390.5,207.86218"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3258"
+         d="M 390.86914,305.31047 L 375.73157,286.26175 L 390.28971,294.01161 L 403.23633,284.14321 L 390.86914,305.31047 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="463.96155"
+       y="375.36218"
+       id="text3276"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"><tspan
+         sodipodi:role="line"
+         id="tspan3278"
+         x="463.96155"
+         y="375.36218"
+         style="font-size:14px">/beep</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="375"
+       y="381.36218"
+       id="text3290"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"><tspan
+         sodipodi:role="line"
+         id="tspan3292"
+         x="375"
+         y="381.36218"
+         style="font-size:14px">/push</tspan></text>
+    <g
+       id="g3232"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"
+       transform="translate(-56,241)">
+      <path
+         id="path3201"
+         d="M 162,311.36218 L 159,210.36218"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3212"
+         d="M 160,219.39162 L 174.14214,239.19061 L 160,230.70533 L 146.56497,239.89771 L 160,219.39162 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3220"
+       transform="translate(59,241)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3205"
+         d="M 390.5,313.86218 L 390.5,207.86218"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3216"
+         d="M 390.86914,305.31047 L 375.73157,286.26175 L 390.28971,294.01161 L 403.23633,284.14321 L 390.86914,305.31047 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3228"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"
+       transform="translate(-56,241)">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3207"
+         d="M 194.5594,324.92158 L 463.4406,326.80278"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.11880827;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3218"
+         d="M 211.07256,326.15308 L 231.82882,313.4575 L 222.35752,326.95915 L 230.56934,341.01496 L 211.07256,326.15308 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3163"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"
+       transform="translate(-56,241)">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3157"
+         d="M 87.699049,174.24116 L 232.19534,174.24116 L 252.54959,196.36218 L 232.19534,218.4832 L 87.699049,218.4832 L 69.450407,196.36218 L 87.699049,174.24116 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.18653071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3159"
+         y="201.36218"
+         x="97"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="201.36218"
+           x="97"
+           id="tspan3161"
+           sodipodi:role="line">FirstLineAnswerer</tspan></text>
+    </g>
+    <g
+       id="g3174"
+       transform="translate(-265,309)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3168"
+         d="M 319.62226,233.11599 L 409.07424,233.11599 L 421.67476,255.36218 L 409.07424,277.60837 L 319.62226,277.60837 L 308.32524,255.36218 L 319.62226,233.11599 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.93620461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3170"
+         y="260.36218"
+         x="340"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="260.36218"
+           x="340"
+           id="tspan3172"
+           sodipodi:role="line">Witness</tspan></text>
+    </g>
+    <g
+       id="g3196"
+       transform="translate(186,285)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3190"
+         d="M 227.88428,262.05727 L 296.12136,262.05727 L 305.73348,284.36218 L 296.12136,306.66709 L 227.88428,306.66709 L 219.26652,284.36218 L 227.88428,262.05727 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.81876343;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3192"
+         y="288.36218"
+         x="241"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="288.36218"
+           x="241"
+           id="tspan3194"
+           sodipodi:role="line">Victim</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="456"
+       y="502.36218"
+       id="text3236"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"><tspan
+         sodipodi:role="line"
+         id="tspan3238"
+         x="456"
+         y="502.36218"
+         style="font-size:14px">Victim.injure</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="200"
+       y="543.36218"
+       id="text3240"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"><tspan
+         sodipodi:role="line"
+         id="tspan3242"
+         x="200"
+         y="543.36218"
+         style="font-size:14px">Victim.age</tspan><tspan
+         sodipodi:role="line"
+         x="200"
+         y="560.86218"
+         id="tspan3246"
+         style="font-size:14px">Victim.pregnant</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="109"
+       y="509.36218"
+       id="text3250"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125"><tspan
+         sodipodi:role="line"
+         id="tspan3252"
+         x="109"
+         y="509.36218"
+         style="font-size:14px">Call</tspan></text>
+    <g
+       id="g3296"
+       transform="translate(-48.5,-24.999997)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <g
+         id="g3308"
+         transform="translate(3,-10)">
+        <path
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.08534944;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+           d="M 135.63402,256.19056 L 278.60819,256.19056 L 295.60019,278.36218 L 278.60819,300.5338 L 135.63402,300.5338 L 120.39981,278.36218 L 135.63402,256.19056 z"
+           id="path3298"
+           sodipodi:nodetypes="ccccccc" />
+        <text
+           xml:space="preserve"
+           style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+           x="142"
+           y="283.36218"
+           id="text3300"><tspan
+             id="tspan3304"
+             sodipodi:role="line"
+             x="142"
+             y="283.36218"
+             style="font-size:14px">AmbulanceTracker</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g3321"
+       transform="translate(-84.5,76)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3323"
+         d="M 227.88428,262.05727 L 296.12136,262.05727 L 305.73348,284.36218 L 296.12136,306.66709 L 227.88428,306.66709 L 219.26652,284.36218 L 227.88428,262.05727 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.81876343;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3325"
+         y="288.36218"
+         x="246"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px;text-align:start;text-anchor:start"
+           y="288.36218"
+           x="246"
+           sodipodi:role="line"
+           id="tspan3329">AVLS</tspan></text>
+    </g>
+    <g
+       id="g3443"
+       transform="translate(-106,-55)">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3335"
+         d="M 142.80028,181.3963 L 443.73446,180.46212"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3337"
+         d="M 457.23263,179.50508 L 437.79327,194.13762 L 445.92246,179.78783 L 436.39717,166.58674 L 457.23263,179.50508 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3345"
+         d="M 143.46709,471.32927 L 142.53291,180.39509"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3347"
+       transform="matrix(0.8585899,-0.5126631,0.5126631,0.8585899,-73.395947,131.10396)">
+      <g
+         id="g3353"
+         transform="matrix(-0.3868368,-0.9221481,0.9221481,-0.3868368,143.65655,624.38102)">
+        <path
+           sodipodi:nodetypes="cc"
+           id="path3355"
+           d="M 141.5894,240.5399 L 297.46709,197.89509"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccccc"
+           id="path3357"
+           d="M 303.96526,196.93805 L 284.5259,211.57059 L 292.65509,197.2208 L 283.1298,184.01971 L 303.96526,196.93805 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-size:40.00000381px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+           x="-151.0432"
+           y="-279.18161"
+           id="text3448"
+           transform="matrix(-0.8048855,0.5934301,-0.5934301,-0.8048855,0,0)"><tspan
+             sodipodi:role="line"
+             id="tspan3450"
+             x="-151.0432"
+             y="-279.18161"
+             style="font-size:14.00000191px">AvailabilityMessage</tspan></text>
+      </g>
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3349"
+         d="M 152.47637,195.16107 L 357.19754,220.74837"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3351"
+         d="M 368.1554,220.12481 L 348.71604,234.75735 L 356.84523,220.40756 L 347.31994,207.20647 L 368.1554,220.12481 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3268"
+       transform="translate(172.96157,31)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3270"
+         d="M 227.88428,262.05727 L 296.12136,262.05727 L 305.73348,284.36218 L 296.12136,306.66709 L 227.88428,306.66709 L 219.26652,284.36218 L 227.88428,262.05727 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.81876343;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3272"
+         y="288.36218"
+         x="246"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px;text-align:start;text-anchor:start"
+           y="288.36218"
+           x="246"
+           id="tspan3274"
+           sodipodi:role="line">MDT</tspan></text>
+    </g>
+    <g
+       id="g3359"
+       transform="matrix(0,-1,1,0,225.20485,453.09481)">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3361"
+         d="M 159.53291,198.82927 L 297.46709,197.89509"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3363"
+         d="M 303.96526,196.93805 L 284.5259,211.57059 L 292.65509,197.2208 L 283.1298,184.01971 L 303.96526,196.93805 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3365"
+       transform="matrix(0,1,-1,0,645.79515,-11.37045)">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3367"
+         d="M 157.53291,198.82927 L 297.46709,197.89509"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3369"
+         d="M 303.96526,196.93805 L 284.5259,211.57059 L 292.65509,197.2208 L 283.1298,184.01971 L 303.96526,196.93805 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3371"
+       transform="matrix(0,-1,1,0,-25.79515,570.09481)">
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3373"
+         d="M 233.63667,198.72551 L 297.36333,197.99885"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.2733314;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path3375"
+         d="M 303.96526,196.93805 L 284.5259,211.57059 L 292.65509,197.2208 L 283.1298,184.01971 L 303.96526,196.93805 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+      <g
+         id="g3377"
+         transform="matrix(0.690461,-0.7233697,0.7233697,0.690461,-145.8484,330.04444)">
+        <path
+           sodipodi:nodetypes="cc"
+           id="path3379"
+           d="M 143.26905,240.6183 L 297.46709,197.89509"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0658195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path3383"
+           sodipodi:cx="565"
+           sodipodi:cy="148.36218"
+           sodipodi:rx="43"
+           sodipodi:ry="43"
+           d="M 608,148.36218 A 43,43 0 1 1 522,148.36218 A 43,43 0 1 1 608,148.36218 z"
+           transform="matrix(-0.7233696,0.6904609,-0.6904609,-0.7233696,803.45388,311.30634)" />
+        <path
+           sodipodi:nodetypes="ccccc"
+           id="path3381"
+           d="M 303.96526,196.93805 L 284.5259,211.57059 L 292.65509,197.2208 L 283.1298,184.01971 L 303.96526,196.93805 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g3185"
+       transform="translate(241,163)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context1.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3179"
+         d="M 136.78049,256.21003 L 266.33168,256.21003 L 284.58072,278.36218 L 266.33168,300.51433 L 136.78049,300.51433 L 120.41928,278.36218 L 136.78049,256.21003 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.12428558;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3181"
+         y="284.36218"
+         x="147"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="284.36218"
+           x="147"
+           id="tspan3183"
+           sodipodi:role="line">AmbulanceCrew</tspan></text>
+    </g>
+    <g
+       id="g3260"
+       transform="translate(232.96157,-154)"
+       inkscape:export-filename="/home/sibork/Louvain/INFO21MS/INGI2255/Context/context2.png"
+       inkscape:export-xdpi="125"
+       inkscape:export-ydpi="125">
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path3262"
+         d="M 136.78049,256.21003 L 290.33168,256.21003 L 308.58072,278.36218 L 290.33168,300.51433 L 136.78049,300.51433 L 120.41928,278.36218 L 136.78049,256.21003 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.12428558;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+      <text
+         id="text3264"
+         y="283.36218"
+         x="142"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:14px"
+           y="283.36218"
+           x="142"
+           id="tspan3266"
+           sodipodi:role="line">InformationProcessor</tspan></text>
+    </g>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1"
+       d="M 461.8571,101.77991 L 447.22456,82.34055 L 461.57435,90.46974 L 474.77544,80.94445 L 461.8571,101.77991 z"
+       id="path3385"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="219"
+       y="432.36218"
+       id="text3390"><tspan
+         sodipodi:role="line"
+         id="tspan3392"
+         x="219"
+         y="432.36218"
+         style="font-size:14px">Ambulance.pos</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="47"
+       y="67.362183"
+       id="text3394"><tspan
+         sodipodi:role="line"
+         id="tspan3396"
+         x="47"
+         y="67.362183"
+         style="font-size:14px">IncidentInfo.location</tspan><tspan
+         sodipodi:role="line"
+         x="47"
+         y="84.862183"
+         id="tspan3398"
+         style="font-size:14px">IncidentInfo.description</tspan><tspan
+         sodipodi:role="line"
+         x="47"
+         y="102.36218"
+         id="tspan3400"
+         style="font-size:14px">IncidentInfo.victimAge</tspan><tspan
+         sodipodi:role="line"
+         x="47"
+         y="119.86218"
+         id="tspan3402"
+         style="font-size:14px">IncidentInfo.victimPregnant</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="108"
+       y="185.36218"
+       id="text3408"><tspan
+         sodipodi:role="line"
+         id="tspan3410"
+         x="108"
+         y="185.36218"
+         style="font-size:14px">AmbulanceInfo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="72"
+       y="316.36218"
+       id="text3416"><tspan
+         sodipodi:role="line"
+         id="tspan3418"
+         x="72"
+         y="316.36218"
+         style="font-size:14px">AVLSMessage</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="456"
+       y="233.36218"
+       id="text3420"><tspan
+         sodipodi:role="line"
+         id="tspan3422"
+         x="456"
+         y="233.36218"
+         style="font-size:14px">MobilizationOrder.message</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="265"
+       y="217.36218"
+       id="text3424"><tspan
+         sodipodi:role="line"
+         x="265"
+         y="217.36218"
+         style="font-size:14px"
+         id="tspan3428">MobilizationOrder.ack</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="451"
+       y="18.362183"
+       id="text3452"><tspan
+         sodipodi:role="line"
+         id="tspan3454"
+         x="451"
+         y="18.362183"
+         style="font-size:13px">IncidentInfo.pos</tspan><tspan
+         sodipodi:role="line"
+         x="451"
+         y="34.612183"
+         id="tspan3456"
+         style="font-size:13px">IncidentInfo.AmbulanceKindNeeded</tspan><tspan
+         sodipodi:role="line"
+         x="451"
+         y="50.862183"
+         id="tspan3458"
+         style="font-size:13px" /></text>
+  </g>
+</svg>
