@@ -1,1 +1,121 @@
+Dans cette partie, nous vous présentons une partie du modèle de buts. En 
+particulier, nous vous présentons la formalisation que nous avons
+utilisé pour découler de manière rapide et cohérente les opérations, les
+machines à états et augmenter la cohérence de notre modèle de buts.
 
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{AmbulanceFree(a: Ambulance)} \\ 
+& = & \neg AmbulanceMobilized(a) \\
+&   & \wedge \neg AmbulanceChosen(a) \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{AmbulanceMobilized(a: Ambulance)} \\ 
+& = & \exists i:Incident, \\
+&   & MobilizationOrderConfirmed(a, i) \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{AmbulanceOnScene(a:Ambulance, I:Incident)} \\ 
+& = & a.pos = i.pos \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{AmbulanceChosen(i:IncidentInfo)} \\ 
+& = & \exists a:AmbulanceInfo, a.id = b.id  \\
+&   & \wedge a.choice = 1 \\
+&   & \wedge \#i.choice = 1 \\
+&   & \wedge a.choice \rightarrow i \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{MobilizationOrderConfirmed(a:Ambulance, i:Incident)} \\ 
+& = & \exists m:MoblisationOrder: \\
+&   & m.ambulance = a \wedge m.incident = 1 \\
+&   & \wedge m.confirmed = True \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{MobilizationOrderTransmitted(a: Ambulance, i:Incident)} \\ 
+& = & \exists m: MobilizationOrder, \\
+&   & m.ambulanceId = a \\
+&   & \wedge m.incident = 1 \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{MedicalCareGiven(i:Incident)} \\ 
+& = & \exists AmbulanceMobilized(a, i), \\
+&   & \wedge AmbulanceOnScene(a, i) \\
+&   & \wedge \#a.medicalCare = 1 \\
+&   & \wedge \#i.victim.medicalCare = 1 \\
+&   & \wedge a.medicalCare \rightarrow i.victim.medicalCare \\ 
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{IncidentInfoKnown(i:IncidentInfo)} \\ 
+& = & IncidentInfoProcessed(i) \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{CallReceived(i:Incident)} \\ 
+& = & \exists c: Call, \\
+&   & c.about \rightarrow i \\
+&   & \wedge \#c.about = 1 \\
+&   & \wedge \#i.about = 1 \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{AvailabilityKnown(a: Ambulance)} \\
+& = & \exists b: AmbulanceInfo, \\
+&   & b.id = a.id \\
+&   & \wedge \#b.mobilized = \#a.miblized \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{PositionKnown(a:Ambulance)} \\ 
+& = & \exists b:AmbulanceInfo, \\
+&   & b.id = a.id \\
+&   & \wedge a.pos \approxeq b.pos \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{IncidentInfoProcessed(j:IncidentInfo)} \\ 
+& = & j.pos \neq null \\
+&   & \wedge j.ambulanceKindNeeded \neq null \\
+&   & \exists c:Call, \exists i:Incident, \\
+&   & (c.about \rightarrow i \wedge c.reporting \rightarrow j) \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{IncidentInfoRecorded(c:Call)} \\ 
+& = & \exists j:IncidentInfo, \exists Incident, \\
+&   & c.about \rightarrow i \\
+&   & \wedge j.reporting \rightarrow c \\
+&   & \wedge j.localisation \neq nul \\
+&   & \wedge j.description \neq null \\
+&   & \wedge j.victimAge \neq null \\
+&   & \wedge j.victimPregrant \neq null \\
+&   & \wedge j.id \neq null \\
+\end{array}
+\end{equation*}
+\begin{equation*}
+\begin{array}{rcl}
+\multicolumn{3}{l}{PositionAccurate(a:Ambulance)} \\ 
+& = & \exists b:AmbulanceInfo, \\
+&   & a.id = b.id \\
+&   & \wedge b.pos = a.pos \\
+\end{array}
+\end{equation*}
