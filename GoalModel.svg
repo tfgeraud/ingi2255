@@ -1,9 +1,2600 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<svg height="10cm" id="svg-root" preserveAspectRatio="xMidYMid meet" viewBox="27 27 3745 1340" width="165.09999999999997mm" xmlns="http://www.w3.org/2000/svg" xmlns:java="http://xml.apache.org/xslt/java" xmlns:xlink="http://www.w3.org/1999/xlink"><title>GoalModel</title><style type="text/css">line {stroke: #000000; stroke-width: 0.75;}</style><style type="text/css">text {  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="744.09448"
+   id="svg-root"
+   preserveAspectRatio="xMidYMid meet"
+   viewBox="1382 20 1503 883"
+   width="1052.3622"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:docname="GoalModel.svg"
+   version="1.0">
+  <metadata
+     id="metadata910">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:window-height="950"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="540.65625"
+     inkscape:cy="485.95968"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:current-layer="svg-root" />
+  <title
+     id="title3">GoalModel</title>
+  <style
+     type="text/css"
+     id="style5">line {stroke: #000000; stroke-width: 0.75;}</style>
+  <style
+     type="text/css"
+     id="style7">text {  
         font-family:Arial, Helvetica, Geneva, sans serif;
         font-size:10;
         text-anchor:middle;
         fill:black;
         font-weight:bold;
         stroke-width:5;
-      }</style><style media="print" type="text/css">.background {fill:#FFFFFF;}</style><style media="screen" type="text/css">.background {fill:#3384ad;}</style><radialGradient cx=".5" cy=".5" fx=".5" fy=".5" gradientUnits="objectBoundingBox" id="focusserGradient" r=".5"><stop offset="0.0225" style="stop-color:#FFFFFF"/><stop offset="0.0794" style="stop-color:#FBFEF7"/><stop offset="0.1685" style="stop-color:#F1FBE1"/><stop offset="0.2784" style="stop-color:#E1F5BC"/><stop offset="0.4038" style="stop-color:#CAEE8B"/><stop offset="0.4551" style="stop-color:#C0EB74"/><stop offset="1" style="stop-color:#006699"/></radialGradient><defs><marker id="ArrowControlLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowObstructionLine" markerHeight="60" markerUnits="userSpaceOnUse" markerWidth="60" orient="auto" style="stroke: black; stroke-width: 2.5;fill: rgb(251, 157, 128);" viewBox="-80 -50 160 100"><path d="M -50 15 L -50 -15 L -49 -15 L -49 15 M 0 0 L -30 15 L -23 0 L -30 -15 L 0 0 z"/></marker><marker id="ArrowDocumentationLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker class="background" id="ArrowIsALine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2.5;" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z" style="fill:white"/><path class="background" d="M 0 0 L -30 15 L -30 -15 z" id="background_ARROW_ISA" style="visibility:hidden"/></marker><marker id="ArrowPerformanceLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowMonitoringAgentLineUseCaseViewType" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowInputLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowConcernsLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowCauseLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowConflictLine" markerUnits="userSpaceOnUse" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(255, 0, 0);"/><marker id="ArrowMonitoringLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowIncludeLineUseCaseViewType" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowOutputLine" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowControlOperationLineUseCaseViewType" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(0, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -30 -15 z"/></marker><marker id="ArrowResolutionLine" markerHeight="60" markerUnits="userSpaceOnUse" markerWidth="60" orient="auto" style="stroke: black; stroke-width: 2.5;fill: rgb(153, 255, 153);" viewBox="-80 -50 160 100"><path d="M -50 15 L -50 -15 L -49 -15 L -49 15 M 0 0 L -30 15 L -23 0 L -30 -15 L 0 0 z"/></marker><marker id="ArrowConflictLine" markerUnits="userSpaceOnUse" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(255, 0, 0);"/><marker id="ArrowRefinementDefaultAndOrRepresentation" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(246, 222, 63);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -23 0 L -30 -15 z"/></marker><marker id="ArrowOperationalizationDefaultAndOrRepresentation" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(102, 153, 255);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -23 0 L -30 -15 z"/></marker><marker id="ArrowAssignmentDefaultAndOrRepresentation" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(255, 163, 195);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -23 0 L -30 -15 z"/></marker><marker id="ArrowO_RefinementDefaultAndOrRepresentation" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(251, 157, 128);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -23 0 L -30 -15 z"/></marker><marker id="ArrowResponsibilityDefaultAndOrRepresentation" markerHeight="30" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="stroke: black; stroke-width: 2;fill: rgb(204, 0, 0);" viewBox="-40 -25 80 50"><path d="M 0 0 L -30 15 L -23 0 L -30 -15 z"/></marker><marker id="SignStopLine" markerHeight="40" markerUnits="userSpaceOnUse" markerWidth="40" orient="auto" style="fill:#FF0033; stroke:white; stroke-width:2;" viewBox="-50 -50 100 100"><path d="M 20 0 L 10 15 L -10 15 L -20 0 L -10 -15 L 10 -15 z"/><text style="font-size:11; fill:white; stroke-width:0.1;" x="0" y="4">STOP</text></marker><marker id="SignConflictLine" markerHeight="60" markerUnits="userSpaceOnUse" markerWidth="30" orient="auto" style="fill:#FF0000; stroke:black; stroke-width:2;" viewBox="-45 -60 90 120"><path d="M 9 -38.7 L -5.3 -2.7 L 16.7 -8.3 L -15.6 38.7 L 1.7 1.7 L -20 7.3 z"/></marker><marker id="ArrowAggregation" markerHeight="60" markerWidth="60" orient="auto" viewBox="-80 -50 160 100"><path d="M 0 0 L 30 15 L 60 0 L 30 -15 z" style="stroke: black; fill:white; stroke-width: 2.5;"/><path class="background" d="M 0 0 L 30 15 L 60 0 L 30 -15 z" id="background_ARROW_AGGREGATION" style="visibility:hidden; stroke: black; stroke-width: 2.5;"/></marker><marker id="ArrowComposition" markerHeight="60" markerWidth="60" orient="auto" viewBox="-80 -50 160 100"><path d="M 0 0 L 30 15 L 60 0 L 30 -15 z"/></marker><marker id="ArrowAssociationDirected" markerHeight="30" markerWidth="30" orient="auto" style="stroke : black; fill: none; stroke-width: 2.5;" viewBox="-40 -25 80 50"><path d="M -30 15 L 0 0 L -30 -15"/></marker><g id="IssueMark" transform="scale(0.45, 0.45)"><g style="fill-rule:nonzero;clip-rule:nonzero;stroke:#000000;stroke-miterlimit:4;"><g><radialGradient cx="5.4365" cy="5.127" fx="5.4365" fy="5.127" gradientUnits="userSpaceOnUse" id="aigrd1" r="5.2803"><stop offset="0" style="stop-color:#FFFFFF"/><stop offset="1" style="stop-color:#99CCCC"/></radialGradient><path d="M15.1055,7.5532c0,4.1714-3.3809,7.5532-7.5527,7.5532S0,11.7246,0,7.5532S3.3809,0,7.5527,0s7.5527,3.3818,7.5527,7.5532z" style="fill:url(#aigrd1);stroke:none;"/></g></g><g style="fill-rule:nonzero;clip-rule:nonzero;stroke:#000000;stroke-miterlimit:4;"><path d="M7.0908,9.2915C7.0742,8.9873,7.0586,8.7632,7.0586,8.5874c0-1.4082,1.2002-1.9199,1.2002-3.9521c0-0.6719-0.1279-2.0957-1.376-2.0957c-0.1445,0-0.9443,0.0479-0.9443,0.6396c0,0.48,0.5918,0.4961,0.5918,1.2803          c0,0.832-0.6563,1.0239-0.9756,1.0239c-0.8164,0-1.1201-0.6719-1.1201-1.2319c0-0.6563,0.4795-2.2881,3.1035-2.2881c0.4961,0,3.1045,0.1763,3.1045,2.7202c0,1.0239-0.6563,1.792-1.5039,2.3198C8.3389,7.4995,7.9229,7.7393,7.7305,8.1392          c-0.1279,0.2563-0.1602,0.624-0.1602,1.1523H7.0908z M7.3467,10.4912c0.7354,0,1.3438,0.624,1.3438,1.3604c0,0.7676-0.6084,1.3438-1.3438,1.3438c-0.7686,0-1.3604-0.5918-1.3604-1.3438c0-0.7202,0.5918-1.3604,1.3604-1.3604z" style="stroke:none;"/></g></g><g id="InfoMark" transform="scale(0.45, 0.45)"><g style="fill-rule:nonzero;clip-rule:nonzero;stroke:#000000;stroke-miterlimit:4"><g><radialGradient cx="5.4365" cy="7.0996" fx="5.4365" fy="7.0996" gradientUnits="userSpaceOnUse" id="aigrd1" r="5.2803"><stop offset="0" style="stop-color:#FFFFFF"/><stop offset="1" style="stop-color:#99CCCC"/></radialGradient><path d="M15.1055,9.5259c0,4.1714-3.3809,7.5532-7.5527,7.5532S0,13.6973,0,9.5259s3.3809-7.5532,7.5527-7.5532s7.5527,3.3818,7.5527,7.5532z" style="fill:url(#aigrd1);stroke:none;"/></g><path d="M9.8125,14.4556H5.9883v-0.3838c0.5762-0.144,0.8477-0.1924,0.8477-0.9604V8.4077c0-0.7202-0.2393-0.832-0.8477-0.9438V7.0796h3.0723v6.0801c0,0.4961,0.1279,0.8481,0.752,0.9121v0.3838z M7.9404,3.3999          c0.6875,0,1.2324,0.5596,1.2324,1.2476c0,0.7041-0.5449,1.2324-1.2324,1.2324c-0.7363,0-1.248-0.5444-1.248-1.2324c0-0.6719,0.5283-1.2476,1.248-1.2476z" style="stroke:none;"/></g><g style="display:none;fill-rule:nonzero;clip-rule:nonzero;stroke:#000000;stroke-miterlimit:4;"><text style="stroke:none;" transform="matrix(1 0 0 1 3.5225 14.96)"><tspan style="stroke:none; font-family:'Times-Bold; serif'; font-size:16;" x="0" y="0">?</tspan></text></g></g></defs><rect class="background" height="10000" id="svgBackground" style="visibility:hidden;" width="10000" x="-5000" y="-5000"/><g id="1222872673472:394"><g id="1222872673472:6" xc="2004" xlink-href="a" yc="257"><g transform="translate(1899, 233)"><path d="M 21 0 L 209 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="2004" y="232.5"><tspan dy="14" text-anchor="middle" x="2004">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2004">[AppropriateMedicalCareGivenWh</tspan><tspan dy="14" text-anchor="middle" x="2004">enCallReceived]</tspan></text></g><g id="1222872673472:361" xc="481.5" xlink-href="a" yc="460"><g transform="translate(378, 436)"><path d="M 20 0 L 206 0 L 186 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="481.5" y="435.5"><tspan dy="14" text-anchor="middle" x="481.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="481.5">[IncidentInfoKnownWhenCallRece</tspan><tspan dy="14" text-anchor="middle" x="481.5">ived]</tspan></text></g><g id="1222872673472:7"><polyline fill="none" points="577,452 2006,340 " style="stroke: black;"/></g><g id="1222872673472:356" xc="2074" xlink-href="a" yc="460"><g transform="translate(1970, 436)"><path d="M 20 0 L 207 0 L 187 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="2074" y="435.5"><tspan dy="14" text-anchor="middle" x="2074">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2074">[AmbulanceMobilizedWhenIncide</tspan><tspan dy="14" text-anchor="middle" x="2074">ntInfoKnown]</tspan></text></g><g id="1222872673472:9"><polyline fill="none" points="2062,436 2016,347 " style="stroke: black;"/></g><g id="1222872673472:365" xc="3527" xlink-href="a" yc="460"><g transform="translate(3422, 436)"><path d="M 21 0 L 209 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="3527" y="435.5"><tspan dy="14" text-anchor="middle" x="3527">Achieve</tspan><tspan dy="14" text-anchor="middle" x="3527">[AppropriateMedicalCareGivenWh</tspan><tspan dy="14" text-anchor="middle" x="3527">enAmbulanceMobilized]</tspan></text></g><g id="1222872673472:8"><polyline fill="none" points="3436,452 2020,340 " style="stroke: black;"/></g><g id="1222872673472:407" xc="1405.5" xlink-href="a" yc="664"><g transform="translate(1300, 640)"><path d="M 21 0 L 210 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1405.5" y="639.5"><tspan dy="14" text-anchor="middle" x="1405.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1405.5">[BestAmbulanceChosenWhenIncid</tspan><tspan dy="14" text-anchor="middle" x="1405.5">entInfoKnown]</tspan></text></g><g id="1222872673472:380"><polyline fill="none" points="1509,645 2067,544 " style="stroke: black;"/></g><g id="1222872673472:363" xc="2744.5" xlink-href="a" yc="664"><g transform="translate(2643, 640)"><path d="M 20 0 L 202 0 L 182 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="2744.5" y="639.5"><tspan dy="14" text-anchor="middle" x="2744.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2744.5">[MobilizationOrderTransmittedT</tspan><tspan dy="14" text-anchor="middle" x="2744.5">oAmbulanceCrew]</tspan></text></g><g id="1222872673472:362"><polyline fill="none" points="2659,648 2081,544 " style="stroke: black;"/></g><g id="1222872673472:525" xc="162.5" xlink-href="a" yc="257"><g transform="translate(57, 233)"><path d="M 21 0 L 210 0 L 189 47 L 0 47 z" style="fill: rgb(246, 222, 63);stroke-width: 3;stroke: black;"/></g><text x="162.5" y="239.5"><tspan dy="14" text-anchor="middle" x="162.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="162.5">[CallReceivedWhenInjuredPeople]</tspan></text></g><g id="1222872673472:575" xc="1083" xlink-href="a" yc="54"><g transform="translate(978, 30)"><path d="M 21 0 L 209 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1083" y="29.5"><tspan dy="14" text-anchor="middle" x="1083">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1083">[AppropriateMedicalCareGivenWh</tspan><tspan dy="14" text-anchor="middle" x="1083">enInjuredPeople]</tspan></text></g><g id="1222872673472:612"><polyline fill="none" points="263,243 1076,137 " style="stroke: black;"/></g><g id="1222872673472:625"><polyline fill="none" points="1915,245 1090,137 " style="stroke: black;"/></g><g id="1222872673472:734" xc="204" xlink-href="a" yc="664"><g transform="translate(100, 640)"><path d="M 20 0 L 207 0 L 187 47 L 0 47 z" style="fill: rgb(246, 222, 63);stroke-width: 3;stroke: black;"/></g><text x="204" y="639.5"><tspan dy="14" text-anchor="middle" x="204">Achieve</tspan><tspan dy="14" text-anchor="middle" x="204">[IncidentInfoRecordedWhenCallRe</tspan><tspan dy="14" text-anchor="middle" x="204">ceived]</tspan></text></g><g id="1222872673472:735" xc="481" xlink-href="a" yc="664"><g transform="translate(378, 640)"><path d="M 20 0 L 205 0 L 185 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="481" y="639.5"><tspan dy="14" text-anchor="middle" x="481">Achieve</tspan><tspan dy="14" text-anchor="middle" x="481">[IncidentInfoProcessedWhenIncid</tspan><tspan dy="14" text-anchor="middle" x="481">entInfoRecorded]</tspan></text></g><g id="1222872673472:767"><polyline fill="none" points="259,640 474,546 " style="stroke: black;"/></g><g id="1222872673472:769"><polyline fill="none" points="481,640 481,551 " style="stroke: black;"/></g><g id="1222872673472:771" xc="204.5" xlink-href="a" yc="869"><g transform="translate(134, 848)"><path d="M 35 0 L 105 0 L 140 21 L 105 41 L 35 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="204.5" y="858.5"><tspan dy="14" text-anchor="middle" x="204.5">FirstLineAnswerer</tspan></text></g><g id="1222872673472:910" xc="1376.5" xlink-href="a" yc="54"><g transform="translate(1258, 30)"><path d="M 23 0 L 236 0 L 213 47 L 0 47 z" style="fill: rgb(186, 215, 230);stroke-width: 1;stroke: black;"/></g><text x="1376.5" y="29.5"><tspan dy="14" text-anchor="middle" x="1376.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1376.5">[AppropriateMedicalCareAreGivenQuic</tspan><tspan dy="14" text-anchor="middle" x="1376.5">kly]</tspan></text></g><g id="1222872673472:1075" xc="1627.5" xlink-href="a" yc="54"><g transform="translate(1565, 44)"><path d="M 31 0 L 93 0 L 124 10 L 93 19 L 31 19 L 0 10 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="1627.5" y="43.5"><tspan dy="14" text-anchor="middle" x="1627.5">Phone operator</tspan></text></g><g id="1222872673472:1147" xc="249.5" xlink-href="a" yc="460.5"><g transform="translate(191, 440)"><path d="M 18 18 A 5 5 0 1 1 18 8 A 5 5 0 1 1 18 18 L 18 28 M 13 23 L 23 23 M 13 33 L 18 28 L 23 33 M 29 0 L 87 0 L 116 20 L 87 40 L 29 40 L 0 20 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="249.5" y="450"><tspan dy="14" text-anchor="middle" x="256.8125">Witness</tspan></text></g><g id="1222872673472:1141" xc="75.5" xlink-href="a" yc="460.5"><g transform="translate(30, 440)"><path d="M 11 18 A 5 5 0 1 1 11 8 A 5 5 0 1 1 11 18 L 11 28 M 6 23 L 16 23 M 6 33 L 11 28 L 16 33 M 22 0 L 68 0 L 90 20 L 68 40 L 22 40 L 0 20 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="75.5" y="450"><tspan dy="14" text-anchor="middle" x="81.1875">Victim</tspan></text></g><g id="1222872673472:1140"><polyline fill="none" points="83,440 123,347 " style="stroke: black;"/></g><g id="1222872673472:1247" xc="481" xlink-href="a" yc="869"><g transform="translate(397, 848)"><path d="M 42 0 L 126 0 L 167 21 L 126 41 L 42 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="481" y="858.5"><tspan dy="14" text-anchor="middle" x="481">Information Processor</tspan></text></g><g id="1222872673472:1160" xc="3665" xlink-href="a" yc="869"><g transform="translate(3597, 848)"><path d="M 23 18 A 5 5 0 1 1 23 8 A 5 5 0 1 1 23 18 L 23 28 M 18 23 L 28 23 M 18 33 L 23 28 L 28 33 M 34 0 L 102 0 L 135 21 L 102 41 L 34 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="3665" y="858.5"><tspan dy="14" text-anchor="middle" x="3673.5">Ambulance Crew</tspan></text></g><g id="1222872673472:1764" xc="759" xlink-href="a" yc="664"><g transform="translate(654, 646)"><path d="M 105 0 L 209 7 L 209 35 L 0 35 L 0 7 z" style="fill: rgb(196, 181, 218);stroke-width: 1;stroke: black;"/></g><text x="759" y="653.5"><tspan dy="14" text-anchor="middle" x="759">IncidentInfoKnownWhenProcessed</tspan></text></g><g id="1222872673472:1774"><polyline fill="none" points="717,646 488,547 " style="stroke: black;"/></g><g id="1222872673472:1840" xc="738" xlink-href="a" yc="869"><g transform="translate(635, 851)"><path d="M 20 0 L 205 0 L 185 35 L 0 35 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="738" y="851.5"><tspan dy="14" text-anchor="middle" x="738">Maintain</tspan><tspan dy="14" text-anchor="middle" x="738">[AmbulanceAvailabilityKnown]</tspan></text></g><g id="1222872673472:1831" xc="1559" xlink-href="a" yc="875"><g transform="translate(1455, 851)"><path d="M 20 0 L 207 0 L 187 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1559" y="850.5"><tspan dy="14" text-anchor="middle" x="1559">Maintain</tspan><tspan dy="14" text-anchor="middle" x="1559">[AmbulancePositionKnownAndAcc</tspan><tspan dy="14" text-anchor="middle" x="1559">urate]</tspan></text></g><g id="1222872673472:1804" xc="1817" xlink-href="a" yc="869.5"><g transform="translate(1737, 859)"><path d="M 16 0 L 159 0 L 144 20 L 0 20 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="1817" y="859"><tspan dy="14" text-anchor="middle" x="1817">AmbulanceKindKnown</tspan></text></g><g id="1222872673472:1836" xc="733" xlink-href="a" yc="1079"><g transform="translate(628, 1048)"><path d="M 21 0 L 209 0 L 189 61 L 0 61 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="733" y="1054.5"><tspan dy="14" text-anchor="middle" x="733">Achieve</tspan><tspan dy="14" text-anchor="middle" x="733">[AmbulanceAvailabilityRecordedW</tspan><tspan dy="14" text-anchor="middle" x="733">henAmbulanceAvailabilitySent]</tspan></text></g><g id="1222872673472:1839" xc="1014" xlink-href="a" yc="1079"><g transform="translate(908, 1055)"><path d="M 106 0 L 211 9 L 211 47 L 0 47 L 0 9 z" style="fill: rgb(196, 181, 218);stroke-width: 1;stroke: black;"/></g><text x="1014" y="1061.5"><tspan dy="14" text-anchor="middle" x="1014">AmbulanceAvailabilityKnownWhen</tspan><tspan dy="14" text-anchor="middle" x="1014">AmbulanceAvailabilityRecorded</tspan></text></g><g id="1222872673472:1829"><polyline fill="none" points="734,1048 737,958 " style="stroke: black;"/></g><g id="1222872673472:1810"><polyline fill="none" points="962,1055 744,954 " style="stroke: black;"/></g><g id="1222872673472:1808"><polyline fill="none" points="841,851 1455,749 " style="stroke: black;"/></g><g id="1222872673472:1789"><polyline fill="none" points="1541,851 1466,754 " style="stroke: black;"/></g><g id="1222872673472:1807"><polyline fill="none" points="1786,859 1469,750 " style="stroke: black;"/></g><g id="1222872673472:1860" xc="1538" xlink-href="a" yc="1086"><g transform="translate(1435, 1055)"><path d="M 20 0 L 205 0 L 185 61 L 0 61 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="1538" y="1054.5"><tspan dy="14" text-anchor="middle" x="1538">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1538">[AccurateAmbulancePositionReco</tspan><tspan dy="14" text-anchor="middle" x="1538">rdedWhenAccurateAmbulancePos</tspan><tspan dy="14" text-anchor="middle" x="1538">itionSent]</tspan></text></g><g id="1222872673472:1893" xc="1819.5" xlink-href="a" yc="1079"><g transform="translate(1716, 1062)"><path d="M 103 0 L 206 6 L 206 33 L 0 33 L 0 6 z" style="fill: rgb(196, 181, 218);stroke-width: 1;stroke: black;"/></g><text x="1819.5" y="1061.5"><tspan dy="14" text-anchor="middle" x="1819.5">AmbulancePositionKnownWhenA</tspan><tspan dy="14" text-anchor="middle" x="1819.5">mbulancePositionRecorded</tspan></text></g><g id="1222872673472:1834"><polyline fill="none" points="1542,1055 1554,967 " style="stroke: black;"/></g><g id="1222872673472:1832"><polyline fill="none" points="1782,1062 1562,963 " style="stroke: black;"/></g><g id="1222872673472:1895" xc="2072.5" xlink-href="a" yc="869.5"><g transform="translate(1992, 859)"><path d="M 16 0 L 160 0 L 144 20 L 0 20 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="2072.5" y="859"><tspan dy="14" text-anchor="middle" x="2072.5">BestAmbulanceChosen</tspan></text></g><g id="1222872673472:1894"><polyline fill="none" points="2019,859 1469,749 " style="stroke: black;"/></g><g id="1222872673472:1913" xc="2326.5" xlink-href="a" yc="869"><g transform="translate(2223, 845)"><path d="M 20 0 L 206 0 L 186 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="2326.5" y="844.5"><tspan dy="14" text-anchor="middle" x="2326.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2326.5">[MobilizationOrderSentWhenAmb</tspan><tspan dy="14" text-anchor="middle" x="2326.5">ulanceCrewContacted]</tspan></text></g><g id="1222872673472:1917" xc="2881.5" xlink-href="a" yc="869"><g transform="translate(2781, 845)"><path d="M 20 0 L 200 0 L 180 47 L 0 47 z" style="fill: rgb(246, 222, 63);stroke-width: 3;stroke: black;"/></g><text x="2881.5" y="844.5"><tspan dy="14" text-anchor="middle" x="2881.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2881.5">[MobilisationOrderReadWhenMo</tspan><tspan dy="14" text-anchor="middle" x="2881.5">bilizationOrderSent]</tspan></text></g><g id="1222872673472:1922" xc="2076.5" xlink-href="a" yc="663"><g transform="translate(1974, 646)"><path d="M 102 0 L 204 6 L 204 33 L 0 33 L 0 6 z" style="fill: rgb(196, 181, 218);stroke-width: 1;stroke: black;"/></g><text x="2076.5" y="645.5"><tspan dy="14" text-anchor="middle" x="2076.5">MobilizedWhenAmbulanceCrewR</tspan><tspan dy="14" text-anchor="middle" x="2076.5">eceivedMoblisationOrder</tspan></text></g><g id="1222872673472:2023" xc="3162" xlink-href="a" yc="875"><g transform="translate(3058, 851)"><path d="M 104 0 L 207 9 L 207 47 L 0 47 L 0 9 z" style="fill: rgb(196, 181, 218);stroke-width: 1;stroke: black;"/></g><text x="3162" y="857.5"><tspan dy="14" text-anchor="middle" x="3162">MobilisationOrderTransmittedWh</tspan><tspan dy="14" text-anchor="middle" x="3162">enMobilisationOrderRecieved</tspan></text></g><g id="1222872673472:1966"><polyline fill="none" points="2409,845 2736,750 " style="stroke: black;"/></g><g id="1222872673472:1951"><polyline fill="none" points="2854,845 2749,753 " style="stroke: black;"/></g><g id="1222872673472:1957"><polyline fill="none" points="3083,851 2750,750 " style="stroke: black;"/></g><g id="1222872673472:1981"><polyline fill="none" points="2076,646 2074,550 " style="stroke: black;"/></g><g id="1222872673472:2022" xc="3388" xlink-href="a" yc="664.5"><g transform="translate(3285, 639)"><path d="M 20 0 L 205 0 L 185 50 L 0 50 z" style="fill: rgb(246, 222, 63);stroke-width: 3;stroke: black;"/></g><text x="3388" y="640"><tspan dy="14" text-anchor="middle" x="3388">Achieve</tspan><tspan dy="14" text-anchor="middle" x="3388">[AmbulanceOnSceneWhenAmbula</tspan><tspan dy="14" text-anchor="middle" x="3388">nceMobilized]</tspan></text></g><g id="1222872673472:1920" xc="3665.5" xlink-href="a" yc="664.5"><g transform="translate(3562, 639)"><path d="M 20 0 L 206 0 L 186 50 L 0 50 z" style="fill: rgb(246, 222, 63);stroke-width: 3;stroke: black;"/></g><text x="3665.5" y="640"><tspan dy="14" text-anchor="middle" x="3665.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="3665.5">[AppropriateMedicalCareGivenWh</tspan><tspan dy="14" text-anchor="middle" x="3665.5">enAmbulanceOnScene]</tspan></text></g><g id="1222872673472:1977"><polyline fill="none" points="3417,639 3520,549 " style="stroke: black;"/></g><g id="1222872673472:1978"><polyline fill="none" points="3635,639 3532,549 " style="stroke: black;"/></g><g id="1222872673472:2177" xc="461.5" xlink-href="a" yc="1079"><g transform="translate(365, 1061)"><path d="M 19 0 L 192 0 L 173 35 L 0 35 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="461.5" y="1061.5"><tspan dy="14" text-anchor="middle" x="461.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="461.5">[AmbulanceAvailabilitySent]</tspan></text></g><g id="1222872673472:2133" xc="461.5" xlink-href="a" yc="1288"><g transform="translate(397, 1265)"><path d="M 32 0 L 96 0 L 128 23 L 96 45 L 32 45 L 0 23 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="461.5" y="1277.5"><tspan dy="14" text-anchor="middle" x="461.5">AmbulanceMDT</tspan></text></g><g id="1222872673472:2027" xc="733" xlink-href="a" yc="1288"><g transform="translate(659, 1265)"><path d="M 37 0 L 111 0 L 147 23 L 111 45 L 37 45 L 0 23 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="733" y="1277.5"><tspan dy="14" text-anchor="middle" x="733">AmbulanceTracker</tspan></text></g><g id="1222872673472:2064"><polyline fill="none" points="500,1061 730,954 " style="stroke: black;"/></g><g id="1222872673472:2033" xc="1295" xlink-href="a" yc="1085"><g transform="translate(1190, 1061)"><path d="M 21 0 L 209 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="1295" y="1067.5"><tspan dy="14" text-anchor="middle" x="1295">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1295">[AccurateAmbulancePositionSent]</tspan></text></g><g id="1222872673472:2094"><polyline fill="none" points="1345,1061 1548,963 " style="stroke: black;"/></g><g id="1222872673472:2176" xc="1027.5" xlink-href="a" yc="1288"><g transform="translate(963, 1265)"><path d="M 32 0 L 96 0 L 128 23 L 96 45 L 32 45 L 0 23 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="1027.5" y="1277.5"><tspan dy="14" text-anchor="middle" x="1027.5">AmbulanceGPS</tspan></text></g><g id="1222872673472:2053" xc="2072" xlink-href="a" yc="1079"><g transform="translate(1993, 1058)"><path d="M 39 0 L 118 0 L 157 21 L 118 41 L 39 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="2072" y="1068.5"><tspan dy="14" text-anchor="middle" x="2072">InformationProcessor</tspan></text></g><g id="1222872673472:2036" xc="2326" xlink-href="a" yc="1079"><g transform="translate(2235, 1058)"><path d="M 45 0 L 136 0 L 181 21 L 136 41 L 45 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="2326" y="1068.5"><tspan dy="14" text-anchor="middle" x="2326">CommunicationOperator</tspan></text></g><g id="1222872673472:2074" xc="2884" xlink-href="a" yc="1079"><g transform="translate(2800, 1058)"><path d="M 31 18 A 5 5 0 1 1 31 8 A 5 5 0 1 1 31 18 L 31 28 M 26 23 L 36 23 M 26 33 L 31 28 L 36 33 M 42 0 L 126 0 L 167 21 L 126 41 L 42 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="2884" y="1068.5"><tspan dy="14" text-anchor="middle" x="2894.5">AmbulanceCrew</tspan></text></g><g id="1222872673472:2188" xc="3388" xlink-href="a" yc="869"><g transform="translate(3338, 848)"><path d="M 14 18 A 5 5 0 1 1 14 8 A 5 5 0 1 1 14 18 L 14 28 M 9 23 L 19 23 M 9 33 L 14 28 L 19 33 M 25 0 L 75 0 L 99 21 L 75 41 L 25 41 L 0 21 z" style="fill: rgb(255, 255, 227);stroke-width: 1;stroke: black;"/></g><text x="3388" y="858.5"><tspan dy="14" text-anchor="middle" x="3394.25">Ambulance</tspan></text></g><g id="1222872673472:2200" xc="2605.5" xlink-href="a" yc="869"><g transform="translate(2500, 845)"><path d="M 21 0 L 210 0 L 189 47 L 0 47 z" style="fill: rgb(215, 230, 238);stroke-width: 3;stroke: black;"/></g><text x="2605.5" y="844.5"><tspan dy="14" text-anchor="middle" x="2605.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="2605.5">[MobilizationOrderReceivedWhen</tspan><tspan dy="14" text-anchor="middle" x="2605.5">MobilizationOrderSent]</tspan></text></g><g id="1222872673472:2203"><polyline fill="none" points="2632,845 2737,753 " style="stroke: black;"/></g><g id="1222872673472:2229"><polyline fill="none" points="511,1278 1813,1023 " style="stroke: black;"/></g><g id="1222872673472:2362"><polyline fill="none" points="240,440 199,347 " style="stroke: black;"/></g><g id="1222872673472:2394"><polyline fill="none" points="3388,848 3388,756 " style="stroke: black;"/></g><g id="1222872673472:2430"><polyline fill="none" points="3665,848 3665,756 " style="stroke: black;"/></g><g id="1222872673472:2412"><polyline fill="none" points="2883,1058 2882,962 " style="stroke: black;"/></g><g id="1222872673472:2377"><polyline fill="none" points="2072,1058 2072,953 " style="stroke: black;"/></g><g id="1222872673472:2404"><polyline fill="none" points="2326,1058 2326,962 " style="stroke: black;"/></g><g id="1222872673472:2432"><polyline fill="none" points="1057,1265 1179,1172 " style="stroke: black;"/></g><g id="1222872673472:2425"><polyline fill="none" points="461,1265 461,1167 " style="stroke: black;"/></g><g id="1222872673472:2416"><polyline fill="none" points="733,1265 733,1176 " style="stroke: black;"/></g><g id="1222872673472:2435"><polyline fill="none" points="481,848 481,755 " style="stroke: black;"/></g><g id="1222872673472:2428"><polyline fill="none" points="204,848 204,755 " style="stroke: black;"/></g><g id="1222872673472:2427"><polyline fill="none" points="785,1274 1194,1171 " style="stroke: black;"/></g><g id="1222872673472:2407"><polyline fill="none" points="778,1270 1430,1018 " style="stroke: black;"/></g><g id="1222872673472:2750" xc="1192" xlink-href="a" yc="1299"><g transform="translate(1092, 1282)"><path d="M 20 0 L 199 0 L 180 33 L 0 33 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1192" y="1281.5"><tspan dy="14" text-anchor="middle" x="1192">Maintain</tspan><tspan dy="14" text-anchor="middle" x="1192">[HighTransmissionFrequency]</tspan></text></g><g id="1222872673472:3046"><polyline fill="none" points="1200,1282 1250,1179 " style="stroke: black;"/></g><g id="1222872673472:2752" xc="1388" xlink-href="a" yc="1294"><g transform="translate(1312, 1284)"><path d="M 15 0 L 151 0 L 136 19 L 0 19 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1388" y="1283.5"><tspan dy="14" text-anchor="middle" x="1388">Avoid[GPSInnacurate]</tspan></text></g><g id="1222872673472:2879" xc="1572.5" xlink-href="a" yc="1298"><g transform="translate(1482, 1288)"><path d="M 18 0 L 180 0 L 162 19 L 0 19 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1572.5" y="1287.5"><tspan dy="14" text-anchor="middle" x="1572.5">Maintain[AllZoneCovered]</tspan></text></g><g id="1222872673472:2832" xc="1779.5" xlink-href="a" yc="1326"><g transform="translate(1674, 1288)"><path d="M 21 0 L 210 0 L 189 75 L 0 75 z" style="fill: rgb(215, 230, 238);stroke-width: 1;stroke: black;"/></g><text x="1779.5" y="1287.5"><tspan dy="14" text-anchor="middle" x="1779.5">Achieve</tspan><tspan dy="14" text-anchor="middle" x="1779.5">[AmbulanceAtAmbulanceStationW</tspan><tspan dy="14" text-anchor="middle" x="1779.5">henNoSatteliteOrGPSBrokenOrTra</tspan><tspan dy="14" text-anchor="middle" x="1779.5">nsmissionDeviceBrokenAndAmbul</tspan><tspan dy="14" text-anchor="middle" x="1779.5">anceNotMobilised]</tspan></text></g><g id="1222872673472:3247"><polyline fill="none" points="1383,1284 1335,1177 " style="stroke: black;"/></g><g id="1222872673472:3141"><polyline fill="none" points="1559,1288 1414,1176 " style="stroke: black;"/></g><g id="1222872673472:3165"><polyline fill="none" points="1703,1288 1495,1184 " style="stroke: black;"/></g><g id="1222872673472:5"><polyline fill="none" points="2013,333 2007,281 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="2013.5" cy="340.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/><g transform="translate(2006, 333)"><g transform="scale(1.0714285714285714, 1.0714285714285714)"><path d="M 3 7 L 6 9 L 13 4 L 6 11 z" style="stroke: black; stroke-width: 0.1"/></g></g></g><g id="1222872673472:364"><polyline fill="none" points="2074,536 2074,484 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="2074.5" cy="543.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:632"><polyline fill="none" points="1083,130 1083,78 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1083.5" cy="137.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:766"><polyline fill="none" points="481,537 481,484 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="481.5" cy="544.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:1142"><polyline fill="none" points="128,333 152,281 " style="stroke: black;marker-end : url(#ArrowAssignmentDefaultAndOrRepresentation); "/><ellipse cx="126.5" cy="340.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(255, 163, 195); stroke-width: 1"/></g><g id="1222872673472:1842"><polyline fill="none" points="737,943 738,887 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="737.5" cy="951.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:1800"><polyline fill="none" points="1458,742 1421,688 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1462.5" cy="748.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:1830"><polyline fill="none" points="1555,953 1558,899 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1555.5" cy="960.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:1962"><polyline fill="none" points="2743,740 2744,688 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="2743.5" cy="748.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:1976"><polyline fill="none" points="3526,536 3527,484 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="3526.5" cy="544.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:2226"><polyline fill="none" points="1827,1021 2499,889 " style="stroke: black;marker-end : url(#ArrowAssignmentDefaultAndOrRepresentation); "/><ellipse cx="1820.5" cy="1022.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(255, 163, 195); stroke-width: 1"/></g><g id="1222872673472:2363"><polyline fill="none" points="194,333 172,281 " style="stroke: black;marker-end : url(#ArrowAssignmentDefaultAndOrRepresentation); "/><ellipse cx="197.5" cy="340.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(255, 163, 195); stroke-width: 1"/></g><g id="1222872673472:2393"><polyline fill="none" points="3388,742 3388,690 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="3388.5" cy="749.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2434"><polyline fill="none" points="3665,742 3665,690 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="3665.5" cy="749.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2411"><polyline fill="none" points="2882,948 2881,893 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="2882.5" cy="955.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2376"><polyline fill="none" points="2072,939 2072,880 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="2072.5" cy="946.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2431"><polyline fill="none" points="2326,948 2326,893 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="2326.5" cy="955.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2429"><polyline fill="none" points="1191,1164 1263,1109 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="1185.5" cy="1168.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2424"><polyline fill="none" points="461,1153 461,1097 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="461.5" cy="1160.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2415"><polyline fill="none" points="733,1162 733,1110 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="733.5" cy="1169.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2433"><polyline fill="none" points="481,741 481,688 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="481.5" cy="748.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2426"><polyline fill="none" points="204,741 204,688 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="204.5" cy="748.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2421"><polyline fill="none" points="1208,1169 1435,1111 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="1201.5" cy="1170.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:2406"><polyline fill="none" points="1444,1014 1790,880 " style="stroke: black;marker-end : url(#ArrowResponsibilityDefaultAndOrRepresentation); "/><ellipse cx="1437.5" cy="1016.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(204, 0, 0); stroke-width: 1"/></g><g id="1222872673472:3018"><polyline fill="none" points="1256,1165 1283,1109 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1253.5" cy="1172.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:3248"><polyline fill="none" points="1329,1163 1305,1109 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1332.5" cy="1170.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:3230"><polyline fill="none" points="1402,1168 1326,1109 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1408.5" cy="1172.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g><g id="1222872673472:3156"><polyline fill="none" points="1481,1178 1343,1109 " style="stroke: black;marker-end : url(#ArrowRefinementDefaultAndOrRepresentation); "/><ellipse cx="1488.5" cy="1181.5" rx="7.5" ry="7.5" style="stroke: black; fill: rgb(246, 222, 63); stroke-width: 1"/></g></g></svg>
+      }</style>
+  <style
+     media="print"
+     type="text/css"
+     id="style9">.background {fill:#FFFFFF;}</style>
+  <style
+     media="screen"
+     type="text/css"
+     id="style11">.background {fill:#3384ad;}</style>
+  <radialGradient
+     cx="0.5"
+     cy="0.5"
+     fx="0.5"
+     fy="0.5"
+     gradientUnits="objectBoundingBox"
+     id="focusserGradient"
+     r="0.5">
+    <stop
+       offset="0.0225"
+       style="stop-color:#FFFFFF"
+       id="stop14" />
+    <stop
+       offset="0.0794"
+       style="stop-color:#FBFEF7"
+       id="stop16" />
+    <stop
+       offset="0.1685"
+       style="stop-color:#F1FBE1"
+       id="stop18" />
+    <stop
+       offset="0.2784"
+       style="stop-color:#E1F5BC"
+       id="stop20" />
+    <stop
+       offset="0.4038"
+       style="stop-color:#CAEE8B"
+       id="stop22" />
+    <stop
+       offset="0.4551"
+       style="stop-color:#C0EB74"
+       id="stop24" />
+    <stop
+       offset="1"
+       style="stop-color:#006699"
+       id="stop26" />
+  </radialGradient>
+  <defs
+     id="defs28">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 177.16536 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="585 : 177.16536 : 1"
+       inkscape:persp3d-origin="292.5 : 118.11024 : 1"
+       id="perspective912" />
+    <marker
+       id="ArrowControlLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path31" />
+    </marker>
+    <marker
+       id="ArrowObstructionLine"
+       markerHeight="60"
+       markerUnits="userSpaceOnUse"
+       markerWidth="60"
+       orient="auto"
+       style="fill:#fb9d80;stroke:#000000;stroke-width:2.5"
+       viewBox="-80 -50 160 100">
+      <path
+         d="M -50,15 L -50,-15 L -49,-15 L -49,15 M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path34" />
+    </marker>
+    <marker
+       id="ArrowDocumentationLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path37" />
+    </marker>
+    <marker
+       class="background"
+       id="ArrowIsALine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#3384ad;stroke:#000000;stroke-width:2.5"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         style="fill:#ffffff"
+         id="path40" />
+      <path
+         class="background"
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="background_ARROW_ISA"
+         style="fill:#3384ad;visibility:hidden" />
+    </marker>
+    <marker
+       id="ArrowPerformanceLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path44" />
+    </marker>
+    <marker
+       id="ArrowMonitoringAgentLineUseCaseViewType"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path47" />
+    </marker>
+    <marker
+       id="ArrowInputLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path50" />
+    </marker>
+    <marker
+       id="ArrowConcernsLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path53" />
+    </marker>
+    <marker
+       id="ArrowCauseLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path56" />
+    </marker>
+    <marker
+       id="ArrowConflictLine"
+       markerUnits="userSpaceOnUse"
+       orient="auto"
+       style="fill:#ff0000;stroke:#000000;stroke-width:2" />
+    <marker
+       id="ArrowMonitoringLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path60" />
+    </marker>
+    <marker
+       id="ArrowIncludeLineUseCaseViewType"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path63" />
+    </marker>
+    <marker
+       id="ArrowOutputLine"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path66" />
+    </marker>
+    <marker
+       id="ArrowControlOperationLineUseCaseViewType"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#000000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -30,-15 L 0,0 z"
+         id="path69" />
+    </marker>
+    <marker
+       id="ArrowResolutionLine"
+       markerHeight="60"
+       markerUnits="userSpaceOnUse"
+       markerWidth="60"
+       orient="auto"
+       style="fill:#99ff99;stroke:#000000;stroke-width:2.5"
+       viewBox="-80 -50 160 100">
+      <path
+         d="M -50,15 L -50,-15 L -49,-15 L -49,15 M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path72" />
+    </marker>
+    <marker
+       id="marker74"
+       markerUnits="userSpaceOnUse"
+       orient="auto"
+       style="fill:#ff0000;stroke:#000000;stroke-width:2" />
+    <marker
+       id="ArrowRefinementDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#f6de3f;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path77" />
+    </marker>
+    <marker
+       id="ArrowOperationalizationDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#6699ff;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path80" />
+    </marker>
+    <marker
+       id="ArrowAssignmentDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#ffa3c3;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path83" />
+    </marker>
+    <marker
+       id="ArrowO_RefinementDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#fb9d80;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path86" />
+    </marker>
+    <marker
+       id="ArrowResponsibilityDefaultAndOrRepresentation"
+       markerHeight="30"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#cc0000;stroke:#000000;stroke-width:2"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M 0,0 L -30,15 L -23,0 L -30,-15 L 0,0 z"
+         id="path89" />
+    </marker>
+    <marker
+       id="SignStopLine"
+       markerHeight="40"
+       markerUnits="userSpaceOnUse"
+       markerWidth="40"
+       orient="auto"
+       style="fill:#ff0033;stroke:#ffffff;stroke-width:2"
+       viewBox="-50 -50 100 100">
+      <path
+         d="M 20,0 L 10,15 L -10,15 L -20,0 L -10,-15 L 10,-15 L 20,0 z"
+         id="path92" />
+      <text
+         style="font-size:11px;fill:#ffffff;stroke-width:0.1"
+         x="0"
+         y="4"
+         id="text94">STOP</text>
+    </marker>
+    <marker
+       id="SignConflictLine"
+       markerHeight="60"
+       markerUnits="userSpaceOnUse"
+       markerWidth="30"
+       orient="auto"
+       style="fill:#ff0000;stroke:#000000;stroke-width:2"
+       viewBox="-45 -60 90 120">
+      <path
+         d="M 9,-38.7 L -5.3,-2.7 L 16.7,-8.3 L -15.6,38.7 L 1.7,1.7 L -20,7.3 L 9,-38.7 z"
+         id="path97" />
+    </marker>
+    <marker
+       id="ArrowAggregation"
+       markerHeight="60"
+       markerWidth="60"
+       orient="auto"
+       viewBox="-80 -50 160 100">
+      <path
+         d="M 0,0 L 30,15 L 60,0 L 30,-15 L 0,0 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.5"
+         id="path100" />
+      <path
+         class="background"
+         d="M 0,0 L 30,15 L 60,0 L 30,-15 L 0,0 z"
+         id="background_ARROW_AGGREGATION"
+         style="fill:#3384ad;stroke:#000000;stroke-width:2.5;visibility:hidden" />
+    </marker>
+    <marker
+       id="ArrowComposition"
+       markerHeight="60"
+       markerWidth="60"
+       orient="auto"
+       viewBox="-80 -50 160 100">
+      <path
+         d="M 0,0 L 30,15 L 60,0 L 30,-15 L 0,0 z"
+         id="path104" />
+    </marker>
+    <marker
+       id="ArrowAssociationDirected"
+       markerHeight="30"
+       markerWidth="30"
+       orient="auto"
+       style="fill:none;stroke:#000000;stroke-width:2.5"
+       viewBox="-40 -25 80 50">
+      <path
+         d="M -30,15 L 0,0 L -30,-15"
+         id="path107" />
+    </marker>
+    <g
+       id="IssueMark"
+       transform="scale(0.45,0.45)">
+      <g
+         style="fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+         id="g110">
+        <g
+           id="g112">
+          <radialGradient
+             cx="5.4365001"
+             cy="5.1269999"
+             fx="5.4365001"
+             fy="5.1269999"
+             gradientUnits="userSpaceOnUse"
+             id="aigrd1"
+             r="5.2803001">
+            <stop
+               offset="0"
+               style="stop-color:#FFFFFF"
+               id="stop115" />
+            <stop
+               offset="1"
+               style="stop-color:#99CCCC"
+               id="stop117" />
+          </radialGradient>
+          <path
+             d="M 15.1055,7.5532 C 15.1055,11.7246 11.7246,15.1064 7.5528,15.1064 C 3.381,15.1064 0,11.7246 0,7.5532 C 0,3.3818 3.3809,0 7.5527,0 C 11.7245,0 15.1054,3.3818 15.1054,7.5532 L 15.1055,7.5532 z"
+             style="fill:url(#aigrd1);stroke:none"
+             id="path119" />
+        </g>
+      </g>
+      <g
+         style="fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+         id="g121">
+        <path
+           d="M 7.0908,9.2915 C 7.0742,8.9873 7.0586,8.7632 7.0586,8.5874 C 7.0586,7.1792 8.2588,6.6675 8.2588,4.6353 C 8.2588,3.9634 8.1309,2.5396 6.8828,2.5396 C 6.7383,2.5396 5.9385,2.5875 5.9385,3.1792 C 5.9385,3.6592 6.5303,3.6753 6.5303,4.4595 C 6.5303,5.2915 5.874,5.4834 5.5547,5.4834 C 4.7383,5.4834 4.4346,4.8115 4.4346,4.2515 C 4.4346,3.5952 4.9141,1.9634 7.5381,1.9634 C 8.0342,1.9634 10.6426,2.1397 10.6426,4.6836 C 10.6426,5.7075 9.9863,6.4756 9.1387,7.0034 C 8.3389,7.4995 7.9229,7.7393 7.7305,8.1392 C 7.6026,8.3955 7.5703,8.7632 7.5703,9.2915 L 7.0908,9.2915 L 7.0908,9.2915 z M 7.3467,10.4912 C 8.0821,10.4912 8.6905,11.1152 8.6905,11.8516 C 8.6905,12.6192 8.0821,13.1954 7.3467,13.1954 C 6.5781,13.1954 5.9863,12.6036 5.9863,11.8516 C 5.9863,11.1314 6.5781,10.4912 7.3467,10.4912 z"
+           style="stroke:none"
+           id="path123" />
+      </g>
+    </g>
+    <g
+       id="InfoMark"
+       transform="scale(0.45,0.45)">
+      <g
+         style="fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+         id="g126">
+        <g
+           id="g128">
+          <radialGradient
+             cx="5.4365001"
+             cy="7.0995998"
+             fx="5.4365001"
+             fy="7.0995998"
+             gradientUnits="userSpaceOnUse"
+             id="radialGradient130"
+             r="5.2803001">
+            <stop
+               offset="0"
+               style="stop-color:#FFFFFF"
+               id="stop132" />
+            <stop
+               offset="1"
+               style="stop-color:#99CCCC"
+               id="stop134" />
+          </radialGradient>
+          <path
+             d="M 15.1055,9.5259 C 15.1055,13.6973 11.7246,17.0791 7.5528,17.0791 C 3.381,17.0791 0,13.6973 0,9.5259 C 0,5.3545 3.3809,1.9727 7.5527,1.9727 C 11.7245,1.9727 15.1054,5.3545 15.1054,9.5259 L 15.1055,9.5259 z"
+             style="fill:url(#aigrd1);stroke:none"
+             id="path136" />
+        </g>
+        <path
+           d="M 9.8125,14.4556 L 5.9883,14.4556 L 5.9883,14.0718 C 6.5645,13.9278 6.836,13.8794 6.836,13.1114 L 6.836,8.4077 C 6.836,7.6875 6.5967,7.5757 5.9883,7.4639 L 5.9883,7.0796 L 9.0606,7.0796 L 9.0606,13.1597 C 9.0606,13.6558 9.1885,14.0078 9.8126,14.0718 L 9.8126,14.4556 L 9.8125,14.4556 z M 7.9404,3.3999 C 8.6279,3.3999 9.1728,3.9595 9.1728,4.6475 C 9.1728,5.3516 8.6279,5.8799 7.9404,5.8799 C 7.2041,5.8799 6.6924,5.3355 6.6924,4.6475 C 6.6924,3.9756 7.2207,3.3999 7.9404,3.3999 L 7.9404,3.3999 z"
+           style="stroke:none"
+           id="path138" />
+      </g>
+      <g
+         style="fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4;display:none"
+         id="g140">
+        <text
+           style="stroke:none"
+           transform="translate(3.5225,14.96)"
+           id="text142">
+          <tspan
+             style="font-size:16px;stroke:none;font-family:'Times-Bold; serif'"
+             x="0"
+             y="0"
+             id="tspan144">?</tspan>
+        </text>
+      </g>
+    </g>
+  </defs>
+  <g
+     id="1222872673472:394">
+    <g
+       id="1222872673472:6"
+       xc="2187"
+       xlink-href="a"
+       yc="170.5">
+      <g
+         transform="translate(2082,146)"
+         id="g149">
+        <path
+           d="M 21,0 L 209,0 L 189,48 L 0,48 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path151" />
+      </g>
+      <text
+         x="2187"
+         y="146"
+         id="text153">
+        <tspan
+           dy="14"
+           x="2187"
+           id="tspan155"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2187"
+           id="tspan157"
+           style="text-anchor:middle">[AppropriateMedicalCareGivenWh</tspan>
+        <tspan
+           dy="14"
+           x="2187"
+           id="tspan159"
+           style="text-anchor:middle">enCallReceived]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:361"
+       xc="1945.5"
+       xlink-href="a"
+       yc="232.5">
+      <g
+         transform="translate(1842,208)"
+         id="g162">
+        <path
+           d="M 20,0 L 206,0 L 186,48 L 0,48 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path164" />
+      </g>
+      <text
+         x="1945.5"
+         y="208"
+         id="text166">
+        <tspan
+           dy="14"
+           x="1945.5"
+           id="tspan168"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1945.5"
+           id="tspan170"
+           style="text-anchor:middle">[IncidentInfoKnownWhenCallRece</tspan>
+        <tspan
+           dy="14"
+           x="1945.5"
+           id="tspan172"
+           style="text-anchor:middle">ived]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:7">
+      <polyline
+         points="2038,230 2200,227 "
+         style="fill:none;stroke:#000000"
+         id="polyline175" />
+    </g>
+    <g
+       id="1222872673472:356"
+       xc="2197"
+       xlink-href="a"
+       yc="303.5">
+      <g
+         transform="translate(2093,279)"
+         id="g178">
+        <path
+           d="M 20,0 L 207,0 L 187,48 L 0,48 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path180" />
+      </g>
+      <text
+         x="2197"
+         y="279"
+         id="text182">
+        <tspan
+           dy="14"
+           x="2197"
+           id="tspan184"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2197"
+           id="tspan186"
+           style="text-anchor:middle">[AmbulanceMobilizedWhenIncide</tspan>
+        <tspan
+           dy="14"
+           x="2197"
+           id="tspan188"
+           style="text-anchor:middle">ntInfoKnown]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:9">
+      <polyline
+         points="2200,279 2206,234 "
+         style="fill:none;stroke:#000000"
+         id="polyline191" />
+    </g>
+    <g
+       id="1222872673472:365"
+       xc="2511"
+       xlink-href="a"
+       yc="232.5">
+      <g
+         transform="translate(2406,208)"
+         id="g194">
+        <path
+           d="M 21,0 L 209,0 L 189,48 L 0,48 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path196" />
+      </g>
+      <text
+         x="2511"
+         y="208"
+         id="text198">
+        <tspan
+           dy="14"
+           x="2511"
+           id="tspan200"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2511"
+           id="tspan202"
+           style="text-anchor:middle">[AppropriateMedicalCareGivenWh</tspan>
+        <tspan
+           dy="14"
+           x="2511"
+           id="tspan204"
+           style="text-anchor:middle">enAmbulanceMobilized]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:8">
+      <polyline
+         points="2417,230 2214,227 "
+         style="fill:none;stroke:#000000"
+         id="polyline207" />
+    </g>
+    <g
+       id="1222872673472:407"
+       xc="1894.5"
+       xlink-href="a"
+       yc="424.5">
+      <g
+         transform="translate(1789,399)"
+         id="g210">
+        <path
+           d="M 21,0 L 210,0 L 189,50 L 0,50 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path212" />
+      </g>
+      <text
+         x="1894.5"
+         y="400"
+         id="text214">
+        <tspan
+           dy="14"
+           x="1894.5"
+           id="tspan216"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1894.5"
+           id="tspan218"
+           style="text-anchor:middle">[BestAmbulanceChosenWhenIncid</tspan>
+        <tspan
+           dy="14"
+           x="1894.5"
+           id="tspan220"
+           style="text-anchor:middle">entInfoKnown]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:380">
+      <polyline
+         points="1997,406 2196,371 "
+         style="fill:none;stroke:#000000"
+         id="polyline223" />
+    </g>
+    <g
+       id="1222872673472:363"
+       xc="2107"
+       xlink-href="a"
+       yc="432">
+      <g
+         transform="translate(2001,400)"
+         id="g226">
+        <path
+           d="M 21,0 L 211,0 L 190,63 L 0,63 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path228" />
+      </g>
+      <text
+         x="2107"
+         y="400.5"
+         id="text230">
+        <tspan
+           dy="14"
+           x="2107"
+           id="tspan232"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2107"
+           id="tspan234"
+           style="text-anchor:middle">[MobilizationOrderTransmittedtoA</tspan>
+        <tspan
+           dy="14"
+           x="2107"
+           id="tspan236"
+           style="text-anchor:middle">mbulanceCrewWhenBestAmbulanc</tspan>
+        <tspan
+           dy="14"
+           x="2107"
+           id="tspan238"
+           style="text-anchor:middle">eChosen]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:362">
+      <polyline
+         points="2157,400 2197,373 "
+         style="fill:none;stroke:#000000"
+         id="polyline241" />
+    </g>
+    <g
+       id="1222872673472:525"
+       xc="1686.5"
+       xlink-href="a"
+       yc="169.5">
+      <g
+         transform="translate(1581,145)"
+         id="g244">
+        <path
+           d="M 21,0 L 210,0 L 189,48 L 0,48 L 21,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path246" />
+      </g>
+      <text
+         x="1686.5"
+         y="152"
+         id="text248">
+        <tspan
+           dy="14"
+           x="1686.5"
+           id="tspan250"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1686.5"
+           id="tspan252"
+           style="text-anchor:middle">[CallReceivedWhenInjuredPeople]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:575"
+       xc="1908"
+       xlink-href="a"
+       yc="97.5">
+      <g
+         transform="translate(1803,73)"
+         id="g255">
+        <path
+           d="M 21,0 L 209,0 L 189,48 L 0,48 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path257" />
+      </g>
+      <text
+         x="1908"
+         y="73"
+         id="text259">
+        <tspan
+           dy="14"
+           x="1908"
+           id="tspan261"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1908"
+           id="tspan263"
+           style="text-anchor:middle">[AppropriateMedicalCareGivenWh</tspan>
+        <tspan
+           dy="14"
+           x="1908"
+           id="tspan265"
+           style="text-anchor:middle">enInjuredPeople]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:612">
+      <polyline
+         points="1784,160 1921,148 "
+         style="fill:none;stroke:#000000"
+         id="polyline268" />
+    </g>
+    <g
+       id="1222872673472:625">
+      <polyline
+         points="2096,162 1935,148 "
+         style="fill:none;stroke:#000000"
+         id="polyline271" />
+    </g>
+    <g
+       id="1222872673472:734"
+       xc="1709"
+       xlink-href="a"
+       yc="257.5">
+      <g
+         transform="translate(1605,233)"
+         id="g274">
+        <path
+           d="M 20,0 L 207,0 L 187,48 L 0,48 L 20,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path276" />
+      </g>
+      <text
+         x="1709"
+         y="233"
+         id="text278">
+        <tspan
+           dy="14"
+           x="1709"
+           id="tspan280"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1709"
+           id="tspan282"
+           style="text-anchor:middle">[IncidentInfoRecordedWhenCallRe</tspan>
+        <tspan
+           dy="14"
+           x="1709"
+           id="tspan284"
+           style="text-anchor:middle">ceived]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:735"
+       xc="1697"
+       xlink-href="a"
+       yc="316.5">
+      <g
+         transform="translate(1594,292)"
+         id="g287">
+        <path
+           d="M 20,0 L 205,0 L 185,48 L 0,48 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path289" />
+      </g>
+      <text
+         x="1697"
+         y="292"
+         id="text291">
+        <tspan
+           dy="14"
+           x="1697"
+           id="tspan293"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1697"
+           id="tspan295"
+           style="text-anchor:middle">[IncidentInfoProcessedWhenIncid</tspan>
+        <tspan
+           dy="14"
+           x="1697"
+           id="tspan297"
+           style="text-anchor:middle">entInfoRecorded]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:767">
+      <polyline
+         points="1785,282 1882,312 "
+         style="fill:none;stroke:#000000"
+         id="polyline300" />
+    </g>
+    <g
+       id="1222872673472:769">
+      <polyline
+         points="1789,315 1882,314 "
+         style="fill:none;stroke:#000000"
+         id="polyline303" />
+    </g>
+    <g
+       id="1222872673472:771"
+       xc="1489.5"
+       xlink-href="a"
+       yc="252.5">
+      <g
+         transform="translate(1419,231)"
+         id="g306">
+        <path
+           d="M 35,0 L 105,0 L 140,21 L 105,42 L 35,42 L 0,21 L 35,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path308" />
+      </g>
+      <text
+         x="1489.5"
+         y="242"
+         id="text310">
+        <tspan
+           dy="14"
+           x="1489.5"
+           id="tspan312"
+           style="text-anchor:middle">FirstLineAnswerer</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:910"
+       xc="2247.5"
+       xlink-href="a"
+       yc="47.5">
+      <g
+         transform="translate(2129,23)"
+         id="g315">
+        <path
+           d="M 23,0 L 236,0 L 213,48 L 0,48 L 23,0 z"
+           style="fill:#bad7e6;stroke:#000000;stroke-width:1"
+           id="path317" />
+      </g>
+      <text
+         x="2247.5"
+         y="23"
+         id="text319">
+        <tspan
+           dy="14"
+           x="2247.5"
+           id="tspan321"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2247.5"
+           id="tspan323"
+           style="text-anchor:middle">[AppropriateMedicalCareAreGivenQuic</tspan>
+        <tspan
+           dy="14"
+           x="2247.5"
+           id="tspan325"
+           style="text-anchor:middle">kly]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1147"
+       xc="1443.5"
+       xlink-href="a"
+       yc="164">
+      <g
+         transform="translate(1385,143)"
+         id="g328">
+        <path
+           d="M 18,18 C 15.238576,18 13,15.761424 13,13 C 13,10.238576 15.238576,8 18,8 C 20.761424,8 23,10.238576 23,13 C 23,15.761424 20.761424,18 18,18 L 18,28 M 13,23 L 23,23 M 13,33 L 18,28 L 23,33 M 29,0 L 87,0 L 116,21 L 87,41 L 29,41 L 0,21 L 29,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path330" />
+      </g>
+      <text
+         x="1443.5"
+         y="153.5"
+         id="text332">
+        <tspan
+           dy="14"
+           x="1450.8125"
+           id="tspan334"
+           style="text-anchor:middle">Witness</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1141"
+       xc="1490.5"
+       xlink-href="a"
+       yc="114">
+      <g
+         transform="translate(1445,93)"
+         id="g337">
+        <path
+           d="M 11,18 C 8.2385762,18 6,15.761424 6,13 C 6,10.238576 8.2385762,8 11,8 C 13.761424,8 16,10.238576 16,13 C 16,15.761424 13.761424,18 11,18 L 11,28 M 6,23 L 16,23 M 6,33 L 11,28 L 16,33 M 22,0 L 68,0 L 90,21 L 68,41 L 22,41 L 0,21 L 22,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path339" />
+      </g>
+      <text
+         x="1490.5"
+         y="103.5"
+         id="text341">
+        <tspan
+           dy="14"
+           x="1496.1875"
+           id="tspan343"
+           style="text-anchor:middle">Victim</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1140">
+      <polyline
+         points="1525,123 1548,130 "
+         style="fill:none;stroke:#000000"
+         id="polyline346" />
+    </g>
+    <g
+       id="1222872673472:1764"
+       xc="1691"
+       xlink-href="a"
+       yc="367.5">
+      <g
+         transform="translate(1586,349)"
+         id="g349">
+        <path
+           d="M 105,0 L 209,7 L 209,36 L 0,36 L 0,7 L 105,0 z"
+           style="fill:#c4b5da;stroke:#000000;stroke-width:1"
+           id="path351" />
+      </g>
+      <text
+         x="1691"
+         y="357"
+         id="text353">
+        <tspan
+           dy="14"
+           x="1691"
+           id="tspan355"
+           style="text-anchor:middle">IncidentInfoKnownWhenProcessed</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1774">
+      <polyline
+         points="1761,349 1882,315 "
+         style="fill:none;stroke:#000000"
+         id="polyline358" />
+    </g>
+    <g
+       id="1222872673472:1840"
+       xc="1615"
+       xlink-href="a"
+       yc="510.5">
+      <g
+         transform="translate(1512,491)"
+         id="g361">
+        <path
+           d="M 20,0 L 205,0 L 185,38 L 0,38 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path363" />
+      </g>
+      <text
+         x="1615"
+         y="493"
+         id="text365">
+        <tspan
+           dy="14"
+           x="1615"
+           id="tspan367"
+           style="text-anchor:middle">Maintain</tspan>
+        <tspan
+           dy="14"
+           x="1615"
+           id="tspan369"
+           style="text-anchor:middle">[AmbulanceAvailabilityKnown]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1831"
+       xc="1868"
+       xlink-href="a"
+       yc="616.5">
+      <g
+         transform="translate(1764,591)"
+         id="g372">
+        <path
+           d="M 20,0 L 207,0 L 187,50 L 0,50 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path374" />
+      </g>
+      <text
+         x="1868"
+         y="592"
+         id="text376">
+        <tspan
+           dy="14"
+           x="1868"
+           id="tspan378"
+           style="text-anchor:middle">Maintain</tspan>
+        <tspan
+           dy="14"
+           x="1868"
+           id="tspan380"
+           style="text-anchor:middle">[AmbulancePositionKnownAndAcc</tspan>
+        <tspan
+           dy="14"
+           x="1868"
+           id="tspan382"
+           style="text-anchor:middle">urate]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1804"
+       xc="1720.5"
+       xlink-href="a"
+       yc="566">
+      <g
+         transform="translate(1637,548)"
+         id="g385">
+        <path
+           d="M 16,0 L 166,0 L 150,35 L 0,35 L 16,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path387" />
+      </g>
+      <text
+         x="1720.5"
+         y="548.5"
+         id="text389">
+        <tspan
+           dy="14"
+           x="1720.5"
+           id="tspan391"
+           style="text-anchor:middle">Maintain</tspan>
+        <tspan
+           dy="14"
+           x="1720.5"
+           id="tspan393"
+           style="text-anchor:middle">[AmbulanceKindKnown]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1808">
+      <polyline
+         points="1711,504 1840,495 "
+         style="fill:none;stroke:#000000"
+         id="polyline396" />
+    </g>
+    <g
+       id="1222872673472:1789">
+      <polyline
+         points="1864,591 1848,502 "
+         style="fill:none;stroke:#000000"
+         id="polyline399" />
+    </g>
+    <g
+       id="1222872673472:1807">
+      <polyline
+         points="1753,548 1840,498 "
+         style="fill:none;stroke:#000000"
+         id="polyline402" />
+    </g>
+    <g
+       id="1222872673472:1860"
+       xc="1756"
+       xlink-href="a"
+       yc="825.5">
+      <g
+         transform="translate(1653,793)"
+         id="g405">
+        <path
+           d="M 20,0 L 205,0 L 185,64 L 0,64 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path407" />
+      </g>
+      <text
+         x="1756"
+         y="794"
+         id="text409">
+        <tspan
+           dy="14"
+           x="1756"
+           id="tspan411"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1756"
+           id="tspan413"
+           style="text-anchor:middle">[AccurateAmbulancePositionReco</tspan>
+        <tspan
+           dy="14"
+           x="1756"
+           id="tspan415"
+           style="text-anchor:middle">rdedWhenAccurateAmbulancePos</tspan>
+        <tspan
+           dy="14"
+           x="1756"
+           id="tspan417"
+           style="text-anchor:middle">itionSent]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1893"
+       xc="1826.5"
+       xlink-href="a"
+       yc="881.5">
+      <g
+         transform="translate(1723,863)"
+         id="g420">
+        <path
+           d="M 103,0 L 206,7 L 206,36 L 0,36 L 0,7 L 103,0 z"
+           style="fill:#c4b5da;stroke:#000000;stroke-width:1"
+           id="path422" />
+      </g>
+      <text
+         x="1826.5"
+         y="864"
+         id="text424">
+        <tspan
+           dy="14"
+           x="1826.5"
+           id="tspan426"
+           style="text-anchor:middle">AmbulancePositionKnownWhenA</tspan>
+        <tspan
+           dy="14"
+           x="1826.5"
+           id="tspan428"
+           style="text-anchor:middle">mbulancePositionRecorded</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1834">
+      <polyline
+         points="1775,793 1824,706 "
+         style="fill:none;stroke:#000000"
+         id="polyline431" />
+    </g>
+    <g
+       id="1222872673472:1832">
+      <polyline
+         points="1827,863 1827,707 "
+         style="fill:none;stroke:#000000"
+         id="polyline434" />
+    </g>
+    <g
+       id="1222872673472:1895"
+       xc="1945"
+       xlink-href="a"
+       yc="667">
+      <g
+         transform="translate(1860,649)"
+         id="g437">
+        <path
+           d="M 17,0 L 169,0 L 153,35 L 0,35 L 17,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path439" />
+      </g>
+      <text
+         x="1945"
+         y="649.5"
+         id="text441">
+        <tspan
+           dy="14"
+           x="1945"
+           id="tspan443"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1945"
+           id="tspan445"
+           style="text-anchor:middle">[BestAmbulanceChosen]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1894">
+      <polyline
+         points="1935,649 1850,501 "
+         style="fill:none;stroke:#000000"
+         id="polyline448" />
+    </g>
+    <g
+       id="1222872673472:1913"
+       xc="2177"
+       xlink-href="a"
+       yc="538">
+      <g
+         transform="translate(2074,513)"
+         id="g451">
+        <path
+           d="M 20,0 L 205,0 L 185,49 L 0,49 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path453" />
+      </g>
+      <text
+         x="2177"
+         y="513.5"
+         id="text455">
+        <tspan
+           dy="14"
+           x="2177"
+           id="tspan457"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2177"
+           id="tspan459"
+           style="text-anchor:middle">[MobilizationOrderSentWhenBest</tspan>
+        <tspan
+           dy="14"
+           x="2177"
+           id="tspan461"
+           style="text-anchor:middle">AmbulanceChosen]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1917"
+       xc="2507.5"
+       xlink-href="a"
+       yc="610">
+      <g
+         transform="translate(2407,586)"
+         id="g464">
+        <path
+           d="M 20,0 L 200,0 L 180,47 L 0,47 L 20,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path466" />
+      </g>
+      <text
+         x="2507.5"
+         y="585.5"
+         id="text468">
+        <tspan
+           dy="14"
+           x="2507.5"
+           id="tspan470"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2507.5"
+           id="tspan472"
+           style="text-anchor:middle">[MobilisationOrderReadWhenMo</tspan>
+        <tspan
+           dy="14"
+           x="2507.5"
+           id="tspan474"
+           style="text-anchor:middle">bilizationOrderDisplayed]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1922"
+       xc="2524"
+       xlink-href="a"
+       yc="437">
+      <g
+         transform="translate(2420,420)"
+         id="g477">
+        <path
+           d="M 104,0 L 207,6 L 207,33 L 0,33 L 0,6 L 104,0 z"
+           style="fill:#c4b5da;stroke:#000000;stroke-width:1"
+           id="path479" />
+      </g>
+      <text
+         x="2524"
+         y="419.5"
+         id="text481">
+        <tspan
+           dy="14"
+           x="2524"
+           id="tspan483"
+           style="text-anchor:middle">MobilizedWhenAmbulanceCrewC</tspan>
+        <tspan
+           dy="14"
+           x="2524"
+           id="tspan485"
+           style="text-anchor:middle">onfirmedMobilisationOrder</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2023"
+       xc="2188"
+       xlink-href="a"
+       yc="668.5">
+      <g
+         transform="translate(2084,643)"
+         id="g488">
+        <path
+           d="M 104,0 L 207,10 L 207,50 L 0,50 L 0,10 L 104,0 z"
+           style="fill:#c4b5da;stroke:#000000;stroke-width:1"
+           id="path490" />
+      </g>
+      <text
+         x="2188"
+         y="651"
+         id="text492">
+        <tspan
+           dy="14"
+           x="2188"
+           id="tspan494"
+           style="text-anchor:middle">MobilisationOrderTransmittedWh</tspan>
+        <tspan
+           dy="14"
+           x="2188"
+           id="tspan496"
+           style="text-anchor:middle">enMobilisationOrderRecieved</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1966">
+      <polyline
+         points="2108,563 2035,589 "
+         style="fill:none;stroke:#000000"
+         id="polyline499" />
+    </g>
+    <g
+       id="1222872673472:1957">
+      <polyline
+         points="2135,643 2035,594 "
+         style="fill:none;stroke:#000000"
+         id="polyline502" />
+    </g>
+    <g
+       id="1222872673472:1981">
+      <polyline
+         points="2441,420 2210,371 "
+         style="fill:none;stroke:#000000"
+         id="polyline505" />
+    </g>
+    <g
+       id="1222872673472:2022"
+       xc="2682"
+       xlink-href="a"
+       yc="369">
+      <g
+         transform="translate(2579,343)"
+         id="g508">
+        <path
+           d="M 20,0 L 205,0 L 185,51 L 0,51 L 20,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path510" />
+      </g>
+      <text
+         x="2682"
+         y="344.5"
+         id="text512">
+        <tspan
+           dy="14"
+           x="2682"
+           id="tspan514"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2682"
+           id="tspan516"
+           style="text-anchor:middle">[AmbulanceOnSceneWhenAmbula</tspan>
+        <tspan
+           dy="14"
+           x="2682"
+           id="tspan518"
+           style="text-anchor:middle">nceMobilized]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1920"
+       xc="2694.5"
+       xlink-href="a"
+       yc="298">
+      <g
+         transform="translate(2591,272)"
+         id="g521">
+        <path
+           d="M 20,0 L 206,0 L 186,51 L 0,51 L 20,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path523" />
+      </g>
+      <text
+         x="2694.5"
+         y="273.5"
+         id="text525">
+        <tspan
+           dy="14"
+           x="2694.5"
+           id="tspan527"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2694.5"
+           id="tspan529"
+           style="text-anchor:middle">[AppropriateMedicalCareGivenWh</tspan>
+        <tspan
+           dy="14"
+           x="2694.5"
+           id="tspan531"
+           style="text-anchor:middle">enAmbulanceOnScene]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:1977">
+      <polyline
+         points="2599,346 2513,322 "
+         style="fill:none;stroke:#000000"
+         id="polyline534" />
+    </g>
+    <g
+       id="1222872673472:1978">
+      <polyline
+         points="2595,310 2513,321 "
+         style="fill:none;stroke:#000000"
+         id="polyline537" />
+    </g>
+    <g
+       id="1222872673472:2133"
+       xc="2702.5"
+       xlink-href="a"
+       yc="514.5">
+      <g
+         transform="translate(2638,490)"
+         id="g540">
+        <path
+           d="M 32,0 L 96,0 L 128,24 L 96,48 L 32,48 L 0,24 L 32,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path542" />
+      </g>
+      <text
+         x="2702.5"
+         y="504"
+         id="text544">
+        <tspan
+           dy="14"
+           x="2702.5"
+           id="tspan546"
+           style="text-anchor:middle">AmbulanceMDT</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2027"
+       xc="1501"
+       xlink-href="a"
+       yc="706.5">
+      <g
+         transform="translate(1427,682)"
+         id="g549">
+        <path
+           d="M 37,0 L 111,0 L 147,24 L 111,48 L 37,48 L 0,24 L 37,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path551" />
+      </g>
+      <text
+         x="1501"
+         y="696"
+         id="text553">
+        <tspan
+           dy="14"
+           x="1501"
+           id="tspan555"
+           style="text-anchor:middle">AmbulanceTracker</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2033"
+       xc="1725"
+       xlink-href="a"
+       yc="756.5">
+      <g
+         transform="translate(1620,731)"
+         id="g558">
+        <path
+           d="M 21,0 L 209,0 L 189,50 L 0,50 L 21,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path560" />
+      </g>
+      <text
+         x="1725"
+         y="739"
+         id="text562">
+        <tspan
+           dy="14"
+           x="1725"
+           id="tspan564"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="1725"
+           id="tspan566"
+           style="text-anchor:middle">[AccurateAmbulancePositionSent]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2094">
+      <polyline
+         points="1772,731 1820,703 "
+         style="fill:none;stroke:#000000"
+         id="polyline569" />
+    </g>
+    <g
+       id="1222872673472:2176"
+       xc="1730.5"
+       xlink-href="a"
+       yc="687.5">
+      <g
+         transform="translate(1690,670)"
+         id="g572">
+        <path
+           d="M 20,0 L 60,0 L 80,17 L 60,34 L 20,34 L 0,17 L 20,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path574" />
+      </g>
+      <text
+         x="1730.5"
+         y="677"
+         id="text576">
+        <tspan
+           dy="14"
+           x="1730.5"
+           id="tspan578"
+           style="text-anchor:middle">AVLS</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2053"
+       xc="1469"
+       xlink-href="a"
+       yc="321.5">
+      <g
+         transform="translate(1390,300)"
+         id="g581">
+        <path
+           d="M 39,0 L 118,0 L 157,21 L 118,42 L 39,42 L 0,21 L 39,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path583" />
+      </g>
+      <text
+         x="1469"
+         y="311"
+         id="text585">
+        <tspan
+           dy="14"
+           x="1469"
+           id="tspan587"
+           style="text-anchor:middle">InformationProcessor</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2036"
+       xc="2306.5"
+       xlink-href="a"
+       yc="728.5">
+      <g
+         transform="translate(2222,706)"
+         id="g590">
+        <path
+           d="M 42,0 L 126,0 L 168,22 L 126,44 L 42,44 L 0,22 L 42,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path592" />
+      </g>
+      <text
+         x="2306.5"
+         y="718"
+         id="text594">
+        <tspan
+           dy="14"
+           x="2306.5"
+           id="tspan596"
+           style="text-anchor:middle">InformationProcessor''</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2074"
+       xc="2798"
+       xlink-href="a"
+       yc="562.5">
+      <g
+         transform="translate(2714,541)"
+         id="g599">
+        <path
+           d="M 31,19 C 28.238576,19 26,16.761424 26,14 C 26,11.238576 28.238576,9 31,9 C 33.761424,9 36,11.238576 36,14 C 36,16.761424 33.761424,19 31,19 L 31,29 M 26,24 L 36,24 M 26,34 L 31,29 L 36,34 M 42,0 L 126,0 L 167,21 L 126,42 L 42,42 L 0,21 L 42,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path601" />
+      </g>
+      <text
+         x="2798"
+         y="552"
+         id="text603">
+        <tspan
+           dy="14"
+           x="2808.5"
+           id="tspan605"
+           style="text-anchor:middle">AmbulanceCrew</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2200"
+       xc="2182.5"
+       xlink-href="a"
+       yc="599.5">
+      <g
+         transform="translate(2077,574)"
+         id="g608">
+        <path
+           d="M 21,0 L 210,0 L 189,50 L 0,50 L 21,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path610" />
+      </g>
+      <text
+         x="2182.5"
+         y="575"
+         id="text612">
+        <tspan
+           dy="14"
+           x="2182.5"
+           id="tspan614"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2182.5"
+           id="tspan616"
+           style="text-anchor:middle">[MobilizationOrderReceivedWhen</tspan>
+        <tspan
+           dy="14"
+           x="2182.5"
+           id="tspan618"
+           style="text-anchor:middle">MobilizationOrderSent]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:2203">
+      <polyline
+         points="2089,594 2035,591 "
+         style="fill:none;stroke:#000000"
+         id="polyline621" />
+    </g>
+    <g
+       id="1222872673472:2362">
+      <polyline
+         points="1500,164 1525,164 "
+         style="fill:none;stroke:#000000"
+         id="polyline624" />
+    </g>
+    <g
+       id="1222872673472:2404">
+      <polyline
+         points="2306,706 2311,543 "
+         style="fill:none;stroke:#000000"
+         id="polyline627" />
+    </g>
+    <g
+       id="1222872673472:2432">
+      <polyline
+         points="1728,705 1728,697 "
+         style="fill:none;stroke:#000000"
+         id="polyline630" />
+    </g>
+    <g
+       id="1222872673472:2428">
+      <polyline
+         points="1557,252 1552,252 "
+         style="fill:none;stroke:#000000"
+         id="polyline633" />
+    </g>
+    <g
+       id="1222872673472:2427">
+      <polyline
+         points="1526,731 1610,810 "
+         style="fill:none;stroke:#000000"
+         id="polyline636" />
+    </g>
+    <g
+       id="1222872673472:2407">
+      <polyline
+         points="1538,681 1622,626 "
+         style="fill:none;stroke:#000000"
+         id="polyline639" />
+    </g>
+    <g
+       id="1222872673472:4237"
+       xc="2313"
+       xlink-href="a"
+       yc="431">
+      <g
+         transform="translate(2208,400)"
+         id="g642">
+        <path
+           d="M 21,0 L 209,0 L 189,61 L 0,61 L 21,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:1"
+           id="path644" />
+      </g>
+      <text
+         x="2313"
+         y="399.5"
+         id="text646">
+        <tspan
+           dy="14"
+           x="2313"
+           id="tspan648"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2313"
+           id="tspan650"
+           style="text-anchor:middle">[MobilisationConfirmationTransmi</tspan>
+        <tspan
+           dy="14"
+           x="2313"
+           id="tspan652"
+           style="text-anchor:middle">ttedWhenMobilisationOrderTrans</tspan>
+        <tspan
+           dy="14"
+           x="2313"
+           id="tspan654"
+           style="text-anchor:middle">mitted]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:4248">
+      <polyline
+         points="2789,541 2737,410 "
+         style="fill:none;stroke:#000000"
+         id="polyline657" />
+    </g>
+    <g
+       id="1222872673472:4265">
+      <polyline
+         points="1544,319 1539,319 "
+         style="fill:none;stroke:#000000"
+         id="polyline660" />
+    </g>
+    <g
+       id="1222872673472:4887">
+      <polyline
+         points="2256,400 2210,373 "
+         style="fill:none;stroke:#000000"
+         id="polyline663" />
+    </g>
+    <g
+       id="1222872673472:4999">
+      <polyline
+         points="2784,541 2733,456 "
+         style="fill:none;stroke:#000000"
+         id="polyline666" />
+    </g>
+    <g
+       id="1222872673472:5013">
+      <polyline
+         points="2416,611 2356,612 "
+         style="fill:none;stroke:#000000"
+         id="polyline669" />
+    </g>
+    <g
+       id="1222872673472:5009">
+      <polyline
+         points="2734,572 2678,582 "
+         style="fill:none;stroke:#000000"
+         id="polyline672" />
+    </g>
+    <g
+       id="1222872673472:5012">
+      <polyline
+         points="1515,682 1566,594 "
+         style="fill:none;stroke:#000000"
+         id="polyline675" />
+    </g>
+    <g
+       id="1222872673472:5014"
+       xc="2473.5"
+       xlink-href="a"
+       yc="50">
+      <g
+         transform="translate(2381,40)"
+         id="g678">
+        <path
+           d="M 18,0 L 184,0 L 166,19 L 0,19 L 18,0 z"
+           style="fill:#bad7e6;stroke:#000000;stroke-width:1"
+           id="path680" />
+      </g>
+      <text
+         x="2473.5"
+         y="39.5"
+         id="text682">
+        <tspan
+           dy="14"
+           x="2473.5"
+           id="tspan684"
+           style="text-anchor:middle">Maintain[LowSystemCosts]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:4977"
+       xc="2523.5"
+       xlink-href="a"
+       yc="540">
+      <g
+         transform="translate(2420,510)"
+         id="g687">
+        <path
+           d="M 20,0 L 206,0 L 186,59 L 0,59 L 20,0 z"
+           style="fill:#d7e6ee;stroke:#000000;stroke-width:3"
+           id="path689" />
+      </g>
+      <text
+         x="2523.5"
+         y="515.5"
+         id="text691">
+        <tspan
+           dy="14"
+           x="2523.5"
+           id="tspan693"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2523.5"
+           id="tspan695"
+           style="text-anchor:middle">[MobilisationOrderDisplayedWhen</tspan>
+        <tspan
+           dy="14"
+           x="2523.5"
+           id="tspan697"
+           style="text-anchor:middle">MobilizatedOrderTransmitted]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:4997">
+      <polyline
+         points="2647,521 2672,518 "
+         style="fill:none;stroke:#000000"
+         id="polyline700" />
+    </g>
+    <g
+       id="1222872673472:4983"
+       xc="2508"
+       xlink-href="a"
+       yc="671">
+      <g
+         transform="translate(2404,647)"
+         id="g703">
+        <path
+           d="M 20,0 L 207,0 L 187,47 L 0,47 L 20,0 z"
+           style="fill:#f6de3f;stroke:#000000;stroke-width:3"
+           id="path705" />
+      </g>
+      <text
+         x="2508"
+         y="646.5"
+         id="text707">
+        <tspan
+           dy="14"
+           x="2508"
+           id="tspan709"
+           style="text-anchor:middle">Achieve</tspan>
+        <tspan
+           dy="14"
+           x="2508"
+           id="tspan711"
+           style="text-anchor:middle">[MobilisationConfirmationSentWh</tspan>
+        <tspan
+           dy="14"
+           x="2508"
+           id="tspan713"
+           style="text-anchor:middle">enMobilisationOrderRead]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:4993">
+      <polyline
+         points="2749,579 2653,616 "
+         style="fill:none;stroke:#000000"
+         id="polyline716" />
+    </g>
+    <g
+       id="1222872673472:5004"
+       xc="2521.5"
+       xlink-href="a"
+       yc="734">
+      <g
+         transform="translate(2418,710)"
+         id="g719">
+        <path
+           d="M 103,0 L 206,9 L 206,47 L 0,47 L 0,9 L 103,0 z"
+           style="fill:#c4b5da;stroke:#000000;stroke-width:1"
+           id="path721" />
+      </g>
+      <text
+         x="2521.5"
+         y="709.5"
+         id="text723">
+        <tspan
+           dy="14"
+           x="2521.5"
+           id="tspan725"
+           style="text-anchor:middle">MobilisationConfirmationTransmi</tspan>
+        <tspan
+           dy="14"
+           x="2521.5"
+           id="tspan727"
+           style="text-anchor:middle">ttedZhenMobilisationConfirmatio</tspan>
+        <tspan
+           dy="14"
+           x="2521.5"
+           id="tspan729"
+           style="text-anchor:middle">nSent</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:4985">
+      <polyline
+         points="2451,570 2356,610 "
+         style="fill:none;stroke:#000000"
+         id="polyline732" />
+    </g>
+    <g
+       id="1222872673472:4982">
+      <polyline
+         points="2443,647 2356,614 "
+         style="fill:none;stroke:#000000"
+         id="polyline735" />
+    </g>
+    <g
+       id="1222872673472:5003">
+      <polyline
+         points="2488,710 2355,616 "
+         style="fill:none;stroke:#000000"
+         id="polyline738" />
+    </g>
+    <g
+       id="1222872673472:5063"
+       xc="2654"
+       xlink-href="a"
+       yc="50">
+      <g
+         transform="translate(2563,33)"
+         id="g741">
+        <path
+           d="M 18,0 L 181,0 L 163,33 L 0,33 L 18,0 z"
+           style="fill:#bad7e6;stroke:#000000;stroke-width:1"
+           id="path743" />
+      </g>
+      <text
+         x="2654"
+         y="32.5"
+         id="text745">
+        <tspan
+           dy="14"
+           x="2654"
+           id="tspan747"
+           style="text-anchor:middle">Maintain</tspan>
+        <tspan
+           dy="14"
+           x="2654"
+           id="tspan749"
+           style="text-anchor:middle">[LowEnvironmentalImpact]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:5069"
+       xc="2448.5"
+       xlink-href="a"
+       yc="94">
+      <g
+         transform="translate(2368,77)"
+         id="g752">
+        <path
+           d="M 16,0 L 160,0 L 144,33 L 0,33 L 16,0 z"
+           style="fill:#bad7e6;stroke:#000000;stroke-width:1"
+           id="path754" />
+      </g>
+      <text
+         x="2448.5"
+         y="76.5"
+         id="text756">
+        <tspan
+           dy="14"
+           x="2448.5"
+           id="tspan758"
+           style="text-anchor:middle">Maintain</tspan>
+        <tspan
+           dy="14"
+           x="2448.5"
+           id="tspan760"
+           style="text-anchor:middle">[HighSystemReliability]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:5068"
+       xc="2642.5"
+       xlink-href="a"
+       yc="101">
+      <g
+         transform="translate(2539,91)"
+         id="g763">
+        <path
+           d="M 20,0 L 206,0 L 186,19 L 0,19 L 20,0 z"
+           style="fill:#bad7e6;stroke:#000000;stroke-width:1"
+           id="path765" />
+      </g>
+      <text
+         x="2642.5"
+         y="90.5"
+         id="text767">
+        <tspan
+           dy="14"
+           x="2642.5"
+           id="tspan769"
+           style="text-anchor:middle">Maintain[HighSystemUsability]</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:5078"
+       xc="1944"
+       xlink-href="a"
+       yc="758.5">
+      <g
+         transform="translate(1861,736)"
+         id="g772">
+        <path
+           d="M 41,0 L 124,0 L 165,22 L 124,44 L 41,44 L 0,22 L 41,0 z"
+           style="fill:#ffffe3;stroke:#000000;stroke-width:1"
+           id="path774" />
+      </g>
+      <text
+         x="1944"
+         y="748"
+         id="text776">
+        <tspan
+           dy="14"
+           x="1944"
+           id="tspan778"
+           style="text-anchor:middle">InformationProcessor'</tspan>
+      </text>
+    </g>
+    <g
+       id="1222872673472:5080">
+      <polyline
+         points="1944,736 1944,729 "
+         style="fill:none;stroke:#000000"
+         id="polyline781" />
+    </g>
+    <g
+       id="1222872673472:5">
+      <polyline
+         points="2205,220 2195,195 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline784" />
+      <ellipse
+         cx="2207.5"
+         cy="228"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse786"
+         sodipodi:cx="2207.5"
+         sodipodi:cy="228"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+      <g
+         transform="translate(2200,220)"
+         id="g788">
+        <g
+           transform="scale(1.0714286,1.0714286)"
+           id="g790">
+          <path
+             d="M 3,7 L 6,9 L 13,4 L 6,11 L 3,7 z"
+             style="stroke:#000000;stroke-width:0.1"
+             id="path792" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="1222872673472:364">
+      <polyline
+         points="2203,363 2199,328 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline795" />
+      <ellipse
+         cx="2203.5"
+         cy="371"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse797"
+         sodipodi:cx="2203.5"
+         sodipodi:cy="371"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:632">
+      <polyline
+         points="1926,141 1917,122 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline800" />
+      <ellipse
+         cx="1928.5"
+         cy="149"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse802"
+         sodipodi:cx="1928.5"
+         sodipodi:cy="149"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:766">
+      <polyline
+         points="1892,308 1928,257 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline805" />
+      <ellipse
+         cx="1889.5"
+         cy="315"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse807"
+         sodipodi:cx="1889.5"
+         sodipodi:cy="315"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:1142">
+      <polyline
+         points="1562,132 1602,145 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowAssignmentDefaultAndOrRepresentation)"
+         id="polyline810" />
+      <ellipse
+         cx="1555.5"
+         cy="132"
+         rx="7.5"
+         ry="8"
+         style="fill:#ffa3c3;stroke:#000000;stroke-width:1"
+         id="ellipse812"
+         sodipodi:cx="1555.5"
+         sodipodi:cy="132"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:1800">
+      <polyline
+         points="1850,489 1877,450 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline815" />
+      <ellipse
+         cx="1847.5"
+         cy="496"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse817"
+         sodipodi:cx="1847.5"
+         sodipodi:cy="496"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:1830">
+      <polyline
+         points="1830,693 1856,642 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline820" />
+      <ellipse
+         cx="1827.5"
+         cy="701"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse822"
+         sodipodi:cx="1827.5"
+         sodipodi:cy="701"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:1962">
+      <polyline
+         points="2031,584 2091,464 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline825" />
+      <ellipse
+         cx="2028.5"
+         cy="592"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse827"
+         sodipodi:cx="2028.5"
+         sodipodi:cy="592"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:1976">
+      <polyline
+         points="2506,314 2510,257 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline830" />
+      <ellipse
+         cx="2506.5"
+         cy="322"
+         rx="7.5"
+         ry="8"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse832"
+         sodipodi:cx="2506.5"
+         sodipodi:cy="322"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2363">
+      <polyline
+         points="1539,164 1592,166 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowAssignmentDefaultAndOrRepresentation)"
+         id="polyline835" />
+      <ellipse
+         cx="1532.5"
+         cy="165"
+         rx="7.5"
+         ry="8"
+         style="fill:#ffa3c3;stroke:#000000;stroke-width:1"
+         id="ellipse837"
+         sodipodi:cx="1532.5"
+         sodipodi:cy="165"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2431">
+      <polyline
+         points="2304,536 2270,537 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline840" />
+      <ellipse
+         cx="2311.5"
+         cy="537"
+         rx="7.5"
+         ry="8"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse842"
+         sodipodi:cx="2311.5"
+         sodipodi:cy="537"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2429">
+      <polyline
+         points="1728,711 1727,731 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline845" />
+      <ellipse
+         cx="1728.5"
+         cy="705"
+         rx="7.5"
+         ry="8"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse847"
+         sodipodi:cx="1728.5"
+         sodipodi:cy="705"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2426">
+      <polyline
+         points="1566,252 1616,254 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline850" />
+      <ellipse
+         cx="1559.5"
+         cy="253"
+         rx="7.5"
+         ry="8"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse852"
+         sodipodi:cx="1559.5"
+         sodipodi:cy="253"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2421">
+      <polyline
+         points="1622,814 1665,818 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline855" />
+      <ellipse
+         cx="1615.5"
+         cy="815"
+         rx="7.5"
+         ry="8"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse857"
+         sodipodi:cx="1615.5"
+         sodipodi:cy="815"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:2406">
+      <polyline
+         points="1634,620 1691,584 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline860" />
+      <ellipse
+         cx="1628.5"
+         cy="624"
+         rx="7.5"
+         ry="8"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse862"
+         sodipodi:cx="1628.5"
+         sodipodi:cy="624"
+         sodipodi:rx="7.5"
+         sodipodi:ry="8" />
+    </g>
+    <g
+       id="1222872673472:4249">
+      <polyline
+         points="2733,396 2704,324 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline865" />
+      <ellipse
+         cx="2735.5"
+         cy="403.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse867"
+         sodipodi:cx="2735.5"
+         sodipodi:cy="403.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:4268">
+      <polyline
+         points="1553,319 1603,317 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline870" />
+      <ellipse
+         cx="1546.5"
+         cy="319.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse872"
+         sodipodi:cx="1546.5"
+         sodipodi:cy="319.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:5000">
+      <polyline
+         points="2727,444 2697,395 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline875" />
+      <ellipse
+         cx="2730.5"
+         cy="450.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse877"
+         sodipodi:cx="2730.5"
+         sodipodi:cy="450.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:4984">
+      <polyline
+         points="2348,605 2319,462 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowRefinementDefaultAndOrRepresentation)"
+         id="polyline880" />
+      <ellipse
+         cx="2349.5"
+         cy="612.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#f6de3f;stroke:#000000;stroke-width:1"
+         id="ellipse882"
+         sodipodi:cx="2349.5"
+         sodipodi:cy="612.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:5011">
+      <polyline
+         points="2664,584 2605,593 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline885" />
+      <ellipse
+         cx="2671.5"
+         cy="583.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse887"
+         sodipodi:cx="2671.5"
+         sodipodi:cy="583.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:4979">
+      <polyline
+         points="1572,582 1604,530 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline890" />
+      <ellipse
+         cx="1569.5"
+         cy="588.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse892"
+         sodipodi:cx="1569.5"
+         sodipodi:cy="588.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:5010">
+      <polyline
+         points="2658,519 2621,525 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline895" />
+      <ellipse
+         cx="2665.5"
+         cy="519.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse897"
+         sodipodi:cx="2665.5"
+         sodipodi:cy="519.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:4992">
+      <polyline
+         points="2639,620 2570,647 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline900" />
+      <ellipse
+         cx="2646.5"
+         cy="618.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse902"
+         sodipodi:cx="2646.5"
+         sodipodi:cy="618.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+    <g
+       id="1222872673472:5079">
+      <polyline
+         points="1944,714 1945,685 "
+         style="fill:none;stroke:#000000;marker-end:url(#ArrowResponsibilityDefaultAndOrRepresentation)"
+         id="polyline905" />
+      <ellipse
+         cx="1944.5"
+         cy="722.5"
+         rx="7.5"
+         ry="7.5"
+         style="fill:#cc0000;stroke:#000000;stroke-width:1"
+         id="ellipse907"
+         sodipodi:cx="1944.5"
+         sodipodi:cy="722.5"
+         sodipodi:rx="7.5"
+         sodipodi:ry="7.5" />
+    </g>
+  </g>
+</svg>
