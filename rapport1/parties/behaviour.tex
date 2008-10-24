@@ -1,9 +1,27 @@
 \subsection{Scénario}
+\label{sec:scenario}
 
+Les scénarios les plus intéressants pour la compréhension du modèle sont fournis dans cette section.  Dans les cas où les buts feuilles semblaient trop simples pour obtenir un scénario digne d'intérêt, les buts parents ont été utilisés.  Notons ici que nous avons omis le scénario correspondant au but Maintain[AmbulanceKindKnown] car le type d'ambulance est assumé constant.  Cette situation ne génère alors pas de communication entre les différents agents. 
 
+Pour chacun des scénarios présentés, le but correspondant est mentionné.  De plus, les états sous-entendus pour chacun des scénarios sont présentés en marge des différents scénarios, en turquoise pour les états de l'incident et en gris/violet pour les états de l'ambulance.  Ces états correspondent aux états présentés dans la section \ref{sec:MachineAEtat}.
+
+	\insertfigure{Achieve[CallReceivedWhenInjuredPeople]}{Achieve[CallReceivedWhenInjuredPeople]}
+	
+	\insertfigure{Achieve[IncidentInfoKnownWhenCallReceived]}{Achieve[IncidentInfoKnownWhenCallReceived]}
+	
+	\insertfigure{Maintain[AmbulanceAvailabilityKnown]}{Maintain[AmbulanceAvailabilityKnown]}
+	
+	\insertfigure{Maintain[AmbulancePositionKnownAndAccurate]}{Maintain[AmbulancePositionKnownAndAccurate]}
+	
+	\insertfigure{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}
+	
+	\insertfigure{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}	
 
 \subsection{Machines à état}
-	
+\label{sec:MachineAEtat}
+
+La section présente une généralisation des scénarios présentés dans la section \ref{sec:scenario}.   Tel que suggéré par le tuteur,  les machines à état dans le cas de l'ambulance et de l'incident correspondent à l'aggrégation des états des objets réels et des \textit{tracking objects}.  De plus, il n'y a pas de distinction réalisée entre \textit{AmbulanceCrew} et \textit{Ambulance}.  Ces choix ont été réalisés pour mettre l'emphase sur le comportement du système et éviter la complexité liée à la présence des objets nécessaires à la transmission de l'information entre l'environnement et le logiciel.
+ 	
 \subsubsection{États de l'ambulance}
 	\insertfigure{statechart_ambulance}{États de l'Ambulance et de l'AmbulanceInfo}
 
