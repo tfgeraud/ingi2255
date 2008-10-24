@@ -1,7 +1,35 @@
-Dans cette partie, nous vous présentons une partie du modèle de buts. En 
-particulier, nous vous présentons la formalisation que nous avons
+Dans cette partie, nous vous présentons le modèle de buts. En 
+particulier, nous vous présentons la formalisation des états impliqués
+par les buts que nous avons
 utilisé pour découler de manière rapide et cohérente les opérations, les
 machines à états et augmenter la cohérence de notre modèle de buts.
+
+\subsection{Première couche}
+\insertfigure{goal1}{First level}
+\begin{equation*}
+\begin{array}{rcl}
+AppropriateMedicalCareGiven(i:Incident)
+& = & \exists AmbulanceMobilized(a, i), \\
+&   & \hspace{0.5cm} \wedge AmbulanceOnScene(a, i) \\
+&   & \hspace{0.5cm} \wedge \#a.medicalCare = 1 \\
+&   & \hspace{0.5cm} \wedge \#i.victim.medicalCare = 1 \\
+&   & \hspace{0.5cm} \wedge a.medicalCare \\
+&   & \hspace{1cm} \rightarrow i.victim.medicalCare \\ 
+CallReceived(i:Incident)
+& = & \exists c: Call, \\
+&   & c.about \rightarrow i \\
+&   & \wedge \#c.about = 1 \\
+&   & \wedge \#i.about = 1 \\
+\end{array}
+\end{equation*}
+
+\subsection{Seconde couche}
+\insertfigure{goal2}{Second level}
+
+\subsection{Troisième couche}
+\insertfigure{goal3}{Third level}
+\insertfigure{goal4}{Third level}
+\insertfigure{goal5}{Third level}
 
 \begin{equation*}
 \begin{array}{rcl}
@@ -48,31 +76,14 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 &   & \wedge m.incident = 1 \\
 \end{array}
 \end{equation*}
-\begin{equation*}
-\begin{array}{rcl}
-\multicolumn{3}{l}{MedicalCareGiven(i:Incident)} \\ 
-& = & \exists AmbulanceMobilized(a, i), \\
-&   & \wedge AmbulanceOnScene(a, i) \\
-&   & \wedge \#a.medicalCare = 1 \\
-&   & \wedge \#i.victim.medicalCare = 1 \\
-&   & \wedge a.medicalCare \rightarrow i.victim.medicalCare \\ 
-\end{array}
-\end{equation*}
+
 \begin{equation*}
 \begin{array}{rcl}
 \multicolumn{3}{l}{IncidentInfoKnown(i:IncidentInfo)} \\ 
 & = & IncidentInfoProcessed(i) \\
 \end{array}
 \end{equation*}
-\begin{equation*}
-\begin{array}{rcl}
-\multicolumn{3}{l}{CallReceived(i:Incident)} \\ 
-& = & \exists c: Call, \\
-&   & c.about \rightarrow i \\
-&   & \wedge \#c.about = 1 \\
-&   & \wedge \#i.about = 1 \\
-\end{array}
-\end{equation*}
+
 \begin{equation*}
 \begin{array}{rcl}
 \multicolumn{3}{l}{AvailabilityKnown(a: Ambulance)} \\
