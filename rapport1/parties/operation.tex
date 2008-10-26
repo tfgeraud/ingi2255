@@ -8,14 +8,30 @@ l'opération, l'état à atteindre après cette opération et enfin, l'évèneme
 attaché à cette opération.
 
 \subsection{processIncidentInfo}
+
+	Cette opération est une opération qui est effectuée par l'\textit{InformationProcessor},
+	partie logicielle gérant tout le traitement des données au sein de
+	l'application. Cette opération consiste à transformer les informations
+	reçues par l'appellant en informations directement exploitables par le
+	système informatique. Typiquement, cette opération déterminera 
+	le type d'ambulance qui sera nécessaire et les positions \og informatisées \fg
+	de la localisation. Par exemple, si le témoin a donné comme information
+	que la victime était une femme enceinte inconsciente sur la place de l'accueil
+	à louvain-la-neuve, le système calculerait qu'il faut une ambulance
+	médicalisée et que l'incident à eu lieu à la position $(50.670932,4.616318)$.
 	
-	\insertfigure{op1}{}
+	La figure \ref{fig:op1} illustre le but opérationnalisé par cette opération,
+	en montrant où cette dernière est placée dans le diagramme de but. La figure
+	\ref{fig:st1} quant à elle montre quelle est la transition d'état 
+	correspondant. L'opération est synthétisée au tableau \ref{tab:op1}.
+	
+	\insertfigure{op1}{L'opération \textit{Achieve[processIncidentInfo]} opérationnalise \textit{IncidentInfoProcessedWhenIncidentInfoRecorded}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
 			Goal & Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded] \\ \hline
-			Agent & InfoProcessor \\ \hline
-			Goal state & IncidentInfoProcessed \\ \hline
+			Agent & InformationProcessor \\ \hline
+			State to reach & IncidentInfoProcessed \\ \hline
 			Event & IncidentInfoProcessing \\ \hline
 			In & $i: IncidentInfo$ \\ \hline
 			Out & $i: IncidentInfo$ \\ \hline
@@ -25,12 +41,19 @@ attaché à cette opération.
 				  Le type d'ambulance nécessaire de i est calculé selon les règles données par le gouvernement et sur base des 
 				  informations présentent dans i \\ \hline
 		\end{tabularx}
-		\caption{processIncidentInfo}
+		\caption{L'opération \textit{Achieve[processIncidentInfo]}}\ref{tab:op1}
 	\end{table}
 
 \subsection{recordAccurateAmbulancePosition}
 	
-	\insertfigure{op2}{}
+	L'ambulance, élément du monde réel, se déplace avec le temps. Dans le système
+	informatique, il nous faut naturellement refleter cette réalité au 
+	sein du logiciel. L'opération \textit{Achieve[recordAccurateAmbulancePosition]}
+	se charge d'enregistrer la position précise envoyée par l'ambulance
+	dans le logiciel. La figure \ref{fig:op2} illustre
+	le but opérationnalisé et le tableau \ref{tab:op2} synthétise l'opération.
+	
+	\insertfigure{op2}{L'opération \textit{Achieve[recordAccurateAmbulancePosition]} opérationnalise le but \textit{Achieve[AccurateAmbulancePositionRecordedWhenAccurateAmbulancePositionSent]}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
@@ -43,12 +66,18 @@ attaché à cette opération.
 			Pre & $\exists b: ambulanceInfo : a.id = b.id$ \\ \hline
 			Post & $b.pos = a.pos$ \\ \hline
 		\end{tabularx}
-		\caption{recordAccurateAmbulancePosition}
+		\caption{L'opération \textit{Achieve[recordAccurateAmbulancePosition]}}\ref{tab:op2}
 	\end{table}
 
 \subsection{choseAmbulance}
 	
-	\insertfigure{op3}{}
+	Lors d'un incident, le système envoie une ambulance. Pour pouvoir envoyer
+	la bonne ambulance, le logiciel doit nécessairement choisir quel
+	ambulance envoyer. L'opération \textit{choseAmbulance} s'occupe de choisir
+	l'ambulance à envoyer. La figure \ref{fig:op3} contextualise le but
+	opérationnalisé et le tableau \ref{tab:op3} synthétise l'opération.
+	
+	\insertfigure{op3}{L'opération \textit{choseAmbulance} opérationalise le but \textit{Achieve[choseAmbulance]}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
@@ -61,12 +90,16 @@ attaché à cette opération.
 			Pre & $\exists a: AmbulanceInfo : \#a.mobilisation = 0 \wedge \#a.choice = 0$ \\ \hline
 			Post & $\#a.choice = 1 \wedge \#i.choice = 1 \wedge i.choice \rightarrow a$ \\ \hline
 		\end{tabularx}
-		\caption{choseAmbulance}
+		\caption{L'opération \textit{Achieve[choseAmbulance]}}\ref{tab:op3}
 	\end{table}
 
 \subsection{sendMobilizationOrder}
+
+	Une fois l'ambulance choisie, il est nécessaire de la mobiliser afin 
+	qu'elle se rende sur place. L'opération \textit{Achieve[sendMobilizationOrder]}
+	s'occupe d'envoyer l'ordre de mobilisation à l'ambulance.
 	
-	\insertfigure{op4}{}
+	\insertfigure{op4}{L'opération \textit{sendMobilizationOrder} opérationnalise le but \textit{Achieve[MobilizationOrderSentWhenBestAmbulanceChosen]}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
@@ -79,5 +112,5 @@ attaché à cette opération.
 			Pre & $\#a.choice = 1 \wedge a.choice \rightarrow i$ \\ \hline
 			Post & $\exists m: MobilizationOrder : m.ambulance = a \wedge m.incident = i$ \\ \hline
 		\end{tabularx}
-		\caption{sendMobilizationOrder}
+		\caption{L'opération \textit{sendMobilizationOrder}}\ref{tab:op4}
 	\end{table}

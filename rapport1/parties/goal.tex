@@ -102,34 +102,38 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 
 
 \subsection{Troisième couche}
-\insertfigure{goal3}{Troisième niveau, raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}}
-\begin{equation*}
-\begin{array}{rcl}
-\multicolumn{3}{l}{AmbulanceAvailabilityKnown(a: Ambulance)} \\
-& = & \exists b: AmbulanceInfo, \\
-&   & b.id = a.id \\
-&   & \wedge \#b.mobilized = \#a.miblized \\
 
-\multicolumn{3}{l}{AmbulanceKindKnown(a: Ambulance)} \\
-& = & \exists b: AmbulanceInfo, \\
-&   & b.id = a.id \\
-&   & \wedge typeof(a) = b.kind \\
+	La troisième couche est constituée des buts enfants
+	des buts de la seconde couche. Les figures \ref{fig:goal3}, \ref{fig:goal4},
+	et \ref{fig:goal5} reprennent les sous-arbres des buts. Aussi, nous
+	présentons la formalisation de certains des états atteins par les
+	buts.
 
-\multicolumn{3}{l}{AmbulancePositionKnown(a:Ambulance)} \\ 
-& = & \exists b:AmbulanceInfo, \\
-&   & b.id = a.id \\
-&   & \wedge a.pos \approxeq b.pos \\
-\end{array}
-\end{equation*}
-\begin{equation*}
-\begin{array}{rcl}
-\multicolumn{3}{l}{PositionAccurate(a:Ambulance)} \\ 
-& = & \exists b:AmbulanceInfo, \\
-&   & a.id = b.id \\
-&   & \wedge b.pos = a.pos \\
-\end{array}
-\end{equation*}
+	\insertfigure{goal3}{Troisième niveau, raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}}
+	\begin{equation*}
+		\begin{array}{rcl}
+		AmbulanceAvailabilityKnown(a: Ambulance)
+		& = & \exists b: AmbulanceInfo, \\
+		&   & b.id = a.id \\
+		&   & \wedge \#b.mobilized = \#a.miblized \\
 
-\insertfigure{goal4}{Third level}
-\insertfigure{goal5}{Third level}
+		AmbulanceKindKnown(a: Ambulance)
+		& = & \exists b: AmbulanceInfo, \\
+		&   & b.id = a.id \\
+		&   & \wedge typeof(a) = b.kind \\
+
+		AmbulancePositionKnown(a:Ambulance)
+		& = & \exists b:AmbulanceInfo, \\
+		&   & b.id = a.id \\
+		&   & \wedge a.pos \approxeq b.pos \\
+		
+		PositionAccurate(a:Ambulance)
+		& = & \exists b:AmbulanceInfo, \\
+		&   & a.id = b.id \\
+		&   & \wedge b.pos = a.pos \\
+		\end{array}
+	\end{equation*}
+
+	\insertfigure{goal4}{Third level}
+	\insertfigure{goal5}{Third level}
 

@@ -1,7 +1,36 @@
 \subsection{Diagramme des objets}
-\insertfigure{Objects2}{Objets appartenant à l'environnement}
-\insertfigure{Objects3}{Objets à l'interface de l'environnement et du logiciel}
-\insertfigure{Objects1}{Objets appartenant au logiciel}
-\insertfigure{ObjectsGlobal}{Schéma de l'ensemble des objets}
+
+	Dans cette partie nous présentons la conception de notre modèle objet. Ce
+	modèle est un modèle du domaine c'est à dire que les classes, associations
+	et attributs correspondent à des éléments du domaine (éventuellement
+	partagés avec le logiciel), apparus lors de l'analyse des objectifs. 
+
+	Au cours de l'élaboration du diagramme de classe, nous avons du déterminer
+	quelles classes, associations et attributs du domaine devaient avoir une
+	image manipulée par le logiciel comme donnée persistentes dans une base de
+	données conceptuelle, et comme classe abstraite intervenant dans des
+	composants de l'architecture à élaborer. 
+
+	A partir de notre modèle des buts nous avons donc abouti à un modèle objets
+	pour le moins solide et respectant ainsi la cohérence inter-modèle. 
+
+	Les classes représentant les éléments du domaine sont illustrées dans la
+	figure 3.6. Certaines d'entre elles ont une "image" dans le système, c'est
+	le cas de la classe Incident et Ambulance dont les classes "miroires"
+	respectives sont IncidentInfo et AmbulanceInfo (figure 3.8). Il existe donc
+	une association "tracking" entre ces objets réels et leur représentation
+	dans le système. Cette association existe grâce au objets que l'on nomme
+	"interface" (figure 3.7) et qui assure la communication entre les objets du
+	monde réel et leur représentation dans le système. 
+
+	Cette démarche nous pousse à introduire des nouveaux but non-fonctionnels
+	notamment de précision, exprimant que l'état de la base de données du
+	logiciel doit refléter fidèlement l'état des objets/associations de
+	l'environnement que les objets/associations logiciels représentent. 
+
+	\insertfigure{Objects2}{Objets appartenant à l'environnement}
+	\insertfigure{Objects3}{Objets à l'interface de l'environnement et du logiciel}
+	\insertfigure{Objects1}{Objets appartenant au logiciel}
+	\insertfigure{ObjectsGlobal}{Schéma de l'ensemble des objets}
 
 \subsection{Spécification des concepts}
