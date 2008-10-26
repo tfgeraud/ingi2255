@@ -1,29 +1,29 @@
 \subsection{Diagramme des objets}
 
-	Dans cette partie nous présentons la conception de notre modèle objet. Ce
-	modèle est un modèle du domaine c'est à dire que les classes, associations
+	Dans cette partie, nous présentons la conception de notre modèle objet. Ce
+	modèle est un modèle du domaine c'est-à-dire que les classes, associations
 	et attributs correspondent à des éléments du domaine (éventuellement
 	partagés avec le logiciel), apparus lors de l'analyse des objectifs. 
 
-	Au cours de l'élaboration du diagramme de classe, nous avons du déterminer
-	quelles classes, associations et attributs du domaine devaient avoir une
-	image manipulée par le logiciel comme donnée persistentes dans une base de
+	Au cours de l'élaboration du diagramme d'objets, nous avons dû déterminer
+	quelles classes, quelles associations et quels attributs du domaine devaient avoir une
+	image manipulée par le logiciel comme données persistantes dans une base de
 	données conceptuelle, et comme classe abstraite intervenant dans des
-	composants de l'architecture à élaborer. 
+	composants de l'architecture à développer. 
 
-	A partir de notre modèle des buts nous avons donc abouti à un modèle objets
-	pour le moins solide et respectant ainsi la cohérence inter-modèle. 
+	À partir de notre modèle de buts nous avons donc abouti à un modèle d'objets
+	pour le moins solide et respectant ainsi la cohérence intermodèle. 
 
 	Les classes représentant les éléments du domaine sont illustrées dans la
 	figure \ref{fig:Objects2}. Certaines d'entre elles ont une "image" dans le système, c'est
 	le cas de la classe Incident et Ambulance dont les classes "miroirs"
 	respectives sont IncidentInfo et AmbulanceInfo (figure  \ref{fig:Objects1}). Il existe donc
 	une association "tracking" entre ces objets réels et leur représentation
-	dans le système. Cette association existe grâce au objets que l'on nomme
-	"interface" (figure  \ref{fig:Objects3}) et qui assure la communication entre les objets du
+	dans le système. Cette association existe grâce aux objets que l'on nomme
+	"interface" (figure  \ref{fig:Objects3}) et qui assurent la communication entre les objets du
 	monde réel et leur représentation dans le système. 
 
-	Cette démarche nous pousse à introduire des nouveaux buts non-fonctionnels
+	Cette démarche nous pousse à introduire de nouveaux buts non fonctionnels
 	notamment de précision, exprimant que l'état de la base de données du
 	logiciel doit refléter fidèlement l'état des objets/associations de
 	l'environnement que les objets/associations logiciels représentent. 
