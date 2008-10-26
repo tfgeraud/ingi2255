@@ -58,7 +58,7 @@ idéal.  Dans le présent rapport, seuls quelques buts feuilles intéressants on
 	de réparation correspond très certainement à un but de
 	plus haut niveau consistant à maintenir l'ambulance en état de marche.
 
-\subsection{Achieve[AmbulanceOnScene When AmbulanceMobilized]}
+\subsection{Achieve[AmbulanceOnScene\-When\-AmbulanceMobilized]}
 	\insertfigure{Obstacle1}{Diagramme de résolution d'obstacle}
 	Ce but correspond à l'arrivée de l'ambulance sur les lieux indiqués
 	de l'incident après sa mobilisation.
@@ -67,21 +67,21 @@ idéal.  Dans le présent rapport, seuls quelques buts feuilles intéressants on
 	coincée peut sembler superflu, mais est justifié par le respect des
 	cardinalités de notre modèle objet. 
 
-	Le but \emph{Achieve[MedicalCareGivenByOtherAmbulance When AmbulanceDemobilized]}
+	Le but \emph{Achieve[Medical\-Care\-Given\-By\-Other\-Ambulance\-When\-Ambulance\-Demobilized]}
 	n'est manifestement pas complet ni suffisamment raffiné.
 	
 	En fait, deux alternatives s'offrent à nous. La première et la moins bonne
 	consiste à répliquer l'entièreté de l'arbre des buts 
 	\emph{Achieve[MedicalCareGiven When AmbulanceMobilized]}
-	comme raffinement du précédent. L'autre alternative consiste à modifier
+	comme raffinement du précédent. L'autre alternative consi\-ste à modifier
 	les buts parents afin qu'ils se chargent de mobiliser l'ambulance de 
 	secours. Pour cela, il faut transformer 
 	\emph{Achieve[AmbulanceMobilized When IncidentInformationKnown]}
-	par un \emph{Maintain[WorkingAnbulanceMobilized When IncidentInformationKnownAndNotResolved]}
+	par un \emph{Maintain[Working\-Anbulance\-Mobilized\-When\-Incident InformationKnownAndNotResolved]}
 	Ce but s'assurera donc qu'il y a toujours une ambulance en état de marche 
 	mobilisée pour chaque incident. 
 	
-	Cependant cela nécessite de définir deux états supplémentaires:  
+	Cependant cela nécessite de définir deux états supplé\-mentaires:  
 	\emph{Working(a:Ambulance)} et \emph{Resolved(i:IncidentInformation)}. 
 	L'ajout de ces deux états nécessite de modifier notre modèle objet 
 	et d'ajouter de nouveaux buts et raffinements, à identifier lors d'une 
