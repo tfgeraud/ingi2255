@@ -79,19 +79,19 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	\begin{equation*}
 		\begin{array}{rcl}
 			AmbulanceChosen(i:IncidentInfo)  
-			& = & \exists a:AmbulanceInfo
+			& = & \exists a:AmbulanceInfo \\
 			&   & \wedge a.choice = 1 \\
 			&   & \wedge \#i.choice = 1 \\
 			&   & \wedge a.choice \rightarrow i \\
 			
 			\multicolumn{3}{l}{MobilizationOrderTransmitted(a: Ambulance, i:Incident)} \\ 
 			& = & \exists m: MobilizationOrder, \\
-			&   & m.ambulanceId = a \\
+			&   & m.sender \rightarrow a \\
 			&   & \wedge m.incident = 1 \\
 			
 			\multicolumn{3}{l}{MobilizationOrderConfirmed(a:Ambulance, i:Incident)} \\ 
 			& = & \exists m:MoblisationOrder: \\
-			&   & m.ambulanceId = a.id \wedge m.incidentId = i.id \\ 
+			&   & m.sender \rightarrow a \wedge m.incidentId = i.id \\ 
 			&   & \wedge m.acknowledgement = True \\
 		\end{array}
 	\end{equation*}
