@@ -31,10 +31,15 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	
 	La \og seconde couche \fg est constituée des enfants des buts
 	feuilles de la première couche. Nous les avons présentés ci-dessous. 
+	
+	Notons que le \textit{Achieve[AmbulanceChosen]} est en fait
+	\textit{Achieve[AmbulanceChosenWhenAvailabilityKnownAndAmbulanceKindKnownAndAccurateAmbulancePositionKnown]}
+	pour des raisons évidentes de concision et de lisibilité, nous avons 
+	changé l'intitulé.
 
 	\insertfigure{goal2}{Le détail des sous-buts de haut niveau.}
 	
-	La formalisation des états atteints par les buts feuilles du premier fils sont
+	La formalisation des états atteins par les buts feuilles du premier fils sont
 	les suivants.
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -47,7 +52,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	
-	La formalisation des états atteints par les buts feuilles du second fils sont
+	La formalisation des états atteins par les buts feuilles du second fils sont
 	les suivants.
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -69,12 +74,12 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	
-	La formalisation des états atteints par les buts feuilles du troisième fils sont
-	les suivants.	
+	La formalisation des états atteins par les buts feuilles du troisième fils sont
+	les suivants.
 	\begin{equation*}
 		\begin{array}{rcl}
 			AmbulanceChosen(i:IncidentInfo)  
-			& = & \exists a:AmbulanceInfo, a.id = b.id  \\ % EL b sort de où?
+			& = & \exists a:AmbulanceInfo
 			&   & \wedge a.choice = 1 \\
 			&   & \wedge \#i.choice = 1 \\
 			&   & \wedge a.choice \rightarrow i \\
@@ -86,7 +91,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			
 			\multicolumn{3}{l}{MobilizationOrderConfirmed(a:Ambulance, i:Incident)} \\ 
 			& = & \exists m:MoblisationOrder: \\
-			&   & m.ambulance = a \wedge m.incident = 1 \\ % EL #m.incident = 1 ou m.incident = i? De plus, il n'existe aucune association ou attributs dans le modèle objet entre m et incident
+			&   & m.ambulanceId = a.id \wedge m.incidentId = i.id \\ 
 			&   & \wedge m.acknowledgement = True \\
 		\end{array}
 	\end{equation*}
@@ -96,7 +101,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	\begin{equation*}
 		\begin{array}{rcl}
 			AmbulanceOnScene(a:Ambulance, I:Incident)
-			& = & a.pos = i.pos \\ % EL ou \approxeq ?
+			& = & a.pos \approxeq i.pos \\ 
 		\end{array}
 	\end{equation*}
 
@@ -106,13 +111,12 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	La troisième couche est constituée des buts enfants
 	des buts de la seconde couche. Les figures \ref{fig:goal3}, \ref{fig:goal4},
 	et \ref{fig:goal5} reprennent les sous-arbres des buts. Aussi, nous
-	présentons la formalisation de certains des états atteints par les
+	présentons la formalisation de certains des états atteins par les
 	buts.
 
 	\insertfigure{goal3}{Troisième niveau, raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}}
 	\begin{equation*}
 		\begin{array}{rcl}
-		% EL ambulance ne possède aucun champ id
 		AmbulanceAvailabilityKnown(a: Ambulance)
 		& = & \exists b: AmbulanceInfo, \\
 		&   & b.id = a.id \\

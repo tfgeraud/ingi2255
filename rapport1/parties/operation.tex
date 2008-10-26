@@ -31,8 +31,8 @@ attaché à cette opération.
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
 			Goal & Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded] \\ \hline
 			Agent & InformationProcessor \\ \hline
-			State to reach & IncidentInfoKnown \\ \hline
-			Event & IncidentInfoProcessing \\ \hline
+			État atteint & IncidentInfoKnown \\ \hline
+			Évènement lié & IncidentInfoProcessing \\ \hline
 			In & $i: IncidentInfo$ \\ \hline
 			Out & $i: IncidentInfo$ \\ \hline
 			Pre & $\exists c: Call, \exists j: Incident (c.about \rightarrow j \wedge c.reporting \rightarrow i)$ \\ \hline
@@ -59,8 +59,8 @@ attaché à cette opération.
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
 			Goal & Achieve[AccurateAmbulancePositionRecorded\\ &WhenAccurateAmbulancePositionSent] \\ \hline
 			Agent & AmbulanceTracker \\ \hline
-			Goal state & AmbulancePositionAccurate and AmbulancePositionKnown \\ \hline % EL est-ce qu'il y a vraiment un changement d etat du a cette operation? Les etats mentionnes n'apparaissent dans aucun modele d etat.
-			Event & AccurateAmbulancePositionRecording \\ \hline
+			État atteint & AmbulancePositionAccurate and AmbulancePositionKnown \\ \hline % EL est-ce qu'il y a vraiment un changement d etat du a cette operation? Les etats mentionnes n'apparaissent dans aucun modele d etat.
+			Évènement lié & AccurateAmbulancePositionRecording \\ \hline
 			In & $a: Ambulance$ \\ \hline
 			Out & $b: AmbulanceInfo$ \\ \hline
 			Pre & $\exists b: ambulanceInfo : a.id = b.id$ \\ \hline
@@ -81,13 +81,10 @@ attaché à cette opération.
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
-			Goal & Achieve[AmbulanceChosenWhen\\  % EL ça ne devrait pas être simplement Achieve[AmbulanceChosen] ?
-				& AvailabilityKnownAnd \\ 
-				& AmbulanceKindKnownAnd \\ 
-				& AccurateAmbulancePositionKnown] \\ \hline
+			Goal & Achieve[AmbulanceChosen] \\ \hline
 			Agent & InfoProcessor \\ \hline
-			Goal state & BestAmbulanceChosen \\ \hline
-			Event & BestAmbulanceChoice \\ \hline
+			État atteint & BestAmbulanceChosen \\ \hline
+			Évènement lié & BestAmbulanceChoice \\ \hline
 			In & $i: IncidentInfo$ \\ \hline
 			Out & $a: AmbulanceInfo$ \\ \hline
 			Pre & $\exists a: AmbulanceInfo : \#a.mobilisation = 0 \wedge \#a.choice = 0$ \\ \hline
@@ -108,12 +105,12 @@ attaché à cette opération.
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
 			Goal & Achieve[MobilizationOrderSentWhenAmbulanceChosen] \\ \hline
 			Agent & InfoProcessor \\ \hline
-			Goal state & MobilizationOrderTransmitted \\ \hline
-			Event & MobilizationOrderSending \\ \hline
-			In & $a: Ambulance, i: Incident$ \\ \hline % EL AmbulanceInfo et IncidentInfo?
+			État atteint & MobilizationOrderTransmitted \\ \hline
+			Évènement lié & MobilizationOrderSending \\ \hline
+			In & $a: AmbulanceInfo, i: IncidentInfo$ \\ \hline
 			Out & $m: MobilizationOrder$ \\ \hline
 			Pre & $\#a.choice = 1 \wedge a.choice \rightarrow i$ \\ \hline
-			Post & $\exists m: MobilizationOrder : m.ambulance = a \wedge m.incident = i$ \\ \hline % EL m.incident n'est ni un attribut de MobilizationOrder ni une association
+			Post & $\exists m: MobilizationOrder : m.ambulanceId = a \wedge m.incidentId = i$ \\ \hline 
 		\end{tabularx}
 		\caption{L'opération \textit{sendMobilizationOrder}}\label{tab:op4}
 	\end{table}
