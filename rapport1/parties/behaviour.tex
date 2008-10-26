@@ -1,3 +1,7 @@
+Cette section présente les scénarios (\ref{sec:scenario}) ainsi que
+les machines à états (\ref{sec:MachineAEtat}) des ambulances et des
+incidents.
+
 \subsection{Scénario}
 \label{sec:scenario}
 
@@ -15,17 +19,23 @@
 	l'incident et en gris/violet pour les états de l'ambulance.  Ces états
 	correspondent aux états présentés dans la section \ref{sec:MachineAEtat}.
 
-	\insertfigure{Achieve[CallReceivedWhenInjuredPeople]}{Achieve[CallReceivedWhenInjuredPeople]}
+	%\insertfiguremargin{Achieve[CallReceivedWhenInjuredPeople]}{Le scénario illustre le but \textit{Achieve[Call\-Received\-When\-Injured\-People]}, on peut y voir les interactions
+	%entre les différents agents humains, au début de la chaîne.}
 	
-	\insertfigure{Achieve[IncidentInfoKnownWhenCallReceived]}{Achieve[IncidentInfoKnownWhenCallReceived]}
+	\insertfiguremargin{Achieve[IncidentInfoKnownWhenCallReceived]}{Ce scénario 
+	illustre le but \textit{Achieve[Incident\-Info\-Known\-When\-Call\-Received]}. 
+	On peut y voir le début de la chaîne.}
 	
-	\insertfigure{Maintain[AmbulanceAvailabilityKnown]}{Maintain[AmbulanceAvailabilityKnown]}
+	\insertfiguremargin{Maintain[AmbulanceAvailabilityKnown]}{Ce scénario illustre la
+	mobilisation d'une ambulance jusqu'au soins prodigués à la victime. Les bulles
+	bleues indiquent les états de l'\textit{ambulance} et de l'\textit{ambulanceInfo}, les bulles
+	mauves quant à elles illustrent les états de l'\textit{incident} et de l'\textit{incidentInfo}}
 	
-	\insertfigure{Maintain[AmbulancePositionKnownAndAccurate]}{Maintain[AmbulancePositionKnownAndAccurate]}
+	%\insertfiguremargin{Maintain[AmbulancePositionKnownAndAccurate]}{Maintain[AmbulancePositionKnownAndAccurate]}
 	
-	\insertfigure{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}
+	\insertfiguremargin{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}{Ce scénario illustre la mobilisation d'une ambulance.}
 	
-	\insertfigure{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}	
+	%\insertfiguremargin{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}	
 
 \subsection{Machines à état}
 \label{sec:MachineAEtat}
@@ -40,8 +50,6 @@
 	des objets nécessaires à la transmission de l'information entre
 	l'environnement et le logiciel.
  	
-\subsubsection{États de l'ambulance}
-	\insertfigure{statechart_ambulance}{États de l'Ambulance et de l'AmbulanceInfo}
+	\insertfiguremargin{statechart_ambulance}{États de l'Ambulance et de l'AmbulanceInfo}
 
-\subsubsection{États de l'incident}
-	\insertfigure{statechart_incident}{États de l'Incident et l'IncidentInfo}
+	\insertfiguremargin{statechart_incident}{États de l'Incident et l'IncidentInfo}
