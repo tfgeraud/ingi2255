@@ -10,15 +10,16 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	sont les buts principaux de notre système. 
 
 	\insertfigure{goal1}{Les buts de plus haut niveau}
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 			AppropriateMedicalCareGiven(i:Incident)
 			& = & \exists AmbulanceMobilized(a, i), \\
-			&   & \hspace{0.5cm} \wedge AmbulanceOnScene(a, i) \\
-			&   & \hspace{0.5cm} \wedge \#a.medicalCare = 1 \\
-			&   & \hspace{0.5cm} \wedge \#i.victim.medicalCare = 1 \\
-			&   & \hspace{0.5cm} \wedge a.medicalCare \\
-			&   & \hspace{1cm} \rightarrow i.victim.medicalCare \\ 
+			&   & \wedge AmbulanceOnScene(a, i) \\
+			&   & \wedge \#a.medicalCare = 1 \\
+			&   & \wedge \#i.victim.medicalCare = 1 \\
+			&   & \wedge a.medicalCare \\
+			&   & \rightarrow i.victim.medicalCare \\ 
 			CallReceived(i:Incident)
 			& = & \exists c: Call, \\
 			&   & c.about \rightarrow i \\
@@ -26,6 +27,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			&   & \wedge \#i.about = 1 \\
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 
 \subsection{Seconde couche}
 	
@@ -33,14 +35,15 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	feuilles de la première couche. Nous les avons présentés ci-dessous. 
 	
 	Notons que le \textit{Achieve[AmbulanceChosen]} est en fait
-	\textit{Achieve[AmbulanceChosenWhenAvailabilityKnownAndAmbulanceKindKnownAndAccurateAmbulancePositionKnown]}
+	\textit{Achieve[\-Ambulance\-Chosen\-When\-Availability\-Known\-And\-Ambulance\-Kind\-Known\-And\-Accurate\-Ambulance\-Position\-Known]}
 	pour des raisons évidentes de concision et de lisibilité, nous avons 
 	changé l'intitulé.
 
 	\insertfigure{goal2}{Le détail des sous-buts de haut niveau.}
 	
-	La formalisation des états atteins par les buts feuilles du premier fils sont
+	La formalisation des états atteints par les buts feuilles du premier fils sont
 	les suivants.
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 			IncidentInfoKnown(i:IncidentInfo)  
@@ -51,9 +54,11 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			&   & MobilizationOrderConfirmed(a, i) \\
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 	
-	La formalisation des états atteins par les buts feuilles du second fils sont
+	La formalisation des états atteints par les buts feuilles du second fils sont
 	les suivants.
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 			IncidentInfoRecorded(c:Call)  
@@ -73,9 +78,11 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			&   & (c.about \rightarrow i \wedge c.reporting \rightarrow j) \\
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 	
-	La formalisation des états atteins par les buts feuilles du troisième fils sont
+	La formalisation des états atteints par les buts feuilles du troisième fils sont
 	les suivants.
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 			AmbulanceChosen(i:IncidentInfo)  
@@ -95,15 +102,18 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			&   & \wedge m.acknowledgement = True \\
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 	
-	La formalisation des états atteins par les buts feuilles du dernier fils sont
+	La formalisation des états atteints par les buts feuilles du dernier fils sont
 	les suivants.		
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 			AmbulanceOnScene(a:Ambulance, I:Incident)
 			& = & a.pos \approxeq i.pos \\ 
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 
 
 \subsection{Troisième couche}
@@ -111,10 +121,11 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	La troisième couche est constituée des buts enfants
 	des buts de la seconde couche. Les figures \ref{fig:goal3}, \ref{fig:goal4},
 	et \ref{fig:goal5} reprennent les sous-arbres des buts. Aussi, nous
-	présentons la formalisation de certains des états atteins par les
+	présentons la formalisation de certains des états atteints par les
 	buts.
 
 	\insertfigure{goal3}{Troisième niveau, raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}}
+	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
 		AmbulanceAvailabilityKnown(a: Ambulance)
@@ -138,7 +149,10 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		&   & \wedge b.pos = a.pos \\
 		\end{array}
 	\end{equation*}
+	\onehalfspacing
 
-	\insertfigure{goal4}{Third level}
-	\insertfigure{goal5}{Third level}
+	\insertfigure{goal4}{La suite du troisième niveau, raffinement du but reponsable
+	de l'envoi de l'ordre de mobilisation.}
+	\insertfigure{goal5}{La fin du troisième niveau, raffinement du but
+	responsable de la confirmation de la mobilisation.}
 

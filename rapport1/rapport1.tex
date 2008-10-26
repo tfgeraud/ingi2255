@@ -1,29 +1,59 @@
-\documentclass[12pt,openany]{book}
+\documentclass{report}
 
-\usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath, amsthm, amssymb}
-\usepackage{graphicx}
-\usepackage{tabularx}
+\usepackage{style-report}
 
 % L'en-tête et la mise en page sera différente
 % Merci de ne pas faire de mise en page dans le document !
-\title{Rapport 1 du projet de genlog}
-\author{Grp 2}
+\title{LAS : London Ambulance System\\ \Large{Analyse des besoins}}
+\author{Groupe 2}
 \date{\today}
 
 % Pour modifier la géométrie de la page
 \usepackage{geometry}
 \geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
 
+\newlength{\realtextwidth}
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfiguremargin}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\realtextwidth}
+			\vspace{0pt}
+			\includegraphics[width=\realtextwidth]{images/#1.png}
+		\end{minipage}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0pt}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
 
-\newcommand{\insertfigure}[2]{%
-\begin{figure}[!h]
-	\begin{center}
-		\includegraphics[width=\textwidth]{images/#1.png}
-	\end{center}
-	\caption{#2}\label{fig:#1}
-\end{figure}
+}
+
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfigure}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\textwidth}
+			\vspace{0pt}
+			\includegraphics[width=\textwidth]{images/#1.png}
+		\end{minipage}
+		
+		\hspace{\realtextwidth}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0.5cm}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
+
 }
 
 \begin{document}
@@ -35,31 +65,49 @@
 
 \chapter*{Introduction}
 	\input{parties/introduction.tex}
+	
 \chapter{Analyse}
-	\input{parties/analyse.tex}
+	Ce chapitre présente l'analyse qui a été faite du domaine. Le tout est 
+	volotairement découpé en multiple section afin de présenter le plus 
+	clairement possible les liens existants entre les modèles. 
+	
+	La section \ref{section:buts} présente le modèle de buts, base du reste de 
+	la construction.
+	La section \ref{section:objets} présente les objets manipulés et utilisés 
+	dans les modèles. La section \ref{section:comportement} présente
+	les scénarios ainsi que les machines à états définies dans le cadre de
+	cette analyse. 
+	La section \ref{section:operations} présente les différentes opérations 
+	afférants aux buts et exécutées par les agents.
+	La section \ref{section:obstacles} présente enfin les obstacles, point
+	de départ pour une seconde itération.
 		
-	\section{Modèle de buts}
+	\section{Modèle de buts}\label{section:buts}
 		\input{parties/goal.tex}
-
-	\section{Modèle des opérations}
-		\input{parties/operation.tex}
-
-\chapter{Résolution d'obstacles}
-	\input{parties/obstacles.tex}
-
-\chapter{Cahier des charges}
-	\section{Modèle des objects}
+		
+	\section{Modèle des objets}\label{section:objets}
 		\input{parties/object.tex}
 
-	\section{Modèle des agents}
+	\section{Modèle des agents}\label{section:agents}
 		\input{parties/agent.tex}
-	\section{Modèle de comportement}
+		
+	\section{Modèle de comportement}\label{section:comportement}
 		\input{parties/behaviour.tex}
+
+	\section{Modèle des opérations}\label{section:operations}
+		\input{parties/operation.tex}
+
+	\section{Résolution d'obstacles}\label{section:obstacles}
+		\input{parties/obstacles.tex}
+
+\chapter{Cahier des charges}
+	
+	\input{parties/definitions.tex}
 
 \chapter*{Conclusion}
 	\input{parties/conclusion.tex}
 
-\chapter{Annexe: Évaluation d'Objectiver}
+\chapter*{Évaluation d'Objectiver}
 	\input{parties/objectiver.tex}
 
 \end{document}

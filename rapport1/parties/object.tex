@@ -1,37 +1,41 @@
-\subsection{Diagramme des objets}
+Dans cette partie, nous présentons la conception de notre modèle objet. Ce
+modèle est un modèle du domaine c'est-à-dire que les classes, associations
+et attributs correspondent à des éléments du domaine (éventuellement
+partagés avec le logiciel), apparus lors de l'analyse des objectifs. 
 
-	Dans cette partie, nous présentons la conception de notre modèle objet. Ce
-	modèle est un modèle du domaine c'est-à-dire que les classes, associations
-	et attributs correspondent à des éléments du domaine (éventuellement
-	partagés avec le logiciel), apparus lors de l'analyse des objectifs. 
+Au cours de l'élaboration du diagramme d'objets, nous avons dû déterminer
+quelles classes, quelles associations et quels attributs du domaine devaient avoir une
+image manipulée par le logiciel comme données persistantes dans une base de
+données conceptuelle, et comme classe abstraite intervenant dans des
+composants de l'architecture à développer. 
 
-	Au cours de l'élaboration du diagramme d'objets, nous avons dû déterminer
-	quelles classes, quelles associations et quels attributs du domaine devaient avoir une
-	image manipulée par le logiciel comme données persistantes dans une base de
-	données conceptuelle, et comme classe abstraite intervenant dans des
-	composants de l'architecture à développer. 
+À partir de notre modèle de buts nous avons donc abouti à un modèle d'objets
+pour le moins solide et respectant ainsi la cohérence intermodèle. 
 
-	À partir de notre modèle de buts nous avons donc abouti à un modèle d'objets
-	pour le moins solide et respectant ainsi la cohérence intermodèle. 
+Les classes représentant les éléments du domaine sont illustrées dans la
+figure \ref{fig:Objects2}. Certaines d'entre elles ont une "image" dans le système, c'est
+le cas de la classe Incident et Ambulance dont les classes "miroirs"
+respectives sont IncidentInfo et AmbulanceInfo (figure  \ref{fig:Objects1}). Il existe donc
+une association "tracking" entre ces objets réels et leur représentation
+dans le système. Cette association existe grâce aux objets que l'on nomme
+"interface" (figure  \ref{fig:Objects3}) et qui assurent la communication entre les objets du
+monde réel et leur représentation dans le système. 
 
-	Les classes représentant les éléments du domaine sont illustrées dans la
-	figure \ref{fig:Objects2}. Certaines d'entre elles ont une "image" dans le système, c'est
-	le cas de la classe Incident et Ambulance dont les classes "miroirs"
-	respectives sont IncidentInfo et AmbulanceInfo (figure  \ref{fig:Objects1}). Il existe donc
-	une association "tracking" entre ces objets réels et leur représentation
-	dans le système. Cette association existe grâce aux objets que l'on nomme
-	"interface" (figure  \ref{fig:Objects3}) et qui assurent la communication entre les objets du
-	monde réel et leur représentation dans le système. 
+Cette démarche nous pousse à introduire de nouveaux buts non fonctionnels
+notamment de précision, exprimant que l'état de la base de données du
+logiciel doit refléter fidèlement l'état des objets/associations de
+l'environnement que les objets/associations logiciels représentent. 
 
-	Cette démarche nous pousse à introduire de nouveaux buts non fonctionnels
-	notamment de précision, exprimant que l'état de la base de données du
-	logiciel doit refléter fidèlement l'état des objets/associations de
-	l'environnement que les objets/associations logiciels représentent. 
 
-	\insertfigure{Objects2}{Objets appartenant à l'environnement}
-	\insertfigure{Objects3}{Objets à l'interface de l'environnement et du logiciel}
-	\insertfigure{Objects1}{Objets appartenant au logiciel}
-	\insertfigure{ObjectsGlobal}{Schéma de l'ensemble des objets}
+Cette démarche nous pousse à introduire de nouveaux buts non fonctionnels
+notamment de précision, exprimant que l'état de la base de données du
+logiciel doit refléter fidèlement l'état des objets/associations de
+l'environnement que les objets/associations logiciels représentent. 
+
+\insertfigure{Objects2}{Objets appartenant à l'environnement}
+\insertfigure{Objects3}{Objets à l'interface de l'environnement et du logiciel}
+\insertfigure{Objects1}{Objets appartenant au logiciel}
+\insertfigure{ObjectsGlobal}{Schéma de l'ensemble des objets}
 
 \subsection{Spécification des concepts}
 
@@ -92,10 +96,21 @@ MDTMessage
 & "Physical" transport of the information from the MDT screen to the user.
 & Messages are always assumed to be delivered in order of sending, without any being lost or corrupted. Delay is assumed to be not significant. \\ \hline
 
-Medicalized& Specialised ambulance for highly critical incidents.& \\ \hline
-MobilizationOrder& Information sent to the ambulance crew concerning an incident. & Messages are always assumed to be delivered in order of sending, without any being lost or corrupted. Delay is assumed to be not significant. \\ \hline
-Normal& Regular ambulance equipped for most situations& \\ \hline
-\og Victim \fg& Person being incommodated and/or injured due to an incident.  The person is unable to help himself/herself and need external help.& The victim is always assumed to be different from the witness.  An incident always concerns only one victim.  Medical care needed involves always only one ambulance crew. \\ \hline
+Medicalized
+& Specialised ambulance for highly critical incidents.
+& \\ \hline
+
+MobilizationOrder
+& Information sent to the ambulance crew concerning an incident. 
+& Messages are always assumed to be delivered in order of sending, without any being lost or corrupted. Delay is assumed to be not significant. \\ \hline
+
+Normal
+& Regular ambulance equipped for most situations
+& \\ \hline
+
+\og Victim \fg
+& Person being incommodated and/or injured due to an incident.  The person is unable to help himself/herself and need external help.
+& The victim is always assumed to be different from the witness.  An incident always concerns only one victim.  Medical care needed involves always only one ambulance crew. \\ \hline
 
 \og Witness \fg
 & Person who witness the incident and call the system and talk to the FirstLineAnswerer

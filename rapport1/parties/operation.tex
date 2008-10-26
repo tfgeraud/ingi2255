@@ -1,4 +1,4 @@
-Cette section présente un ensemble d'opération. Nous avons choisi les quatres
+Cette section présente un ensemble d'opérations. Nous avons choisi les quatres
 opérations correspondant à des buts feuilles et assignées à des agents logiciels
 à développer.
 
@@ -7,9 +7,9 @@ qui est opérationnalisé par l'opération, le nom de l'agent qui effectuera
 l'opération, l'état à atteindre après cette opération et enfin, l'évènement
 attaché à cette opération.
 
-\subsection{processIncidentInfo}
+\subsection{Traitement des données}
 
-	Cette opération est une opération qui est effectuée par l'\textit{InformationProcessor},
+	L'opération \textit{processIncidentInfo} est une opération qui est effectuée par l'\textit{InformationProcessor},
 	partie logicielle gérant tout le traitement des données au sein de
 	l'application. Cette opération consiste à transformer les informations
 	reçues par l'appellant en informations directement exploitables par le
@@ -22,14 +22,17 @@ attaché à cette opération.
 	
 	La figure \ref{fig:op1} illustre le but opérationnalisé par cette opération,
 	en montrant où cette dernière est placée dans le diagramme de but. La figure
-	\ref{fig:statechart_incident} quant à elle montre la transition d'état 
-	correspondante. L'opération est synthétisée au tableau \ref{tab:op1}.
+	\ref{fig:statechart_incident} quant à elle montre les transitions d'état 
+	de l'incident et donc, la transition correspondant à l'opération. 
+	L'opération est synthétisée au tableau \ref{tab:op1}.
 	
-	\insertfigure{op1}{L'opération \textit{Achieve[processIncidentInfo]} opérationnalise \textit{IncidentInfoProcessedWhenIncidentInfoRecorded}}
+	\vfill
+	\insertfiguremargin{op1}{L'opération \textit{Achieve[processIncidentInfo]} opérationnalise \textit{Achive[Incident\-Info\-Processed\-When\-Incident\-Info\-Recorded]}.}
+	\vfill
 	
-	\begin{table}[!h] \centering
+	\begin{table}
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
-			Goal & Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded] \\ \hline
+			Goal & Achieve[IncidentInfoProcessed\-WhenIncidentInfoRecorded] \\ \hline
 			Agent & InformationProcessor \\ \hline
 			État atteint & IncidentInfoKnown \\ \hline
 			Évènement lié & IncidentInfoProcessing \\ \hline
@@ -39,12 +42,13 @@ attaché à cette opération.
 			Post & $i.pos \neq null \wedge i.ambulanceKindNeeded \neq null $  \\
 				 & La position (pos) contenue dans i correspond à la position (localisation) de i sous forme exploitable par le système. 
 				  Le type d'ambulance nécessaire de i est calculé selon les règles données par le gouvernement et sur base des 
-				  informations présentent dans i. \\ \hline
+				  informations présentes dans i. \\ \hline
 		\end{tabularx}
 		\caption{L'opération \textit{Achieve[processIncidentInfo]}}\label{tab:op1}
 	\end{table}
 
-\subsection{recordAccurateAmbulancePosition}
+\newpage
+\subsection{Enregistrement de la position}
 	
 	L'ambulance, élément du monde réel, se déplace avec le temps. Dans le système
 	informatique, il nous faut naturellement refléter cette réalité au 
@@ -53,13 +57,14 @@ attaché à cette opération.
 	dans le logiciel. La figure \ref{fig:op2} illustre
 	le but opérationnalisé et le tableau \ref{tab:op2} synthétise l'opération.
 	
-	\insertfigure{op2}{L'opération \textit{Achieve[recordAccurateAmbulancePosition]} opérationnalise le but \textit{Achieve[AccurateAmbulancePositionRecordedWhenAccurateAmbulancePositionSent]}}
+	\vfill
+	\insertfiguremargin{op2}{L'opération \textit{Achieve[recordAccurateAmbulancePosition]} enregistre l'opération. On peut voir le but correspondant sur la figure.}
+	\vfill
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
 			Goal & Achieve[AccurateAmbulancePositionRecorded\\ &WhenAccurateAmbulancePositionSent] \\ \hline
 			Agent & AmbulanceTracker \\ \hline
-			État atteint & AmbulancePositionAccurate and AmbulancePositionKnown \\ \hline % EL est-ce qu'il y a vraiment un changement d etat du a cette operation? Les etats mentionnes n'apparaissent dans aucun modele d etat.
 			Évènement lié & AccurateAmbulancePositionRecording \\ \hline
 			In & $a: Ambulance$ \\ \hline
 			Out & $b: AmbulanceInfo$ \\ \hline
@@ -68,8 +73,9 @@ attaché à cette opération.
 		\end{tabularx}
 		\caption{L'opération \textit{Achieve[recordAccurateAmbulancePosition]}}\label{tab:op2}
 	\end{table}
-
-\subsection{chooseAmbulance}
+	
+\newpage
+\subsection{Choix de l'ambulance}
 	
 	Lors d'un incident, le système envoie une ambulance. Pour pouvoir envoyer
 	la bonne ambulance, le logiciel doit nécessairement choisir quel
@@ -77,7 +83,9 @@ attaché à cette opération.
 	l'ambulance à envoyer. La figure \ref{fig:op3} contextualise le but
 	opérationnalisé et le tableau \ref{tab:op3} synthétise l'opération.
 	
-	\insertfigure{op3}{L'opération \textit{chooseAmbulance} opérationalise le but \textit{Achieve[AmbulanceChosen]}}
+	\vfill
+	\insertfiguremargin{op3}{L'opération \textit{chooseAmbulance} opérationalise le but \textit{Achieve[AmbulanceChosen]}, le but est indiqué sur la figure, les autres étant plus claires.}
+	\vfill
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
@@ -92,14 +100,15 @@ attaché à cette opération.
 		\end{tabularx}
 		\caption{L'opération \textit{Achieve[chooseAmbulance]}}\label{tab:op3}
 	\end{table}
-
-\subsection{sendMobilizationOrder}
+	
+\newpage
+\subsection{Envoi de l'ordre de mobilisation}
 
 	Une fois l'ambulance choisie, il est nécessaire de la mobiliser afin 
 	qu'elle se rende sur place. L'opération \textit{Achieve[sendMobilizationOrder]}
 	s'occupe d'envoyer l'ordre de mobilisation à l'ambulance.
 	
-	\insertfigure{op4}{L'opération \textit{sendMobilizationOrder} opérationnalise le but \textit{Achieve[MobilizationOrderSentWhenAmbulanceChosen]}}
+	\insertfiguremargin{op4}{L'opération \textit{sendMobilizationOrder} opérationnalise le but \textit{Achieve[MobilizationOrderSentWhenAmbulanceChosen]}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
