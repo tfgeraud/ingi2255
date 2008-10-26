@@ -5,8 +5,18 @@
 
 % L'en-tête et la mise en page sera différente
 % Merci de ne pas faire de mise en page dans le document !
-\title{LAS : London Ambulance System\\ \Large{Analyse des besoins}}
-\author{Groupe 2}
+\title{LAS : London Ambulance System}
+\subtitle{Analyse des besoins}
+\author{\normalsize{Groupe 2}\\
+\footnotesize{
+Simon Busard, \\
+Antoine Cailliau, \\
+Laurent Champon,\\
+Erick Lavoie, \\
+Quentin Pirmez,\\
+Frederic Van der Essen, \\
+Géraud Talla Fotsing}}
+
 \date{\today}
 
 % Pour modifier la géométrie de la page
@@ -61,6 +71,7 @@
 \setlength{\parskip}{1em}
 
 \maketitle
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 \chapter*{Introduction}
@@ -101,8 +112,14 @@
 		\input{parties/obstacles.tex}
 
 \chapter{Cahier des charges}
-	
+	Ce chapitre définit de manière complète les buts et les objets utilisé
+	dans la modélisation.
+
+	\section{Définition des buts}\label{section:buts2}
 	\input{parties/definitions.tex}
+
+	\section{Définition des objets}\label{section:objets2}
+		%\input{parties/objets2.tex}
 
 \chapter*{Conclusion}
 	\input{parties/conclusion.tex}
