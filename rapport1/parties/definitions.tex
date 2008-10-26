@@ -1,0 +1,169 @@
+\subsection{Achieve[AccurateAmbulancePositionRecordedWhenAccurateAmbulancePositionSent]}
+
+The accurate position of the ambulance is eventually recorded in the system when ambulance position is sent.
+
+
+\subsection{Achieve[AccurateAmbulancePositionSent]}
+
+The accurate position of the ambulance is eventually sent.
+
+
+\subsection{Achieve[AmbulanceChosen]}
+
+The best ambulance is eventually chosen. The best ambulance is the available ambulance of the right kind which may arrive quickly on the scene.
+
+
+\subsection{Achieve[AmbulanceChosenWhenIncidentInfoKnown]}
+
+All available ambulances of the right kind are eventually chosen.
+
+
+\subsection{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}
+
+Once the information about the incident are known, the right ambulance and his crew are eventually mobilized.
+
+
+\subsection{Achieve[AmbulanceOnSceneWhenAmbulanceMobilized]}
+
+Ambulance eventually arrived on the scene when the ambulance is mobilized by the system.
+
+
+\subsection{Achieve[AppropriateMedicalCareAreGivenQuickly]}
+
+According to the standard, appropriate medical care are given quickly. An ambulance must arrive at the scene within 14 of the call commencing on 95\% of occasion. An ambulance must arrive at the scene within 8 minutes of the call commencing on 50\% of occasions.
+
+
+\subsection{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}
+
+Once the ambulance is mobilized, ambulance crew  give eventually the appropriate medical care to the victim.
+
+
+\subsection{Achieve[AppropriateMedicalCareGivenWhenAmbulanceOnScene]}
+
+The appropriate medical care are eventually given to the victim by the ambulance crew once the ambulance arrived on scene.
+
+
+\subsection{Achieve[AppropriateMedicalCareGivenWhenCallReceived]}
+
+For every call received the appropriate medical care are given to the victim taking in account the time constraints
+
+
+\subsection{Achieve[AppropriateMedicalCareGivenWhenInjuredPeople]}
+
+Every injured people receive the appropriate medical care that he need
+
+
+\subsection{Achieve[CallReceivedWhenInjuredPeople]}
+
+For every injured people who need medical care, a call is received by the call center.
+
+
+\subsection{Achieve[IncidentInfoKnownWhenCallReceived]}
+
+For every call received all needed information about the incident are eventually known by the system.
+
+
+\subsection{Achieve[IncidentInfoProcessedWhenIncidentInfoRecorded]}
+
+Information about the incident are eventually processed (e.g. the avls coordinates are computed and incident gravity is defined) when the information about the incident are recorded in the system.
+
+
+\subsection{Achieve[IncidentInfoRecordedWhenCallReceived]}
+
+The information about the incident are eventually recorded in the system when the call is received by the call center.
+
+
+\subsection{Achieve[MobilisationOrderConfirmedWhenMobilisationOrderTransmitted]}
+
+Ambulance crew eventually confirmed mobilisation after order transmission.
+
+
+\subsection{Achieve[MobilizationOrderConfirmedByAmbulanceCrewWhenMobilizationOrderDisplayed]}
+
+When the mobilization order is displayed on the MDT, it is eventually confirmed by the ambulance crew.
+ 
+
+\subsection{Achieve[MobilizationOrderConfirmedWhenMobilizationOrderConfirmedByAmbulanceCrew]}
+
+When the ambulance crew confirmed the mobilization order, the confirmation is eventually confirmed to the system. 
+
+
+\subsection{Achieve[MobilizationOrderDisplayedWhenMobilizatedOrderTransmitted]}
+
+When mobilization order is transmitted, it is eventually displayed on the MDT.
+ 
+
+\subsection{Achieve[MobilizationOrderReadWhenMobilizationOrderDisplayed]}
+
+The mobilization order sent by the system to the ambulance crew is eventually read by the ambulance crew.
+
+
+\subsection{Achieve[MobilizationOrderReceivedWhenMobilizationOrderSent]}
+
+The mobilization order is eventually received when it was sent from the system.
+
+
+\subsection{Achieve[MobilizationOrderSentWhenBestAmbulanceChosen]}
+
+The mobilization order is eventually sent when the best ambulance has been choosen.
+
+
+\subsection{Achieve[MobilizationOrderTransmittedWhenAmbulanceChosen]}
+
+The mobilization order is enventually transmitted to the ambulance crew when the best ambulance is chosen
+
+
+\subsection{AmbulanceMobilizedWhenMobilizationOrderConfirmed}
+
+When the mobilization order is confirmed to the system, the ambulance is considered as mobilized. 
+
+
+\subsection{AmbulancePositionKnownWhenAmbulancePositionRecorded}
+
+The position of an ambulance is known when the ambulance position is recorded in the system.
+
+
+\subsection{IncidentInfoKnownWhenProcessed}
+
+The incident information are known when the incident information are processed by the system.
+
+
+\subsection{Maintain[AmbulanceAvailabilityKnown]}
+
+The ambulance availability is always known by the system.
+
+
+\subsection{Maintain[AmbulanceKindKnown]}
+
+The kind of the ambulance is always known by the system.
+
+
+\subsection{Maintain[AmbulancePositionKnownAndAccurate]}
+
+The ambulance position is always known by the system.
+
+
+\subsection{Maintain[HighSystemReliability]}
+
+The system is sufficantly reliable.
+ 
+
+\subsection{Maintain[HighSystemUsability]}
+
+The system is sufficantly usable.
+
+ 
+
+\subsection{Maintain[LowEnvironmentalImpact]}
+ 
+The system has a low environmental impact.
+
+
+\subsection{Maintain[LowSystemCosts]}
+
+System costs are low.
+ 
+
+\subsection{MobilisationOrderTransmittedWhenMobilisationOrderRecieved}
+
+The mobilization order is considered as transmitted when the mobilization order was received by the ambulance crew.
