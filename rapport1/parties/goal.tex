@@ -10,6 +10,25 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	sont les buts principaux de notre système. 
 
 	\insertfigure{goal1}{Les buts de plus haut niveau}
+
+	Le but principal du système dans son ensemble général est
+	d'assurer que toutes les personnes blessées recoivent des soins 
+	appropriés. Bien entendu, cela n'est pas possible pour notre
+	système car ce dernier ne peut être au courant des moindres blessures
+	et autres nécessaire par l'ensemble des gens vivant sur la planète.
+	Nous sommes donc contraints de considérer un sous-ensemble de ces personnes,
+	de par le manque d'observabilité. 
+	
+	Nous considérons donc l'ensemble des personnes dont un témoin procède à 
+	un appel à un centre de secours. Par simplification de notre modèle, nous
+	considérons que l'appel est toujours passé par le témoin et que ce dernier
+	n'est pas la victime. Il est évident que cela peut facilement être étendu
+	à des cas plus générique où la vicitime est elle-même le témoin de son
+	accident. Nous avons également considéré que les accidents n'impliquaient
+	qu'une seule personne: notre système ne gérera donc pas les accidents où
+	le nombre de vicitime est important. Enfin, nous avons également choisis
+	de ne considérer qu'un modèle idéal où les appels dupliqués n'existe pas.
+
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -32,7 +51,15 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 \subsection{Seconde couche}
 	
 	La \og seconde couche \fg est constituée des enfants des buts
-	feuilles de la première couche. Nous les avons présentés ci-dessous. 
+	feuilles de la première couche. Les buts qui sont considérés dans
+	cette section font partie du raffinement du buts de haut niveau
+	qui peut être remplis par notre système.
+	
+	Le rafinement utilisé est un rafinement par jalon. Les étapes que nous
+	avons identifées sont les suivantes :
+	\begin{equation*}
+	\text{Call received} \longrightarrow \text{Incident informations known} \longrightarrow \text{Ambulance mobilized} \longrightarrow \text{Appropriate media care given}
+	\end{equation*}
 	
 	Notons que le \textit{Achieve[AmbulanceChosen]} est en fait
 	\textit{Achieve[\-Ambulance\-Chosen\-When\-Availability\-Known\-And\-Ambulance\-Kind\-Known\-And\-Accurate\-Ambulance\-Position\-Known]}
