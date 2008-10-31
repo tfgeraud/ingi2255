@@ -121,7 +121,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 			\multicolumn{3}{l}{MobilizationOrderTransmitted(a: Ambulance, i:Incident)} \\ 
 			& = & \exists m: MobilizationOrder, \\
 			&   & m.sender \rightarrow a \\
-			&   & \wedge m.incident = 1 \\
+			&   & \wedge  m.incidentId = i.id \\
 			
 			\multicolumn{3}{l}{MobilizationOrderConfirmed(a:Ambulance, i:Incident)} \\ 
 			& = & \exists m:MoblisationOrder: \\
