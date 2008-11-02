@@ -19,10 +19,6 @@ Géraud Talla Fotsing}}
 
 \date{\today}
 
-% Pour modifier la géométrie de la page
-\usepackage{geometry}
-\geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
-
 \newlength{\realtextwidth}
 \setlength{\realtextwidth}{\textwidth}
 \newcommand{\insertfiguremargin}[2]{
@@ -49,26 +45,58 @@ Géraud Talla Fotsing}}
 	\begin{figure}[!h]
 	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
 		\begin{minipage}[t]{\textwidth}
+			\setcaptionwidth{\textwidth}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}
+		
+		\vspace{0.5cm}
+		\begin{minipage}[t]{\textwidth}
+			\vspace{0pt}
+			\includegraphics[width=\textwidth]{images/#1.png}
+		\end{minipage}
+	\end{minipage}
+	\end{figure}
+}
+
+
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfiguredown}[2]{
+	\begin{figure}[!b]
+	\noindent\begin{minipage}[t]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\textwidth}
 			\vspace{0pt}
 			\includegraphics[width=\textwidth]{images/#1.png}
 		\end{minipage}
 		
-		\hspace{\realtextwidth}
-		\hspace{\marginparsep}
-		\begin{minipage}[t]{\marginparwidth+\marginparpush}
-			\vspace{0.5cm}
-			\setcaptionwidth{\marginparwidth+\marginparpush}
+		\vspace{0.5cm}
+		\begin{minipage}[t]{\textwidth}
+			\setcaptionwidth{\textwidth}
 			\caption{#2}\label{fig:#1}
 			\setcaptionwidth{0.9\realtextwidth}
-		\end{minipage}		
+		\end{minipage}
 	\end{minipage}
 	\end{figure}
-
 }
+
+\definecolor{rememberbackground}{rgb}{0.96,0.97,0.98}
+\newcommand{\remember}[1]{
+\colorbox{rememberbackground}{%
+\noindent%
+\makebox[\textwidth+\marginparsep+\marginparwidth][l]{
+\parbox{\textwidth+\marginparsep+\marginparwidth}{
+#1
+}}}}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
 
 \begin{document}
 
+\renewcommand{\figurename}{\sf Figure}
 \setlength{\parskip}{1em}
+
 
 \maketitle
 \setcounter{tocdepth}{1}

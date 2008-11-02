@@ -9,7 +9,14 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	Cette section présente les divers buts de plus haut niveau. Ces buts
 	sont les buts principaux de notre système. 
 
-	\insertfigure{goal1}{Les buts de plus haut niveau}
+	\insertfiguredown{goal1}{Les buts de plus haut niveau considéré par notre
+	système. Les buts présentés en jaune sont les buts qui sont affectés
+	à des agents humains, les buts bleus sont des buts potentiellement
+	affecté à des agents logiciel. Ici, nous pouvons voir que le témoin
+	est en charge de faire l'appel au centre de secours}
+
+	% TODO: remove victim from callreceived to be coherent with
+	% the rest of the models
 
 	Le but principal du système dans son ensemble général est
 	d'assurer que toutes les personnes blessées recoivent des soins 
@@ -29,6 +36,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	le nombre de vicitime est important. Enfin, nous avons également choisis
 	de ne considérer qu'un modèle idéal où les appels dupliqués n'existe pas.
 
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -47,29 +55,48 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
-
+	}
+	
+\newpage
 \subsection{Seconde couche}
 	
-	La \og seconde couche \fg est constituée des enfants des buts
+	La \og seconde couche \fg\ est constituée des enfants des buts
 	feuilles de la première couche. Les buts qui sont considérés dans
 	cette section font partie du raffinement du buts de haut niveau
-	qui peut être remplis par notre système.
+	qui peut être remplis par notre système. Une représentation 
+	graphique de ce sous-modèle est présenté à la figure \ref{fig:goal2}.
 	
 	Le rafinement utilisé est un rafinement par jalon. Les étapes que nous
 	avons identifées sont les suivantes :
-	\begin{equation*}
-	\text{Call received} \longrightarrow \text{Incident informations known} \longrightarrow \text{Ambulance mobilized} \longrightarrow \text{Appropriate media care given}
-	\end{equation*}
 	
-	Notons que le \textit{Achieve[AmbulanceChosen]} est en fait
-	\textit{Achieve[\-Ambulance\-Chosen\-When\-Availability\-Known\-And\-Ambulance\-Kind\-Known\-And\-Accurate\-Ambulance\-Position\-Known]}
-	pour des raisons évidentes de concision et de lisibilité, nous avons 
-	changé l'intitulé.
+	\noindent\remember{
+	\begin{equation*}\begin{array}{ll}
+		\text{Call received} & \longrightarrow 
+		\text{Incident informations known} \longrightarrow \cdots \\ 
+		& \cdots  \longrightarrow \text{Ambulance mobilized} \longrightarrow 
+		\text{Appropriate media care given}
+	\end{array}\end{equation*}
+	}
+	
+	L'intitulé du but \textit{Achieve[AmbulanceChosen]} n'est pas 
+	exactement complet. Pour être complet, le but devrait s'appeller
+	\textit{Achieve[\-Ambulance\-Chosen\-When\-Availability\-Known\-And\-Ambulance\-Kind\-Known\-And\-Accurate\-Ambulance\-Position\-Known]}. Pour des raisons évidentes 
+	de concision et de lisibilité, l'intitulé court a été conservé.
 
-	\insertfigure{goal2}{Le détail des sous-buts de haut niveau.}
+	\insertfiguredown{goal2}{On peut remarquer sur cette figure les différents
+	noeuds du jalon illustré ci-dessus. Il est également intéressant
+	de remarquer que dans les raffinements, certains but sont déjà assignés à 
+	des agents humains ou logiciel.}
 	
-	La formalisation des états atteints par les buts feuilles du premier fils sont
-	les suivants.
+	Le premier but feuille est le but responsable du transfert d'information
+	entre le témoin, logiquement sur place, et le centre de secours. La
+	bonne réalisation de ce but dépends à la fois des agents humains (témoin,
+	standardiste, etc.) et de la partie logicielle responsable de 
+	la gestion des informations relatives aux incidents au sein du système.
+	Les différents états relatifs à ces buts sont précisés de manière formelle
+	dans l'encadré suivant.
+	
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -82,9 +109,13 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
+	}
+		
+	La formalisation des états atteints par les buts issus du raffinement
+	du but \textit{Achieve[IncidentInfoKnownWhenCallReceived]} sont présenté
+	dans l'encadré suivant.
 	
-	La formalisation des états atteints par les buts feuilles du second fils sont
-	les suivants.
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -106,9 +137,13 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
+	}
 	
-	La formalisation des états atteints par les buts feuilles du troisième fils sont
-	les suivants.
+	La formalisation des états atteints par les buts issus du raffinement
+	de \textit{Achieve[AmbulanceMobilizedWhenIncidentInfoKnown]}
+	sont présenté, comme précédemnt, dans l'encadré qui suit.
+	
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -130,9 +165,13 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
+	}
 	
-	La formalisation des états atteints par les buts feuilles du dernier fils sont
-	les suivants.		
+	Enfin, un seul état relatifs aux buts n'a pas encore été formellement
+	définit. Cet état est issus des buts du raffinement du but \\
+	\textit{Achieve[AppropriateMedicalCareGivenWhenAmbulanceMobilized]}
+	
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -141,6 +180,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
+	}
 
 
 \subsection{Troisième couche}
@@ -148,10 +188,14 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 	La troisième couche est constituée des buts enfants
 	des buts de la seconde couche. Les figures \ref{fig:goal3}, \ref{fig:goal4},
 	et \ref{fig:goal5} reprennent les sous-arbres des buts. Aussi, nous
-	présentons la formalisation de certains des états atteints par les
-	buts.
+	présentons, comme pour les précédente section,
+	la formalisation de certains des états atteints ou relatifs aux buts.
 
-	\insertfigure{goal3}{Troisième niveau, raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}}
+	\insertfigure{goal3}{Nous pouvons voir sur cette
+	figurer le raffinement du but \textit{AmbulanceChosenWhenIncidentInfoKnown}
+	ainsi que les différentes affectations de ces buts aux buts feuilles.}
+	
+	\noindent\remember{
 	\singlespacing
 	\begin{equation*}
 		\begin{array}{rcl}
@@ -177,9 +221,15 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\end{array}
 	\end{equation*}
 	\onehalfspacing
+	}
 
-	\insertfigure{goal4}{La suite du troisième niveau, raffinement du but reponsable
-	de l'envoi de l'ordre de mobilisation.}
-	\insertfigure{goal5}{La fin du troisième niveau, raffinement du but
-	responsable de la confirmation de la mobilisation.}
+	\insertfigure{goal4}{Nous pouvons voir sur cette figurer
+	le raffinement du but reponsable de l'envoi de l'ordre de mobilisation. 
+	On peut voir que les agents ne sont pas situés dans le même monde: 
+	l'InformationProcessor est situé du coté de la central d'appel tandis
+	que le MDT (Mobile Data Terminal) est situé dans l'ambulance.}
+	\insertfigure{goal5}{Les buts illustrés sont issus du raffinement du but
+	responsable de la confirmation de la mobilisation. On y voit les
+	buts qui sont à la charge de l'équipage de l'ambulance et du terminal
+	informatique placé dans l'ambulance.}
 
