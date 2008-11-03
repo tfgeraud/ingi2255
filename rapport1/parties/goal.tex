@@ -87,7 +87,7 @@ machines à états et augmenter la cohérence de notre modèle de buts.
 		\begin{array}{rcl}
 			AmbulanceChosen(i:IncidentInfo)  
 			& = & \exists a:AmbulanceInfo \\
-			&   & \wedge a.choice = 1 \\
+			&   & \wedge \#a.choice = 1 \\
 			&   & \wedge \#i.choice = 1 \\
 			&   & \wedge a.choice \rightarrow i \\
 			
