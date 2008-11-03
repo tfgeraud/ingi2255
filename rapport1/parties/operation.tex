@@ -63,7 +63,7 @@ attaché à cette opération.
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
-			Goal & Achieve[AccurateAmbulancePositionRecorded\\ &WhenAccurateAmbulancePositionSent] \\ \hline
+			Goal & Achieve[AccurateAmbulance\-Position\-Recorded\-WhenAccurateAmbulance\-PositionSent] \\ \hline
 			Agent & AmbulanceTracker \\ \hline
 			Évènement lié & AccurateAmbulancePositionRecording \\ \hline
 			In & $a: Ambulance$ \\ \hline
@@ -108,18 +108,18 @@ attaché à cette opération.
 	qu'elle se rende sur place. L'opération \textit{Achieve[sendMobilizationOrder]}
 	s'occupe d'envoyer l'ordre de mobilisation à l'ambulance.
 	
-	\insertfiguremargin{op4}{L'opération \textit{sendMobilizationOrder} opérationnalise le but \textit{Achieve[MobilizationOrderSentWhenAmbulanceChosen]}}
+	\insertfiguremargin{op4}{L'opération \textit{sendMobilizationOrder} opérationnalise le but \textit{Achieve[MobilizationOrderSentWhen\-AmbulanceChosen]}}
 	
 	\begin{table}[!h] \centering
 		\begin{tabularx}{\textwidth}{|l|X|} \hline
-			Goal & Achieve[MobilizationOrderSentWhenAmbulanceChosen] \\ \hline
+			Goal & Achieve[MobilizationOrderSentWhen\-AmbulanceChosen] \\ \hline
 			Agent & InfoProcessor \\ \hline
 			État atteint & MobilizationOrderTransmitted \\ \hline
 			Évènement lié & MobilizationOrderSending \\ \hline
 			In & $a: AmbulanceInfo, i: IncidentInfo$ \\ \hline
 			Out & $m: MobilizationOrder$ \\ \hline
 			Pre & $\#a.choice = 1 \wedge a.choice \rightarrow i$ \\ \hline
-			Post & $\exists m: MobilizationOrder : m.ambulanceId = a \wedge m.incidentId = i$ \\ \hline 
+			Post & $\exists m: MobilizationOrder : m.sending \rightarrow  a \wedge m.incidentId = i$ \\ \hline 
 		\end{tabularx}
 		\caption{L'opération \textit{sendMobilizationOrder}}\label{tab:op4}
 	\end{table}
