@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{zed-csp}%from
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{Schémas Z et tests BlackBox}
+\author{Groupe 2}
+\date{\today}
+\maketitle
+
+
+
+
+
+\section{Exemples Z}
+Cette section est laissée ici pour faciliter le démarrage de tout le monde avec Z en latex.  Évidemment, elle devra être retirée du rapport final.
+
+Exemples de types donnés:
+\begin{zed}
+[PRODUCT, COIN]
+\end{zed}
+
+
+Exemple de schéma d'état
+\begin{schema}{ShemaName}
+  inventory : \bag PRODUCT\\
+  price : PRODUCT \pfun \nat\\
+  float : \bag COIN\\
+  entered : \bag COIN\\
+  accept : \power COIN
+  \where
+  \dom inventory \subseteq \dom price\\
+  \dom float \subseteq accepted\\
+  \dom entered \subseteq accepted
+\end{schema}
+
+Exemple d'opération
+\begin{schema}{AcceptCoin}
+\Delta Money\\
+newCoin? : COIN
+\where
+newCoin? \notin accept\\
+float' = float\\
+entered' = entered\\
+accept' = accept \cup \{newCoin?\}
+\end{schema}
+
+
+\end{document}
