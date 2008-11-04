@@ -10,15 +10,69 @@
 \maketitle
 
 
+\section{Types donnés}
+Les spécifications Z s'appuient sur les types suivants:
+\begin{zed}
+AMBULANCE \\
+COORDINATES \\
+INCIDENT \\
+NAME \\
+DATE \\
+STATUS ::= 'FREE' | 'CHOSEN' | 'MOBILIZED' \\
+KIND ::= 'NORMAL' | 'MEDICALIZED' \\
+LOCALISATION \\
+BOOLEAN ::= 'TRUE'  | 'FALSE' \\
+MESSAGE ::= \\
+\end{zed}
+
+% Expliciter chacun des types ci-après en expliquant ce que chacun représente
+L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedefinition}.
+\begin{table}[htdp]\begin{center}\begin{tabular}{|c|c|}\hline 
+\textit{Type} & \textit{Définition} \\\hline
+AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline NAME & null \\\hline DATE & null \\\hline STATUS & null \\\hline KIND & null \\\hline LOCALISATION & null \\\hline BOOLEAN & null \\\hline MESSAGE & null \\\hline \end{tabular} \caption{Définition des types donnés}\end{center}\label{tab:typedefinition}\end{table}
+
+
+\section{Schémas Types}
+\begin{schema}{AmbulanceInformation}
+ registered\_ambulance : \power AMBULANCE \\
+ position\_ambulance : AMBULANCE \pinj COORDINATES \\
+ kind\_ambulance : AMBULANCE \pfun KIND \\
+  
+  \where
+  
+  \dom position\_ambulance = \dom kind\_ambulance = registered\_ambulance
+  
+\end{schema}
+
+\begin{schema}{IncidentInformation}
+  \where
+\end{schema}
+
+\begin{schema}{Mobilization}
+  \where
+\end{schema}
+
+\section{Opérations}
+
+\begin{schema}{ChooseBestAmbulanceOK}
+  \where
+\end{schema}
+
+\begin{schema}{ListUnattributedIncidents}
+  \where
+\end{schema}
+
+\section{Tests Boîte Noire}
+
 
 
 
 \section{Exemples Z}
-Cette section est laissée ici pour faciliter le démarrage de tout le monde avec Z en latex.  Évidemment, elle devra être retirée du rapport final.
+Cette section est laissée ici pour faciliter le démarrage de tout le monde avec Z en latex.  Évidemment\\ elle devra être retirée du rapport final.
 
 Exemples de types donnés:
 \begin{zed}
-[PRODUCT, COIN]
+[PRODUCT\\ COIN]
 \end{zed}
 
 
