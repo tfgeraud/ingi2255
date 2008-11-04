@@ -18,12 +18,20 @@ COORDINATES \\
 INCIDENT \\
 NAME \\
 DATE \\
+STATUS  \\
+KIND \\
+LOCALISATION \\
+BOOLEAN \\
+MESSAGE  \\
+\end{zed}
+
+Pour les types dont il est intéressant de spécifier les valeurs possibles, voici à quoi elles correspondent:
+\begin{syntax}
 STATUS ::= 'FREE' | 'CHOSEN' | 'MOBILIZED' \\
 KIND ::= 'NORMAL' | 'MEDICALIZED' \\
-LOCALISATION \\
 BOOLEAN ::= 'TRUE'  | 'FALSE' \\
 MESSAGE ::= \\
-\end{zed}
+\end{syntax}
 
 % Expliciter chacun des types ci-après en expliquant ce que chacun représente
 L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedefinition}.
@@ -34,22 +42,60 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 
 \section{Schémas Types}
 \begin{schema}{AmbulanceInformation}
- registered\_ambulance : \power AMBULANCE \\
- position\_ambulance : AMBULANCE \pinj COORDINATES \\
- kind\_ambulance : AMBULANCE \pfun KIND \\
-  
+ 	registered\_ambulance : \power AMBULANCE \\
+	\newline \\
+ 	position\_ambulance : AMBULANCE \pinj COORDINATES \\
+ 	kind\_ambulance : AMBULANCE \pfun KIND \\
   \where
-  
-  \dom position\_ambulance = \dom kind\_ambulance = registered\_ambulance
-  
+  	\dom position\_ambulance = \dom kind\_ambulance = registered\_ambulance
 \end{schema}
 
 \begin{schema}{IncidentInformation}
+	registered\_incident : \power INCIDENT \\
+	\newline \\
+	victimAge\_incident : INCIDENT \pfun \nat \\ % TODO Trouver le truc Z correspondant au nombre naturel
+	victimPregnant\_incident : INCIDENT \pfun BOOLEAN \\
+	localisation\_incident : INCIDENT \pfun LOCALISATION \\
+	description\_incident : INCIDENT \pfun DESCRIPTION \\
+	\newline \\
+	position\_incident : INCIDENT \pfun POSITION \\
+	ambulanceKindNeeded\_incident : INCIDENT \pfun KIND \\
   \where
+  	\dom victimAge\_incident = \dom victimPregnant\_incident =\\
+	 \dom localisation\_incident = \dom description\_incident =\\
+	 registered\_incident \\
+	 \newline \\
+	 \dom position\_incident = \dom ambulanceKindNeeded\_incident \\
+	 \dom position\_incident \subseteq registered\_incident \\
+	 \dom ambulanceKindNeeded\_incident  \subseteq registered\_incident \\ % Redondant\\ répété pour la clarté
 \end{schema}
 
 \begin{schema}{Mobilization}
+	AmbulanceInformation \\
+	IncidentInformation \\
+	\newline \\
+	status\_ambulance : AMBULANCE \pfun STATUS \\
+	choice\_mobilization : AMBULANCE \pinj INCIDENT \\
+	mob\_mobilization : AMBULANCE \pinj INCIDENT \\
   \where
+  	\dom choice\_mobilization \subseteq registered\_ambulance \\
+	\dom mob\_mobilization \subseteq registered\_ambulance \\
+	\dom mob\_mobilization  \subseteq \dom choice\_mobilization \\
+	\newline \\
+	\ran choice\_mobilization \subseteq registered\_incident \\
+	\ran mob\_mobilization \subseteq registered\_incident \\
+	\ran mob\_mobilization  \subseteq \ran choice\_mobilization \\
+	\newline \\
+	\forall a: AMBULANCE @ 
+			(status\_ambulance(a) = 'FREE') \equiv \\
+	                        ( a \notin \dom choice\_mobilization \land a \notin \dom mob\_mobilization) \\
+	                   \land
+	                   (status\_ambulance(a) = 'CHOSEN') \equiv \\
+	                        ( a \in \dom choice\_mobilization \land a \notin \dom mob\_mobilization) \\
+	                     \land
+	                   (status\_ambulance(a) = 'MOBILIZED') \equiv \\
+	                        ( a \in \dom choice\_mobilization \land a \in \dom mob\_mobilization) \\
+  	
 \end{schema}
 
 \section{Opérations}
