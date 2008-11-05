@@ -30,14 +30,37 @@ Pour les types dont il est intéressant de spécifier les valeurs possibles, voi
 STATUS ::= 'FREE' | 'CHOSEN' | 'MOBILIZED' \\
 KIND ::= 'NORMAL' | 'MEDICALIZED' \\
 BOOLEAN ::= 'TRUE'  | 'FALSE' \\
-MESSAGE ::= 'OK' | 'UnknownIncident' | 'IncidentAlreadyAttributed' | 'NoGoodAmbulance'\\ % TODO : complete message list
+MESSAGE ::= 'OK' | 'UnknownIncident' | 'IncidentAlreadyAttributed' | 'NoGoodAmbulance'
 \end{syntax}
 
 % TODO : Expliciter chacun des types ci-après en expliquant ce que chacun représente
 L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedefinition}.
-\begin{table}[htdp]\begin{center}\begin{tabular}{|c|c|}\hline 
-\textit{Type} & \textit{Définition} \\\hline
-AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline NAME & null \\\hline DATE & null \\\hline STATUS & null \\\hline KIND & null \\\hline LOCALISATION & null \\\hline BOOLEAN & null \\\hline MESSAGE & null \\\hline \end{tabular} \caption{Définition des types donnés}\end{center}\label{tab:typedefinition}\end{table}
+\begin{table}[htdp]\begin{center}\begin{tabular}{|c|c|}
+	\hline 
+	\textit{Type} & \textit{Définition} \\
+	\hline
+	AMBULANCE & L'ensemble des ambulances physiques possibles. \\
+	\hline
+	COORDINATES & L'ensemble des coordonnées géographiques possibles (latitude, longitude). \\
+	\hline
+	INCIDENT & L'ensemble des incidents possibles. \\
+	\hline
+	NAME & L'ensemble des noms possibles. \\ % TODO : Inutile puisque inutilisé.  A enlever?!
+	\hline
+	DATE & L'ensemble des dates possibles. \\ % TODO : Inutile puisque inutilisé.  A enlever?!
+	\hline
+	STATUS & L'ensemble des statuts possibles pour une ambulance. \\
+	\hline
+	KIND & L'ensemble des types d'ambulance possibles. \\
+	\hline
+	LOCALISATION & L'ensemble des localisations possibles (rue, numéro, adresse, etc.). \\ % TODO : Inutile puisque inutilisé.  A enlever?!
+	\hline
+	BOOLEAN & L'ensemble des booléens. \\
+	\hline
+	MESSAGE & L'ensemble des messages possibles. \\
+	\hline
+\end{tabular}
+\caption{Définition des types donnés}\end{center}\label{tab:typedefinition}\end{table}
 
 
 \section{Schémas Types}
@@ -67,7 +90,7 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 	 \newline \\
 	 \dom position\_incident = \dom ambulanceKindNeeded\_incident \\
 	 \dom position\_incident \subseteq registered\_incident \\
-	 \dom ambulanceKindNeeded\_incident  \subseteq registered\_incident \\ % Redondant\\ répété pour la clarté
+	 \dom ambulanceKindNeeded\_incident  \subseteq registered\_incident \\ % Redondant répété pour la clarté
 \end{schema}
 
 \begin{schema}{Mobilization}
