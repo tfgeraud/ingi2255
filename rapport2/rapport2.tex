@@ -80,17 +80,17 @@ Géraud Talla Fotsing}}
 \chapter{Schémas Z}
 
 Dans cette section, nous présentons les différentes opérations et
-schémas type liés que nous avons formalisé à l'aide du language Z.
+schémas type liés que nous avons formalisés à l'aide du language Z.
 
 Plus précisément, la section \ref{sec:type} présente les différents
-types sur lequels s'appuye le reste de la formalisation. La section
+types sur lequels s'appuie le reste de la formalisation. La section
 \ref{sec:sctype} présente les schémas types. Enfin la section
-\ref{sec:op} présente les opérations formalisée.
+\ref{sec:op} présente les opérations formalisées.
 
 \section{Types donnés}\label{sec:type}
 Les spécifications Z de nos schémas types et 
-opérations s'appuient sur les types présenté ci-dessous. Ces types sont
-définit par la suite.
+opérations s'appuient sur les types présentés ci-dessous. Ces types sont
+définis par la suite.
 \begin{zed}
 AMBULANCE \\
 COORDINATES \\
@@ -114,7 +114,7 @@ BOOLEAN ::= TRUE  | FALSE \\
 MESSAGE ::= OK | UnknownIncident | IncidentAlreadyAttributed | NoGoodAmbulance
 \end{syntax}
 
-Les types une fois déclaré doivent évidement être définit de 
+Les types une fois déclarés doivent évidemment être définis de 
 manière précise et claire. 
 \begin{table}[!h]\begin{minipage}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
 	\begin{tabularx}{\textwidth}{|l|X|}
@@ -144,7 +144,7 @@ manière précise et claire.
 \end{table}
 
 \section{Schémas Types}\label{sec:sctype}
-Cette section présente les différents schémas type nécessaire pour la 
+Cette section présente les différents schémas types nécessaires pour la 
 bonne formalisation de nos états. Les trois schémas types sont 
 les suivants: 
 \begin{itemize}
@@ -215,7 +215,7 @@ mais nous avons préféré l'expliciter pour plus de clarté.
 
 \section{Opérations}\label{sec:op}
 
-Cette section présente deux opérations formalisée à l'aide du langage Z:
+Cette section présente deux opérations formalisées à l'aide du langage Z:
 ChooseBestAmbulance et ListUnattributedIncidents.
 
 \section{Le choix de l'ambulance : ChooseBestAmbulance}
@@ -253,14 +253,17 @@ distance entre deux coordonnées.
   	\newline \\
   	\forall a: AMBULANCE @ (status\_ambulance(a) = FREE \land \\
   	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \land \\
-  	 distance(position\_ambulance(a), position\_incident(incident?))) \\
+  	 distance(position\_ambulance(a), position\_incident(incident?)) \\
   	 \geq distance(position\_ambulance(ambulance!), \\
-  	 position\_incident(incident?))\\
+  	 position\_incident(incident?)))\\
   	\newline \\
   	choice\_mobilization' = choice\_mobilization \oplus \{ ambulance! \mapsto incident? \} \\
-  	mob\_mobilization' = mob\_mobilization \\
-  	status\_ambulance' = status\_ambulance % FIXME: ACA: J'ai ajouté, c'est juste?
+  	mob\_mobilization' = mob\_mobilization
 \end{schema}
+
+	Nous n'explicitons pas ici le nouvel état de $status\_ambulance$ car il
+	est mis à jour automatiquement par le dernier invariant de
+	\textit{Mobilization}.
 
 \subsection{Success}
 
@@ -319,9 +322,10 @@ distance entre deux coordonnées.
 	message! = NoGoodAmbulance
 \end{schema}
 
-\section{Liste des ambulance non-attribué : ListUnattributedIncidents}
-Cette opération est une simple requête sur l'état de notre systeme. Cette
-opération retourne l'ensemble des ambulance potentiellement disponible.
+\section{Liste des ambulances non-attribuées : ListUnattributedIncidents}
+Cette opération est une simple requête sur l'état de notre systême. Cette
+opération retourne l'ensemble des incidents pour lesquels aucune ambulance
+n'a encore été choisie.
 
 Nous pouvons définir l'opération comme suivant
 \begin{eqnarray*}
@@ -339,14 +343,14 @@ ListUnattributedIncidents & = & (ListUnattributedIncidentsOK \land Success)
 
 \chapter{Tests Boîte Noire}
 
-Ce chapitre présente les tests boites noirs qui sont dérivé directement
+Ce chapitre présente les tests boîtes noires qui sont dérivés directement
 des opérations présentées ci-dessus.
 
 \section{ChooseBestAmbulance}
 
 Pour le test en boîte noire, il nous faut présenter les entrées,
-les sorties, la table de vérité liées à ces entrées et sorties et enfin, 
-des représentant que nous utiliserons dans les tests concrets.
+les sorties, la table de vérité liée à ces entrées et sorties et enfin, 
+des représentants que nous utiliserons dans les tests concrets.
 
 \subsection{Inputs}
 
@@ -382,9 +386,7 @@ Deuxièmement, définissons les sorties possibles.
   	\hline
   	O4 & $message! = \{OK, UI, IAA, NGA\}$ \\
 	\hline
-	O5 & $choice\_mobilization' = choice\_mobilization$ \\
-	\hline
-	O6 & $status\_mobilization' = status\_mobilization$ \\
+	O5 & $status\_mobilization' = status\_mobilization \oplus \{ ambulance! \mapsto CHOSEN \}$ \\
   	\hline
 \end{tabularx}\end{minipage}
 
@@ -404,8 +406,7 @@ Troisièmement, énonçons la table de vérité, liant les deux précédentes
 	O1 & X &   &   &   \\
 	O2 & X &   &   &   \\
 	O3 & X & X & X & X \\
-	O5 &   & X & X & X \\
-	O6 & X & X & X & X \\
+	O5 & X &   &   &   \\
 	O4 & $OK$ & $UI$ & $IAA$ & $NGA$ \\
 	\hline
 \end{tabular}
@@ -413,7 +414,7 @@ Troisièmement, énonçons la table de vérité, liant les deux précédentes
 \subsection{Cas de test concrets}
 
 Enfin, nous devons préparer des tests concrets sur chacune des classes 
-présentée dans la table de vérité (une classe étant équivalente à une
+présentées dans la table de vérité (une classe étant équivalente à une
 colonne).
 
 Supposons que le test s'exécute sur l'ensemble de départ suivant:
@@ -448,7 +449,7 @@ En entrée, nous avons $incident2$ et en sortie,
 \begin{itemize}
 	\item $choice\_ambulance' = \{alpha2 \rightarrow incident1, alpha1 \rightarrow incident3 \}$
 	\item $mob\_mobilization' = mob\_mobilization$
-	\item $status\_ambulance' = status\_ambulance$
+	\item $status\_ambulance' = status\_ambulance \oplus \{alpha2 \rightarrow CHOSEN \}$
 	\item $message! = OK$
 \end{itemize}
 
@@ -490,15 +491,15 @@ En entrée, nous avons $incident2$ et en sortie,
 
 Un autre test à exécuter serait si aucune ambulance n'existe dans 
 le système, il est alors possible reprendre tous les tests
-précédent qui devraient renvoyer le message $NoGoodAmbulance$ pour tout
+précédents qui devraient renvoyer le message $NoGoodAmbulance$ pour tout
 les tests dans modifier $choice\_ambulance$, $mob\_mobilization$ ou 
 $status\_ambulance$.
 
 \section{ListUnattributedIncidents}
 
 Comme pour le test précédent, il nous faut présenter les entrées,
-les sorties, la table de vérité liées à ces entrées et sorties et enfin, 
-des représentant que nous utiliserons dans les tests concrets.
+les sorties, la table de vérité liée à ces entrées et sorties et enfin, 
+des représentants que nous utiliserons dans les tests concrets.
 
 \subsection{Inputs}
 
@@ -534,8 +535,8 @@ précédente, la sortie attendue de notre opération sera la suivante:
 	\item $incidents! = \{incident2\}$
 \end{itemize}
 
-Nous pouvons proposer plusieurs autres tests basées sur différentes
-version de l'ensemble de départ.
+Nous pouvons proposer plusieurs autres tests basés sur différentes
+versions de l'ensemble de départ.
 
 \subsubsection{Second test}
 Tous les incidents n'ont pas d'ambulance affectée. 
@@ -606,7 +607,7 @@ La sortie attendue est
 
 Grâce à notre travail de formalisation effectué dans l'analyse des besoins, 
 la formalisation en langage Z a été facilement déduite et construite. Les tests
-ont été dérivé sans difficulté des opérations. 
+ont été dérivés sans difficulté des opérations. 
 
 Nous n'avons pas identifié d'erreur dans notre analyse des besoins par
 rapport à cette formalisation, probablement du au fait qu'une grande partie
