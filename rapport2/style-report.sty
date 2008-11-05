@@ -1,0 +1,205 @@
+\usepackage[english,french]{babel}
+
+% Symboles mathématiques
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% Pour la couleur
+\usepackage{color}
+\definecolor{lightblue}{rgb}{0.58,0.69,0.77}
+\definecolor{darkblue}{rgb}{0.44,0.59,0.69}
+
+% Pour les graphiques
+\usepackage{graphicx} 
+
+% Pour insérer du code avec la coloration syntaxique
+\usepackage{listings}
+
+% Pour pouvoir faire des boîtes amusantes (ombrée, etc.)
+\usepackage{fancybox}
+\usepackage{shadow}
+
+% Pour avoir des en-tête personalisable
+\usepackage{fancyhdr}
+
+% Pour passer en paysage
+\usepackage{lscape}
+
+% Pour modifier les captions
+\usepackage{caption}
+\captionsetup{labelsep=period,labelfont=sf,font={sf,small},aboveskip=0pt}
+\setcaptionwidth{0.9\textwidth}
+\captionsetup[table]{labelsep=period,labelfont=sf,font={sf,small},aboveskip=5pt}
+
+
+
+% Pour modifier la géométrie de la page
+\usepackage{geometry}
+%\geometry{a4paper,left=1.5cm,right=1.5cm,top=2.5cm,bottom=2.5cm,includemp,reversemp,marginpar=4cm,marginparsep=0.5cm}
+\geometry{a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=4.5cm,footskip=2cm,includemp,marginpar=5cm,marginparsep=0.5cm}
+
+
+% Modification des styles d'en-tête
+% On peut mettre fancy ou fancyplain si l'on veut modifier les pages de
+% chapitre
+\pagestyle{fancy}
+% LE = Left Even et RE = Right Even
+% LO = Left Odd et RO = Right Odd
+
+% Modification des en-tête
+\fancyhead{}
+%\fancyhead[LE,RO]{\sffamily\bfseries\nouppercase\rightmark}
+% Même chose pour les pieds de page
+\fancyfoot{}
+\fancyfoot[RE,RO]{\colorbox[RGB]{55,55,55}{\color[RGB]{255,255,255}\thepage}}
+
+\fancypagestyle{plain}{%
+	\fancyhead{}
+	\fancyfoot{}
+	\fancyfoot[RE,RO]{\colorbox[RGB]{55,55,55}{\color[RGB]{255,255,255}\thepage}}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+% Pour modifier l'en-tête des pages
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{1.5cm}
+
+\usepackage{calc}
+\fancyfootoffset[RO,LE]{\marginparsep+\marginparwidth+\marginparpush}
+
+
+% Pour les titres
+% sf pour sans font
+\usepackage[sf]{titlesec}
+% Numeros et espaces dans la marge
+\titleformat{\section}[hang]
+{\normalfont\Large\sffamily}
+{\protect\makebox[0pt][r]{\thetitle.\quad}}{0pt}{}
+\titlespacing*{\section}{0pt}{3em}{1.5em}
+
+\titleformat{\subsection}[hang]
+{\normalfont\large\sffamily}
+{\protect\makebox[0pt][r]{\thetitle.\quad}}{0pt}{}
+\titlespacing*{\subsection}{0pt}{3em}{1.5em}
+
+% Pour les titres de chapitre
+\titleformat{\chapter}[hang]
+{\normalfont\Huge\sffamily}
+{\protect\makebox[0pt][r]{\thechapter.\quad}} {0pt} {}
+% Plus d'espace autour des titres de chapitre
+\titlespacing*{\chapter}{0pt}{2em}{3em}
+
+% Pour l'interligne
+\usepackage{setspace}
+\onehalfspacing
+
+% Redefini la taille de la police des notes de marges
+\let\margin\marginpar
+\newcommand\myMargin[1]{\margin{\raggedright\footnotesize\sf #1}}
+\renewcommand{\marginpar}[1]{\myMargin{#1}}
+
+% Pour avoir une belle page de garde
+\makeatletter
+\newcommand{\@subtitle}{}
+\newcommand{\@tutors}{}
+\newcommand{\@copyright}{}
+\newcommand{\@email}{}
+% La commande \maketitle
+\def\maketitle{%
+%	\pagecolor[rgb]{0.21, 0.22, 0.23}
+%	\pagecolor[RGB]{185, 2, 82}
+	\thispagestyle{empty}\vbox to \vsize{%
+		\vfill\noindent\hspace{1mm}
+		\begin{minipage}{\textwidth}
+			\includegraphics[width=\textwidth]{images/ambu.jpg}\\ \newline
+		\end{minipage}
+		\vspace{0.5cm}
+		\begin{minipage}{\textwidth}
+			\vspace{0.4cm}
+			\hbox to \hsize{\makebox[\textwidth][l]{\color{black}\Huge\sf\@title}}
+			\vspace{0.2cm}
+			\hbox to \hsize{\makebox[\textwidth][l]{\color{black}\Large\sf\@subtitle}}
+			\vspace{1cm}
+			\hbox to \hsize{\parbox{\textwidth}{\color{black}\sf\@author}}
+			\vspace{1mm}
+			\hbox to \hsize{\parbox{\textwidth}{\color{black}\texttt{\@email}}}
+		\end{minipage}
+		\vfill
+	}%
+	\cleardoublepage
+	\pagecolor[rgb]{1,1,1}
+}
+
+
+% Les commandes permettant de définir la date, le lieu, etc.
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\subtitle#1{\def\@subtitle{#1}}
+\def\email#1{\def\@email{#1}}
+\def\copyright#1{\def\@copyright{#1}}
+
+\newcommand{\startdocument}{
+
+	% Pour que le label des figures soit plus sexy
+	\def\figurename{{\sffamily Figure}}%
+
+	% Pour que le label des tableau soit plus sexy
+	\def\tablename{{\sffamily Tableau}}%
+	 
+	% Pour ne pas indenter le premier paragraphe qui suit un titre
+	\makeatletter
+	\bbl@nonfrenchindent
+	\makeatother
+
+%	\maketitle
+	
+	% Pour modifier les espacements entre paragraphes
+	\setlength{\parskip}{1em}
+
+	%\tableofcontents
+}
+
+% Pour une belle page de fin
+\newcommand{\stopdocument}{
+	\cleardoublepage
+	\pagecolor[RGB]{185, 2, 82}
+	\thispagestyle{empty}\vbox to \vsize{%
+		\vfill
+		\hbox to 
+		\hsize{\makebox[\textwidth][r]{\color[rgb]{0.68,0.68,0.68}\sf{written by \@author}}}
+		\hbox to
+		\hsize{\makebox[\textwidth][r]{\sf\color[rgb]{0.68,0.68,0.68}\sf{\@copyright}}}
+	}%
+}
+
+\makeatother
+
+% Pour régler les espaces dans les enumerate et les itemize
+\usepackage{tweaklist}
+\renewcommand{\enumhook}{
+	\setlength{\topsep}{0.2em}%
+	\setlength{\itemsep}{0em}%
+	\setlength{\parsep}{0.5em}%
+}
+\renewcommand{\itemhook}{
+	\setlength{\topsep}{0.2em}%
+	\setlength{\itemsep}{0em}%
+	\setlength{\parsep}{0.5em}%
+}
+
+% Pour changer le style des bullets
+\renewcommand{\labelitemi}{{-}}
+
+% Pour des tableaux extensibles
+\usepackage{tabularx}
+\renewcommand\arraystretch{1.4} % adjust row height
+
+\newcommand{\inserttable}[1]{
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		#1
+	\end{minipage}
+}
+
