@@ -22,7 +22,8 @@ STATUS  \\
 KIND \\
 LOCALISATION \\
 BOOLEAN \\
-MESSAGE  \\
+REPORT  \\
+DESCRIPTION
 \end{zed}
 
 Pour les types dont il est intéressant de spécifier les valeurs possibles, voici à quoi elles correspondent:
@@ -53,11 +54,13 @@ L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedef
 	\hline
 	KIND & L'ensemble des types d'ambulance possibles. \\
 	\hline
-	LOCALISATION & L'ensemble des localisations possibles (rue, numéro, adresse, etc.). \\ % TODO : Inutile puisque inutilisé.  A enlever?!
+	LOCALISATION & L'ensemble des localisations possibles (rue, numéro, adresse, etc.). \\
 	\hline
 	BOOLEAN & L'ensemble des booléens. \\
 	\hline
-	MESSAGE & L'ensemble des messages possibles. \\
+	REPORT & L'ensemble des messages possibles. \\
+	\hline
+	DESCRIPTION & L'ensemble des descriptions d'incident possibles. \\
 	\hline
 \end{tabular}
 \caption{Définition des types donnés}\end{center}\label{tab:typedefinition}\end{table}
@@ -81,7 +84,7 @@ L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedef
 	localisation\_incident : INCIDENT \pfun LOCALISATION \\
 	description\_incident : INCIDENT \pfun DESCRIPTION \\
 	\newline \\
-	position\_incident : INCIDENT \pfun POSITION \\
+	position\_incident : INCIDENT \pfun COORDINATES \\
 	ambulanceKindNeeded\_incident : INCIDENT \pfun KIND \\
   \where
   	\dom victimAge\_incident = \dom victimPregnant\_incident =\\
