@@ -141,8 +141,8 @@ distance entre deux coordonnées.
 
 \begin{schema}{ChooseBestAmbulanceOK}
 	\Delta Mobilization 	\\
-	\Xi AmubulanceInfo		\\
-	\Xi AmbulanceInfo		\\
+	\Xi AmbulanceInformation\\
+	\Xi IncidentInformation	\\
 	\newline				\\
 	incident? : INCIDENT	\\
 	\newline				\\
@@ -174,7 +174,7 @@ distance entre deux coordonnées.
 \subsubsection{UnknownIncident}
 
 \begin{schema}{UnknownIncident}
-	\Xi IncidentInfo		\\
+	\Xi IncidentInformation	\\
 	\newline				\\
 	incident? : INCIDENT	\\
 	\newline				\\
@@ -188,7 +188,7 @@ distance entre deux coordonnées.
 \subsubsection{IncidentAlreadyAttributed}
 
 \begin{schema}{IncidentAlreadyAttributed}
-	\Xi IncidentInfo		\\
+	\Xi IncidentInformation	\\
 	\Xi Mobilization		\\
 	\newline				\\
 	incident? : INCIDENT	\\
@@ -233,7 +233,65 @@ distance entre deux coordonnées.
 
 \section{Tests Boîte Noire}
 
+\subsection{ChooseBestAmbulance}
 
+\subsubsection{Inputs}
+
+Premièrement, définissons les préconditions sur les entrées de l'opération:
+
+\begin{tabular}{|c|l|}
+	\hline	\\
+	I1 & $incident? \in registered\_incident$ \\
+	\hline
+	I2 & $incident? \notin \ran choice\_incident$ \\
+	\hline
+	I3 & $\exists a: AMBULANCE @ status\_ambulance = 'FREE' \land
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?)$ \\
+	\hline
+\end{tabular}
+
+\subsubsection{Outputs}
+\begin{tabular}{|c|l|}
+	\hline	\\
+	O1 & $\forall a: AMBULANCE @ (status\_ambulance(a) = 'FREE' \land
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \land
+  	 distance(position\_ambulance(a), position\_incident(incident?)))
+  	 \geq distance(position\_ambulance(ambulance!), position\_incident(incident?))$ \\
+  	\hline \\
+  	O2 & $choice\_mobilization' = choice\_mobilization \oplus \{ ambulance! \mapsto incident? \}$ \\
+  	\hline \\
+  	O3 & $mob\_mobilization' = mob\_mobilization$ \\
+  	\hline \\
+  	O4 & $message! = \{'OK', 'UI', 'IAA', 'NGA'\}$ \footnote{$'UI'$ states for $'UnknownIncident'$, $'IAA'$ states for $'IncidentAlreadyAttributed'$, $'NGA'$ states for $'NoGoodAmbulance'$} \\ % TODO : footnote does not appear???
+	\hline
+\end{tabular}
+
+\subsubsection{Black-box decision table}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline \\
+	I1 & 1 & 0 & 1 & 1 \\
+	I2 & 1 & - & 0 & 1 \\
+	I3 & 1 & - & - & 0 \\
+	\hline \\
+	O1 & X &   &   &   \\
+	O2 & X &   &   &   \\
+	O3 & X & X & X & X \\
+	O4 & $'OK'$ & $'UI'$ & $'IAA'$ & $'NGA'$ \\
+	\hline
+\end{tabular}
+
+\subsubsection{Cas de test concrets}
+
+\subsection{ListUnattributedIncidents}
+
+\subsubsection{Inputs}
+
+\subsubsection{Outputs}
+
+\subsubsection{Black-box decision table}
+
+\subsubsection{Cas de test concrets}
 
 % TODO :remove this section
 \section{Exemples Z}
