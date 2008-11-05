@@ -30,10 +30,10 @@ Pour les types dont il est intéressant de spécifier les valeurs possibles, voi
 STATUS ::= 'FREE' | 'CHOSEN' | 'MOBILIZED' \\
 KIND ::= 'NORMAL' | 'MEDICALIZED' \\
 BOOLEAN ::= 'TRUE'  | 'FALSE' \\
-MESSAGE ::= \\
+MESSAGE ::= 'OK' | 'UnknownIncident' | 'IncidentAlreadyAttributed' | 'NoGoodAmbulance'\\ % TODO : complete message list
 \end{syntax}
 
-% Expliciter chacun des types ci-après en expliquant ce que chacun représente
+% TODO : Expliciter chacun des types ci-après en expliquant ce que chacun représente
 L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedefinition}.
 \begin{table}[htdp]\begin{center}\begin{tabular}{|c|c|}\hline 
 \textit{Type} & \textit{Définition} \\\hline
@@ -100,19 +100,116 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 
 \section{Opérations}
 
+\subsection{ChooseBestAmbulance}
+
+L'opération CooseBestAmbulance peut être définie comme suit :
+
+	$ChooseBestAmbulance = ChooseBestAmbulanceOK \land Success \lor
+	 UnknownIncident \lor IncidentAlreadyAttributed \lor NoGoodAmbulance$
+
+\subsubsection{ChooseBestAmbulanceOK}
+
+Pour cette première opération, nous faisons comme hypothèse qu'il existe une
+fonction $distance : (COORDINATES, COORDINATES) \rightarrow \nat$ qui renvoie la 
+distance entre deux coordonnées.
+
 \begin{schema}{ChooseBestAmbulanceOK}
+	\Delta Mobilization 	\\
+	\Xi AmubulanceInfo		\\
+	\Xi AmbulanceInfo		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
   \where
+  	incident? \in registered\_incident \\
+  	incident? \notin \ran choice\_mobilization \\
+  	\exists a: AMBULANCE @ status\_ambulance = 'FREE' \land \\
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \\
+  	\newline \\
+  	\forall a: AMBULANCE @ (status\_ambulance(a) = 'FREE' \land \\
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \land \\
+  	 distance(position\_ambulance(a), position\_incident(incident?))) \\
+  	 \geq distance(position\_ambulance(ambulance!), \\
+  	 position\_incident(incident?))\\
+  	\newline \\
+  	choice\_mobilization' = choice\_mobilization \oplus \{ ambulance! \mapsto incident? \} \\
+  	mob\_mobilization' = mob\_mobilization
 \end{schema}
 
-\begin{schema}{ListUnattributedIncidents}
+\subsubsection{Success}
+
+\begin{schema}{Success}
+	message! : REPORT	\\
+  \where				
+	message! = 'OK'		\\
+\end{schema}
+
+\subsubsection{UnknownIncident}
+
+\begin{schema}{UnknownIncident}
+	\Xi IncidentInfo		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
+  \where  
+	incident? \notin registered\_incident \\
+	message! = 'UnknownIncident'
+\end{schema}
+
+\subsubsection{IncidentAlreadyAttributed}
+
+\begin{schema}{IncidentAlreadyAttributed}
+	\Xi IncidentInfo		\\
+	\Xi Mobilization		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
   \where
+  	incident? \in registered\_incident \\
+  	incident? \in \ran choice\_mobilization \\
+  	\newline \\
+  	message! = 'IncidentAlreadyAttributed'
+\end{schema}
+
+\subsubsection{NoGoodAmbulance}
+
+\begin{schema}{NoGoodAmbulance}
+	\Xi Mobilization		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
+  \where
+	incident? \in registered\_incident \\
+	incident? \notin \ran choice\_mobilization \\
+	\not \exists a : AMBULANCE @ status\_ambulance(a) = 'FREE' \land \\
+	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \\
+	\newline \\
+	message! = 'NoGoodAmbulance'
+\end{schema}
+
+\subsection{ListUnattributedIncidents}
+
+\begin{schema}{ListUnattributedIncidents}
+	\Xi Mobilization		\\
+	\newline				\\
+	incidents! : \power INCIDENT \\
+  \where
+	incidents! \subseteq registered\_incident \\
+	incidents! = \{ i : INCIDENT | i \notin \ran choice\_mobilization\}
 \end{schema}
 
 \section{Tests Boîte Noire}
 
 
 
-
+% TODO :remove this section
 \section{Exemples Z}
 Cette section est laissée ici pour faciliter le démarrage de tout le monde avec Z en latex.  Évidemment\\ elle devra être retirée du rapport final.
 
