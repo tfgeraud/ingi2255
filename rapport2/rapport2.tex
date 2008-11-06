@@ -156,7 +156,7 @@ les suivants:
 \begin{schema}{AmbulanceInformation}
  	registered\_ambulance : \power AMBULANCE \\
 	\newline \\
- 	position\_ambulance : AMBULANCE \pinj COORDINATES \\
+ 	position\_ambulance : AMBULANCE \pfun COORDINATES \\
  	kind\_ambulance : AMBULANCE \pfun KIND \\
   \where
   	\dom position\_ambulance = \dom kind\_ambulance = registered\_ambulance
@@ -439,7 +439,7 @@ ambulanceKindNeeded\_incident &=& \{incident1 \rightarrow NORMAL, incident2 \rig
 \\
 status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow CHOSEN, alpha3 \rightarrow FREE, \\ 
 	&& mike1 \rightarrow MOBILIZED, mike2 \rightarrow FREE\} \\
-choice\_ambulance &=& \{alpha2 \rightarrow incident1\} \\
+choice\_ambulance &=& \{alpha2 \rightarrow incident1, alpha3 \rightarrow incident4, mike1 \rightarrow incident3\} \\
 mob\_mobilization &=& \{alpha3 \rightarrow incident4, mike1 \rightarrow incident3\} \\
 \end{eqnarray*}
 
@@ -562,7 +562,7 @@ kind\_ambulance &=& \{alpha1 \rightarrow NORMAL, alpha2 \rightarrow NORMAL, alph
 \\
 status\_ambulance &=& \{alpha1 \rightarrow MOBILIZED, alpha2 \rightarrow MOBILIZED, alpha3 \rightarrow CHOSEN, \\ 
 	&& mike1 \rightarrow MOBILIZED\} \\
-choice\_mobilization &=& \{alpha3 \rightarrow incident1\} \\
+choice\_mobilization &=& \{alpha3 \rightarrow incident1, alpha1 \rightarrow incident2, alpha1 \rightarrow incident4, mike1 \rightarrow incident3\} \\
 mob\_mobilization &=& \{alpha1 \rightarrow incident2, alpha1 \rightarrow incident4, mike1 \rightarrow incident3\} \\
 \end{eqnarray*}
 La sortie attendue est 
@@ -595,7 +595,7 @@ Plus d'un incident dans le système n'est pas affecté
 \begin{eqnarray*}
 status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow CHOSEN, alpha3 \rightarrow FREE, \\ 
 	&& mike1 \rightarrow FREE, mike2 \rightarrow FREE\} \\
-choice\_ambulance &=& \{alpha2 \rightarrow incident1\} \\
+choice\_ambulance &=& \{alpha2 \rightarrow incident1, alpha3 \rightarrow incident4\} \\
 mob\_mobilization &=& \{alpha3 \rightarrow incident4\} \\
 \end{eqnarray*}
 La sortie attendue est 
