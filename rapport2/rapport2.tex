@@ -1,46 +1,158 @@
-\documentclass[12pt]{article}
-\usepackage{zed-csp}%from
+\documentclass{report}
+
 \usepackage[utf8]{inputenc}
+\usepackage{style-report}
+
+% L'en-tête et la mise en page sera différente
+% Merci de ne pas faire de mise en page dans le document !
+\title{London Ambulance System}
+\subtitle{Schémas Z et tests BlackBox}
+\author{\normalsize{Groupe 2}\\
+\footnotesize{
+Simon Busard, \\
+Antoine Cailliau, \\
+Laurent Champon,\\
+Erick Lavoie, \\
+Quentin Pirmez,\\
+Frederic Van der Essen, \\
+Géraud Talla Fotsing}}
+
+\date{\today}
+
+% Pour modifier la géométrie de la page
+\usepackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
+
+\newlength{\realtextwidth}
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfiguremargin}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\realtextwidth}
+			\vspace{0pt}
+			\includegraphics[width=\realtextwidth]{images/#1.png}
+		\end{minipage}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0pt}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
+
+}
+
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfigure}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\textwidth}
+			\vspace{0pt}
+			\includegraphics[width=\textwidth]{images/#1.png}
+		\end{minipage}
+		
+		\hspace{\realtextwidth}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0.5cm}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
+
+}
+
+\usepackage{zed-csp}%from
 
 \begin{document}
 
-\title{Schémas Z et tests BlackBox}
-\author{Groupe 2}
-\date{\today}
+\setlength{\parskip}{1em}
+\startdocument
+
 \maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
 
+\chapter{Schémas Z}
 
-\section{Types donnés}
-Les spécifications Z s'appuient sur les types suivants:
+Dans cette section, nous présentons les différentes opérations et
+schémas type liés que nous avons formalisés à l'aide du language Z.
+
+Plus précisément, la section \ref{sec:type} présente les différents
+types sur lequels s'appuie le reste de la formalisation. La section
+\ref{sec:sctype} présente les schémas types. Enfin la section
+\ref{sec:op} présente les opérations formalisées.
+
+\section{Types donnés}\label{sec:type}
+Les spécifications Z de nos schémas types et 
+opérations s'appuient sur les types présentés ci-dessous. Ces types sont
+définis par la suite.
 \begin{zed}
 AMBULANCE \\
 COORDINATES \\
 INCIDENT \\
-NAME \\
-DATE \\
 STATUS  \\
 KIND \\
 LOCALISATION \\
 BOOLEAN \\
-MESSAGE  \\
+REPORT  \\
+DESCRIPTION
 \end{zed}
 
-Pour les types dont il est intéressant de spécifier les valeurs possibles, voici à quoi elles correspondent:
+Pour certains types, il est intéressant de spécifier les valeurs 
+possibles de ces types. Ces différentes valeurs possibles sont présentées
+ci-dessous.
+% FIXME: Check if quotes (') are needed around type... I'm not sure.
 \begin{syntax}
-STATUS ::= 'FREE' | 'CHOSEN' | 'MOBILIZED' \\
-KIND ::= 'NORMAL' | 'MEDICALIZED' \\
-BOOLEAN ::= 'TRUE'  | 'FALSE' \\
-MESSAGE ::= \\
+STATUS ::= FREE | CHOSEN | MOBILIZED \\
+KIND ::= NORMAL | MEDICALIZED \\
+BOOLEAN ::= TRUE  | FALSE \\
+MESSAGE ::= OK | UnknownIncident | IncidentAlreadyAttributed | NoGoodAmbulance
 \end{syntax}
 
-% Expliciter chacun des types ci-après en expliquant ce que chacun représente
-L'explication pour chacun des types est fournie dans le tableau \ref{tab:typedefinition}.
-\begin{table}[htdp]\begin{center}\begin{tabular}{|c|c|}\hline 
-\textit{Type} & \textit{Définition} \\\hline
-AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline NAME & null \\\hline DATE & null \\\hline STATUS & null \\\hline KIND & null \\\hline LOCALISATION & null \\\hline BOOLEAN & null \\\hline MESSAGE & null \\\hline \end{tabular} \caption{Définition des types donnés}\end{center}\label{tab:typedefinition}\end{table}
+Les types une fois déclarés doivent évidemment être définis de 
+manière précise et claire. 
+\begin{table}[!h]\begin{minipage}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline 
+		\textit{Type} & \textit{Définition} \\
+		\hline
+		AMBULANCE & L'ensemble des ambulances physiques possibles. \\
+		\hline
+		COORDINATES & L'ensemble des coordonnées géographiques possibles (latitude, longitude). \\
+		\hline
+		INCIDENT & L'ensemble des incidents possibles. \\
+		\hline
+		STATUS & L'ensemble des statuts possibles pour une ambulance. \\
+		\hline
+		KIND & L'ensemble des types d'ambulance possibles. \\
+		\hline
+		LOCALISATION & L'ensemble des localisations possibles (rue, numéro, adresse, etc.). \\
+		\hline
+		BOOLEAN & L'ensemble des booléens. \\
+		\hline
+		REPORT & L'ensemble des messages possibles. \\
+		\hline
+		DESCRIPTION & L'ensemble des descriptions d'incident possibles. \\
+		\hline
+	\end{tabularx}
+	\caption{Définition des types donnés}\label{tab:typedefinition}\end{minipage}
+\end{table}
 
+\section{Schémas Types}\label{sec:sctype}
+Cette section présente les différents schémas types nécessaires pour la 
+bonne formalisation de nos états. Les trois schémas types sont 
+les suivants: 
+\begin{itemize}
+	\item AmbulanceInformation
+	\item IncidentInformation
+	\item Mobilization
+\end{itemize}
 
-\section{Schémas Types}
 \begin{schema}{AmbulanceInformation}
  	registered\_ambulance : \power AMBULANCE \\
 	\newline \\
@@ -53,12 +165,12 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 \begin{schema}{IncidentInformation}
 	registered\_incident : \power INCIDENT \\
 	\newline \\
-	victimAge\_incident : INCIDENT \pfun \nat \\ % TODO Trouver le truc Z correspondant au nombre naturel
+	victimAge\_incident : INCIDENT \pfun \nat \\
 	victimPregnant\_incident : INCIDENT \pfun BOOLEAN \\
 	localisation\_incident : INCIDENT \pfun LOCALISATION \\
 	description\_incident : INCIDENT \pfun DESCRIPTION \\
 	\newline \\
-	position\_incident : INCIDENT \pfun POSITION \\
+	position\_incident : INCIDENT \pfun COORDINATES \\
 	ambulanceKindNeeded\_incident : INCIDENT \pfun KIND \\
   \where
   	\dom victimAge\_incident = \dom victimPregnant\_incident =\\
@@ -67,8 +179,11 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 	 \newline \\
 	 \dom position\_incident = \dom ambulanceKindNeeded\_incident \\
 	 \dom position\_incident \subseteq registered\_incident \\
-	 \dom ambulanceKindNeeded\_incident  \subseteq registered\_incident \\ % Redondant\\ répété pour la clarté
+	 \dom ambulanceKindNeeded\_incident  \subseteq registered\_incident \\ % Redondant répété pour la clarté
 \end{schema}
+
+La dernière ligne du schéma \textit{IncidentInformation} est redondante
+mais nous avons préféré l'expliciter pour plus de clarté.
 
 \begin{schema}{Mobilization}
 	AmbulanceInformation \\
@@ -87,64 +202,417 @@ AMBULANCE & null \\\hline COORDINATES & null \\\hline INCIDENT & null \\\hline N
 	\ran mob\_mobilization  \subseteq \ran choice\_mobilization \\
 	\newline \\
 	\forall a: AMBULANCE @ 
-			(status\_ambulance(a) = 'FREE') \equiv \\
+			(status\_ambulance(a) = FREE) \equiv \\
 	                        ( a \notin \dom choice\_mobilization \land a \notin \dom mob\_mobilization) \\
 	                   \land
-	                   (status\_ambulance(a) = 'CHOSEN') \equiv \\
+	                   (status\_ambulance(a) = CHOSEN) \equiv \\
 	                        ( a \in \dom choice\_mobilization \land a \notin \dom mob\_mobilization) \\
 	                     \land
-	                   (status\_ambulance(a) = 'MOBILIZED') \equiv \\
+	                   (status\_ambulance(a) = MOBILIZED) \equiv \\
 	                        ( a \in \dom choice\_mobilization \land a \in \dom mob\_mobilization) \\
   	
 \end{schema}
 
-\section{Opérations}
+\section{Opérations}\label{sec:op}
+
+Cette section présente deux opérations formalisées à l'aide du langage Z:
+ChooseBestAmbulance et ListUnattributedIncidents.
+
+\section{Le choix de l'ambulance : ChooseBestAmbulance}
+
+L'opération ChooseBestAmbulance est, pour rappel, l'opérationalisation
+du but \textit{Achive[BestAmbulanceChosen]} contribuant directemment à l'affection
+d'une ambulance sur un incident. Cette opération
+peut être séparée comme suit :
+\begin{eqnarray*}
+ChooseBestAmbulance & = & (ChooseBestAmbulanceOK \land Success) \\ && \lor
+ UnknownIncident \\ && \lor IncidentAlreadyAttributed \\ && \lor NoGoodAmbulance
+\end{eqnarray*}
+Avec une telle décomposition, l'opération est robuste. La suite détaille 
+naturellement les opérations de cette décomposition.
+
+\subsection{ChooseBestAmbulanceOK}
+
+Pour cette première opération, nous faisons comme hypothèse qu'il existe une
+fonction $$distance : (COORDINATES, COORDINATES) \rightarrow \nat$$ qui retourne la 
+distance entre deux coordonnées.
 
 \begin{schema}{ChooseBestAmbulanceOK}
+	\Delta Mobilization 	\\
+	\Xi AmbulanceInformation\\
+	\Xi IncidentInformation	\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
   \where
+  	incident? \in registered\_incident \\
+  	incident? \notin \ran choice\_mobilization \\
+  	\exists a: AMBULANCE @ status\_ambulance = FREE \land \\
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \\
+  	\newline \\
+  	\forall a: AMBULANCE @ (status\_ambulance(a) = FREE \land \\
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \land \\
+  	 distance(position\_ambulance(a), position\_incident(incident?)) \\
+  	 \geq distance(position\_ambulance(ambulance!), \\
+  	 position\_incident(incident?)))\\
+  	\newline \\
+  	choice\_mobilization' = choice\_mobilization \oplus \{ ambulance! \mapsto incident? \} \\
+  	mob\_mobilization' = mob\_mobilization
 \end{schema}
 
-\begin{schema}{ListUnattributedIncidents}
+	Nous n'explicitons pas ici le nouvel état de $status\_ambulance$ car il
+	est mis à jour automatiquement par le dernier invariant de
+	\textit{Mobilization}.
+
+\subsection{Success}
+
+\begin{schema}{Success}
+	message! : REPORT	\\
+  \where				
+	message! = OK		\\
+\end{schema}
+
+\subsection{UnknownIncident}
+
+\begin{schema}{UnknownIncident}
+	\Xi IncidentInformation	\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
+  \where  
+	incident? \notin registered\_incident \\
+	message! = UnknownIncident
+\end{schema}
+
+\subsection{IncidentAlreadyAttributed}
+
+\begin{schema}{IncidentAlreadyAttributed}
+	\Xi IncidentInformation	\\
+	\Xi Mobilization		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
   \where
+  	incident? \in registered\_incident \\
+  	incident? \in \ran choice\_mobilization \\
+  	\newline \\
+  	message! = IncidentAlreadyAttributed
 \end{schema}
+\newpage
+\subsection{NoGoodAmbulance}
 
-\section{Tests Boîte Noire}
-
-
-
-
-\section{Exemples Z}
-Cette section est laissée ici pour faciliter le démarrage de tout le monde avec Z en latex.  Évidemment\\ elle devra être retirée du rapport final.
-
-Exemples de types donnés:
-\begin{zed}
-[PRODUCT\\ COIN]
-\end{zed}
-
-
-Exemple de schéma d'état
-\begin{schema}{ShemaName}
-  inventory : \bag PRODUCT\\
-  price : PRODUCT \pfun \nat\\
-  float : \bag COIN\\
-  entered : \bag COIN\\
-  accept : \power COIN
+\begin{schema}{NoGoodAmbulance}
+	\Xi Mobilization		\\
+	\newline				\\
+	incident? : INCIDENT	\\
+	\newline				\\
+	ambulance! : AMBULANCE	\\
+	message! : REPORT		\\
   \where
-  \dom inventory \subseteq \dom price\\
-  \dom float \subseteq accepted\\
-  \dom entered \subseteq accepted
+	incident? \in registered\_incident \\
+	incident? \notin \ran choice\_mobilization \\
+	\not \exists a : AMBULANCE @ status\_ambulance(a) = FREE \land \\
+	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?) \\
+	\newline \\
+	message! = NoGoodAmbulance
 \end{schema}
 
-Exemple d'opération
-\begin{schema}{AcceptCoin}
-\Delta Money\\
-newCoin? : COIN
-\where
-newCoin? \notin accept\\
-float' = float\\
-entered' = entered\\
-accept' = accept \cup \{newCoin?\}
+\section{Liste des ambulances non-attribuées : ListUnattributedIncidents}
+Cette opération est une simple requête sur l'état de notre systême. Cette
+opération retourne l'ensemble des incidents pour lesquels aucune ambulance
+n'a encore été choisie.
+
+Nous pouvons définir l'opération comme suivant
+\begin{eqnarray*}
+ListUnattributedIncidents & = & (ListUnattributedIncidentsOK \land Success)
+\end{eqnarray*}
+
+\begin{schema}{ListUnattributedIncidentsOK}
+	\Xi Mobilization		\\
+	\newline				\\
+	incidents! : \power INCIDENT \\
+  \where
+	incidents! \subseteq registered\_incident \\
+	incidents! = \{ i : INCIDENT | i \notin \ran choice\_mobilization \land i \notin \ran mob\_mobilization \}
 \end{schema}
+
+\chapter{Tests Boîte Noire}
+
+Ce chapitre présente les tests boîtes noires qui sont dérivés directement
+des opérations présentées ci-dessus.
+
+\section{ChooseBestAmbulance}
+
+Pour le test en boîte noire, il nous faut présenter les entrées,
+les sorties, la table de vérité liée à ces entrées et sorties et enfin, 
+des représentants que nous utiliserons dans les tests concrets.
+
+\subsection{Inputs}
+
+Premièrement, définissons les préconditions sur les entrées de l'opération:
+
+\noindent\begin{minipage}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+\begin{tabularx}{\textwidth}{|l|X|}
+	\hline
+	I1 & $incident? \in registered\_incident$ \\
+	\hline
+	I2 & $incident? \notin \ran choice\_incident$ \\
+	\hline
+	I3 & $\exists a: AMBULANCE @ status\_ambulance = FREE$\\&$ \land
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?)$ \\
+	\hline
+\end{tabularx}\end{minipage}
+
+\subsection{Outputs}
+
+Deuxièmement, définissons les sorties possibles.
+
+\noindent\begin{minipage}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+\begin{tabularx}{\textwidth}{|l|X|}
+	\hline
+	O1 & $\forall a: AMBULANCE @ (status\_ambulance(a) = FREE$\\&$\land
+  	 kind\_ambulance(a) = ambulanceKindNeeded\_incident(incident?)$\\&$\land
+  	 distance(position\_ambulance(a), position\_incident(incident?)))$\\&$
+  	 \geq distance(position\_ambulance(ambulance!), position\_incident(incident?))$ \\
+  	\hline
+  	O2 & $choice\_mobilization' = choice\_mobilization \oplus \{ ambulance! \mapsto incident? \}$ \\
+  	\hline
+  	O3 & $mob\_mobilization' = mob\_mobilization$ \\
+  	\hline
+  	O4 & $message! = \{OK, UI, IAA, NGA\}$ \\
+	\hline
+	O5 & $status\_mobilization' = status\_mobilization \oplus \{ ambulance! \mapsto CHOSEN \}$ \\
+  	\hline
+\end{tabularx}\end{minipage}
+
+Notons par ailleurs que $UI$ équivant à $UnknownIncident$, $IAA$ à $IncidentAlreadyAttributed$ et $NGA$ à $NoGoodAmbulance$.
+
+\subsection{Black-box decision table}
+
+Troisièmement, énonçons la table de vérité, liant les deux précédentes
+étapes.
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	I1 & 1 & 0 & 1 & 1 \\
+	I2 & 1 & - & 0 & 1 \\
+	I3 & 1 & - & - & 0 \\
+	\hline \hline
+	O1 & X &   &   &   \\
+	O2 & X &   &   &   \\
+	O3 & X & X & X & X \\
+	O5 & X &   &   &   \\
+	O4 & $OK$ & $UI$ & $IAA$ & $NGA$ \\
+	\hline
+\end{tabular}
+
+\subsection{Cas de test concrets}
+
+Enfin, nous devons préparer des tests concrets sur chacune des classes 
+présentées dans la table de vérité (une classe étant équivalente à une
+colonne).
+
+Supposons que le test s'exécute sur l'ensemble de départ suivant:
+\begin{eqnarray*}
+registered\_ambulance &=& \{alpha1, alpha2, alpha3, mike1, mike2\}\\
+position\_ambulance &=& \{alpha1 \rightarrow (0,0), alpha2 \rightarrow (0,0), alpha3 \rightarrow (0,0), \\ 
+	&& mike1 \rightarrow (0,0), mike2 \rightarrow (0,0)\}\\
+kind\_ambulance &=& \{alpha1 \rightarrow NORMAL, alpha2 \rightarrow NORMAL, alpha3 \rightarrow NORMAL, \\ 
+	&& mike1 \rightarrow MEDICALIZED, mike2 \rightarrow MEDICALIZED\} \\
+\\
+registered\_incident &=& \{incident1, incident2, incident3, incident4\}\\
+victimPregnant\_incident &=& \{incident1 \rightarrow FALSE, incident2\rightarrow FALSE, \\ 
+	&& incident3\rightarrow FALSE, incident4\rightarrow FALSE\}\\
+localisation\_incident &=& \{incident1 \rightarrow \text{"Rue Léonard, 7"}, incident2 \rightarrow \text{"Allée du Dr. Cooper"},\\ 
+	&&  incident3  \rightarrow \text{"Penny's Street"}, incident4 \rightarrow \text{"Wolowitz's lane"}\}\\
+description\_incident &=& \{incident1 \rightarrow \text{"Left arm broken"}, incident2 \rightarrow \text{"Right leg broken"},\\ 
+	&&  incident3 \rightarrow \text{"Coma suspected"}, incident4 \rightarrow \text{"Injure at head"}\}\\
+position\_incident &=& \{incident1 \rightarrow (1,0), incident2 \rightarrow (1,1),\\ 
+	&&  incident3 \rightarrow (3,5), incident4 \rightarrow (1,3)\}\\
+ambulanceKindNeeded\_incident &=& \{incident1 \rightarrow NORMAL, incident2 \rightarrow NORMAL, \\ 
+	&& incident3 \rightarrow MEDICALIZED, incident4 \rightarrow NORMAL\}\\
+\\
+status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow CHOSEN, alpha3 \rightarrow FREE, \\ 
+	&& mike1 \rightarrow MOBILIZED, mike2 \rightarrow FREE\} \\
+choice\_ambulance &=& \{alpha2 \rightarrow incident1\} \\
+mob\_mobilization &=& \{alpha3 \rightarrow incident4, mike1 \rightarrow incident3\} \\
+\end{eqnarray*}
+
+\subsubsection{Première classe}
+
+En entrée, nous avons $incident2$ et en sortie, 
+\begin{itemize}
+	\item $choice\_ambulance' = \{alpha2 \rightarrow incident1, alpha1 \rightarrow incident3 \}$
+	\item $mob\_mobilization' = mob\_mobilization$
+	\item $status\_ambulance' = status\_ambulance \oplus \{alpha2 \rightarrow CHOSEN \}$
+	\item $message! = OK$
+\end{itemize}
+
+\subsubsection{Seconde classe}
+
+En entrée, nous avons $incident5$ et en sortie, 
+\begin{itemize}
+	\item $choice\_ambulance' = choice\_ambulance$
+	\item $mob\_mobilization' = mob\_mobilization$
+	\item $status\_ambulance' = status\_ambulance$
+	\item $message! = UnknownIncident$
+\end{itemize}
+
+\subsubsection{Troisième classe}
+
+En entrée, nous avons $incident1$ et en sortie, 
+\begin{itemize}
+	\item $choice\_ambulance' = choice\_ambulance$
+	\item $mob\_mobilization' = mob\_mobilization$
+	\item $status\_ambulance' = status\_ambulance$
+	\item $message! = IncidentAlreadyAttributed$
+\end{itemize}
+
+\subsubsection{Quatrième classe}
+
+Pour ce test, il nous faut modifier l'ensemble de départ.
+\begin{eqnarray*}
+status\_ambulance &=& \{alpha1 \rightarrow MOBILIZED, alpha2 \rightarrow CHOSEN, alpha3 \rightarrow FREE, \\ 
+	&& mike1 \rightarrow MOBILIZED, mike2 \rightarrow FREE\} \\
+mob\_mobilization &=& \{alpha3 \rightarrow incident4, alpha1 \rightarrow incident2, mike1 \rightarrow incident3\} \\
+\end{eqnarray*}
+En entrée, nous avons $incident2$ et en sortie, 
+\begin{itemize}
+	\item $choice\_ambulance' = choice\_ambulance$
+	\item $mob\_mobilization' = mob\_mobilization$
+	\item $status\_ambulance' = status\_ambulance$
+	\item $message! = NoGoodAmbulance$
+\end{itemize}
+
+Un autre test à exécuter serait si aucune ambulance n'existe dans 
+le système, il est alors possible reprendre tous les tests
+précédents qui devraient renvoyer le message $NoGoodAmbulance$ pour tout
+les tests dans modifier $choice\_ambulance$, $mob\_mobilization$ ou 
+$status\_ambulance$.
+
+\section{ListUnattributedIncidents}
+
+Comme pour le test précédent, il nous faut présenter les entrées,
+les sorties, la table de vérité liée à ces entrées et sorties et enfin, 
+des représentants que nous utiliserons dans les tests concrets.
+
+\subsection{Inputs}
+
+La précondition étant vide, nous n'avons pas de conditions à énoncer ici.
+
+\subsection{Outputs}
+
+\noindent\begin{minipage}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+\begin{tabularx}{\textwidth}{|l|X|}
+	\hline
+	O1 & $incidents! \subseteq registered\_incident$ \\ \hline
+	O2 & $incidents! = \{ i : INCIDENT | i \notin \ran choice\_mobilization \land i \notin \ran mob\_mobilization \}$ \\ \hline
+	O3 & $message! = \{OK\}$ \\ \hline
+  	\hline
+\end{tabularx}\end{minipage}
+
+\subsection{Black-box decision table}
+
+\begin{tabular}{|c|c|}
+	\hline
+	O1 & X \\
+	O2 & X \\
+	O3 & $OK$ \\
+	\hline
+\end{tabular}
+
+\subsection{Cas de test concrets}
+
+\subsubsection{Premier test}
+Si nous reprenons notre ensemble de valeurs de départ utilisé pour l'opération
+précédente, la sortie attendue de notre opération sera la suivante:
+\begin{itemize}
+	\item $incidents! = \{incident2\}$
+\end{itemize}
+
+Nous pouvons proposer plusieurs autres tests basés sur différentes
+versions de l'ensemble de départ.
+
+\subsubsection{Second test}
+Tous les incidents n'ont pas d'ambulance affectée. 
+\begin{eqnarray*}
+status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow FREE, alpha3 \rightarrow FREE, \\ 
+	&& mike1 \rightarrow FREE, mike2 \rightarrow FREE\} \\
+choice\_mobilization &=& \{\} \\
+mob\_mobilization &=& \{\} \\
+\end{eqnarray*}
+La sortie attendue est 
+\begin{itemize}
+	\item $incidents! = \{incident1, incident2, incident3, incident4\}$
+\end{itemize}
+
+\subsubsection{Troisième test}
+Tous les incidents sont affectés
+\begin{eqnarray*}
+registered\_ambulance &=& \{alpha1, alpha2, alpha3, mike1\}\\
+position\_ambulance &=& \{alpha1 \rightarrow (0,0), alpha2 \rightarrow (0,0), alpha3 \rightarrow (0,0), \\ 
+	&& mike1 \rightarrow (0,0)\}\\
+kind\_ambulance &=& \{alpha1 \rightarrow NORMAL, alpha2 \rightarrow NORMAL, alpha3 \rightarrow NORMAL, \\ 
+	&& mike1 \rightarrow MEDICALIZED\} \\
+\\
+status\_ambulance &=& \{alpha1 \rightarrow MOBILIZED, alpha2 \rightarrow MOBILIZED, alpha3 \rightarrow CHOSEN, \\ 
+	&& mike1 \rightarrow MOBILIZED\} \\
+choice\_mobilization &=& \{alpha3 \rightarrow incident1\} \\
+mob\_mobilization &=& \{alpha1 \rightarrow incident2, alpha1 \rightarrow incident4, mike1 \rightarrow incident3\} \\
+\end{eqnarray*}
+La sortie attendue est 
+\begin{itemize}
+	\item $incidents! = \{\}$
+\end{itemize}
+
+\subsubsection{Quatrième test}
+Aucun incident n'existe dans le système
+\begin{eqnarray*}
+registered\_incident &=& \{\}\\
+victimPregnant\_incident &=& \{\}\\
+localisation\_incident &=& \{\}\\
+description\_incident &=& \{\}\\
+position\_incident &=& \{\}\\
+ambulanceKindNeeded\_incident &=& \{\}\\
+\\
+status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow FREE, alpha3 \rightarrow FREE, \\ 
+	&& mike1 \rightarrow FREE, mike2 \rightarrow FREE\} \\
+choice\_ambulance &=& \{\} \\
+mob\_mobilization &=& \{\} \\
+\end{eqnarray*}
+La sortie attendue est 
+\begin{itemize}
+	\item $incidents! = \{\}$
+\end{itemize}
+
+\subsubsection{Cinquième test}
+Plus d'un incident dans le système n'est pas affecté
+\begin{eqnarray*}
+status\_ambulance &=& \{alpha1 \rightarrow FREE, alpha2 \rightarrow CHOSEN, alpha3 \rightarrow FREE, \\ 
+	&& mike1 \rightarrow FREE, mike2 \rightarrow FREE\} \\
+choice\_ambulance &=& \{alpha2 \rightarrow incident1\} \\
+mob\_mobilization &=& \{alpha3 \rightarrow incident4\} \\
+\end{eqnarray*}
+La sortie attendue est 
+\begin{itemize}
+	\item $incidents! = \{incident2, incident3\}$
+\end{itemize}
+
+\chapter*{Conclusion}
+
+Grâce à notre travail de formalisation effectué dans l'analyse des besoins, 
+la formalisation en langage Z a été facilement déduite et construite. Les tests
+ont été dérivés sans difficulté des opérations. 
+
+Nous n'avons pas identifié d'erreur dans notre analyse des besoins par
+rapport à cette formalisation, probablement du au fait qu'une grande partie
+de la formalisation avait été faite préalablement, nous permettant d'identifier
+ces erreurs en amont.
 
 
 \end{document}
