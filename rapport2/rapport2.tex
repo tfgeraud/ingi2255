@@ -384,9 +384,13 @@ Deuxièmement, définissons les sorties possibles.
   	\hline
   	O3 & $mob\_mobilization' = mob\_mobilization$ \\
   	\hline
-  	O4 & $message! = \{OK, UI, IAA, NGA\}$ \\
+  	O4 & $status\_mobilization' = status\_mobilization \oplus \{ ambulance! \mapsto CHOSEN \}$ \\
+  	\hline
+  	O5 & $choice\_mobilization' = choice\_mobilization$ \\
 	\hline
-	O5 & $status\_mobilization' = status\_mobilization \oplus \{ ambulance! \mapsto CHOSEN \}$ \\
+	O6 & $status\_mobilization' = status\_mobilization$ \\
+  	\hline
+  	O7 & $message! = \{OK, UI, IAA, NGA\}$ \\
   	\hline
 \end{tabularx}\end{minipage}
 
@@ -406,8 +410,10 @@ Troisièmement, énonçons la table de vérité, liant les deux précédentes
 	O1 & X &   &   &   \\
 	O2 & X &   &   &   \\
 	O3 & X & X & X & X \\
-	O5 & X &   &   &   \\
-	O4 & $OK$ & $UI$ & $IAA$ & $NGA$ \\
+	O4 & X &   &   &   \\
+	O5 &   & X & X & X \\
+	O6 &   & X & X & X \\
+	O7 & $OK$ & $UI$ & $IAA$ & $NGA$ \\
 	\hline
 \end{tabular}
 
