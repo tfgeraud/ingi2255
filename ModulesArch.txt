@@ -1,0 +1,74 @@
+
+Définition des Modules et des opérations.
+========================================
+
+InfoGUI:
+--------
+Ce module contient l'interface graphique présentée à l'opérateur
+téléphonique, avec laquelle il entre les données d'un IncidentInformation.
+
+Op: InputInfo.
+	Pre: 	Les champs de l'interface ont été remplis.
+	Post: 	Un Incident est crée avec un IncidentInformation contenant
+	    	les informations dans les champs.
+		Incident.selfProcess est lancé. 
+Op: Cancel(Incident)
+	Pre: L'Incident existe et n'est pas résolu.
+	Post: un event cancel est envoyé à l'incident.
+
+
+Incident:
+---------
+Ce module contient l'IncidentInformation, une information sur son état,
+et se charge de résoudre l'incident réel associé..
+
+Op: selfProcess:
+	Pre: L'incident n'est pas résolu.
+	Post: L'incident est résolu, et ses ressources libérées,
+		à chacune des transitions d'état un log est enregistré dans
+		la BDD. 
+
+Op: Cancel :
+	Pre: L'incident n'est pas résolu.
+	Post: L'incident est imédiatement considéré comme résolu, et
+	      ses ressources libérées. TODO Mesures de sécurité ?
+
+MetaModule IncidentProcessor:
+----------------------------
+Ce module contient l'ensemble des modules qui réaliseront 
+les transitions d'état d'Incident. 
+
+InfoProcessor:
+--------------
+processInfo:
+	pre: L'incident est dans l'état 'Known'
+	post: Si les informations de l'incident nécessaires sont présentes,
+	complètes celles manquantes et renvoie ok. 
+	sinon ne complète rien et renvoie ko.
+
+AmbulanceChooser:
+-----------------
+chooseBestAmb(excludeset)
+	pre: L'incident est dans l'état 'Processed'
+	post: renvoie la meilleure ambulance libre, pas dans l'exclude set si possible.
+
+AmbulanceMobize :
+-----------------
+mobilizeAmbulance
+	pre: l'incident est dans l'état chosen.
+	post: soit l'ambulance a été contactée et a renvoyé une réponse positive -> ok
+	      soit l'ambulance a été contactée et a renvoyé une réponse négative -> ko
+	      soit l'ambulance n'a pas répondu -> ko
+
+IncidentResolve :
+-----------------
+confirmResolution : 
+	pre: l'incident est dans l'état mobilisé.
+	post : soit l'ambulance a fait son travail -> ok
+	  	l'ambulance n'a pas fait son travail ou ne donne pas de nouvelles -> ko.
+
+demobilize :
+	pre: l'ambulance a fait son travail  ou l'ambulance ne l'a pas fait 
+	et a un problème technique
+	post: l'ambulance n'est plus mobilisée. 
+

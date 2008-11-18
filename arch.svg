@@ -111,12 +111,12 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.0226294"
      inkscape:cx="377.4034"
-     inkscape:cy="1950.8984"
+     inkscape:cy="854.00797"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1024"
-     inkscape:window-height="693"
+     inkscape:window-width="1016"
+     inkscape:window-height="690"
      inkscape:window-x="0"
      inkscape:window-y="26"
      showguides="true"
@@ -1166,14 +1166,14 @@
       <text
          transform="matrix(0,-1,1,0,0,0)"
          id="text3368"
-         y="283.34943"
-         x="-828.8092"
-         style="font-size:12px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         y="282.93112"
+         x="-828.6991"
+         style="font-size:10.87791061px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
          xml:space="preserve"><tspan
-           y="283.34943"
-           x="-828.8092"
+           y="282.93112"
+           x="-828.6991"
            id="tspan3370"
-           sodipodi:role="line">Incident  New</tspan></text>
+           sodipodi:role="line">Incident  Known</tspan></text>
     </g>
     <g
        id="g3377"
@@ -1241,15 +1241,15 @@
          ry="8.3999996" />
       <text
          xml:space="preserve"
-         style="font-size:10.59694386px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
-         x="-828.67151"
-         y="282.82635"
+         style="font-size:8.76736259px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="-828.49194"
+         y="282.14429"
          id="text3399"
          transform="matrix(0,-1,1,0,0,0)"><tspan
            sodipodi:role="line"
            id="tspan3401"
-           x="-828.67151"
-           y="282.82635">Incident  Known</tspan></text>
+           x="-828.49194"
+           y="282.14429">Incident  Processed </tspan></text>
     </g>
     <g
        transform="matrix(0.8998323,0,0,0.8998323,120.71129,732.43561)"
@@ -3210,14 +3210,14 @@
       <text
          transform="matrix(0,-1,1,0,0,0)"
          id="text5760"
-         y="283.34943"
-         x="-828.8092"
-         style="font-size:12px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         y="282.88464"
+         x="-828.68683"
+         style="font-size:10.75323391px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
          xml:space="preserve"><tspan
-           y="283.34943"
-           x="-828.8092"
+           y="282.88464"
+           x="-828.68683"
            id="tspan5762"
-           sodipodi:role="line">Incident  New</tspan></text>
+           sodipodi:role="line">Incident  Known</tspan></text>
     </g>
     <g
        transform="matrix(0,1,-1,0,1104.6791,1928.3021)"
@@ -3233,15 +3233,15 @@
          ry="8.3999996" />
       <text
          xml:space="preserve"
-         style="font-size:10.59694386px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
-         x="-828.67151"
-         y="282.82635"
+         style="font-size:8.9551506px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="-828.51038"
+         y="282.21429"
          id="text5768"
          transform="matrix(0,-1,1,0,0,0)"><tspan
            sodipodi:role="line"
            id="tspan5770"
-           x="-828.67151"
-           y="282.82635">Incident  Known</tspan></text>
+           x="-828.51038"
+           y="282.21429">Incident  Processed</tspan></text>
     </g>
     <g
        id="g5772"
@@ -3931,7 +3931,7 @@
          y="894.22076"
          id="tspan6146">PIPELINE <tspan
    style="font-size:9.78929329px;fill:#ffffff"
-   id="tspan6148"></tspan></tspan><tspan
+   id="tspan6148" /></tspan><tspan
          sodipodi:role="line"
          x="365.69916"
          y="907.58429"
