@@ -9,7 +9,7 @@ téléphonique, avec laquelle il entre les données d'un IncidentInformation.
 
 Op: InputInfo.
 	Pre: 	Les champs de l'interface ont été remplis.
-	Post: 	Un Incident est crée avec un IncidentInformation contenant
+	Post: 	Un Incident est créé avec un IncidentInformation contenant
 	    	les informations dans les champs.
 		Incident.selfProcess est lancé. 
 Op: Cancel(Incident)
@@ -42,8 +42,8 @@ InfoProcessor:
 --------------
 processInfo:
 	pre: L'incident est dans l'état 'Known'
-	post: Si les informations de l'incident nécessaires sont présentes,
-	complètes celles manquantes et renvoie ok. 
+	post: Si les informations nécessaires de l'incident sont présentes,
+	complète celles manquantes et renvoie ok. 
 	sinon ne complète rien et renvoie ko.
 
 AmbulanceChooser:
@@ -52,7 +52,7 @@ chooseBestAmb(excludeset)
 	pre: L'incident est dans l'état 'Processed'
 	post: renvoie la meilleure ambulance libre, pas dans l'exclude set si possible.
 
-AmbulanceMobize :
+AmbulanceMobilize :
 -----------------
 mobilizeAmbulance
 	pre: l'incident est dans l'état chosen.
