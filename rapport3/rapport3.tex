@@ -1,0 +1,86 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{style-report}
+
+% L'en-tête et la mise en page sera différente
+% Merci de ne pas faire de mise en page dans le document !
+\title{London Ambulance System}
+\subtitle{Architecture logicielle}
+\author{\normalsize{Groupe 2}\\
+\footnotesize{
+Simon Busard, \\
+Antoine Cailliau, \\
+Laurent Champon,\\
+Erick Lavoie, \\
+Quentin Pirmez,\\
+Frederic Van der Essen, \\
+Géraud Talla Fotsing}}
+
+\date{\today}
+
+% Pour modifier la géométrie de la page
+\usepackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
+
+\newlength{\realtextwidth}
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfiguremargin}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\realtextwidth}
+			\vspace{0pt}
+			\includegraphics[width=\realtextwidth]{images/#1.png}
+		\end{minipage}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0pt}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
+
+}
+
+\setlength{\realtextwidth}{\textwidth}
+\newcommand{\insertfigure}[2]{
+	\begin{figure}[!h]
+	\noindent\begin{minipage}[!h]{\marginparsep+\marginparwidth+\marginparpush+\textwidth}
+		\begin{minipage}[t]{\textwidth}
+			\vspace{0pt}
+			\includegraphics[width=\textwidth]{images/#1.png}
+		\end{minipage}
+		
+		\hspace{\realtextwidth}
+		\hspace{\marginparsep}
+		\begin{minipage}[t]{\marginparwidth+\marginparpush}
+			\vspace{0.5cm}
+			\setcaptionwidth{\marginparwidth+\marginparpush}
+			\caption{#2}\label{fig:#1}
+			\setcaptionwidth{0.9\realtextwidth}
+		\end{minipage}		
+	\end{minipage}
+	\end{figure}
+
+}
+
+\begin{document}
+
+\setlength{\parskip}{1em}
+\startdocument
+
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\chapter{Architecture logique}
+
+\chapter{Architecture physique}
+
+\chapter{Plan de développement}
+
+\chapter{Spécifications externes des modules}
+
+\end{document}

@@ -25,18 +25,10 @@
 % Pour passer en paysage
 \usepackage{lscape}
 
-% Pour modifier les captions
-\usepackage{caption}
-\captionsetup{labelsep=period,labelfont=sf,font={sf,small},aboveskip=0pt}
-\setcaptionwidth{0.9\textwidth}
-\captionsetup[table]{justification=RaggedRight}
-
-
-
 % Pour modifier la géométrie de la page
 \usepackage{geometry}
 %\geometry{a4paper,left=1.5cm,right=1.5cm,top=2.5cm,bottom=2.5cm,includemp,reversemp,marginpar=4cm,marginparsep=0.5cm}
-\geometry{a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=4.5cm,footskip=2cm,includemp,marginpar=5cm,marginparsep=0.5cm}
+\geometry{a4paper,left=2.5cm,right=2.5cm,top=1cm,bottom=4.5cm,footskip=2cm,includemp,marginpar=5cm,marginparsep=0.5cm}
 
 
 % Modification des styles d'en-tête
@@ -66,9 +58,17 @@
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\headheight}{1.5cm}
 
+% Pour faire des calculs sur les longueurs
 \usepackage{calc}
 \fancyfootoffset[RO,LE]{\marginparsep+\marginparwidth+\marginparpush}
 
+
+% Pour modifier les captions
+\usepackage{caption}
+\captionsetup{labelsep=period,labelfont=sl,font={sf,small},aboveskip=0pt}
+\renewcommand{\captionlabelfont}{\sffamily}
+\setcaptionwidth{0.9\textwidth}
+\captionsetup[table]{justification=RaggedRight}
 
 % Pour les titres
 % sf pour sans font
@@ -89,7 +89,7 @@
 {\normalfont\Huge\sffamily}
 {\protect\makebox[0pt][r]{\thechapter.\quad}} {0pt} {}
 % Plus d'espace autour des titres de chapitre
-\titlespacing*{\chapter}{0pt}{2em}{3em}
+\titlespacing*{\chapter}{0pt}{0em}{2em}
 
 % Pour l'interligne
 \usepackage{setspace}
@@ -202,4 +202,6 @@
 		#1
 	\end{minipage}
 }
+
+
 
