@@ -1,0 +1,65 @@
+
+main(incidentInfoId) {
+	
+	process(incidentInfoId)
+	
+	do {
+		do {
+			do {
+				ambulanceId = choseBestAmbulance(incidentInfoId, exclusionSet)
+			} while (ambulanceId == null)
+		
+			exclusionSet := exclusionSet + ambulanceId
+			
+		} while (mobilize(incidentId, ambulanceId) == false)
+		
+		e = closeIncident(incidentInfoId)
+		
+		exclusionSet = ambulanceId
+		demobilized(ambulanceId)
+
+	} while (e == false)
+		
+}
+
+process(incidentInfoId) {
+
+	address = incidentInfo.getAddress(incidentInfoId)
+	coord = addressToCoord(address)
+	incidentInfo.setCoord(incidentInfoId, coord)
+	incidentInfo.computeAmbulanceKindNeeded(incidentInfoId)
+
+}
+
+chooseBestAmbulance(incidentInfoId, exclusionSet) {
+	
+	kind = incidentInfo.getAmbulanceKindNeeded(incidentInfoId)
+	coord = incidentInfo.getCoord(incidentInfoId)
+	ambulances = Ambulance.getAllFree(kind, exclusionSet)
+	
+	return selectMin(ambulances, lambda(x): Map.getDistance(x, coord))
+	
+}
+
+mobilize(incidentId, ambulanceId) {
+	
+	mobOrder = IncidentInfo.getMobOrder(incidentId)	
+	Communicator.send(mobOrder, ambulanceId)
+	
+	return Communication.waitForAck(mobOrder, ambulanceId)
+
+}
+
+closeIncident(incidentInfoId) {
+	waitForEvent(incidentInfoId, e)
+	switch(e) {
+		case AMBULANCE_ACCIDENT:
+			markAsBroken(ambulanceId)
+		case INCIDENT_OBSTACLE:
+		default:
+	}
+}
+
+Communicator.mainLoop() {
+		
+}
