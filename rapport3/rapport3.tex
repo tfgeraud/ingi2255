@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{style-report}
 
-% L'en-tÃªte et la mise en page sera diffÃ©rente
+% L'en-tÃªte et la mise en page sera différente
 % Merci de ne pas faire de mise en page dans le document !
 \title{London Ambulance System}
 \subtitle{Architecture logicielle}
@@ -15,11 +15,11 @@ Laurent Champon,\\
 Erick Lavoie, \\
 Quentin Pirmez,\\
 Frederic Van der Essen, \\
-GÃ©raud Talla Fotsing}}
+Géraud Talla Fotsing}}
 
 \date{\today}
 
-% Pour modifier la gÃ©omÃ©trie de la page
+% Pour modifier la géométrie de la page
 \usepackage{geometry}
 \geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=4cm}
 
@@ -79,8 +79,49 @@ GÃ©raud Talla Fotsing}}
 
 \chapter{Architecture physique}
 
-\chapter{Plan de dÃ©veloppement}
+\chapter{Evenements à l'interface}
+\begin{description}
+	\item [Incident:] L'événement incident est envoyé à partir du simulateur vers le système et comporte les informations suivantes: 		
+				l'âge de la victime, enceinte ou non, la localisation de l'incident (typiquement l'adresse), et une description de l'incident.
+	\item [AVLSMessage:]L'événement AVLSMessage est envoyé à partir du simulateur vers le système et comporte la posisition (coordonnées 					géographique) et l'identifiant d'un ambulance.
+	\item [MDTMessage:] L'événement MDTMessage peut provenir soit du système soit du simulateur. Il y a plusieurs type de MDTMessage
+	
+	
+	%MDTMessage du système vers le simulateur
+		\begin{table}
+		\centering
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\textbf{nom du message} & \textbf{arguments} & \textbf{description} \\ \hline
+        mobilisationOrder & incidentID, incidentPosition, ambulanceID & Le message de mobilisation est envoyé par le système à une ambulance (AmbulcanceID) afin de la mobiliser pour un incident (incidentID) qui à lieu à la position (incidentPosition) \\ \hline
+				demobilisationOrder & incidentID, incidentPosition, ambulanceID & Le message demobilisationOrder est envoyé par le système à une ambulance (AmbulanceID) afin de la démobiliser pour l'incident (incidentId) se trouvant à la position (incidentPosition) \\ \hline
+      \end{tabular} 
+		\caption{MDTMessage du système vers le simulateur}
+		\label{tab:MDTMessage}
+	\end{table}
+  
+  	%MTDMessage du simulateur vers le système
+  	\begin{table}
+		\centering
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\textbf{nom du message} & \textbf{arguments du message} & \textbf{description du message} \\ \hline
+        mobilisationConfirmation & incidentID, ambulanceID, un booleen yes/no & Un message de confirmation est envoyé par l'ambulance (ambulanceID) pour accepter (yes) ou refuser (no) l'ordre de mobilisation concernant l'incident (incidentID) \\ \hline 
+        ambulanceBroken & ambulanceID & Message envoyé par l'ambulance (ambulanceID) pour signaler qu'elle est en panne \\ \hline
+        ambulanceRepaired & ambulanceID & Message envoyé par l'ambulance (ambulanceID) pour signaler qu'elle est réparée \\ \hline
+        obstacle & position & Un message Obstacle avec une position en argument est envoyé par une ambulance au système pour signaler qu'il existe une obstacle à cette position \\ \hline
+        incidentCancelled & incidentID, ambulanceID & Un message incidentCancelled est envoyé par l'ambulance (ambulanceID) au système pour signaler que l'intervention pour l'incident (incidentID) est annulée \\ \hline
+        incidentResolved & incidentID, ambulanceID & Un message incidentResolved est envoyé par l' ambulance (ambulanceID) au système pour signaler que l'intervention pour l'incident (incidentID) est résolue \\ \hline
+        destinationUnreachable & ambulanceID, incidentID & Une message destinationUnreachable est envoyé par l'ambulance (ambulanceID) au système pour signaler que la position de l'incident (incidentID) est inaccessible \\ \hline
+     \end{tabular} 
+		\caption{MDTMessage du simulateur vers le système}
+		\label{tab:MDTMessage}
+	\end{table}
+	
+\end{description}
 
-\chapter{SpÃ©cifications externes des modules}
+\chapter{Plan de développement}
+
+\chapter{Spécifications externes des modules}
 
 \end{document}
