@@ -76,17 +76,17 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="1320.9526"
-     inkscape:cy="2499.5826"
+     inkscape:zoom="1"
+     inkscape:cx="1481.0392"
+     inkscape:cy="1478.2421"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1280"
-     inkscape:window-height="754"
-     inkscape:window-x="0"
+     inkscape:window-height="981"
+     inkscape:window-x="1280"
      inkscape:window-y="0" />
   <metadata
      id="metadata3254">
@@ -103,6 +103,78 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <path
+       id="path2762"
+       d="M 1187,2621.3592 L 1187,2519.6408"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-opacity:0.75000000000000000;fill-rule:evenodd;stroke:#cccccc;stroke-width:1.00000011999999994;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       sodipodi:nodetypes="cc" />
+    <rect
+       y="1529.7389"
+       x="1123.4246"
+       height="156.52228"
+       width="126.15085"
+       id="rect2748"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1.00000012;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="1375.7389"
+       x="1122.9246"
+       height="102.52228"
+       width="79.150848"
+       id="rect2750"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1.00000012;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="1545.2389"
+       x="1256.9246"
+       height="214.52228"
+       width="203.15085"
+       id="rect2744"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1.00000012;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <path
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       d="M 1129.9375 1701.25 L 1129.9375 1755.75 L 1145.0625 1755.75 L 1145.0625 1891.75 L 1258.0625 1891.75 L 1258.0625 1819.25 L 1232.9375 1819.25 L 1232.9375 1701.25 L 1129.9375 1701.25 z "
+       id="rect2736" />
+    <rect
+       y="1531.2389"
+       x="978.42456"
+       height="185.52228"
+       width="128.15085"
+       id="rect2734"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="2226.7388"
+       x="2169.4246"
+       height="71.522278"
+       width="155.15086"
+       id="rect2730"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="2224.2388"
+       x="2038.4246"
+       height="75.522278"
+       width="87.150856"
+       id="rect2732"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="2375.2388"
+       x="2150.4248"
+       height="80.522278"
+       width="407.15088"
+       id="rect2728"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="2622.2388"
+       x="2451.4248"
+       height="79.522278"
+       width="135.15086"
+       id="rect2726"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+    <rect
+       y="2527.2385"
+       x="1959.4246"
+       height="129.52228"
+       width="425.15085"
+       id="rect2724"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:0.99999994;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
     <rect
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#8ae234;fill-opacity:0.08306711;stroke:#4e9a06;stroke-width:1.24109793;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        id="rect3127"
@@ -1274,12 +1346,12 @@
     <path
        id="path6415"
        d="M 1629.2189,2557.2253 L 1686.6158,2557.2253 L 1686.6158,2600.8334"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-opacity:0.75000000000000000;fill-rule:evenodd;stroke:#cccccc;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        sodipodi:nodetypes="ccc" />
     <path
        id="path6417"
        d="M 1629.2864,2545.9116 L 1753.6158,2545.9116 L 1753.6158,2600.8334"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-opacity:0.75000000000000000;fill-rule:evenodd;stroke:#cccccc;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1"
@@ -2071,19 +2143,54 @@
          y="2625.0972"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:1.11131823;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro">AmbulancePositionOptimizer</tspan></text>
     <path
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        d="M 1291.2061,2611.5724 L 1291.2061,2582.5724 L 1205.2061,2582.5724 L 1205.2061,2522.5724"
        id="path6592"
        sodipodi:nodetypes="cccc" />
     <path
-       style="display:inline;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
-       d="M 1325.2061,2612.5724 L 1325.2061,2565.6874 C 1325.2061,2565.6874 1322.5186,2565.5562 1322.5186,2562.3749 C 1322.5186,2559.2548 1325.2061,2559.3749 1325.2061,2559.3749 L 1325.2061,2522.5724"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       d="M 1335.2061,2612.5724 L 1335.2061,2556.6874 C 1335.2061,2556.6874 1332.5186,2556.5562 1332.5186,2553.3749 C 1332.5186,2550.2548 1335.2061,2550.3749 1335.2061,2550.3749 L 1335.2061,2522.5724"
        id="path6594"
        sodipodi:nodetypes="cczcc" />
     <path
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        d="M 1411.2061,2611.5724 L 1411.2061,2561.5724 L 1518.2061,2561.5724"
        id="path6604"
        sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline"
+       d="M 1111.5625,2621.75 L 1045.0803,2621.75 L 1045.0803,2520.8929"
+       id="path2752"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#cccccc;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       id="rect2754"
+       width="100.00001"
+       height="32.571434"
+       x="1096.9197"
+       y="2612.25" />
+    <rect
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#cccccc;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       id="rect2756"
+       width="55.000008"
+       height="20.428574"
+       x="1096.9197"
+       y="2612.25" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       x="1101.0625"
+       y="2626.8928"
+       id="text2758"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2760"
+         x="1101.0625"
+         y="2626.8928">Statistic</tspan></text>
+    <path
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Lend);stroke-opacity:1;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       d="M 1197.2061,2625.5724 L 1237.7901,2625.5724 L 1237.7901,2597.8066 L 1287.8751,2597.8066 C 1287.8751,2597.8066 1288.0095,2594.1816 1291.5001,2594.1816 C 1295.1238,2594.1816 1294.6251,2597.8066 1294.6251,2597.8066 L 1315.2061,2597.8066 L 1315.2061,2556.6874 C 1315.2061,2556.6874 1312.5186,2556.5562 1312.5186,2553.3749 C 1312.5186,2550.2548 1315.2061,2550.3749 1315.2061,2550.3749 L 1315.2061,2522.5724"
+       id="path2766"
+       sodipodi:nodetypes="cccczccczcc" />
   </g>
 </svg>
