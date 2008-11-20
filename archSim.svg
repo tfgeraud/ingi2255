@@ -50,7 +50,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
      inkscape:cx="325.63278"
-     inkscape:cy="708.57142"
+     inkscape:cy="765.71428"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -497,12 +497,12 @@
          style="fill:#000000;fill-opacity:1"
          id="tspan5824" /></text>
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.08849144;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect5826"
-       width="110.21674"
-       height="76.425453"
-       x="131.3217"
-       y="284.20493" />
+       width="110.12825"
+       height="90.622673"
+       x="131.36595"
+       y="284.24918" />
     <rect
        y="284.09396"
        x="131.21074"
@@ -541,30 +541,35 @@
          x="134.75316"
          y="316.6095"
          style="fill:#000000;fill-opacity:1"
-         id="tspan5848">listenForEvents</tspan><tspan
+         id="tspan5848">attach/detach</tspan><tspan
          sodipodi:role="line"
          x="134.75316"
          y="330.10699"
          style="fill:#000000;fill-opacity:1"
-         id="tspan5858">sendEvent</tspan><tspan
+         id="tspan5952">notify</tspan><tspan
          sodipodi:role="line"
          x="134.75316"
          y="343.60446"
          style="fill:#000000;fill-opacity:1"
-         id="tspan5850">step</tspan><tspan
+         id="tspan5956">receive</tspan><tspan
          sodipodi:role="line"
          x="134.75316"
          y="357.10196"
          style="fill:#000000;fill-opacity:1"
-         id="tspan5852">getters/setters</tspan><tspan
+         id="tspan5850">step</tspan><tspan
          sodipodi:role="line"
          x="134.75316"
          y="370.59943"
          style="fill:#000000;fill-opacity:1"
-         id="tspan5842" /><tspan
+         id="tspan5852">getters/setters</tspan><tspan
          sodipodi:role="line"
          x="134.75316"
          y="384.09692"
+         style="fill:#000000;fill-opacity:1"
+         id="tspan5842" /><tspan
+         sodipodi:role="line"
+         x="134.75316"
+         y="397.59442"
          style="fill:#000000;fill-opacity:1"
          id="tspan5844" /></text>
     <rect
@@ -696,11 +701,11 @@
          id="tspan5931"></tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 185.53572,371.82646 L 195.89285,361.46932 L 205.89285,371.46932 L 205.53571,371.82646 L 185.53572,371.82646 z"
+       d="M 186.25001,386.11217 L 196.60714,375.75503 L 206.60714,385.75503 L 206.25,386.11217 L 186.25001,386.11217 z"
        id="path5935" />
     <path
-       style="opacity:1;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 195.53571,372.54075 L 195.53571,404.68361 L 195.53571,403.25504 L 195.53571,372.54075 z"
+       style="opacity:1;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.73987418px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 196.25,386.60017 L 196.25,404.19561 L 196.25,403.41359 L 196.25,386.60017 z"
        id="path5937" />
   </g>
 </svg>
