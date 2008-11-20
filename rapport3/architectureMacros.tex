@@ -1,0 +1,43 @@
+
+% Macro pour définir les modules de l'architecture, inspiré du miniprojet
+%
+% #1 Nom du module
+% #2 Description du module
+% #3 Justification du module proposé
+% #4 Opérations réalisées
+% #5 Opérations auxquelles le module contribue
+\newcommand{\moddesc}[5]{
+	\begin{table}[htdp]
+	\begin{center}
+		\begin{tabular}{|ll|}
+		\hline \textbf{#1} & \\
+		\hline Descr. & #2 \\
+		 Why? & #3 \\
+		 Perform & #4 \\
+		  Contrib & #5 \\
+		\hline 
+		\end{tabular} 
+		\caption{Module #1}
+	\end{center}
+	\label{defaulttable}
+	\end{table}
+}
+
+% Macro pour définir les classes
+% #1 Nom de la classe
+% #2 Description des responsabilités de la classe
+% #3 Définition des méthodes publiques de la classe (interface)
+\newcommand{\classdesc}[3]{
+	\begin{table}[htdp]
+	\begin{center}
+		\begin{tabular}{|ll|}
+		\hline \textbf{#1} & \\
+		\hline Descr. & #2 \\
+		 Public methods & #3 \\
+		\hline 
+		\end{tabular} 
+		\caption{Class #1}
+	\end{center}
+	\label{defaulttable}
+	\end{table}	
+}
