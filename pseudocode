@@ -1,8 +1,6 @@
 
 main(incidentInfoId) {
 	
-	process(incidentInfoId)
-	
 	do {
 		do {
 			do {
@@ -13,10 +11,10 @@ main(incidentInfoId) {
 			
 		} while (mobilize(incidentId, ambulanceId) == false)
 		
-		e = closeIncident(incidentInfoId)
+		e = closeIncident(incidentInfoId,ambulanceId)
 		
 		exclusionSet = ambulanceId
-		demobilized(ambulanceId)
+		demobilize(ambulanceId)
 
 	} while (e == false)
 		
@@ -46,11 +44,20 @@ mobilize(incidentId, ambulanceId) {
 	mobOrder = IncidentInfo.getMobOrder(incidentId)	
 	Communicator.send(mobOrder, ambulanceId)
 	
-	return Communication.waitForAck(mobOrder, ambulanceId)
+	return Communicator.waitForAck(mobOrder, ambulanceId)
 
 }
 
-closeIncident(incidentInfoId) {
+demobilize(incidentId, ambulanceId) {
+	
+	demobOrder = IncidentInfo.getDemobOrder(incidentId)	
+	Communicator.send(demobOrder, ambulanceId)
+	
+	return Communicator.waitForAck(demobOrder, ambulanceId)
+
+}
+
+closeIncident(incidentInfoId, ambulanceId) {
 	waitForEvent(incidentInfoId, e)
 	switch(e) {
 		case AMBULANCE_ACCIDENT:
