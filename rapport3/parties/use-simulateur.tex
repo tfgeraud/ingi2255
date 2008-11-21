@@ -1,0 +1,39 @@
+\subsection*{Justification des liens use du simulateur}
+
+\begin{table}[!h]
+\begin{tabularx}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}{|l|l|X|}
+Source & Destination & Justification 
+Gui & Simulator & L'implémentation de l'interface pour lancer et stopper 
+		  la simulation dépend de la spécfication externe de Simulator.
+
+Gui & SimObjects & L'implémentation de la visualisation de la simulation dans
+		   l'interface dépend de la spécification externe de SimObjects.
+		   En effet, l'interface écoute les évènements générés par 
+		   SimObjects définissant les objets à afficher.
+
+Simulator & SimObjects & L'implémentation de la simulation dépend de l'interface
+			 externe des SimObjects. Le simulateur ne pourra pas 
+			 connecter les SimObjects entre eux si leur interface
+			 change. 
+
+Simulator & Map & L'implémentation de la simulation dépend de l'interface 
+		  externe de Map car le Simulator ajoute et enlève les obstacles
+		  de celle ci pour correspondre au scénario de simulation.
+
+Simulator & Communication & L'implémentation de la simulation dépend de l'interface
+			    externe du module de Communication. Si l'opération recieve
+			    change sa spécification, le 
+			    simulateur ne pourra pas foncitonner. 
+
+Ambulance & Map		& L'implémentation de Ambulance dépend de l'interface externe
+			de Map, En effet si l'opération nextPos de Map change de 
+			spécification, l'ambulance ne se déplacera plus correctement.
+
+Simulator & Scénario & L'implémentation du Simulator dépend des spécifications de
+			Scénario car si l'opération nextStep de Scénario change de
+			spécification, le simulateur ne simulera pas les bonnes
+			étapes. 
+
+
+\end{tabularx}
+\end{table}
