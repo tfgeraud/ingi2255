@@ -7,7 +7,7 @@ synthétise la justification des différents liens.
 
 \begin{table}[!h]
 \begin{tabularx}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}{|l|l|X|}
-Source & Destination & Justification \\
+Source & Destination & Justification \\ \hline
 CallSimul et InfoGUI & Broker & L'implémentation de l'interface d'ajout d'un
 incident ou l'interface d'ajout automatique d'un incident dépends de la 
 spécification externe du Broker. Ce dernier étant responsable de 
@@ -27,6 +27,23 @@ IncidentProcessor & Resolver & L'implémentation correcte de
 l'IncidentProcessor dépends de la spécification externe du Resolver. Si
 l'incident n'est pas correctement clot alors le reste de la 
 procédure de traitement de l'incident ne sera peut-être pas correcte. \\
+* & Ambulance & L'implémentation des différents modules dépendra directement
+des spécifications externe du module Ambulance, ce dernier étant 
+reponsable de la gestion de l'information utilisée à travers le système. \\
+* & Map & L'implémentation des différents modules dépendra directement
+des spécifications externe du module Map, ce dernier étant 
+reponsable de la gestion de l'information utilisée à travers le système. \\
+* & Incident & L'implémentation des différents modules dépendra directement
+des spécifications externe du module Incident, ce dernier étant 
+reponsable de la gestion de l'information utilisée à travers le système. \\
+Mobilizer & Communicator & L'implémentation correcte du Mobilizer dépends
+directement de la spécification externe du Communicator. En effet, si 
+le Communicator n'envoi pas correctement les informations, le système 
+peut ne plus fonctionner correctement. \\
+Communicator & AVLS et MDT & L'implémentation du Communicator dépends 
+directement de la spécification externe de l'AVLS et du MDT. En effet, si 
+le comportement de l'AVLS ou du MDT change alors l'implémentation du Communicator
+peut ne plus être correcte.
 \end{tabularx}
 \end{table}
 
