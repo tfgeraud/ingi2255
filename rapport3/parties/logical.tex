@@ -1,0 +1,35 @@
+\insertfiguremargin{logic-sys}{Architecture logique pour la partie du 
+système.}
+
+\subsection*{Justification des liens USE}
+Chaque lien USE dans le schéma peut être justifié. Le tableau suivant
+synthétise la justification des différents liens.
+
+\begin{table}[!h]
+\begin{tabularx}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}{|l|l|X|}
+Source & Destination & Justification \\
+CallSimul et InfoGUI & Broker & L'implémentation de l'interface d'ajout d'un
+incident ou l'interface d'ajout automatique d'un incident dépends de la 
+spécification externe du Broker. Ce dernier étant responsable de 
+donner une API fixe pour l'ajout d'incident de la part du monde extérieur. \\
+Broker & IncidentProcessor & L'implémentation du broker dépends de la 
+spécification externe de l'incidentProcessor. Le broker est responsable
+de l'appel et du lancement de la procédure de gestion des incidents. \\
+IncidentProcessor & AmbulanceChooser & L'implémentation correcte de 
+l'IncidentProcessor dépends de la spécification externe de l'AmbulanceChooser. Si le
+module ne retourne pas l'ambulance choisie alors le reste de l'implémentation
+du traitement de l'incident peut ne plus être correcte. \\
+IncidentProcessor & Mobilizer & L'implémentation correcte de 
+l'IncidentProcessor dépends de la spécification externe du Mobilizer. Si
+l'ambulance n'est pas correctement mobilisée alors le reste de la 
+procédure de traitement de l'incident ne sera peut-être pas correcte.\\
+IncidentProcessor & Resolver & L'implémentation correcte de 
+l'IncidentProcessor dépends de la spécification externe du Resolver. Si
+l'incident n'est pas correctement clot alors le reste de la 
+procédure de traitement de l'incident ne sera peut-être pas correcte. \\
+\end{tabularx}
+\end{table}
+
+
+\insertfiguremargin{phys-sys}{Architecture physique pour la partie du 
+système.}
