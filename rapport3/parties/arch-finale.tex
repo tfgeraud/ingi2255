@@ -1,0 +1,81 @@
+\subsection{Présentation}
+	Afin de présenter l'architecture, nous allons effectuer
+	un parcours de celle ci pour le cas idéal de résolution
+	d'incident.
+
+	On commence à l'InfoGUI qui est l'interface graphique que
+	l'opérateur téléphonique utilise pour entrer les données
+	caractérisant l'incident.
+
+	Ces données sont transmises au Broker. Celui possède deux
+	fonctions. La première, architecturale, est de présenter
+	une interface unique aux différents système d'introduction
+	de données : Interface Utilisateur, simulateur, ou encore 
+	d'autres logiciels de gestion d'hopitaux ou de pompiers par
+	exemple.
+	
+	L'autre role, plus fonctionnel, du broker est d'instancier
+	un Incident, et de transmettre
+	une référence vers celui ci à l'InfoProcessor.
+
+	L'InfoProcesseur est le chef d'orchestre de notre systeme.
+	Il se charge d'abord de compléter la représentation de
+	l'Incident en évaluant le type d'ambulance requise
+	et les coordonnées GPS de la destination. pour cela
+	il s'aidera du module Map et Incident.
+
+	Ensuite, L'InfoProcessor va appeler différent modules
+	afin de faire avancer état par état la résolution de
+	l'Incident. 
+
+	En premier il devra choisir l'Abulance grace à AmbulanceChooser
+	celui ci fera pour cela appel au module Map pour
+	évaluer les distances, et au module Ambulance pour savoir
+	lesquelles sont libres. 
+
+	Une fois l'ambulance choisie,le Mobilizer se chargera d'envoyer
+	l'ordre de mobilisation. Il s'aidera du Communicator pour 
+	envoyer l'ordre et récuperer la confirmation. 
+
+	Le module Resolver permettra de gérer les events intervenant
+	entre le moment ou l'ambulance est mobilisée et le moment
+	ou elle à réussi ou échoué à résoudre le problème.
+
+	Le module Mobilizer est ensuite utilisé à nouveau pour démobiliser
+	l'ambulance ayant terminé sa mission. 
+
+	Tout au long de cette opération, le module Communicator se
+	charge de recevoir les events provenant du monde extérieur
+	et de mettre à jour la base de données des ambulances et de
+	la carte. Il s'assure aussi de l'intégrité des données recues,
+	et d'envoyer au modules de résolutions des events qui 
+	peuvent interrompre ceux ci.
+
+\subsection{Gestion des Obstacles dans l'architecture}
+	L'architecture modélisant la machine à état de l'Incident, 
+	la résolution d'obstacles est aisée et ne nécessite généralement
+	que la modification que de quelques modules.
+	\begin{itemize}
+		\item Communicator afin de prendre en compte un nouveau type
+		 	d'event correspondant à l'obstacle si nécessaire.
+		\item le module ambulance, map ou Incident afin d'y ajouter
+			les propriétés supplémentaires nécessaires.
+		\item le module chargé du changement d'état de l'Incident 
+		      concerné par l'obstacle.
+		\item Si les changements outrepassent le secret du module
+			précédent, il faudra modifier IncidentProcessor.
+	\end{itemize}
+	
+	Par exemple la résolution de l'obstacle consistant en une duplication
+	des incidents consiste à ajouter à Incident une opération permettant
+	de détecter un duplicata, et de modifier IncidentProcessor pour
+	utilisant et d'arrèter la résolution dans de tels cas.
+
+\subsection{Evolutions de l'Architecture}
+
+
+
+
+
+
+
