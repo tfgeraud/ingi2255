@@ -1,9 +1,45 @@
-\subsection{Présentation}
+\subsection{Définition des modules}
+Les définitions sont présentées dans le tableau \ref{tab:defmodule}.
+
+\begin{table}[!h]
+\begin{tabularx}{\marginparsep+\marginparwidth+\marginparpush+\textwidth}{l|X}
+Module & Définition \\ \hline
+CallSimul & Ce module est reponsable de la notification des incidents en 
+provenance du simulateur. \\
+InfoGUI & Ce module est responsable de l'interface graphique permettant 
+l'ajout d'incident dans le système. \\
+Broker & Ce module est responsable de fournir une API fixe pour l'ajout
+d'incident au sein du système.\\
+IncidentProcessor & Ce module est reponsable du suivi des incidents, 
+il s'occupera de faire en sorte que l'incident soit traité corectement
+et dans les délais. \\
+AmbulanceChoser & Ce module est reponsable du choix de l'ambulance. \\
+Mobilizer &  Ce module est responsable de la mobilisation virtuelle et
+concrète de l'ambulance \\
+Resolver &  Ce module est responsable de la correcte terminaison d'un
+incident. \\
+Incident & Ce module est responsable de la gestion des incidents au sein
+du système. \\
+Map & Ce module est responsable de la gestion de la carte et donner
+les informations appropriés aux autres modules. \\
+Ambulance &  Ce module est reponsable de la gestion des ambulances  et
+de l'information qui y est lié au sein du système. \\
+Communicator &  Ce module est reponsable de la gestion correcte
+des communications à partir du système. \\
+Avls & Ce module est responsable de l'envoi correct de la position
+de l'ambulance. \\
+MDT & Ce module est reponsable de la communication entre les équipages
+de l'ambulance et le système. \\
+\end{tabularx}
+\caption{Définition des différents modules utilisé au sein du système.}\label{tab:defmodule}
+\end{table}
+
+\subsection{Lien entre les modules et agencement}
 	Afin de présenter l'architecture, nous allons effectuer
 	un parcours de celle ci pour le cas idéal de résolution
 	d'incident.
 
-	On commence à l'InfoGUI qui est l'interface graphique que
+	Nous commençons par l'InfoGUI qui est l'interface graphique que
 	l'opérateur téléphonique utilise pour entrer les données
 	caractérisant l'incident.
 
@@ -14,11 +50,11 @@
 	d'autres logiciels de gestion d'hopitaux ou de pompiers par
 	exemple.
 	
-	L'autre role, plus fonctionnel, du broker est d'instancier
+	L'autre rôle, plus fonctionnel, du broker est d'instancier
 	un Incident, et de transmettre
 	une référence vers celui ci à l'InfoProcessor.
 
-	L'InfoProcesseur est le chef d'orchestre de notre systeme.
+	L'InfoProcesseur est le chef d'orchestre de notre système.
 	Il se charge d'abord de compléter la représentation de
 	l'Incident en évaluant le type d'ambulance requise
 	et les coordonnées GPS de la destination. pour cela
@@ -28,18 +64,18 @@
 	afin de faire avancer état par état la résolution de
 	l'Incident. 
 
-	En premier il devra choisir l'Abulance grace à AmbulanceChooser
+	En premier il devra choisir l'ambulance grâce à AmbulanceChooser
 	celui ci fera pour cela appel au module Map pour
 	évaluer les distances, et au module Ambulance pour savoir
 	lesquelles sont libres. 
 
-	Une fois l'ambulance choisie,le Mobilizer se chargera d'envoyer
+	Une fois l'ambulance choisie, le Mobilizer se chargera d'envoyer
 	l'ordre de mobilisation. Il s'aidera du Communicator pour 
 	envoyer l'ordre et récuperer la confirmation. 
 
-	Le module Resolver permettra de gérer les events intervenant
+	Le module Resolver permettra de gérer les évènements intervenant
 	entre le moment ou l'ambulance est mobilisée et le moment
-	ou elle à réussi ou échoué à résoudre le problème.
+	ou elle à réussi ou échoué à résoudre l'incident.
 
 	Le module Mobilizer est ensuite utilisé à nouveau pour démobiliser
 	l'ambulance ayant terminé sa mission. 
@@ -51,7 +87,7 @@
 	et d'envoyer au modules de résolutions des events qui 
 	peuvent interrompre ceux ci.
 
-\subsection{Gestion des Obstacles dans l'architecture}
+\subsection{Gestion des obstacles dans l'architecture}
 	L'architecture modélisant la machine à état de l'Incident, 
 	la résolution d'obstacles est aisée et ne nécessite généralement
 	que la modification que de quelques modules.
@@ -71,66 +107,56 @@
 	de détecter un duplicata, et de modifier IncidentProcessor pour
 	l'utiliser et arrèter la résolution dans de tels cas.
 
-\subsection{Evolutions du Systeme et de l'architecture}
+\subsection{Evolutions du système et de l'architecture}
 	Nous avons énuméré une série d'évolutions du système et avons
 	identifié les modules devant etres modifiés ou ajoutés.
 	\subsubsection{Nouveaux types de véhicules}
 		\begin{itemize}
-			\item Modification d'Ambulance: nouvelle catégorie.
+			\item Modification d'Ambulance: nouvelle catégorie,
 			\item Modification d'AmbulanceChooser: le calcul de la plus courte
 				distance peut etre différent avec le nouveau type, et il
-				y a une nouvelle catégorie de véhicule à choisir.
+				y a une nouvelle catégorie de véhicule à choisir,
 			\item Eventuelle modification de Map pour ajouter une distance 
 			      spécifique au véhicule ( par exemple à vol d'oiseau pour un
-			      hélicoptère ) 
+			      hélicoptère ) ;
 		\end{itemize}
 	\subsubsection{Incident demandant l'intervention de plusieurs ambulances}
 		\begin{itemize}
-			\item Modification d'InfoProcessor : choisit plusieurs ambulances.
+			\item Modification d'InfoProcessor : choisit plusieurs ambulances;
 		\end{itemize}
 	\subsubsection{Intégration aux systèmes de Police, d'Hopital ou Pompiers }
 		\begin{itemize}
-			\item Modification de Broker : Nouveaux canaux de création d'incidents.
-			\item Modification de Communicator : Nouveaux canaux d'écoute pour obstacles.
+			\item Modification de Broker : Nouveaux canaux de création d'incidents,
+			\item Modification de Communicator : Nouveaux canaux d'écoute pour obstacles;
 		\end{itemize}
 	\subsubsection{Annulation d'un incident}
 		\begin{itemize}
 			\item Modification de Broker et Communicator : nouveaux events de
-			 	demande d'annulation.
+			 	demande d'annulation,
 			\item Modification d'InfoProcessor : écoute de ces events, et
-				gestion de ceux-ci.
+				gestion de ceux-ci;
 		\end{itemize}
 	\subsubsection{Ajout d'un canal de communication}
 		\begin{itemize}
-			\item Modification de Communicator : écoute et envoi dans ce nouveau canal.
+			\item Modification de Communicator : écoute et envoi dans ce nouveau canal;
 		\end{itemize}
 	\subsubsection{Utilisation d'une base de données afin de sauvegarder l'état du système}
 		\begin{itemize}
-			\item Ajout d'un module DataBase,
-			\item Modification d'Incident,Ambulance,Map pour faire usage de celle-ci.
+			\item Ajout d'un module Database,
+			\item Modification d'Incident,Ambulance,Map pour faire usage de celle-ci;
 		\end{itemize}
 	\subsubsection{Utilisation de données géographiques plus complexes.}
 		\begin{itemize}
-			\item Modification du module Map
+			\item Modification du module Map;
 		\end{itemize}
 	\subsubsection{Réalisation de statistiques sur le comportement du système}
 		\begin{itemize}
-			\item Ajout d'un module Statistique qui utilise Incident,Ambulance et Map
+			\item Ajout d'un module Statistique qui utilise Incident,Ambulance et Map;
 		\end{itemize}
 	\subsubsection{Suivi de la progression de l'incident par les témoins.}
 		\begin{itemize}
 			\item Ajout d'un nouveau module FollowUpGUI utilisant Map,Incident et Ambulance
 				pour permettre à l'opérateur téléphonique d'obtenir des informations
-				de suivi sur l'incident. 
+				de suivi sur l'incident;
 		\end{itemize}
-	
-	
 		
-	
-
-
-
-
-
-
-
