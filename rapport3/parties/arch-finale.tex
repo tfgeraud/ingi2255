@@ -69,9 +69,64 @@
 	Par exemple la résolution de l'obstacle consistant en une duplication
 	des incidents consiste à ajouter à Incident une opération permettant
 	de détecter un duplicata, et de modifier IncidentProcessor pour
-	utilisant et d'arrèter la résolution dans de tels cas.
+	l'utiliser et arrèter la résolution dans de tels cas.
 
-\subsection{Evolutions de l'Architecture}
+\subsection{Evolutions du Systeme et de l'architecture}
+	Nous avons énuméré une série d'évolutions du système et avons
+	identifié les modules devant etres modifiés ou ajoutés.
+	\subsubsection{Nouveaux types de véhicules}
+		\begin{itemize}
+			\item Modification d'Ambulance: nouvelle catégorie.
+			\item Modification d'AmbulanceChooser: le calcul de la plus courte
+				distance peut etre différent avec le nouveau type, et il
+				y a une nouvelle catégorie de véhicule à choisir.
+			\item Eventuelle modification de Map pour ajouter une distance 
+			      spécifique au véhicule ( par exemple à vol d'oiseau pour un
+			      hélicoptère ) 
+		\end{itemize}
+	\subsubsection{Incident demandant l'intervention de plusieurs ambulances}
+		\begin{itemize}
+			\item Modification d'InfoProcessor : choisit plusieurs ambulances.
+		\end{itemize}
+	\subsubsection{Intégration aux systèmes de Police, d'Hopital ou Pompiers }
+		\begin{itemize}
+			\item Modification de Broker : Nouveaux canaux de création d'incidents.
+			\item Modification de Communicator : Nouveaux canaux d'écoute pour obstacles.
+		\end{itemize}
+	\subsubsection{Annulation d'un incident}
+		\begin{itemize}
+			\item Modification de Broker et Communicator : nouveaux events de
+			 	demande d'annulation.
+			\item Modification d'InfoProcessor : écoute de ces events, et
+				gestion de ceux-ci.
+		\end{itemize}
+	\subsubsection{Ajout d'un canal de communication}
+		\begin{itemize}
+			\item Modification de Communicator : écoute et envoi dans ce nouveau canal.
+		\end{itemize}
+	\subsubsection{Utilisation d'une base de données afin de sauvegarder l'état du système}
+		\begin{itemize}
+			\item Ajout d'un module DataBase,
+			\item Modification d'Incident,Ambulance,Map pour faire usage de celle-ci.
+		\end{itemize}
+	\subsubsection{Utilisation de données géographiques plus complexes.}
+		\begin{itemize}
+			\item Modification du module Map
+		\end{itemize}
+	\subsubsection{Réalisation de statistiques sur le comportement du système}
+		\begin{itemize}
+			\item Ajout d'un module Statistique qui utilise Incident,Ambulance et Map
+		\end{itemize}
+	\subsubsection{Suivi de la progression de l'incident par les témoins.}
+		\begin{itemize}
+			\item Ajout d'un nouveau module FollowUpGUI utilisant Map,Incident et Ambulance
+				pour permettre à l'opérateur téléphonique d'obtenir des informations
+				de suivi sur l'incident. 
+		\end{itemize}
+	
+	
+		
+	
 
 
 
