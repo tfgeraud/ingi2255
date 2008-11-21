@@ -1,0 +1,13 @@
+%Critique des architectures possible
+\section{Architecture en bus}
+  \paragraph{}
+  L'architecture en bus est une variante de l'architecture event-based dans laquelle chaque module génère/écoute des événements.
+  Contrairement au schéma général utilisant un "broker" qui centralise les "intêrets" des acteurs pour certains événements et notifie les acteurs interessés quand un événement survient,
+  dans l'architecture en bus, tout les modules écoutent tous les événements et filtrent uniquement ceux qui les intéressent. Il est donc facile, dans cette dernière de modifier un module en y ajoutant ses intêrets pour certains événement sans devoir toucher aux autres modules.
+
+  \paragraph{}
+  D'intuition cette architecture semble simple cependant elle n'est pas très adaptée pour notre système dans le sens où chaque module doit tenir un historique des états du système afin de raisonner correctement lorsqu'il reçoit un événement.
+  Un exemple simple est le cas où le système veut mobiliser une ambulance qui refuse la mobilisation, le système tente alors de mobiliser une deuxième ambulance qui refuse aussi. 
+  Lorsque le système mobilisera une troisième ambulance, il devra faire attention à ne pas mobiliser la première qui à déjà refuser, ni la deuxième.
+  
+  
