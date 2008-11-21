@@ -77,8 +77,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="1320.9526"
-     inkscape:cy="2403.8488"
+     inkscape:cx="1357.1176"
+     inkscape:cy="2363.8488"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -86,7 +86,7 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1276"
      inkscape:window-height="756"
-     inkscape:window-x="11"
+     inkscape:window-x="4"
      inkscape:window-y="22" />
   <metadata
      id="metadata3254">
@@ -134,12 +134,12 @@
        d="M 1129.9375 1701.25 L 1129.9375 1755.75 L 1145.0625 1755.75 L 1145.0625 1891.75 L 1258.0625 1891.75 L 1258.0625 1819.25 L 1232.9375 1819.25 L 1232.9375 1701.25 L 1129.9375 1701.25 z "
        id="rect2736" />
     <rect
-       y="1531.2389"
-       x="978.42456"
-       height="185.52228"
-       width="128.15085"
+       y="1531.3113"
+       x="978.49689"
+       height="243.37756"
+       width="128.00613"
        id="rect2734"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#f57900;fill-opacity:0.08306711;stroke:#ce5c00;stroke-width:1.14471376;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.3290735;display:inline;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro" />
     <rect
        y="2226.7388"
        x="2169.4246"
@@ -1824,12 +1824,12 @@
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
          id="tspan5844" /></text>
     <rect
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.37898529;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
        id="rect5860"
-       width="110.21674"
-       height="41.425453"
-       x="987.31348"
-       y="1664.0696" />
+       width="109.83776"
+       height="79.046471"
+       x="987.50299"
+       y="1664.259" />
     <rect
        y="1663.9586"
        x="987.20251"
@@ -1875,10 +1875,25 @@
          x="990.745"
          y="1711.4742"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
-         id="tspan5882" /><tspan
+         id="tspan3161">addObstacle</tspan><tspan
          sodipodi:role="line"
          x="990.745"
          y="1726.4742"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+         id="tspan3165">removeObstacle</tspan><tspan
+         sodipodi:role="line"
+         x="990.745"
+         y="1741.4742"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+         id="tspan3163" /><tspan
+         sodipodi:role="line"
+         x="990.745"
+         y="1756.4742"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
+         id="tspan5882" /><tspan
+         sodipodi:role="line"
+         x="990.745"
+         y="1771.4742"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Helvetica Neue LT Pro;-inkscape-font-specification:Helvetica Neue LT Pro"
          id="tspan5884" /></text>
     <path
