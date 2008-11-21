@@ -1,0 +1,7 @@
+
+
+L'architecture proposée pour le simulateur implémente une architecture basée sur MVC.  En l'occurence, le modèle correspond aux objets de simulation, le contrôleur au simulateur et la vue correspond au GUI.  Additionnellement, la définition du scénario à exécuter est définie dans le Scénario et la communication est regroupée sous communication.  L'utilisation du patron de conception \textit{Observer} est utilsée sur les objets de simulation et les canaux de communication pour permettre un maximum de flexibilité dans la connection des différents objets et faciliter la propagation des évènements aux travers du simulateur.
+
+La simulation est synchrone au sens où il y a un temps global défini pour l'éxécution de chacun des objets.  Tous se synchronisent sur le step initié par le simulateur.  Le choix d'une simulation synchrone a été préféré à une simulation asynchrone car il est plus facile de contrôler l'évolution de la simulation en présence de multi-processus.  Il est alors possible de paralléliser le traitement des évènements de chacun des objets tout en maintenant une synchronisation globale.  La récupération des évènements en provenance du LAS est synchrone (effectuée à chaque \textit{step}).  Cependant, la propagation des évènements des objets de la simulation vers les canaux de communication est asynchrone, par l'utilisation d'Observer, pour éviter la gestion du dispatching des évènements au simulateur.
+
+Les machines à états finis sont des secrets des différents objets de simulation et n'ont pas été explicités dans l'architecture.
