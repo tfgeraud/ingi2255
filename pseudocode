@@ -41,7 +41,7 @@ chooseBestAmbulance(incidentInfoId, exclusionSet) {
 
 mobilize(incidentId, ambulanceId) {
 	
-	mobOrder = IncidentInfo.getMobOrder(incidentId)	
+	mobOrder = IncidentInfo.getMobOrder(incidentId)
 	Communicator.send(mobOrder, ambulanceId)
 	
 	return Communicator.waitForAck(mobOrder, ambulanceId)
