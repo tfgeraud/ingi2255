@@ -1,0 +1,37 @@
+\subsection{Architecture \emph{Pipe and Filter}}
+	Ce type d'architecture consiste en un flux de données,
+	et une série de filtres qui les transforment séquentiellement,
+	pour arriver au résultat désiré. Cette architecture est
+	attractive car très simple, modulaire et facilement parallélisable,
+	et nous avons donc cherché à savoir si elle pouvait s'adapter à
+	notre problème.
+
+	Un des principaux problèmes de ce type d'architecture est de
+	s'accorder sur le type de données du flux. Ici un type s'imposait,
+	à savoir l'incident. En effet tout dans notre systeme, tourne
+	autour de celui ci: il démarre quand un nouvel incident est créé,
+	et s'arrète lorsque l'incident est résolu. Chaque filtre modifierait
+	donc la représentation interne de l'incident, mais surtout, s'assurerait
+	que cette représentation s'accorde avec le monde externe.
+
+	Cependant, au fur et à mesure que l'on considère cette architecture
+	nous sommes forcés de nous en écarter. Premièrement, il n'est pas 
+	possible de modifier l'état incrémentalement dans le module lui meme,
+	les modifications de l'incident doivent etre atomiques.
+
+	Ensuite, s'il est possible de réaliser une séquence de filtres
+	indépendants, la réussite de chacun est dépendante du monde réel,
+	et n'est donc pas garantie. Un échec d'un module requiert
+	un retour au module précédent, voir tout au début. 
+	
+	Cela consiste donc finalement à implémenter la machine à état de 
+	l'incident qui est notre architecture finale.
+
+	Malgré le fait que cette architecture semblait assez éloignée
+	de notre problème et qu'elle n'a finalement pas été retenue,
+	elle aura largement influencé notre architecture finale, nous
+	montrant ainsi qu'aucun shéma ne doit ètre écarté à priori.
+
+
+
+

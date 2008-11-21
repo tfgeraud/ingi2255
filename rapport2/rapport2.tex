@@ -453,7 +453,7 @@ mob\_mobilization &=& \{alpha3 \rightarrow incident4, mike1 \rightarrow incident
 
 En entrée, nous avons $incident2$ et en sortie, 
 \begin{itemize}
-	\item $choice\_ambulance' = \{alpha2 \rightarrow incident1, alpha1 \rightarrow incident3 \}$
+	\item $choice\_ambulance' = \alpha2 \rightarrow incident1, alpha3 \rightarrow incident4, mike1 \rightarrow incident3, alpha1 \rightarrow incident2 \}$
 	\item $mob\_mobilization' = mob\_mobilization$
 	\item $status\_ambulance' = status\_ambulance \oplus \{alpha2 \rightarrow CHOSEN \}$
 	\item $message! = OK$
@@ -615,8 +615,8 @@ Grâce à notre travail de formalisation effectué dans l'analyse des besoins,
 la formalisation en langage Z a été facilement déduite et construite. Les tests
 ont été dérivés sans difficulté des opérations. 
 
-Nous n'avons pas identifié d'erreur dans notre analyse des besoins par
-rapport à cette formalisation, probablement du au fait qu'une grande partie
+Nous n'avons pas identifié d'erreurs dans notre analyse des besoins par
+rapport à cette formalisation, probablement dû au fait qu'une grande partie
 de la formalisation avait été faite préalablement, nous permettant d'identifier
 ces erreurs en amont.
 

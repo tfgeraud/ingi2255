@@ -1,0 +1,108 @@
+Cette partie présente le plan de développement de notre logiciel ainsi que
+la répartition du travail au sein du groupe.
+
+Le travail est réparti en équipe de développeurs, ces développeurs sont des
+équipes de deux ou trois personnes au maximum, le but étant de minimiser les 
+interactions tout en conservant une relecture et une liberté d'implémentation
+aux équipes.
+
+Dans chacune des phases, l'équipe se voit assigner un ensemble de module à 
+écrire et à tester, sur base des tests black-box précédemment conçu. Ces tests
+seront rédigé à l'aide JUnit et serviront également de tests de régressions.
+Les tests seront écrits à l'aide de JUnit 4 et le code java sera écrit
+en code compatible Java 6.
+
+\section{Phase 1 : La gestion de l'information}
+Cette phase permet de mettre en place tous les objets qui seront utilisé
+par le reste de l'application. Ces objets seront stocké, dans un premier
+temps, pour la durée de l'exécution du logiciel.
+
+Les modules concernés par cette phase sont, pour la
+partie système: Incident, Map, Ambulance et pour la partie simulateur : SimObjects, Map.
+La répartition du travail pour 
+les différents module et pour les équipes est décrite ci-dessous:
+
+\noindent\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+Module			& 	Équipe de développement & Équipe de test\\
+\hline
+Incident	&	Team A 	&	Team B	\\
+Map 		&	Team B	&	Team A	\\
+Ambulance	&	Team A  &	Team B	\\
+SimObjects	&	Team A  &	Team B	\\
+Map			&	Team B  &	Team A	\\
+\hline
+\end{tabularx}
+
+Fin de la première phase: 27 novembre.
+
+\section{Phase 2 : Communication}
+Cette phase met en place la communication entre les deux mondes.
+
+Les modules concernés par cette seconde phase sont les suivants, pour
+le système : Communicator, Broker et pour le simulateur : Communication, CallSimul, AVLS et MDT.
+À nouveau, la répartition est présentée dans le tableau suivant:
+
+\noindent\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+Module			& 	Équipe de développement & Équipe de test\\
+\hline
+Communicator	&	Team B 	&	Team A\\
+Broker			&	Team B	&	Team A\\
+Communication 	&	Team B	&	Team A	\\
+CallSimul		&	Team A	&	Team B	\\
+AVLS			&	Team A	&	Team B	\\
+MDT				&	Team A	&	Team B	\\
+\hline
+\end{tabularx}
+
+Fin de la seconde phase: 2 décembre.
+
+\section{Phase 3 : Le coeur}
+Cette phase va s'appuyer sur les phases précédentes afin de les exploiter
+et de faire en sorte que le logiciel fasse ce pourquoi ce dernier a été conçu.
+
+Les modules concernés sont les suivants: pour le système: IncidentProcessor,
+AmbulanceChooser, Mobilizer et Resolver, pour le simulateur: Simulator,
+Scenario et FileScenario.
+À nouveau, la répartition est présentée dans le tableau suivant:
+
+\noindent\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+Module			& 	Équipe de développement & Équipe de test\\
+\hline
+IncidentProcessor	&	Team A 	&	Team B\\
+AmbulanceChooser	&	Team B	&	Team A\\
+Mobilizer 			&	Team A	&	Team B	\\
+Resolver			&	Team A	&	Team B	\\
+Simulator			&	Team B	&	Team A	\\
+Scenario			&	Team A	&	Team B	\\
+FileScenario		&	Team B	&	Team A	\\
+\hline
+\end{tabularx}
+
+Fin de la seconde phase: 11 décembre.
+
+\section{Phase 4 : L'enrichissement}
+Cette phase est l'occasion d'ajouter des modules à notre architecture afin de 
+proposer une plus grand nombre de fonctionnalité.
+
+En fonction du temps et des affinités des équipes, il sera possible d'implémenter
+certaines de ces fonctionnalités.
+
+Parmis ces fonctionnalités, nous avons:
+\begin{itemize}
+	\item Utilisation d'une base de donnée relationnelle pour sauvegarder les 
+		  données de manière pérenne.
+	\item L'ajout d'un module de statistique du coté du simulateur
+	\item L'ajout d'un module de statistique du coté du système
+	\item L'ajout d'un module s'occupant du placement des ambulances
+		  afin de maximiser la couverture géographique
+	\item L'utilisation d'une carte plus complexe, pour louvain-la-neuve par
+		  exemple.
+	\item Le développement de canaux de communication supplémentaire (Radio, 
+	      téléphonne, etc.)
+	\item L'ajout de scénario probabiliste
+	\item L'ajout de scénario généré manuellement
+	\item ...
+\end{itemize}

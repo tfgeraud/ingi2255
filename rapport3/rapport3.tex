@@ -76,51 +76,26 @@ GÈraud Talla Fotsing}}
 \tableofcontents
 
 \chapter{Architecture logique}
+	\section{Architectures √©valu√©es }
+		\input{parties/pipe-style.tex}
+	\section{Architecture finale}
 
 \chapter{Architecture physique}
 
+<<<<<<< HEAD:rapport3/rapport3.tex
+\chapter{√âv√®nements √† l'interface}
+	\input{parties/messages.tex}
+
+\chapter{Plan de d√©veloppement}
+	\input{parties/plan.tex}
+
+\chapter{Sp√©cifications externes des modules}
+
 \chapter{Evenements ‡ l'interface}
-\begin{description}
-	\item [Incident:] L'ÈvÈnement incident est envoyÈ ‡ partir du simulateur vers le systËme et comporte les informations suivantes: 		
-				l'‚ge de la victime, enceinte ou non, la localisation de l'incident (typiquement l'adresse), et une description de l'incident.
-	\item [AVLSMessage:]L'ÈvÈnement AVLSMessage est envoyÈ ‡ partir du simulateur vers le systËme et comporte la posisition (coordonnÈes 					gÈographique) et l'identifiant d'un ambulance.
-	\item [MDTMessage:] L'ÈvÈnement MDTMessage peut provenir soit du systËme soit du simulateur. Il y a plusieurs type de MDTMessage
-	
-	
-	%MDTMessage du systËme vers le simulateur
-		\begin{table}
-		\centering
-			\begin{tabular}{|l|l|l|}
-				\hline
-				\textbf{nom du message} & \textbf{arguments} & \textbf{description} \\ \hline
-        mobilisationOrder & incidentID, incidentPosition, ambulanceID & Le message de mobilisation est envoyÈ par le systËme ‡ une ambulance (AmbulcanceID) afin de la mobiliser pour un incident (incidentID) qui ‡ lieu ‡ la position (incidentPosition) \\ \hline
-				demobilisationOrder & incidentID, incidentPosition, ambulanceID & Le message demobilisationOrder est envoyÈ par le systËme ‡ une ambulance (AmbulanceID) afin de la dÈmobiliser pour l'incident (incidentId) se trouvant ‡ la position (incidentPosition) \\ \hline
-      \end{tabular} 
-		\caption{MDTMessage du systËme vers le simulateur}
-		\label{tab:MDTMessage}
-	\end{table}
-  
-  	%MTDMessage du simulateur vers le systËme
-  	\begin{table}
-		\centering
-			\begin{tabular}{|l|l|l|}
-				\hline
-				\textbf{nom du message} & \textbf{arguments du message} & \textbf{description du message} \\ \hline
-        mobilisationConfirmation & incidentID, ambulanceID, un booleen yes/no & Un message de confirmation est envoyÈ par l'ambulance (ambulanceID) pour accepter (yes) ou refuser (no) l'ordre de mobilisation concernant l'incident (incidentID) \\ \hline 
-        ambulanceBroken & ambulanceID & Message envoyÈ par l'ambulance (ambulanceID) pour signaler qu'elle est en panne \\ \hline
-        ambulanceRepaired & ambulanceID & Message envoyÈ par l'ambulance (ambulanceID) pour signaler qu'elle est rÈparÈe \\ \hline
-        obstacle & position & Un message Obstacle avec une position en argument est envoyÈ par une ambulance au systËme pour signaler qu'il existe une obstacle ‡ cette position \\ \hline
-        incidentCancelled & incidentID, ambulanceID & Un message incidentCancelled est envoyÈ par l'ambulance (ambulanceID) au systËme pour signaler que l'intervention pour l'incident (incidentID) est annulÈe \\ \hline
-        incidentResolved & incidentID, ambulanceID & Un message incidentResolved est envoyÈ par l' ambulance (ambulanceID) au systËme pour signaler que l'intervention pour l'incident (incidentID) est rÈsolue \\ \hline
-        destinationUnreachable & ambulanceID, incidentID & Une message destinationUnreachable est envoyÈ par l'ambulance (ambulanceID) au systËme pour signaler que la position de l'incident (incidentID) est inaccessible \\ \hline
-     \end{tabular} 
-		\caption{MDTMessage du simulateur vers le systËme}
-		\label{tab:MDTMessage}
-	\end{table}
-	
-\end{description}
+	\input{parties/messages.tex}
 
 \chapter{Plan de dÈveloppement}
+	\input{parties/plan.tex}
 
 \chapter{SpÈcifications externes des modules}
 
