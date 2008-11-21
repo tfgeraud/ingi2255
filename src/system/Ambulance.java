@@ -75,15 +75,41 @@ public interface Ambulance {
 	 * Return id of the incident for which the ambulance has been chosen.
 	 * 
 	 * @pre		ambulanceInfoId id of the ambulance
-	 * @post	return coordinates of the ambulance
+	 * @post	return incident id
 	 */
 	public int getIncidentChosenFor(int ambulanceInfoId);
 	
+	/**
+	 * Return id of the incident for which the ambulance has been mobilized.
+	 * 
+	 * @pre		ambulanceInfoId id of the ambulance
+	 * @post	return incident id
+	 */
 	public int getIncidentMobilizedFor(int ambulanceInfoId);
 	
+	/**
+	 * Set ambulance position to coord.
+	 * 
+	 * @pre		ambulanceInfoId id of the ambulance
+	 * 			coord new coordinates
+	 * @post	coordinates of the ambulance are updated
+	 */
 	public void setPosition(int ambulanceInfoId, Coord coord);
 	
+	/**
+	 * Set incident for which ambulance is chosen to incidentInfoId.
+	 * 
+	 * @pre		ambulanceInfoId id of the ambulance
+	 * 			incidentInfoId id of the incident
+	 * @post	choice for the ambulance is updated
+	 */
 	public void setIncidentChosenFor(int ambulanceInfoId, int incidentInfoId);
-	
+	/**
+	 * Set incident for which ambulance is mobilized to incidentInfoId.
+	 * 
+	 * @pre		ambulanceInfoId id of the ambulance
+	 * 			incidentInfoId id of the incident
+	 * @post	mobilization for the ambulance is updated
+	 */
 	public void setIncidentMobilizedFor(int ambulanceInfoId, int incidentInfoId);
 }
