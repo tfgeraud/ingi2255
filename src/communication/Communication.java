@@ -7,7 +7,7 @@ package communication;
  * @author Simon Busard
  *
  */
-import system.event.Event;
+import events.Event;
 
 public interface Communication {
 
