@@ -1,4 +1,6 @@
-package simulator;
+package simulator.gui;
+
+import simulator.simobjects.SimObject;
 
 
 /**

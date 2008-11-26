@@ -1,8 +1,10 @@
-package simulator;
+package simulator.scenario;
 
 import java.util.Set;
 
-import event.Event;
+import simulator.simobjects.Ambulance;
+
+import events.Event;
 
 /**
  * Provide a list of events for each step of simulation.

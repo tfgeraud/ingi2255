@@ -1,4 +1,4 @@
-package simulator;
+package simulator.simobjects;
 
 /**
  * Simulation object encapsulating the state of an ambulance.  Use a Map simulation object to compute its position while moving.

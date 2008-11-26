@@ -1,4 +1,4 @@
-package simulator;
+package simulator.simobjects;
 
 /**
  * Simulation object encapsulating the state of the incident

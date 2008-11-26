@@ -1,4 +1,6 @@
-package simulator;
+package simulator.simobjects;
+
+import simulator.Pos;
 
 /**
  * Provide a way to store the obstacles in the town and encapsulate the path finding every ambulance

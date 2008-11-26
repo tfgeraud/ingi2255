@@ -1,6 +1,6 @@
 package simulator;
 
-import event.Event;
+import events.Event;
 
 /**
  * Implement the observer design pattern
