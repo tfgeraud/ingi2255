@@ -1,5 +1,11 @@
 package events;
 
+/**
+ * Generic Event used both by the simulator and the LAS.
+ * 
+ * @author Erick Lavoie
+ *
+ */
 public class Event {
 	protected String senderName = "Undefined";
 	
