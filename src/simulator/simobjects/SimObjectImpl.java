@@ -80,10 +80,22 @@ public class SimObjectImpl implements SimObject {
 	}
 	
 	public void dispatch(Event e) {
-		for(StateMachine sm: stateMachineList) {
-			sm.dispatch(e);
-		}
+		/**
+		 * If at least one state machine understand the event,
+		 * it is considered understood and won't throw a new 
+		 * EventNotUnderstood
+		 */
+		boolean allEventsNotUnderstood = true;
 		
+		for(StateMachine sm: stateMachineList) {
+			try {
+				sm.dispatch(e);
+				allEventsNotUnderstood = allEventsNotUnderstood && false;
+			} catch (EventNotUnderstoodException e1) {}
+		}
+		if(allEventsNotUnderstood) {
+			SimObjectImpl.this.notify(new EventNotUnderstood(SimObjectImpl.this.getName(), e));
+		}
 	}
 	
 	public Set<String> getCurrentStateNames() {
@@ -123,11 +135,11 @@ public class SimObjectImpl implements SimObject {
 		 * @Pre StateMachine has been initialized and current state is valid
 		 * @Post The new state resulting from the execution of the event is stored in currentState
 		 */
-		public void dispatch(Event e) {
+		public void dispatch(Event e) throws EventNotUnderstoodException {
 			State newState = currentState.execute(e);
 			
 			if (newState == null) {
-				SimObjectImpl.this.notify(new EventNotUnderstood(SimObjectImpl.this.getName(), e));
+				throw new EventNotUnderstoodException();
 			} else if(newState != currentState) {
 				SimObjectImpl.this.notify(new ChangingToState(SimObjectImpl.this.getName(), newState.getName()));
 				currentState=newState;
