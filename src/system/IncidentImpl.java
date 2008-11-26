@@ -2,6 +2,9 @@ package system;
 
 import java.util.Hashtable;
 
+import system.exception.UnknownIncidentException;
+import system.Ambulance;
+
 public class IncidentImpl implements Incident {
 	
 	private class IncidentInfo {
@@ -12,6 +15,7 @@ public class IncidentImpl implements Incident {
 		
 		Coord position = null;
 		String ambKindNeeded = null;
+		
 		String chosenAmb = null;
 		String mobAmb = null;
 		
@@ -26,36 +30,56 @@ public class IncidentImpl implements Incident {
 	}
 	
 	private Hashtable<String, IncidentInfo> incidents = null;
+	private Map map = null;
 	private int nextIncId = 0;
 	
 	// Constructors
 	
-	public IncidentImpl() {
+	public IncidentImpl(Map map) {
 		this.incidents = new Hashtable<String, IncidentInfo>();
+		this.map = map;
 	}
 		
-	public void addIncident(int age, boolean pregnant, String localisation, String description) {
-		incidents.put(	"incident" + nextIncId,
-						new IncidentInfo(age,pregnant,localisation,description)
-						);
-		// TODO : process additional information
+	public void addIncident(int age, boolean pregnant, 
+							String localisation, String description) {
+		IncidentInfo inc = new IncidentInfo(age,pregnant,
+											localisation,description);
+		incidents.put("incident" + nextIncId,inc);
+		
+		// Process additional information
+		// Position
+		inc.position = map.addressToCoord(localisation);
+		// Ambulance kind needed
+		// This is very simple for the beginning.  If description is "grave"
+		// then a medicalized ambulance is needed, else a normal ambulance
+		// is needed.
+		if(description.equals("grave")) 
+			inc.ambKindNeeded = Ambulance.MEDICALIZED;
+		else
+			inc.ambKindNeeded = Ambulance.NORMAL;
 	}
 
-	public int getAge(String incidentInfoId) {
+	public int getAge(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.age;
 	}
 
-	public String getAmbulanceKindNeeded(String incidentInfoId) {
+	public String getAmbulanceKindNeeded(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.ambKindNeeded;
 	}
 
-	public String getChosenAmbulance(String incidentInfoId) {
+	public String getChosenAmbulance(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.chosenAmb;
 	}
 
@@ -64,15 +88,19 @@ public class IncidentImpl implements Incident {
 		return null;
 	}
 
-	public String getDescription(String incidentInfoId) {
+	public String getDescription(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.description;
 	}
 
-	public String getLocalisation(String incidentInfoId) {
+	public String getLocalisation(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.localisation;
 	}
 
@@ -81,39 +109,51 @@ public class IncidentImpl implements Incident {
 		return null;
 	}
 
-	public String getMobilizedAmbulance(String incidentInfoId) {
+	public String getMobilizedAmbulance(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.mobAmb;
 	}
 
-	public Coord getPosition(String incidentInfoId) {
+	public Coord getPosition(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.position;
 	}
 
-	public boolean getPregnant(String incidentInfoId) {
+	public boolean getPregnant(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		return inc.pregnant;
 	}
 
-	public void setAsResolved(String incidentInfoId) {
+	public void setAsResolved(String incidentInfoId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		inc.state = RESOLVED;
 	}
 
-	public void setChosenAmbulance(String incidentInfoId, String ambulanceId) {
+	public void setChosenAmbulance(String incidentInfoId, String ambulanceId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		inc.chosenAmb = ambulanceId;
 	}
 
-	public void setMobilizedAmbulance(String incidentInfoId, String ambulanceId) {
+	public void setMobilizedAmbulance(String incidentInfoId, String ambulanceId)
+	throws UnknownIncidentException {
 		IncidentInfo inc = incidents.get(incidentInfoId);
-		// TODO : exception if not known
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
 		inc.mobAmb = ambulanceId;
 	}
 }
