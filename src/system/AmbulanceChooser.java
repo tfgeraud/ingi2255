@@ -21,6 +21,6 @@ public interface AmbulanceChooser {
 	 * @post	return id of the best ambulance or -1 if no such ambulance
 	 * 			is found
 	 */
-	public int chooseBestAmbulance(int incidentInfoId,LinkedList exclusionSet);
+	public int chooseBestAmbulance(int incidentInfoId,LinkedList<Integer> exclusionSet);
 
 }

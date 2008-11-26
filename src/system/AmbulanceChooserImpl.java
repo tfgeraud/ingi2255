@@ -11,7 +11,7 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 	/* (non-Javadoc)
 	 * @see system.AmbulanceChooser#chooseBestAmbulance(int, java.util.LinkedList)
 	 */
-	public int chooseBestAmbulance(int incidentInfoId, LinkedList exclusionSet) {
+	public int chooseBestAmbulance(int incidentInfoId, LinkedList<Integer> exclusionSet) {
 		
 		int kind = incident.getAmbulanceKindNeeded(incidentInfoId);
 		Coord coord = incident.getCoord(incidentInfoId);
