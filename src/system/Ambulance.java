@@ -2,22 +2,60 @@ package system;
 
 import java.util.LinkedList;
 
+import system.exception.AmbulanceKindUnknownException;
+import system.exception.AmbulanceStatusUnknwownException;
+import system.exception.IllegalMobilizationException;
+
 /**
  * The Ambulance interface represents the set of all ambulances known by the
- * system.
+ * system. An ambulance is either normal, either medicalized depending on its
+ * equipement and the skills of its staff.
  * 
- * @author Simon Busard
+ * The status of an ambulance is its ability to perform some actions, so an
+ * ambulance is either working, either broken.
+ * 
+ * The availability of an ambulance is its ability to perform some actions for a
+ * while. So the availability of an ambulance is either free, either chosen,
+ * either mobilized.
+ * 
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
+ * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
  */
 public interface Ambulance {
 
+	/**
+	 * The free status of an ambulance
+	 */
 	public static final String FREE = "free";
+
+	/**
+	 * The chosen status of an ambulance
+	 */
 	public static final String CHOSEN = "chosen";
+
+	/**
+	 * The mobilized status of an ambulance
+	 */
 	public static final String MOBILIZED = "mobilized";
 
+	/**
+	 * The broken status of the ambulance
+	 */
 	public static final String BROKEN = "broken";
+
+	/**
+	 * The working status of an ambulance
+	 */
 	public static final String WORKING = "working";
 
+	/**
+	 * The medicalized kind of an ambulance
+	 */
 	public static final String MEDICALIZED = "medicalized";
+
+	/**
+	 * The normal kind of an ambulance
+	 */
 	public static final String NORMAL = "normal";
 
 	/**
@@ -27,9 +65,24 @@ public interface Ambulance {
 	 *      coordinates kind the kind of the new ambulance (normal or
 	 *      medicalized) status the ambulance status (working, broken)
 	 * @post a new ambulance is stored in the system
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @param position
+	 *            The position of the ambulance
+	 * @param kind
+	 *            The kind of an ambulance
+	 * @param status
+	 *            The status of an ambulance
+	 * 
+	 * @throws AmbulanceStatusUnknwownException
+	 *             The status of the ambulance is not known.
+	 * @throws AmbulanceKindUnknownException
+	 *             The kind of the ambulance is not known
 	 */
-	public void addAmbulance(String ambulanceId, Coord coord, String kind,
-			String status);
+	public void addAmbulance(String ambulanceId, Coord position, String kind,
+			String status) throws AmbulanceStatusUnknwownException,
+			AmbulanceKindUnknownException;
 
 	/**
 	 * Return all free ambulance of kind that are not listed in exclusionSet
@@ -37,6 +90,11 @@ public interface Ambulance {
 	 * @pre kind the ambulance kind needed (normal or medicalized) exclusionSet
 	 *      a list of ambulance ids that dont have to be taken in account
 	 * @post return a list of ids of free ambulances
+	 * 
+	 * @param kind
+	 *            The needed kind of the ambulance
+	 * @param exclusionSet
+	 *            The set of ambulance that cannot be chosen for this incident.
 	 */
 	public LinkedList<String> getAllFree(String kind,
 			LinkedList<String> exclusionSet);
@@ -46,83 +104,119 @@ public interface Ambulance {
 	 * 
 	 * @pre ambulanceId a valid id
 	 * @post return coordinates of concerned ambulance
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @return the coordinate of the ambulance
 	 */
 	public Coord getCoord(String ambulanceId);
 
 	/**
 	 * Mark ambulance as broken.
 	 * 
-	 * @pre ambulanceInfoId a valid id
-	 * @post ambulance with ambulanceInfoId id is set as broken
+	 * @pre ambulanceId a valid id
+	 * @post ambulance with ambulanceId id is set as broken
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
 	 */
-	public void markAsBroken(String ambulanceInfoId);
+	public void markAsBroken(String ambulanceId);
 
 	/**
 	 * Mark ambulance as repaired.
 	 * 
-	 * @pre ambulanceInfoId a valid id
-	 * @post ambulance with ambulanceInfoId id is set as repaired
+	 * @pre ambulanceId a valid id
+	 * @post ambulance with ambulanceId id is set as repaired
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
 	 */
-	public void markAsRepaired(String ambulanceInfoId);
+	public void markAsRepaired(String ambulanceId);
 
 	/**
 	 * Return kind of an ambulance.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance
+	 * @pre ambulanceId id of the ambulance
 	 * @post return kind of the ambulance
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
 	 */
-	public String getKind(String ambulanceInfoId);
+	public String getKind(String ambulanceId);
 
 	/**
 	 * Return id of the incident for which the ambulance has been chosen.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance
+	 * @pre ambulanceId id of the ambulance
 	 * @post return incident id
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
 	 */
-	public String getIncidentChosenFor(String ambulanceInfoId);
+	public String getIncidentChosenFor(String ambulanceId);
 
 	/**
-	 * Return id of the incident for which the ambulance has been mobilized.
+	 * Return unique identifier of the incident the ambulance has been mobilized
+	 * for.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance
+	 * @pre ambulanceId id of the ambulance
 	 * @post return incident id
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @return the unique identifier of the incident the ambulance is mobilized
+	 *         for
 	 */
-	public String getIncidentMobilizedFor(String ambulanceInfoId);
+	public String getIncidentMobilizedFor(String ambulanceId);
 
 	/**
 	 * Set ambulance position to coord.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance coord new coordinates
+	 * @pre ambulanceId id of the ambulance coord new coordinates
 	 * @post coordinates of the ambulance are updated
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @param coord
+	 *            The coordinate of the ambulance
 	 */
-	public void setPosition(String ambulanceInfoId, Coord coord);
+	public void setPosition(String ambulanceId, Coord coord);
 
 	/**
-	 * Set incident for which ambulance is chosen to incidentInfoId.
-	 * If the ambulance is no longer chosen, then incidentInfoId 
-	 * should be null.
+	 * Set incident for which ambulance is chosen to incidentInfoId. If the
+	 * ambulance is no longer chosen, then incidentInfoId should be null.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance incidentInfoId id of the
-	 *      incident
-	 * @post choice for the ambulance is updated, ambulance is
-	 * chosen for the incident incidentInfoId if incidentInfoId is not
-	 * null and the ambulance is free if incidentInfoId is null.
+	 * @pre ambulanceId id of the ambulance incidentInfoId id of the incident
+	 * @post choice for the ambulance is updated, ambulance is chosen for the
+	 *       incident incidentInfoId if incidentInfoId is not null and the
+	 *       ambulance is free if incidentInfoId is null.
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @param incidentInfoId
+	 *            The unique indentifier of the incident
 	 */
-	public void setIncidentChosenFor(String ambulanceInfoId,
-			String incidentInfoId);
+	public void setIncidentChosenFor(String ambulanceId, String incidentInfoId);
 
 	/**
-	 * Set incident for which ambulance is mobilized to incidentInfoId.
-	 * If the ambulance is no longer mobilized, then incidentInfoId 
-	 * should be null.
+	 * Set incident for which ambulance is mobilized to incidentInfoId. If the
+	 * ambulance is no longer mobilized, then incidentInfoId should be null.
 	 * 
-	 * @pre ambulanceInfoId id of the ambulance incidentInfoId id of the
-	 *      incident
-	 * @post mobilization for the ambulance is updated, ambulance is
-	 * mobilized for the incident incidentInfoId if incidentInfoId is not
-	 * null and the ambulance is free if incidentInfoId is null.
+	 * @pre ambulanceId id of the ambulance incidentInfoId id of the incident
+	 * @post mobilization for the ambulance is updated, ambulance is mobilized
+	 *       for the incident incidentInfoId if incidentInfoId is not null and
+	 *       the ambulance is free if incidentInfoId is null.
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @param incidentInfoId
+	 *            The unique indentifier of the incident
+	 * 
+	 * @throws IllegalMobilizationException
+	 *             The mobilization is illegal since the ambulance was not
+	 *             chosen before.
 	 */
-	public void setIncidentMobilizedFor(String ambulanceInfoId,
-			String incidentInfoId);
+	public void setIncidentMobilizedFor(String ambulanceId,
+			String incidentInfoId) throws IllegalMobilizationException;
 
 }
