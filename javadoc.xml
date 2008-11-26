@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" additionalparam=" -tag pre:cm:&quot;Precondition: &quot; -tag post:cm:&quot;Postcondition&quot;" author="true" classpath="." destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="event,system,system.order,system.exception,simulator.simobjects,test.simulator,simulator.scenario,events,simulator.events,simulator,simulator.gui,communication" source="1.5" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
