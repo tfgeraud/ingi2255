@@ -13,40 +13,40 @@ public interface GUI {
 	/**
 	 * Start the simulation
 	 * 
-	 * @Pre GUI is connected to a Simulator and Simulator is ready
-	 * @Post Simulation is running
+	 * @pre GUI is connected to a Simulator and Simulator is ready
+	 * @post Simulation is running
 	 */
 	public void start();
 	
 	/**
 	 * Stop the simulation
 	 * 
-	 * @Pre Simulation is running
-	 * @Post Simulation is stopped
+	 * @pre Simulation is running
+	 * @post Simulation is stopped
 	 */
 	public void stop();
 	
 	/**
 	 * Interrupt the simulation 
 	 * 
-	 * @Pre Simulation is running
-	 * @Post Simulation is interrupted
+	 * @pre Simulation is running
+	 * @post Simulation is interrupted
 	 */
 	public void pause();
 	
 	/**
 	 * Resume the simulation
 	 * 
-	 * @Pre Simulation is interrupted
-	 * @Post Simulation is running
+	 * @pre Simulation is interrupted
+	 * @post Simulation is running
 	 */
 	public void resume();
 	
 	/**
 	 * Execute one step of the simulation
 	 * 
-	 * @Pre Simulation is interrupted
-	 * @Post Simulation is interrupted
+	 * @pre Simulation is interrupted
+	 * @post Simulation is interrupted
 	 */
 	public void step();
 	
@@ -54,8 +54,8 @@ public interface GUI {
 	 * Show a graphical representation of the internal state of the objects
 	 * and the events it has received so far
 	 * 
-	 * @Pre object is a valid object
-	 * @Post A window with the representation of the object is shown to the user
+	 * @pre object is a valid object
+	 * @post A window with the representation of the object is shown to the user
 	 */
 	public void inspect(SimObject object);
 

@@ -12,40 +12,40 @@ public interface Simulator {
 	/**
 	 * Start the simulation
 	 * 
-	 * @Pre GUI is connected to a Simulator and Simulator is ready
-	 * @Post Simulation is running
+	 * @pre GUI is connected to a Simulator and Simulator is ready
+	 * @post Simulation is running
 	 */
 	public void start();
 	
 	/**
 	 * Stop the simulation
 	 * 
-	 * @Pre Simulation is running
-	 * @Post Simulation is stopped
+	 * @pre Simulation is running
+	 * @post Simulation is stopped
 	 */
 	public void stop();
 	
 	/**
 	 * Interrupt the simulation 
 	 * 
-	 * @Pre Simulation is running
-	 * @Post Simulation is interrupted
+	 * @pre Simulation is running
+	 * @post Simulation is interrupted
 	 */
 	public void pause();
 	
 	/**
 	 * Resume the simulation
 	 * 
-	 * @Pre Simulation is interrupted
-	 * @Post Simulation is running
+	 * @pre Simulation is interrupted
+	 * @post Simulation is running
 	 */
 	public void resume();
 	
 	/**
 	 * Execute one step of the simulation
 	 * 
-	 * @Pre Simulation is interrupted
-	 * @Post Simulation is interrupted
+	 * @pre Simulation is interrupted
+	 * @post Simulation is interrupted
 	 */
 	public void step();
 	
@@ -53,8 +53,8 @@ public interface Simulator {
 	/**
 	 * Setup the simulation
 	 * 
-	 * @Pre a scenario is know to the simulator
-	 * @Post every ambulance and the map are connected to their communication channels
+	 * @pre a scenario is know to the simulator
+	 * @post every ambulance and the map are connected to their communication channels
 	 */
 	public void init();
 	

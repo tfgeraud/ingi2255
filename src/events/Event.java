@@ -20,5 +20,4 @@ public class Event {
 	public String toString() {
 		return this.getClass().getName() + " sentBy:" + this.senderName; 
 	}
-	
 }

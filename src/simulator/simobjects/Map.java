@@ -12,8 +12,8 @@ import simulator.Pos;
 public interface Map {
 	/**
 	 * Return the next position on the shortest path between currentPos and nextPos
-	 * @Pre currentPos and nextPos are valid
-	 * @Post return null if no path exist between the positions, the next position otherwise
+	 * @pre currentPos and nextPos are valid
+	 * @post return null if no path exist between the positions, the next position otherwise
 	 */
 	public Pos nextPos(Pos currentPos, Pos nextPos);
 }

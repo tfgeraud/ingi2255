@@ -10,4 +10,19 @@ public class MapImpl implements Map {
 		return 0;
 	}
 
+	public void addObstacle(Coord obstacleCoord) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Coord addressToCoord(String localisation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void removeObstacle(Coord obstacleCoord) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

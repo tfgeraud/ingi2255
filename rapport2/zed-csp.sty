@@ -642,12 +642,12 @@
 
 % We define a number of useful macros for specification purposes. 
 
-\def\@PreMacro#1{\mathop{\mbox{\sffamily #1}}}
+\def\@preMacro#1{\mathop{\mbox{\sffamily #1}}}
 \def\@InMacro#1{\mathrel{\mbox{\sffamily #1}}}
 \def\@@InMacro#1^#2{\;\mbox{\sffamily #1}^{#2}\;}
 \def\@SupInMacro#1{\@ifnextchar^{\@@InMacro{#1}}{\@InMacro{#1}}}
 
-\def \mInternal         {\@PreMacro{internal}}
+\def \mInternal         {\@preMacro{internal}}
 \def \mRef              {\@InMacro{ref}}
 \def \mAt               {\@SupInMacro{at}}
 \def \mLive             {\@SupInMacro{live}}
