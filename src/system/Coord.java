@@ -38,4 +38,14 @@ public interface Coord {
 	 * @post	y coordinate is set to y
 	 */
 	public void setY(int y);
+
+	/**
+	 * Return a string representation of the coordinates.
+	 * Format is the followed : (x,y)
+	 * where x and y are corresponding coordinates
+	 * 
+	 * @pre 	-
+	 * @post	return a string representation of coordinates
+	 */
+	public String toString();
 }
