@@ -2,6 +2,9 @@ package system;
 
 import java.util.Hashtable;
 
+import events.DemobilisationOrder;
+import events.MobilisationOrder;
+
 import system.exception.UnknownIncidentException;
 import system.Ambulance;
 
@@ -34,7 +37,12 @@ public class IncidentImpl implements Incident {
 	private int nextIncId = 0;
 	
 	// Constructors
-	
+	/**
+	 * Create a new instance of Incident.  It represents an empty list of
+	 * known incidents.
+	 * 
+	 * @param map : the map contained in the system
+	 */
 	public IncidentImpl(Map map) {
 		this.incidents = new Hashtable<String, IncidentInfo>();
 		this.map = map;
@@ -53,6 +61,7 @@ public class IncidentImpl implements Incident {
 		// This is very simple for the beginning.  If description is "grave"
 		// then a medicalized ambulance is needed, else a normal ambulance
 		// is needed.
+		// TODO : implement more complex and usefull process
 		if(description.equals("grave")) 
 			inc.ambKindNeeded = Ambulance.MEDICALIZED;
 		else
@@ -83,9 +92,13 @@ public class IncidentImpl implements Incident {
 		return inc.chosenAmb;
 	}
 
-	public DemobOrder getDemobOrder(String incidentInfoId) {
-		// TODO Auto-generated method stub
-		return null;
+	public DemobilisationOrder getDemobOrder(String incidentInfoId)
+	throws UnknownIncidentException {
+		IncidentInfo inc = incidents.get(incidentInfoId);
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
+		return new DemobilisationOrder(	incidentInfoId,
+										inc.position.toString(),inc.mobAmb);
 	}
 
 	public String getDescription(String incidentInfoId)
@@ -104,9 +117,13 @@ public class IncidentImpl implements Incident {
 		return inc.localisation;
 	}
 
-	public MobOrder getMobOrder(String incidentInfoId) {
-		// TODO Auto-generated method stub
-		return null;
+	public MobilisationOrder getMobOrder(String incidentInfoId)
+	throws UnknownIncidentException {
+		IncidentInfo inc = incidents.get(incidentInfoId);
+		// Exception if not known
+		if(inc == null) throw new UnknownIncidentException();
+		return new MobilisationOrder(incidentInfoId,
+									 inc.position.toString(),inc.chosenAmb);
 	}
 
 	public String getMobilizedAmbulance(String incidentInfoId)

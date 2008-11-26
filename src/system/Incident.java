@@ -1,5 +1,7 @@
 package system;
 
+import events.DemobilisationOrder;
+import events.MobilisationOrder;
 import system.exception.UnknownIncidentException;
 
 /**
@@ -31,7 +33,7 @@ public interface Incident {
 	 * @pre incidentInfoId is the id of the incident
 	 * @post return the order related to the incident.
 	 */
-	public MobOrder getMobOrder(String incidentInfoId)
+	public MobilisationOrder getMobOrder(String incidentInfoId)
 	throws UnknownIncidentException ;
 
 	/**
@@ -40,7 +42,7 @@ public interface Incident {
 	 * @pre incidentInfoId is the id of the incident
 	 * @post return the order related to the incident
 	 */
-	public DemobOrder getDemobOrder(String incidentInfoId)
+	public DemobilisationOrder getDemobOrder(String incidentInfoId)
 	throws UnknownIncidentException ;
 	
 	/**
