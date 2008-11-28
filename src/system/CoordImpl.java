@@ -29,4 +29,11 @@ public class CoordImpl implements Coord {
 	public String toString() {
 		return "(" + x + "," + y + ")";
 	}
+    public void fromString(String s) throws NumberFormatException{
+        s = s.trim();
+        String Sx = s.substring(s.indexOf("(")+1,s.indexOf(","));
+        String Sy = s.substring(s.indexOf(",")+1,s.indexOf(")"));
+        this.x = Integer.parseInt(Sx);
+        this.y = Integer.parseInt(Sy);
+    }
 }
