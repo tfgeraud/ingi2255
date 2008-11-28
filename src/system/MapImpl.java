@@ -30,25 +30,22 @@ public class MapImpl implements Map {
      * @BRAINFUCK :
      * localisations are currently meant to be exact. this will be hard to
      * maintain, even internally. Some sort of tolerance should be built in.
-     * currently you can use the streetWidth.
+     * currently you can use the streetWidth. Far from bulletProof tough.
      *
 	 */
-    Hashtable<String,Coord> addressToCoordMap;
-    Hashtable<Coord,String> coordToAddressMap;
-    Hashtable<Coord,Integer>obstacle;   //amount of obstacles at coord
-    int streetCountx = 10;
-    int streetCounty = 10;
-    int blocSize = 42;
-    int streetWidth = 2;    /*radius of position error treshold*/
-    public MapImpl(){
-        addressToCoordMap = new Hashtable();
-        coordToAddressMap = new Hashtable();
-        obstacle = new Hashtable();
-    }
+    private Hashtable<String,Coord> addressToCoordMap = new Hashtable();
+    private Hashtable<Coord,String> coordToAddressMap= new Hashtable();
+    private Hashtable<Coord,Integer>obstacle = new Hashtable();   //amount of obstacles at coord
+    private int streetCountx = 10;  //count of NS streets
+    private int streetCounty = 10;  //count of WE sreets
+    private int blocSize = 42;      //distance between
+    private int streetWidth = 2;    /*radius of position error treshold*/
+
     private Coord getStreetCoord(Coord c){
         /*if the c is at a crossroad, returns c.
-         else returns the center of the closest "street edge"*/
-        int distx = c.getX()%blocSize;
+         else returns the center of the closest "street edge"
+         this is used to map multiple coords of the same street to one */
+        int distx = c.getX()%blocSize;  
         int disty = c.getY()%blocSize;
         int x = c.getX() - distx;
         int y = c.getY() - disty;
@@ -57,13 +54,13 @@ public class MapImpl implements Map {
             if(blocSize - distx <= streetWidth){x += blocSize;}
             if(blocSize - disty <= streetWidth){y += blocSize;}
             return new CoordImpl(x,y);
-        }else{  /*not on crossroad*/
+        }else{                                              /*not on crossroad*/
             if( Math.abs(blocSize - distx) < streetWidth){
-                if(blocSize - distx <= streetWidth){ x+= blocSize;}
+                if(blocSize - distx <= streetWidth){x+= blocSize;}
                 y += blocSize/2;
                 return new CoordImpl(x,y);
             }else{
-                if(blocSize - disty <= streetWidth){ y += blocSize;}
+                if(blocSize - disty <= streetWidth){y += blocSize;}
                 x += blocSize/2;
                 return new CoordImpl(x,y);
             }
@@ -99,6 +96,21 @@ public class MapImpl implements Map {
 
     public String coordToAddress(Coord loc) {
         return coordToAddressMap.get(loc);
+    }
+    public Coord closestCoord(Coord loc){
+        /* FIXME NOT IN INTERFACE BUT WILL BE USEFULL
+         * returns the closest registered coordinate */
+        double dist = Double.MAX_VALUE;
+        Coord closest = null;
+        for (Coord c : coordToAddressMap.keySet()){
+            double tmp = Math.sqrt(   Math.pow(loc.getX()-c.getX(),2)
+                                    + Math.pow(loc.getY()-c.getY(),2) );
+            if(tmp < dist){
+                dist = tmp;
+                closest = c;
+            }
+        }
+        return closest;
     }
 
     public String addAddressList(BufferedReader addresslist) {
