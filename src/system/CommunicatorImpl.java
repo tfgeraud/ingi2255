@@ -10,7 +10,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#send(system.MobOrderImpl, int)
 	 */
-	public void send(MobilisationOrder mobOrder, int ambulanceId) {
+	public void send(MobilisationOrder mobOrder, String ambulanceId) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -18,7 +18,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForAck(system.MobOrderImpl, int)
 	 */
-	public boolean waitForAck(MobilisationOrder mobOrder, int ambulanceId) {
+	public boolean waitForAck(MobilisationOrder mobOrder, String ambulanceId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -26,7 +26,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#send(system.DemobOrderImpl, int)
 	 */
-	public void send(DemobilisationOrder demobOrder, int ambulanceId) {
+	public void send(DemobilisationOrder demobOrder, String ambulanceId) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,7 +34,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForAck(system.DemobOrderImpl, int)
 	 */
-	public boolean waitForAck(DemobilisationOrder demobOrder, int ambulanceId) {
+	public boolean waitForAck(DemobilisationOrder demobOrder, String ambulanceId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -42,7 +42,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForEvent(int)
 	 */
-	public Event waitForEvent(int incidentInfoId) {
+	public Event waitForEvent(String incidentInfoId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,12 +54,12 @@ public class CommunicatorImpl implements Communicator {
 		
 	}
 
-	public void send(Event order, int ambulanceId) {
+	public void send(Event order, String ambulanceId) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public boolean waitForAck(Event order, int ambulanceId) {
+	public boolean waitForAck(Event order, String ambulanceId) {
 		// TODO Auto-generated method stub
 		return false;
 	}

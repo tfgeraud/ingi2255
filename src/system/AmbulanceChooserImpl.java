@@ -30,7 +30,6 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 	}
 	
 	private String selectMinDist(LinkedList<String> ambulances, Coord incidentCoord) {
-		
 		String ambulanceId = ambulances.get(0);
 		
 		for(int i = 0;i < ambulances.size();i++) {

@@ -15,7 +15,7 @@ public interface Communicator {
 	 * 		ambulanceId is the id of the ambulance and must be known by the system
 	 * @post the order is sent to the corresponding ambulance
 	 */
-	public void send(Event order, int ambulanceId);
+	public void send(Event order, String ambulanceId);
 
 	/**
 	 * Wait for an acknowledgement
@@ -24,7 +24,7 @@ public interface Communicator {
 	 * 		ambulanceId is the ambulance that should send the ack
 	 * @post true is the ack is received, false otherwise
 	 */
-	public boolean waitForAck(Event order, int ambulanceId);
+	public boolean waitForAck(Event order, String ambulanceId);
 
 	/**
 	 * Wait for an incoming event
@@ -32,7 +32,7 @@ public interface Communicator {
 	 * @pre incidentInfoId is the id of the incident we are listing the events
 	 * @post the event received by one of the channel
 	 */
-	public Event waitForEvent(int incidentInfoId);
+	public Event waitForEvent(String incidentInfoId);
 
 	/**
 	 * Connect to external channel and wait for event
