@@ -1,6 +1,6 @@
 package system;
 
-import system.event.Event;
+import events.Event;
 
 /**
  * The communicator represent the interface used to communicate
@@ -15,7 +15,7 @@ public interface Communicator {
 	 * 		ambulanceId is the id of the ambulance and must be known by the system
 	 * @post the order is sent to the corresponding ambulance
 	 */
-	public void send(Order order, int ambulanceId);
+	public void send(Event order, int ambulanceId);
 
 	/**
 	 * Wait for an acknowledgement
@@ -24,7 +24,7 @@ public interface Communicator {
 	 * 		ambulanceId is the ambulance that should send the ack
 	 * @post true is the ack is received, false otherwise
 	 */
-	public boolean waitForAck(Order order, int ambulanceId);
+	public boolean waitForAck(Event order, int ambulanceId);
 
 	/**
 	 * Wait for an incoming event

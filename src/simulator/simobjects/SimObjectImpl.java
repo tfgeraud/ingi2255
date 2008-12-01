@@ -130,8 +130,8 @@ public class SimObjectImpl implements SimObject {
 		
 		/**
 		 * Dispatch the event to the current state
-		 * @Pre StateMachine has been initialized and current state is valid
-		 * @Post The new state resulting from the execution of the event is stored in currentState
+		 * @pre StateMachine has been initialized and current state is valid
+		 * @post The new state resulting from the execution of the event is stored in currentState
 		 */
 		public void dispatch(Event e) throws EventNotUnderstoodException {
 			State newState = currentState.execute(e);
@@ -166,9 +166,11 @@ public class SimObjectImpl implements SimObject {
 		 * Process the event and return the new state,
 		 * by default, the event returns null, meaning
 		 * event not understood
+		 * Process the event and return the new state
 		 * 
-		 * @Pre Event is valid
-		 * @Post A new state is returned
+		 * @pre Event is valid
+		 * @post A new state is returned
+
 		 */
 		public State execute(Event e) {
 			return null;

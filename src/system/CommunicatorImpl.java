@@ -1,13 +1,16 @@
 package system;
 
-import system.event.Event;
+import events.DemobilisationOrder;
+import events.Event;
+import events.MobilisationOrder;
+
 
 public class CommunicatorImpl implements Communicator {
 	
 	/* (non-Javadoc)
 	 * @see system.Communicator#send(system.MobOrderImpl, int)
 	 */
-	public void send(MobOrder mobOrder, int ambulanceId) {
+	public void send(MobilisationOrder mobOrder, int ambulanceId) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -15,7 +18,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForAck(system.MobOrderImpl, int)
 	 */
-	public boolean waitForAck(MobOrder mobOrder, int ambulanceId) {
+	public boolean waitForAck(MobilisationOrder mobOrder, int ambulanceId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -23,7 +26,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#send(system.DemobOrderImpl, int)
 	 */
-	public void send(DemobOrder demobOrder, int ambulanceId) {
+	public void send(DemobilisationOrder demobOrder, int ambulanceId) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -31,7 +34,7 @@ public class CommunicatorImpl implements Communicator {
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForAck(system.DemobOrderImpl, int)
 	 */
-	public boolean waitForAck(DemobOrder demobOrder, int ambulanceId) {
+	public boolean waitForAck(DemobilisationOrder demobOrder, int ambulanceId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -49,6 +52,16 @@ public class CommunicatorImpl implements Communicator {
 	 */
 	public void mainLoop() {
 		
+	}
+
+	public void send(Event order, int ambulanceId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean waitForAck(Event order, int ambulanceId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

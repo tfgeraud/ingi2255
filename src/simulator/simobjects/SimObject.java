@@ -43,37 +43,37 @@ public interface SimObject extends Observer, Observable{
 	
 	/**
 	 * Remove an observer from the object
-	 * @Pre observer is valid
-	 * @Post observer is removed from the list of observers
+	 * @pre observer is valid
+	 * @post observer is removed from the list of observers
 	 */
 	public void detach(Observer observer);
 	
 	/**
 	 * Notify every registered observer that an Event has occurred
-	 * @Pre Event is valid
-	 * @Post Every observer had received the event through its accept method
+	 * @pre Event is valid
+	 * @post Every observer had received the event through its accept method
 	 */
 	public void notify(Event event);
 	
 	/**
 	 * Execute a simulation step by processing every events in its queue until the step delimiter is reached
-	 * @Pre A step delimiter is in the event queue
-	 * @Post The step delimiter has been consumed and every events preceding it have been processed
+	 * @pre A step delimiter is in the event queue
+	 * @post The step delimiter has been consumed and every events preceding it have been processed
 	 */
 	public void step();
 	
 	/**
 	 * Dispatch the event to the state machine of the object
 	 * 
-	 * @Pre The state machine has been correctly initialised
-	 * @Post The event has been processed by the state machine
+	 * @pre The state machine has been correctly initialised
+	 * @post The event has been processed by the state machine
 	 */
 	public void dispatch(Event e);
 	
 	/**
 	 * Retrieve the current states name (multiple names if there is concurrent state machines)
 	 * 
-	 * @Pre The state machine has been correctly initialised
+	 * @pre The state machine has been correctly initialised
 	 */
 	public Set<String> getCurrentStateNames();
 	

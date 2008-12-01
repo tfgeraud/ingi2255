@@ -2,8 +2,6 @@ package system;
 
 import java.util.LinkedList;
 
-import system.event.EventImpl;
-
 
 public class IncidentProcessorImpl implements IncidentProcessor {
 

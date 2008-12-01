@@ -8,3 +8,4 @@
 *.class
 .classpath
 .project
+.settings
