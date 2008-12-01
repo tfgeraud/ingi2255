@@ -147,6 +147,16 @@ public class MapImpl implements Map {
         }
         return null;    
     }
+    private Node findNode(Coord c){
+        for (Node[] N:crossroad){
+            for (Node n:N){
+                if (n.isOnNode(c)){
+                    return n;
+                }
+            }
+        }
+        return null;
+    }
     private Node tempNode(Edge street, Coord c){
         /*connects a temporary node with the position on
          * the street connected to the nodes of the original
@@ -173,18 +183,40 @@ public class MapImpl implements Map {
     /*  returns Integer.MAX_VALUE if unreachable */
 	public int distance(Coord impl, Coord incidentCoord) {
         int distance = 0;
+        Node startNode = findNode(impl);
+        Node endNode = findNode(impl);
+        boolean isStartNodeTemp = false;
+        boolean isEndNodeTemp = false;
         Edge start = findEdge(impl);
         Edge end = findEdge(incidentCoord);
-        if (start == end){  /*if ambulance is on same street as incident */
+        if (startNode != null && endNode != null){
+            start = end = null;
+        }
+        if (start != null && start == end){  /*if ambulance is on same street as incident */
             if(!start.obstructed(impl, incidentCoord)){ /*check no obstacle in between*/
                 return impl.dist(incidentCoord);
             }
         }
+
         /* creating a temporary node in the graph corresponding to the localisation
-         * of the ambulance and of the destination
+         * of the ambulance and of the destination, if necessary
          */
-        Node startNode = tempNode(start,impl);
-        Node endNode = tempNode(start,incidentCoord);
+        if(startNode == null){  //pos not on a crossroad
+            if(start == null){      //pos not on a street
+                System.out.println("Error ambulance not on street");
+                return Integer.MAX_VALUE;
+            }
+            startNode = tempNode(start,impl);
+            isStartNodeTemp = true;
+        }
+        if(endNode == null){    //pos not on a crossroad
+            if(end == null){    //pos not on a street
+                System.out.println("Error destination not on street");
+                return Integer.MAX_VALUE;
+            }
+            endNode = tempNode(end,incidentCoord);
+            isEndNodeTemp = true;
+        }
 
         Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
         Set<Node> Unvisited = new HashSet();//Initially All the Nodes
@@ -232,8 +264,8 @@ public class MapImpl implements Map {
             }
             CurrentNode = closest;
         }
-        delTempNode(endNode);   //disconnecting temporary nodes from the map
-        delTempNode(startNode);
+        if(isEndNodeTemp){delTempNode(endNode);}   //disconnecting temporary nodes from the map
+        if(isStartNodeTemp){delTempNode(startNode);}
         return distance;
 	}
 
