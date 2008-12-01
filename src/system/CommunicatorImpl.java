@@ -1,67 +1,137 @@
 package system;
 
-import events.DemobilisationOrder;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import communication.AVLS;
+import communication.MDT;
+
+import events.AmbulancePosition;
 import events.Event;
-import events.MobilisationOrder;
+import events.MobilisationConfirmation;
 
+/**
+ * This class represents the communication module.  It provides communication
+ * channel between system and AVLS/MDT.
+ * 
+ * @author Simon Busard
+ */
 
-public class CommunicatorImpl implements Communicator {
+public class CommunicatorImpl implements Communicator, Runnable {
 	
-	/* (non-Javadoc)
-	 * @see system.Communicator#send(system.MobOrderImpl, int)
-	 */
-	public void send(MobilisationOrder mobOrder, String ambulanceId) {
-		// TODO Auto-generated method stub
+	private AVLS avls;
+	private MDT mdt;
+	private Ambulance ambulances;
+	
+	private BlockingQueue<Event> mobConfirmations;
+	private BlockingQueue<Event> events;
+	
+	private boolean finished;
+	
+	public CommunicatorImpl(AVLS avls, MDT mdt, Ambulance ambulances) {
+		this.avls = avls;
+		this.mdt = mdt;
+		this.ambulances = ambulances;
 		
-	}
-
-	/* (non-Javadoc)
-	 * @see system.Communicator#waitForAck(system.MobOrderImpl, int)
-	 */
-	public boolean waitForAck(MobilisationOrder mobOrder, String ambulanceId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	/* (non-Javadoc)
-	 * @see system.Communicator#send(system.DemobOrderImpl, int)
-	 */
-	public void send(DemobilisationOrder demobOrder, String ambulanceId) {
-		// TODO Auto-generated method stub
+		this.mobConfirmations = new LinkedBlockingQueue<Event>();
+		this.events = new LinkedBlockingQueue<Event>();
 		
-	}
-
-	/* (non-Javadoc)
-	 * @see system.Communicator#waitForAck(system.DemobOrderImpl, int)
-	 */
-	public boolean waitForAck(DemobilisationOrder demobOrder, String ambulanceId) {
-		// TODO Auto-generated method stub
-		return false;
+		this.finished = false;
+		
+		Thread thread = new Thread(this);
+		thread.start();
 	}
 
 	/* (non-Javadoc)
 	 * @see system.Communicator#waitForEvent(int)
 	 */
-	public Event waitForEvent(String incidentInfoId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Event waitForEvent(String ambulanceId) {
+		Event mdtMessage = null;
+		try {
+			mdtMessage = events.take();
+		} catch(InterruptedException e) {
+			
+		}
+		if(mdtMessage.getSenderName() == ambulanceId) {
+			return mdtMessage;
+		}
+		else {
+			try {
+				events.put(mdtMessage);
+			} catch(InterruptedException e) {
+				
+			}
+			return waitForEvent(ambulanceId);
+		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see system.Communicator#mainLoop()
+	private void mainLoop() {
+		while(finished) {
+			// Get MDT messages
+			Event mdtEvent = mdt.receive();
+			if(mdtEvent != null) {
+				if(mdtEvent.getClass() == MobilisationConfirmation.class) {
+					try {
+						mobConfirmations.put(mdtEvent);
+					} catch(InterruptedException e) {
+						
+					}
+				}
+				else {
+					try {
+						events.put(mdtEvent);
+					} catch(InterruptedException e) {
+						
+					}
+				}
+			}
+			
+			// Get AVLS messages
+			AmbulancePosition avlsMessage = (AmbulancePosition)avls.receive();
+			if(avlsMessage != null) {
+				ambulances.setPosition(	avlsMessage.getSenderName(), 
+										avlsMessage.getPosition());
+			}
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see system.Communicator#send(events.Event)
 	 */
-	public void mainLoop() {
-		
+	public void send(Event order) {
+		mdt.send(order);
 	}
 
-	public void send(Event order, String ambulanceId) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * @see system.Communicator#waitForAck(events.Event, java.lang.String)
+	 */
 	public boolean waitForAck(Event order, String ambulanceId) {
-		// TODO Auto-generated method stub
-		return false;
+		Event mdtMessage = null;
+		try {
+			mdtMessage = mobConfirmations.take();
+		} catch(InterruptedException e) {
+			
+		}
+		if(mdtMessage.getSenderName() == ambulanceId) {
+			return true;
+		}
+		else {
+			try {
+				mobConfirmations.put(mdtMessage);
+			} catch(InterruptedException e) {
+				
+			}
+			return waitForAck(order,ambulanceId);
+		}
+	}
+	
+	public void stop() {
+		finished = true;
 	}
 
+	public void run() {
+		mainLoop();
+	}
 }

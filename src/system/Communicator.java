@@ -12,10 +12,9 @@ public interface Communicator {
 	 * Send an order to an ambulance
 	 * 
 	 * @pre	order is the order to send to the ambulance
-	 * 		ambulanceId is the id of the ambulance and must be known by the system
 	 * @post the order is sent to the corresponding ambulance
 	 */
-	public void send(Event order, String ambulanceId);
+	public void send(Event order);
 
 	/**
 	 * Wait for an acknowledgement
@@ -29,16 +28,8 @@ public interface Communicator {
 	/**
 	 * Wait for an incoming event
 	 * 
-	 * @pre incidentInfoId is the id of the incident we are listing the events
+	 * @pre ambulanceId is the id of the ambulance we are listing the events
 	 * @post the event received by one of the channel
 	 */
-	public Event waitForEvent(String incidentInfoId);
-
-	/**
-	 * Connect to external channel and wait for event
-	 * @pre	-
-	 * @post the events, once received, are forwarded.
-	 */
-	public void mainLoop();
-
+	public Event waitForEvent(String ambulanceId);
 }
