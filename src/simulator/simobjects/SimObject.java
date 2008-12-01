@@ -78,10 +78,9 @@ public interface SimObject extends Observer, Observable{
 	public Set<String> getCurrentStateNames();
 	
 	/**
-	 * Getter and Setter for the name of the object, will be used as ID 
+	 * Getter for the name of the object, will be used as ID 
 	 */
 	public String getName();
-	public void setName(String name);
 	
 	
 
