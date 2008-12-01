@@ -5,6 +5,10 @@ package simulator.simobjects;
  * @author Erick Lavoie
  *
  */
-public interface Incident {
+public class Incident extends SimObjectImpl {
+
+	protected Incident(String name) {
+		super(name);
+	}
 
 }
