@@ -19,15 +19,38 @@ import events.MobilisationConfirmation;
 
 public class CommunicatorImpl implements Communicator, Runnable {
 	
+	/**
+	 * The AVLS
+	 */
 	private AVLS avls;
+	/**
+	 * The MDT
+	 */
 	private MDT mdt;
+	/**
+	 * The list of ambulances known by the system
+	 */
 	private Ambulance ambulances;
-	
+	/**
+	 * List of untreated mobilisation confirmations
+	 */
 	private BlockingQueue<Event> mobConfirmations;
+	/**
+	 * List of untreated events
+	 */
 	private BlockingQueue<Event> events;
-	
+	/**
+	 * Thread stopped or not
+	 */
 	private boolean finished;
 	
+	/**
+	 * Create a new communicator
+	 * 
+	 * @param avls the avls sending and receiving messages from/to this
+	 * @param mdt the mdt sending and receiving messages from/to this
+	 * @param ambulances the list of ambulances known by the system
+	 */
 	public CommunicatorImpl(AVLS avls, MDT mdt, Ambulance ambulances) {
 		this.avls = avls;
 		this.mdt = mdt;
@@ -64,7 +87,9 @@ public class CommunicatorImpl implements Communicator, Runnable {
 			return waitForEvent(ambulanceId);
 		}
 	}
-	
+	/**
+	 * Main loop of the thread.  Get and dispatch messages
+	 */
 	private void mainLoop() {
 		while(finished) {
 			// Get MDT messages
@@ -127,10 +152,16 @@ public class CommunicatorImpl implements Communicator, Runnable {
 		}
 	}
 	
+	/**
+	 * Stop the thread
+	 */
 	public void stop() {
 		finished = true;
 	}
 
+	/**
+	 * Method runned by the thread
+	 */
 	public void run() {
 		mainLoop();
 	}
