@@ -43,13 +43,13 @@ public class MapImpl implements Map {
     private int streetCountx = 10;  //count of NS streets
     private int streetCounty = 10;  //count of WE sreets
     private int blocSize = 10;
-    private class Node {
+    public class Node {
         /* Nodes are crossroads in the map
          * Nodes are also point of interests : Distance can only be
          * computed from node to node !
          */
         private Coord pos;
-        private Set<Edge> street;
+        private Set<Edge> street = new HashSet();
         private boolean obstacle;
         public Node(Coord c){
             pos = c;
@@ -92,10 +92,10 @@ public class MapImpl implements Map {
             return t;
         }
     }
-    private class Edge{
+    public class Edge{
         /* Edges are streets in the map*/
         private Node N,M;
-        private Set<Coord> obstacle;
+        private Set<Coord> obstacle = new HashSet();
         public Edge(Node N, Node M){
             this.N = N;
             this.M = M;
@@ -138,7 +138,7 @@ public class MapImpl implements Map {
             }
         }
     }
-    private Edge findEdge(Coord c){
+    public Edge findEdge(Coord c){
         /*returns a street located at c*/
         for (Edge e: street){
             if (e.isOnEdge(c)){
@@ -147,7 +147,7 @@ public class MapImpl implements Map {
         }
         return null;    
     }
-    private Node findNode(Coord c){
+    public Node findNode(Coord c){
         for (Node[] N:crossroad){
             for (Node n:N){
                 if (n.isOnNode(c)){
@@ -176,8 +176,11 @@ public class MapImpl implements Map {
     private void delTempNode(Node N){
         /*remove a node from the map and all the streets connected to it*/
         for(Edge e:N.street){
-            e.getEnd().street.remove(e);
-            e.getStart().street.remove(e);
+            if(e.getEnd()!=N){
+                e.getEnd().street.remove(e);
+            }else{
+                e.getStart().street.remove(e);
+            }
         }
     }
     /*  returns Integer.MAX_VALUE if unreachable */
@@ -216,6 +219,9 @@ public class MapImpl implements Map {
             }
             endNode = tempNode(end,incidentCoord);
             isEndNodeTemp = true;
+        }
+        if(startNode == endNode){
+                return 0;
         }
 
         Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
@@ -355,24 +361,45 @@ public class MapImpl implements Map {
         int i = numx;
         int j = numy;
         crossroad = new Node[numx][numy];
-        while(i-- >= 0){
-            while(j-- >= 0){
+        while(i-- > 0){
+            j = numy;
+            while(j-- > 0){
                 crossroad[i][j] = new Node(new CoordImpl(i*blocSize,j*blocSize));
             }
         }
         i = numx;
         j = numy;
-        while(i-- >= 0){
-            while(j-- >= 0){
+        while(i-- > 0){
+            j = numy;
+            while(j-- > 0){
                 if(i + 1 < numx){
                     Edge e = new Edge(crossroad[i][j],crossroad[i+1][j]);
                     street.add(e);
                 }
                 if(j + 1 < numy){
-                    Edge e = new Edge(crossroad[i][j],crossroad[i+1][j]);
+                    Edge e = new Edge(crossroad[i][j],crossroad[i][j+1]);
                     street.add(e);
                 }
             }
         }
+    }
+    public static void main(String[] args){     //testing the class;
+        MapImpl M = new MapImpl();
+        M.setStreets(10, 10);
+        Node Crossroad = M.findNode(new CoordImpl(20,20));
+        Node Crossroad2 = M.findNode(new CoordImpl(42,56));
+        Edge Street = M.findEdge(new CoordImpl(10,15));
+        Edge Street2 = M.findEdge(new CoordImpl(25,35));
+        assert(Crossroad != null);
+        assert(Crossroad2 == null);
+        assert(Street != null);
+        assert(Street2 == null);
+        System.out.println((new CoordImpl(10,10)).dist(new CoordImpl(20,20)));
+        System.out.println(M.distance(new CoordImpl(10,10),     //doesn't work
+                                      new CoordImpl(50,10)) );
+        System.out.println(M.distance(new CoordImpl(10,12),     //works
+                                      new CoordImpl(10,17)) );
+        System.out.println(M.distance(new CoordImpl(0,5),       //doesn't work
+                                      new CoordImpl(50,65)) );
     }
 }
