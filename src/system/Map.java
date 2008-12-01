@@ -65,5 +65,5 @@ public interface Map {
      * @param: blocsize : > 0 :the width of a bloc of houses in meters.
      * @param : streetWidth : >= 0: the width of the streets in meters.
      */
-    public void setStreets(int numx, int numy, int blocsize, int streetWidth);
+    public void setStreets(int numx, int numy);
 }

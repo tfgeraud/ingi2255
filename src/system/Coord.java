@@ -55,5 +55,11 @@ public interface Coord {
      * are valid, else it is unchanged.
      **/
     public void fromString(String loc) throws Exception;
+    /**
+     * returns the straight line distance between this coordinate and b.
+     * @param b
+     * @return a positive integer equal to the dist from b.
+     */
+    public int dist(Coord b);
 
 }

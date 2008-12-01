@@ -1,5 +1,5 @@
 package system;
-
+import java.lang.Math.*;
 public class CoordImpl implements Coord {
 
 	private int x = 0;
@@ -35,5 +35,12 @@ public class CoordImpl implements Coord {
         String Sy = s.substring(s.indexOf(",")+1,s.indexOf(")"));
         this.x = Integer.parseInt(Sx);
         this.y = Integer.parseInt(Sy);
+    }
+    public int dist(Coord b){
+        return (int)Math.sqrt(   Math.pow( this.getX() - b.getX(), 2)
+                           +Math.pow(this.getY() - b.getY(), 2));
+    }
+    public boolean equals(Coord c){
+        return c.getX() == this.getX() && c.getY() == this.getY();
     }
 }
