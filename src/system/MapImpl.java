@@ -42,6 +42,10 @@ public class MapImpl implements Map {
     private int streetCountx = 10;  //count of NS streets
     private int streetCounty = 10;  //count of WE sreets
     private int blocSize = 10;
+    
+    public MapImpl(int cx,int cy){
+    	this.setStreets(cx, cy);
+    }
     public class Node {
         /* Nodes are crossroads in the map
          * Nodes are also point of interests : Distance can only be
@@ -385,39 +389,5 @@ public class MapImpl implements Map {
                 }
             }
         }
-    }
-    public static void main(String[] args){     //testing the class;
-        MapImpl M = new MapImpl();
-        M.setStreets(10, 10);
-        Node Crossroad = M.findNode(new CoordImpl(20,20));
-        Node Crossroad2 = M.findNode(new CoordImpl(42,56));
-        Edge Street = M.findEdge(new CoordImpl(10,15));
-        Edge Street2 = M.findEdge(new CoordImpl(25,35));
-        assert(Crossroad != null);
-        assert(Crossroad2 == null);
-        assert(Street != null);
-        assert(Street2 == null);    //...works
-        System.out.println((new CoordImpl(10,10)).dist(new CoordImpl(20,20)));
-        System.out.println("a");
-        System.out.println(M.distance(new CoordImpl(10,10),new CoordImpl(10,10)));  //works
-        System.out.println("b");
-        System.out.println(M.distance(new CoordImpl(10,15),new CoordImpl(10,15)));  //works
-        System.out.println("c");
-        System.out.println(M.distance(new CoordImpl(10,10),     //work
-                                      new CoordImpl(50,10)) );
-        System.out.println("d");
-        System.out.println(M.distance(new CoordImpl(10,12),     //works
-                                      new CoordImpl(10,17)) );
-        System.out.println("e");
-        System.out.println(M.distance(new CoordImpl(0,5),       //work
-                                      new CoordImpl(50,65)) );
-        System.out.println("f");
-        System.out.println(M.distance(new CoordImpl(4,4),new CoordImpl(20,20)));
-        System.out.println("g");
-        System.out.println(M.distance(new CoordImpl(0,5),new CoordImpl(10,5)));
-        System.out.println("h");
-        M.addObstacle(new CoordImpl(20,25));
-        M.addObstacle(new CoordImpl(20,20));
-        System.out.println(M.distance(new CoordImpl(20,22),new CoordImpl(20,28)));
     }
 }
