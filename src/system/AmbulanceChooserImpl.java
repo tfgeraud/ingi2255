@@ -13,10 +13,10 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 	 */
 	public int chooseBestAmbulance(int incidentInfoId, LinkedList<Integer> exclusionSet) {
 		
-		int kind = incident.getAmbulanceKindNeeded(incidentInfoId);
-		Coord coord = incident.getCoord(incidentInfoId);
-		LinkedList ambulances = ambulance.getAllFree(kind, exclusionSet);
-		
+        String kind = incident.getAmbulanceKindNeeded(incidentInfoId);
+        Coord coord = incident.getPosition(incidentInfoId);
+        LinkedList ambulances = ambulance.getAllFree(kind, exclusionSet);
+        
 		Coord[] ambulancesCoord = getAmbulancesCoord(ambulances);
 		return selectMinDist(ambulancesCoord,coord);
 	}
