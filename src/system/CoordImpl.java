@@ -40,6 +40,17 @@ public class CoordImpl implements Coord {
         return (int)Math.sqrt(   Math.pow( this.getX() - b.getX(), 2)
                            +Math.pow(this.getY() - b.getY(), 2));
     }
+    public boolean equals(Object c){
+    	/* JAVA IS A PILE OF STINKING CRAP !!!
+    	 * http://www.javaspecialists.co.za/archive/Issue009.html
+    	 * solves issues with assertEquals in testUnits
+    	 */
+    	if( c instanceof Coord ){
+    		return this.equals((Coord)c);
+    	}else{
+    		return false;
+    	}
+    }
     public boolean equals(Coord c){
         return (c.getX() == this.getX()) && (c.getY() == this.getY());
     }

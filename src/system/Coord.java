@@ -62,5 +62,4 @@ public interface Coord {
      */
     public int dist(Coord b);
     public boolean equals(Coord c);
-
 }
