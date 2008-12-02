@@ -20,8 +20,7 @@ public class MapImpl implements Map {
      * the street address must be an exact match of the recorded one.
      *
      * thread synchronization unexisting.
-     *
-     *
+     * 
      * @TODO:
      * localisations are currently meant to be exact. this will be hard to
      * maintain, even internally. Some sort of tolerance should be built in.
@@ -43,13 +42,17 @@ public class MapImpl implements Map {
     private int streetCountx = 10;  //count of NS streets
     private int streetCounty = 10;  //count of WE sreets
     private int blocSize = 10;
-    private class Node {
+    
+    public MapImpl(int cx,int cy){
+    	this.setStreets(cx, cy);
+    }
+    public class Node {
         /* Nodes are crossroads in the map
          * Nodes are also point of interests : Distance can only be
          * computed from node to node !
          */
         private Coord pos;
-        private Set<Edge> street;
+        private Set<Edge> street = new HashSet();
         private boolean obstacle;
         public Node(Coord c){
             pos = c;
@@ -92,10 +95,10 @@ public class MapImpl implements Map {
             return t;
         }
     }
-    private class Edge{
+    public class Edge{
         /* Edges are streets in the map*/
         private Node N,M;
-        private Set<Coord> obstacle;
+        private Set<Coord> obstacle = new HashSet();
         public Edge(Node N, Node M){
             this.N = N;
             this.M = M;
@@ -138,7 +141,7 @@ public class MapImpl implements Map {
             }
         }
     }
-    private Edge findEdge(Coord c){
+    public Edge findEdge(Coord c){
         /*returns a street located at c*/
         for (Edge e: street){
             if (e.isOnEdge(c)){
@@ -146,6 +149,16 @@ public class MapImpl implements Map {
             }
         }
         return null;    
+    }
+    public Node findNode(Coord c){
+        for (Node[] N:crossroad){
+            for (Node n:N){
+                if (n.isOnNode(c)){
+                    return n;
+                }
+            }
+        }
+        return null;
     }
     private Node tempNode(Edge street, Coord c){
         /*connects a temporary node with the position on
@@ -166,26 +179,52 @@ public class MapImpl implements Map {
     private void delTempNode(Node N){
         /*remove a node from the map and all the streets connected to it*/
         for(Edge e:N.street){
-            e.getEnd().street.remove(e);
-            e.getStart().street.remove(e);
+            if(e.getEnd()!=N){
+                e.getEnd().street.remove(e);
+            }else{
+                e.getStart().street.remove(e);
+            }
         }
     }
     /*  returns Integer.MAX_VALUE if unreachable */
 	public int distance(Coord impl, Coord incidentCoord) {
         int distance = 0;
+        Node startNode = findNode(impl);
+        Node endNode = findNode(incidentCoord);
+        boolean isStartNodeTemp = false;
+        boolean isEndNodeTemp = false;
         Edge start = findEdge(impl);
         Edge end = findEdge(incidentCoord);
-        if (start == end){  /*if ambulance is on same street as incident */
+        if (impl.equals(incidentCoord)){
+            return 0;
+        }
+        if (startNode != null && endNode != null){
+            start = end = null;
+        }
+        if (start != null && start == end){  /*if ambulance is on same street as incident */
             if(!start.obstructed(impl, incidentCoord)){ /*check no obstacle in between*/
                 return impl.dist(incidentCoord);
             }
         }
-        /* creating a temporary node in the graph corresponding to the localisation
-         * of the ambulance and of the destination
-         */
-        Node startNode = tempNode(start,impl);
-        Node endNode = tempNode(start,incidentCoord);
 
+        /* creating a temporary node in the graph corresponding to the localisation
+         * of the ambulance and of the destination, if necessary
+         */
+        if(startNode == null){  //pos not on a crossroad
+            if(start == null){      //pos not on a street
+                return Integer.MAX_VALUE;
+            }
+            startNode = tempNode(start,impl);
+            isStartNodeTemp = true;
+        }
+        if(endNode == null){    //pos not on a crossroad
+            if(end == null){    //pos not on a street
+                System.out.println("Error destination not on street");
+                return Integer.MAX_VALUE;
+            }
+            endNode = tempNode(end,incidentCoord);
+            isEndNodeTemp = true;
+        }
         Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
         Set<Node> Unvisited = new HashSet();//Initially All the Nodes
         Hashtable<Node,Integer> Distance = new Hashtable();
@@ -204,10 +243,11 @@ public class MapImpl implements Map {
         Distance.put(startNode, 0);     //startnode is the where we are
 
         Node CurrentNode = startNode;
-
+        
         while(!Unvisited.isEmpty()){    //Dijkstra
             Visited.add(CurrentNode);
             Unvisited.remove(CurrentNode);
+            //System.out.println("Current Node : ("+CurrentNode.getCoord().getX()+","+CurrentNode.getCoord().getY()+") dist : "+Distance.get(CurrentNode));
 
             Hashtable<Node,Integer> NeighbourDist = CurrentNode.neighbours();
             for(Node n: NeighbourDist.keySet() ){
@@ -228,12 +268,17 @@ public class MapImpl implements Map {
                 }
             }
             if(closest == endNode){
+                distance = Distance.get(closest);
                 break;
             }
             CurrentNode = closest;
+            if(CurrentNode == null){
+                System.out.println("Destination unreachable");
+                return Integer.MAX_VALUE;
+            }
         }
-        delTempNode(endNode);   //disconnecting temporary nodes from the map
-        delTempNode(startNode);
+        if(isEndNodeTemp){delTempNode(endNode);}   //disconnecting temporary nodes from the map
+        if(isStartNodeTemp){delTempNode(startNode);}
         return distance;
 	}
 
@@ -323,21 +368,23 @@ public class MapImpl implements Map {
         int i = numx;
         int j = numy;
         crossroad = new Node[numx][numy];
-        while(i-- >= 0){
-            while(j-- >= 0){
+        while(i-- > 0){
+            j = numy;
+            while(j-- > 0){
                 crossroad[i][j] = new Node(new CoordImpl(i*blocSize,j*blocSize));
             }
         }
         i = numx;
         j = numy;
-        while(i-- >= 0){
-            while(j-- >= 0){
+        while(i-- > 0){
+            j = numy;
+            while(j-- > 0){
                 if(i + 1 < numx){
                     Edge e = new Edge(crossroad[i][j],crossroad[i+1][j]);
                     street.add(e);
                 }
                 if(j + 1 < numy){
-                    Edge e = new Edge(crossroad[i][j],crossroad[i+1][j]);
+                    Edge e = new Edge(crossroad[i][j],crossroad[i][j+1]);
                     street.add(e);
                 }
             }

@@ -61,5 +61,5 @@ public interface Coord {
      * @return a positive integer equal to the dist from b.
      */
     public int dist(Coord b);
-
+    public boolean equals(Coord c);
 }
