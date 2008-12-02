@@ -227,12 +227,13 @@ public interface Incident {
 			throws UnknownIncidentException;
 
 	/**
-	 * Add a new incident in the database
+	 * Add a new incident in the database and return its identifier
 	 * 
 	 * @pre age the age of the victim implied in the incident. age >= 0 pregnant ==
 	 *      true iff the victim is pregnant localisation the localisation of the
 	 *      incident description the description of the incident
-	 * @post a new incident is stored in the database
+	 * @post a new incident is stored in the database and its identifier is
+	 * 		returned
 	 * 
 	 * @param age
 	 *            The age of the victim
@@ -243,6 +244,6 @@ public interface Incident {
 	 * @param description
 	 *            The description of the incident
 	 */
-	public void addIncident(int age, boolean pregnant, String localisation,
+	public String addIncident(int age, boolean pregnant, String localisation,
 			String description);
 }

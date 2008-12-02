@@ -123,11 +123,12 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#addIncident(int, boolean, java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void addIncident(int age, boolean pregnant, String localisation,
+	public String addIncident(int age, boolean pregnant, String localisation,
 			String description) {
 		IncidentInfo inc = new IncidentInfo(age, pregnant, localisation,
 				description);
-		incidents.put("incident" + nextIncidentId, inc);
+		String incidentId = "incident" + nextIncidentId++;
+		incidents.put(incidentId, inc);
 
 		// Process additional information
 		// Position
@@ -141,6 +142,8 @@ public class IncidentImpl implements Incident {
 			inc.ambKindNeeded = Ambulance.MEDICALIZED;
 		else
 			inc.ambKindNeeded = Ambulance.NORMAL;
+		
+		return incidentId;
 	}
 
 	/*

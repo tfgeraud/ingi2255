@@ -2,46 +2,44 @@ package system;
 
 import java.util.LinkedList;
 
+import system.exception.UnknownIncidentException;
+
 public class AmbulanceChooserImpl implements AmbulanceChooser {
 
 	private Incident incident;
 	private Ambulance ambulance;
 	private Map map;
 	
+	public AmbulanceChooserImpl(Incident incident, Ambulance ambulance, Map map) {
+		this.incident = incident;
+		this.ambulance = ambulance;
+		this.map = map;
+	}
+	
 	/* (non-Javadoc)
 	 * @see system.AmbulanceChooser#chooseBestAmbulance(int, java.util.LinkedList)
 	 */
-	public int chooseBestAmbulance(int incidentInfoId, LinkedList<Integer> exclusionSet) {
+
+	public String chooseBestAmbulance(String incidentInfoId, LinkedList<String> exclusionSet)
+	throws UnknownIncidentException
+	{		
+		String kind = incident.getAmbulanceKindNeeded(incidentInfoId);
+		Coord coord = incident.getPosition(incidentInfoId);
+		LinkedList<String> ambulances = ambulance.getAllFree(kind, exclusionSet);
 		
-        String kind = incident.getAmbulanceKindNeeded(incidentInfoId);
-        Coord coord = incident.getPosition(incidentInfoId);
-        LinkedList ambulances = ambulance.getAllFree(kind, exclusionSet);
-        
-		Coord[] ambulancesCoord = getAmbulancesCoord(ambulances);
-		return selectMinDist(ambulancesCoord,coord);
+		return selectMinDist(ambulances,coord);
 	}
 	
-	private Coord[] getAmbulancesCoord(LinkedList ambulances) {
-		Coord[] coords = new Coord[ambulances.size()];
+	private String selectMinDist(LinkedList<String> ambulances, Coord incidentCoord) {
+		String ambulanceId = ambulances.get(0);
 		
-		for(int i = 0;i < coords.length;i++) {
-			coords[i] = ambulance.getCoord(((Integer)ambulances.get(i)).intValue());
-		}
-		
-		return coords;
-	}
-	
-	private int selectMinDist(Coord[] ambulancesCoord, Coord incidentCoord) {
-		
-		int ambulanceId = 0;
-		
-		for(int i = 0;i < ambulancesCoord.length;i++) {
-			if(	map.distance(	ambulancesCoord[i],
+		for(int i = 0;i < ambulances.size();i++) {
+			if(	map.distance(	ambulance.getCoord(ambulances.get(i)),
 								incidentCoord)
 				<
-				map.distance(	ambulancesCoord[ambulanceId],
+				map.distance(	ambulance.getCoord(ambulanceId),
 								incidentCoord))
-				ambulanceId = i;
+				ambulanceId = ambulances.get(i);
 		}
 		
 		return ambulanceId;
