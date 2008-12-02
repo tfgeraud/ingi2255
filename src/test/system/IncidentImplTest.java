@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import events.DemobilisationOrder;
+
 import system.Ambulance;
 import system.Incident;
 import system.IncidentImpl;
@@ -17,8 +19,9 @@ import system.MapImpl;
 import system.exception.UnknownIncidentException;
 
 /**
+ * This class make tests on IncidentImpl
+ * 
  * @author Simon Busard <simon.busard@student.uclouvain.be>
- *
  */
 public class IncidentImplTest {
 	
@@ -30,7 +33,7 @@ public class IncidentImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		map = new MapImpl();
+		map = new MapImpl(3,4);
 		incidents = new IncidentImpl(map);
 	}
 
@@ -115,7 +118,32 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetChosenAmbulance() {
-		fail("Not yet implemented"); // TODO
+		int age = 15;
+		boolean pregnant = false;
+		String localisation = "Broadway";
+		String description = "grave";
+		
+		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		
+		// Assert null
+		try {assertEquals(incidents.getChosenAmbulance(incId), null);}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Set chosen ambulance
+		try {incidents.setChosenAmbulance(incId, "mike3");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Assert good ambulance
+		try {assertEquals(incidents.getChosenAmbulance(incId), "mike3");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+
+		// Change chosen ambulance
+		try {incidents.setChosenAmbulance(incId, "mike5");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Assert good ambulance
+		try {assertEquals(incidents.getChosenAmbulance(incId), "mike5");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
 	/**
@@ -123,7 +151,25 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetDemobOrder() {
-		fail("Not yet implemented"); // TODO
+		int age = 15;
+		boolean pregnant = false;
+		String localisation = "Broadway";
+		String description = "grave";
+		
+		String ambId = "mike3";
+		
+		// Add incident
+		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		
+		// Chose ambulance
+		try {incidents.setChosenAmbulance(incId, ambId);}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Assert good demob order
+		// FIXME : cannot tested now because no valid address in map
+		//try {assertTrue(incidents.getDemobOrder(incId).equals(new DemobilisationOrder(incId,incidents.getPosition(incId).toString(),ambId)));}
+		//catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		fail("Not yet implemented");
 	}
 
 	/**
@@ -163,7 +209,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetMobOrder() {
-		fail("Not yet implemented"); // TODO
+		fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
 	}
 
 	/**
@@ -171,7 +217,32 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetMobilizedAmbulance() {
-		fail("Not yet implemented"); // TODO
+		int age = 15;
+		boolean pregnant = false;
+		String localisation = "Broadway";
+		String description = "grave";
+		
+		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		
+		// Assert null
+		try {assertEquals(incidents.getMobilizedAmbulance(incId), null);}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Set chosen ambulance
+		try {incidents.setMobilizedAmbulance(incId, "mike3");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Assert good ambulance
+		try {assertEquals(incidents.getMobilizedAmbulance(incId), "mike3");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+
+		// Change chosen ambulance
+		try {incidents.setMobilizedAmbulance(incId, "mike5");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
+		
+		// Assert good ambulance
+		try {assertEquals(incidents.getMobilizedAmbulance(incId), "mike5");}
+		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
 	/**
@@ -179,7 +250,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetPosition() {
-		fail("Not yet implemented"); // TODO
+		fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
 	}
 
 	/**
@@ -203,7 +274,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testSetAsResolved() {
-		fail("Not yet implemented"); // TODO
+		fail("Not yet implemented"); // TODO Cannot verify an incident is set as resolved
 	}
 
 	/**
@@ -211,7 +282,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testSetChosenAmbulance() {
-		fail("Not yet implemented"); // TODO
+		// Done in testGetChosenAmbulance
 	}
 
 	/**
@@ -219,7 +290,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testSetMobilizedAmbulance() {
-		fail("Not yet implemented"); // TODO
+		// Done in testGetMobilizedAmbulance
 	}
 
 }
