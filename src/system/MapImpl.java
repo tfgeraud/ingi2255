@@ -21,7 +21,7 @@ public class MapImpl implements Map {
      *
      * thread synchronization unexisting.
      * 
-     * @TODO:
+     * TODO:
      * localisations are currently meant to be exact. this will be hard to
      * maintain, even internally. Some sort of tolerance should be built in.
      * Practical example : diagonal street coordinates are seldom integers.
