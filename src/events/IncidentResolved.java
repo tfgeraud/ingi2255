@@ -1,7 +1,7 @@
 package events;
 
 /**
- * Sent by simulated incident to LAS
+ * Sent by simulated ambulance to LAS
  * @author Erick Lavoie
  *
  */
