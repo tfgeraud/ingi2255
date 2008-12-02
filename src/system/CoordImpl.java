@@ -41,6 +41,6 @@ public class CoordImpl implements Coord {
                            +Math.pow(this.getY() - b.getY(), 2));
     }
     public boolean equals(Coord c){
-        return c.getX() == this.getX() && c.getY() == this.getY();
+        return (c.getX() == this.getX()) && (c.getY() == this.getY());
     }
 }

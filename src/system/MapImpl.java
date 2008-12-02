@@ -20,8 +20,7 @@ public class MapImpl implements Map {
      * the street address must be an exact match of the recorded one.
      *
      * thread synchronization unexisting.
-     *
-     *
+     * 
      * @TODO:
      * localisations are currently meant to be exact. this will be hard to
      * maintain, even internally. Some sort of tolerance should be built in.
@@ -187,11 +186,14 @@ public class MapImpl implements Map {
 	public int distance(Coord impl, Coord incidentCoord) {
         int distance = 0;
         Node startNode = findNode(impl);
-        Node endNode = findNode(impl);
+        Node endNode = findNode(incidentCoord);
         boolean isStartNodeTemp = false;
         boolean isEndNodeTemp = false;
         Edge start = findEdge(impl);
         Edge end = findEdge(incidentCoord);
+        if (impl.equals(incidentCoord)){
+            return 0;
+        }
         if (startNode != null && endNode != null){
             start = end = null;
         }
@@ -206,7 +208,6 @@ public class MapImpl implements Map {
          */
         if(startNode == null){  //pos not on a crossroad
             if(start == null){      //pos not on a street
-                System.out.println("Error ambulance not on street");
                 return Integer.MAX_VALUE;
             }
             startNode = tempNode(start,impl);
@@ -220,10 +221,6 @@ public class MapImpl implements Map {
             endNode = tempNode(end,incidentCoord);
             isEndNodeTemp = true;
         }
-        if(startNode == endNode){
-                return 0;
-        }
-
         Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
         Set<Node> Unvisited = new HashSet();//Initially All the Nodes
         Hashtable<Node,Integer> Distance = new Hashtable();
@@ -242,10 +239,11 @@ public class MapImpl implements Map {
         Distance.put(startNode, 0);     //startnode is the where we are
 
         Node CurrentNode = startNode;
-
+        
         while(!Unvisited.isEmpty()){    //Dijkstra
             Visited.add(CurrentNode);
             Unvisited.remove(CurrentNode);
+            //System.out.println("Current Node : ("+CurrentNode.getCoord().getX()+","+CurrentNode.getCoord().getY()+") dist : "+Distance.get(CurrentNode));
 
             Hashtable<Node,Integer> NeighbourDist = CurrentNode.neighbours();
             for(Node n: NeighbourDist.keySet() ){
@@ -266,9 +264,14 @@ public class MapImpl implements Map {
                 }
             }
             if(closest == endNode){
+                distance = Distance.get(closest);
                 break;
             }
             CurrentNode = closest;
+            if(CurrentNode == null){
+                System.out.println("Destination unreachable");
+                return Integer.MAX_VALUE;
+            }
         }
         if(isEndNodeTemp){delTempNode(endNode);}   //disconnecting temporary nodes from the map
         if(isStartNodeTemp){delTempNode(startNode);}
@@ -393,13 +396,28 @@ public class MapImpl implements Map {
         assert(Crossroad != null);
         assert(Crossroad2 == null);
         assert(Street != null);
-        assert(Street2 == null);
+        assert(Street2 == null);    //...works
         System.out.println((new CoordImpl(10,10)).dist(new CoordImpl(20,20)));
-        System.out.println(M.distance(new CoordImpl(10,10),     //doesn't work
+        System.out.println("a");
+        System.out.println(M.distance(new CoordImpl(10,10),new CoordImpl(10,10)));  //works
+        System.out.println("b");
+        System.out.println(M.distance(new CoordImpl(10,15),new CoordImpl(10,15)));  //works
+        System.out.println("c");
+        System.out.println(M.distance(new CoordImpl(10,10),     //work
                                       new CoordImpl(50,10)) );
+        System.out.println("d");
         System.out.println(M.distance(new CoordImpl(10,12),     //works
                                       new CoordImpl(10,17)) );
-        System.out.println(M.distance(new CoordImpl(0,5),       //doesn't work
+        System.out.println("e");
+        System.out.println(M.distance(new CoordImpl(0,5),       //work
                                       new CoordImpl(50,65)) );
+        System.out.println("f");
+        System.out.println(M.distance(new CoordImpl(4,4),new CoordImpl(20,20)));
+        System.out.println("g");
+        System.out.println(M.distance(new CoordImpl(0,5),new CoordImpl(10,5)));
+        System.out.println("h");
+        M.addObstacle(new CoordImpl(20,25));
+        M.addObstacle(new CoordImpl(20,20));
+        System.out.println(M.distance(new CoordImpl(20,22),new CoordImpl(20,28)));
     }
 }
