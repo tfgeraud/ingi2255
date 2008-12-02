@@ -23,7 +23,7 @@ public interface Communication {
 	 * Receive an event from the legacy software.
 	 *
 	 * @pre		-
-	 * @post	return the received event
+	 * @post	return the received event, null if no event is pending
 	 */
 	public Event receive();
 }
