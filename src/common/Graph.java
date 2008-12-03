@@ -39,6 +39,8 @@ public class Graph {
      * @pre cx,cy are > 0. they are the number of streets NS,WE respectively.
      * @post a new Graph is returned with the number of streets separated by 10 units
      * each, from (0,0) to ((cx-1)*10,(cy-1)*10)
+     * Example of Instanciation : 
+     * Graph g = new Graph(5,6);
      */
     public Graph(int cx,int cy){
     	this.setStreets(cx, cy);
