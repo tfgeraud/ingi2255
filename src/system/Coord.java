@@ -67,4 +67,9 @@ public interface Coord {
      * @return true if th coordinates are equal.
      */
     public boolean equals(Coord c);
+    /**
+     * retunrs the hash of the coordinate, for use in mapImpl
+     * @return the hashcode of the coordinate.
+     */
+    public int hashCode();
 }

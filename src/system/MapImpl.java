@@ -97,5 +97,14 @@ public class MapImpl implements Map{
         }
         return errors;
     }
+    /*
+     * (non-Javadoc)
+     * @see system.Map#addAddress(java.lang.String, system.Coord)
+     */
+	public void addAddress(String address, Coord coord) {
+		addressToCoordMap.put(address, coord);
+		coordToAddressMap.put(coord, address);
+		
+	}
 
 }

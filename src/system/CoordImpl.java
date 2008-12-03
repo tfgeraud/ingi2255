@@ -87,4 +87,11 @@ public class CoordImpl implements Coord {
     public boolean equals(Coord c){
         return (c.getX() == this.getX()) && (c.getY() == this.getY());
     }
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    public int hashCode(){
+    	return this.toString().hashCode();
+    }
 }

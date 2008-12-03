@@ -59,11 +59,18 @@ public interface Map {
      */
     public String addAddressList(BufferedReader address);
     /**
+     * Adds an address in the Map. 
+     * @param Address a string representing the address, can be anything.
+     * @param coord the coord of the address, can be anywhere.
+     */
+    public void addAddress(String Address, Coord coord);
+    /**
      * Sets the street on the map
      * @param: numx : > 0 :the amount of North-South streets.
      * @param: numy : > 0 :the amount of West-East streets.
      * @param: blocsize : > 0 :the width of a bloc of houses in meters.
      * @param : streetWidth : >= 0: the width of the streets in meters.
      */
+    
     public void setStreets(int numx, int numy);
 }

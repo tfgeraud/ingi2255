@@ -35,5 +35,12 @@ public class MapImplTest extends TestCase {
         map.addObstacle(new CoordImpl(20,20));
         assertEquals(Integer.MAX_VALUE,map.distance(new CoordImpl(20,22),new CoordImpl(20,28)));
 	}
+	public void testAddresses(){
+		map.addAddress("Rue Fleurie no4", new CoordImpl(4,4));
+		map.addAddress("Avenue Gentil premier, no10", new CoordImpl(10,3));
+		map.addAddress("Grand Place", new CoordImpl(2,2));
+		assertEquals(new CoordImpl(2,2),map.addressToCoord("Grand Place"));
+		assertEquals("Rue Fleurie no4",map.coordToAddress(new CoordImpl(4,4)));
+	}
 
 }
