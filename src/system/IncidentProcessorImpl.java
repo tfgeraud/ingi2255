@@ -2,6 +2,8 @@ package system;
 
 import java.util.LinkedList;
 
+import system.exception.UnknownIncidentException;
+
 /**
  * This class implement the incident info processor. See
  * {@link IncidentProcessor} for more details.
@@ -40,8 +42,12 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 			do {
 				do {
 					// Search for the best ambulance
+					try {
 					ambulanceId = chooser.chooseBestAmbulance(incidentInfoId,
 							exclusionSet);
+					} catch (UnknownIncidentException err) {
+						// TODO
+					}
 
 				} while (!ambulanceId.equals(""));
 
@@ -53,7 +59,7 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 			} while (mobilizer.mobilize(incidentInfoId, ambulanceId) == false);
 
 			// Close the incident
-			e = resolver.closeIncident(incidentInfoId, ambulanceId);
+			e = resolver.closeIncident(incidentInfoId);
 
 			// The ambulance was not able to close the incident. This ambulance
 			// may be broken, etc. We need to exclude from next searches.
