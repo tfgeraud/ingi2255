@@ -1,20 +1,23 @@
 package system;
 
 /**
- * This interface represents incident processor module. It is the core of
- * the incident resolution system.  It calls all other modules to achieve its
- * goal.
+ * This interface represents incident processor module. It is the core of the
+ * incident resolution system. It calls all other modules to achieve its goal.
  * 
- * @author Simon Busard
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
+ * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
  */
 public interface IncidentProcessor {
 
 	/**
 	 * Resolve an incident.
 	 * 
-	 * @pre		incidentInfoId id of the incident to resolve
-	 * @post	the incident is resolved
+	 * @pre incidentInfoId is the unique identifier of the incident to resolve
+	 * @post the incident is resolved
+	 * 
+	 * @param incidentInfoId
+	 *            The incident unique identifier to resolve
 	 */
-	public void main(int incidentInfoId);
+	public void main(String incidentInfoId);
 
 }
