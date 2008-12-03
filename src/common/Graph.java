@@ -33,7 +33,7 @@ public class Graph {
      *
 	 */
     private Node[][] crossroad;
-    private Set<Edge> street = new HashSet();
+    private Set<Edge> street = new HashSet<Edge>();
     private int blocSize = 10;
     
     public Graph(int cx,int cy){
@@ -45,7 +45,7 @@ public class Graph {
          * computed from node to node !
          */
         private Point pos;
-        private Set<Edge> street = new HashSet();
+        private Set<Edge> street = new HashSet<Edge>();
         private boolean obstacle;
         public Node(Point c){
             pos = c;
@@ -70,7 +70,7 @@ public class Graph {
          * obstacled nodes are also excluded
          */
         public Hashtable<Node,Integer> neighbours(){
-            Hashtable<Node,Integer> t = new Hashtable();
+            Hashtable<Node,Integer> t = new Hashtable<Node,Integer>();
             for (Edge e: street){
                 if(!e.obstructed()){    //exclude unreachable nodes
                     if (e.getStart() != this){      //don't add yourself.
@@ -124,11 +124,11 @@ public class Graph {
     public class Edge{
         /* Edges are streets in the map*/
         private Node N,M;
-        private Set<Point> obstacle = new HashSet();
+        private Set<Point> obstacle = new HashSet<Point>();
         public Edge(Node N, Node M){
             this.N = N;
             this.M = M;
-            obstacle = new HashSet();
+            obstacle = new HashSet<Point>();
             N.connect(this);
             M.connect(this);
         }
@@ -187,7 +187,7 @@ public class Graph {
         return null;
     }
     private Node tempNode(Edge street, Point c){
-        /*connects a temporary node with the position on
+        /* connects a temporary node with the position on
          * the street connected to the nodes of the original
          * street.
          * Used to compute Dijkstra (only from node to node)
@@ -254,9 +254,9 @@ public class Graph {
             endNode = tempNode(end,incidentCoord);
             isEndNodeTemp = true;
         }
-        Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
-        Set<Node> Unvisited = new HashSet();//Initially All the Nodes
-        Hashtable<Node,Integer> Distance = new Hashtable();
+        Set<Node> Visited = new HashSet<Node>();  //Node where we know the smallest dist
+        Set<Node> Unvisited = new HashSet<Node>();//Initially All the Nodes
+        Hashtable<Node,Integer> Distance = new Hashtable<Node,Integer>();
 
         for(Node[] N:crossroad){
             for(Node n:N){
