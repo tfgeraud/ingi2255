@@ -8,10 +8,17 @@ import common.Graph;
 
 
 public class MapImpl implements Map{
-	Graph map;
+	Graph map;	// implémentation de la map, see Map.
+	// permet de récupérer la coordonnée d'une addresse.
 	private Hashtable<String,Coord> addressToCoordMap = new Hashtable();
+	// permet de récupérer l'addrese d'une coordonnée.
     private Hashtable<Coord,String> coordToAddressMap= new Hashtable();
-  
+    /**
+     * Renvoie une instance de Map
+     * @pre : streetsx,streetsy > 0
+     * @post : renvoie une Map avec streetsx rues verticales, et
+     * 			streety rues horizontales, toutes espacées de 10 unités. 
+     */
     public MapImpl(int streetsx, int streetsy){
     	map = new Graph(streetsx,streetsy);
     }
@@ -28,7 +35,7 @@ public class MapImpl implements Map{
 	}
 
 	public void setStreets(int numx, int numy) {
-		// TODO Auto-generated method stub
+		map.setStreets(numx, numy);
 		
 	}
 	public Coord addressToCoord(String localisation) {
@@ -37,22 +44,6 @@ public class MapImpl implements Map{
     public String coordToAddress(Coord loc) {
         return coordToAddressMap.get(loc);
     }
-    /*public Point closestCoord(Point loc){
-        // FIXME NOT IN INTERFACE BUT COULD BE USEFULL
-        // returns the closest registered coordinate 
-        double dist = Double.MAX_VALUE;
-        Point closest = null;
-        for (Point c : coordToAddressMap.keySet()){
-            double tmp = Math.sqrt(   Math.pow(loc.getX()-c.getX(),2)
-                                    + Math.pow(loc.getY()-c.getY(),2) );
-            if(tmp < dist){
-                dist = tmp;
-                closest = c;
-            }
-        }
-        return closest;
-    }*/
-
     public String addAddressList(BufferedReader addresslist) {
         String errors = "";
         while(true){
