@@ -35,7 +35,7 @@ public class AmbulanceImplTest extends TestCase {
 		super.setUp();
 		  ambulance = new AmbulanceImpl();
 		  position = new CoordImpl(1,1);
-		  map = new MapImpl();
+		  map = new MapImpl(5,5);
 		  incident = new IncidentImpl(map);
 	}
 
@@ -65,11 +65,28 @@ public class AmbulanceImplTest extends TestCase {
 			ambulance.addAmbulance("Amb4", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
 			ambulance.addAmbulance("Amb5", position, Ambulance.NORMAL, Ambulance.BROKEN);
 			
-			exclusionSet.add("Amb1");
+			result.add("Amb1");
+			result.add("Amb2");
+			result.add("Amb5");
+			System.out.println(ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
 			assertEquals(result, ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			// Equals do not work
+			
+			result.remove("Amb1");
+			result.remove("Amb2");
+			result.remove("Amb5");
+			result.add("Amb3");
+			result.add("Amb4");
+			System.out.println(ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
 			assertEquals(result, ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
+			// Equals do not work
 		
+			exclusionSet.add("Amb1");
+			result.remove("Amb1");
 			assertEquals(result, ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			System.out.println(ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			assertEquals(result, ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
+			System.out.println(ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block

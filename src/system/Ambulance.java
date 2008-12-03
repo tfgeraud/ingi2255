@@ -86,6 +86,8 @@ public interface Ambulance {
 
 	/**
 	 * Return all free ambulance of kind that are not listed in exclusionSet
+	 * matching the kind and that are not marked as broken. All those ambulances
+	 * returned by the method may be used for an incident.
 	 * 
 	 * @pre kind the ambulance kind needed (normal or medicalized) exclusionSet
 	 *      a list of ambulance ids that dont have to be taken in account
@@ -218,5 +220,16 @@ public interface Ambulance {
 	 */
 	public void setIncidentMobilizedFor(String ambulanceId,
 			String incidentInfoId) throws IllegalMobilizationException;
+
+	/**
+	 * Return the status of the ambulance corresponding to the unique identifier
+	 * given as parameter The status of the ambulance is either
+	 * {@link Ambulance#WORKING} or {@link Ambulance#BROKEN}.
+	 * 
+	 * @param ambulanceId
+	 *            The unique identifier of the ambulance
+	 * @return The status of the ambulance identified by ambulanceId
+	 */
+	public String getStatus(String ambulanceId);
 
 }
