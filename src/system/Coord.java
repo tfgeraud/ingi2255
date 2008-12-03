@@ -61,5 +61,10 @@ public interface Coord {
      * @return a positive integer equal to the dist from b.
      */
     public int dist(Coord b);
+    /**
+     * returns true if the coordinates are equal.
+     * @param c
+     * @return true if th coordinates are equal.
+     */
     public boolean equals(Coord c);
 }
