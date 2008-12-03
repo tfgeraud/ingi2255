@@ -15,7 +15,7 @@ public interface Mobilizer {
 	 * 			ambulanceId a valid id
 	 * @post	ambulance is mobilized on incident 
 	 */
-	public boolean mobilize(int incidentInfoId, int ambulanceId);
+	public boolean mobilize(String incidentInfoId, String ambulanceId);
 
 	/**
 	 * Dembilize ambulance with ambulanceId id 
@@ -25,6 +25,6 @@ public interface Mobilizer {
 	 * 			ambulanceId a valid id
 	 * @post	ambulance is demobilized from incident 
 	 */
-	public boolean demobilize(int incidentInfoId, int ambulanceId);
+	public boolean demobilize(String incidentInfoId, String ambulanceId);
 
 }
