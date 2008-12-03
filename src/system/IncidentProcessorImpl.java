@@ -1,6 +1,8 @@
 package system;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 import system.exception.UnknownIncidentException;
 
@@ -35,7 +37,7 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 	public void main(String incidentInfoId) {
 
 		String ambulanceId = "";
-		LinkedList<String> exclusionSet = new LinkedList<String>();
+		Set<String> exclusionSet = new HashSet<String>();
 		boolean e = false;
 
 		do {
@@ -63,7 +65,7 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 
 			// The ambulance was not able to close the incident. This ambulance
 			// may be broken, etc. We need to exclude from next searches.
-			exclusionSet = new LinkedList<String>();
+			exclusionSet = new HashSet<String>();
 			exclusionSet.add(ambulanceId);
 
 			// Demobilize the ambulance since the incident is either closed or
