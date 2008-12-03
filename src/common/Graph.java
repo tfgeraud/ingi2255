@@ -20,24 +20,12 @@ public class Graph {
      * the street address must be an exact match of the recorded one.
      *
      * thread synchronization unexisting.
-     * 
-     * @TODO:
-     * localisations are currently meant to be exact. this will be hard to
-     * maintain, even internally. Some sort of tolerance should be built in.
-     * Practical example : diagonal street coordinates are seldom integers.
-     *
-     * Currently dijkstra is computed each time a distance is needed.
-     * Could it be cheaper to compute dijkstra for every node in the graph
-     * and cache the results ?
-     *
-     * then update when obstacles are added ?
-     *
-     *
 	 */
-    private Node[][] crossroad;
-    private Set<Node> tempNodes = new HashSet();
-    private Set<Edge> street = new HashSet();
-    private int blocSize = 10;
+	
+    private Node[][] crossroad;	// the set of nodes at the crossroads.
+    private Set<Node> tempNodes = new HashSet();	// temporary nodes used for distance computation.
+    private Set<Edge> street = new HashSet();	//the set of streets 
+    private int blocSize = 10;	//distance between roads.
     /**
      * @pre cx,cy are > 0. they are the number of streets NS,WE respectively.
      * @post a new Graph is returned with the number of streets separated by 10 units
@@ -48,7 +36,7 @@ public class Graph {
     public Graph(int cx,int cy){
     	this.setStreets(cx, cy);
     }
-    public class Node {
+    private class Node {
         /* Nodes are crossroads in the map
          * Nodes are also point of interests : Distance can only be
          * computed from node to node !
@@ -112,7 +100,7 @@ public class Graph {
             return t;
         }
     }
-    public class Point{	//code copied from Coord. see doc there.
+    private class Point{	//code copied from Coord. see doc there.
     		private int x,y;
     	public Point(int x, int y){
     		this.x = x;
@@ -148,7 +136,7 @@ public class Graph {
     		return "("+this.x+","+this.y+")";
     	}
     }
-    public class Edge{
+    private class Edge{
         /* Edges are streets in the map*/
         private Node N,M;	//start and end node of the edte
         private Set<Point> obstacle = new HashSet();	//sets of obstacles in the street.
@@ -201,8 +189,13 @@ public class Graph {
             }
         }
     }
-    public Edge findEdge(Point c){
-        /*returns a street located at c*/
+    /**
+     * @pre: a Point c not null
+     * @post : returns a edge containing the point c, 
+     * null if there isn't any.
+     */
+    private Edge findEdge(Point c){
+        /*returns a street located at c, null if no street at c*/
         for (Edge e: street){
             if (e.isOnEdge(c)){
                 return e;
@@ -210,8 +203,11 @@ public class Graph {
         }
         return null;    
     }
-    /*returns the point located at c*/
-    public Node findNode(Point c){
+    /**
+     * @pre: a Point c not null
+     * @post:returns the point located at c, null if there isn't any
+     * */
+    private Node findNode(Point c){
         for (Node[] N:crossroad){
             for (Node n:N){
                 if (n.isOnNode(c)){
@@ -221,12 +217,16 @@ public class Graph {
         }
         return null;
     }
+    /**
+     * connects a temporary node with the position on
+     * the street connected to the nodes of the original
+     * street.
+     * Used to compute Dijkstra (only from node to node)
+     * @pre : a street and a point on the street.
+     * @post : a node at c connected to the ends of the streets
+     * if there isn't any obstacles. 
+     */
     private Node tempNode(Edge street, Point c){
-        /*connects a temporary node with the position on
-         * the street connected to the nodes of the original
-         * street.
-         * Used to compute Dijkstra (only from node to node)
-         */
         Node N = new Node(c);
        // boolean connected = false;
         if (!street.obstructed(c, street.getStart().getCoord())){
@@ -238,6 +238,10 @@ public class Graph {
         tempNodes.add(N);
         return N;
     }
+    /**
+     * @post : removes all temporary nodes from the map. 
+     *
+     */
     private void delTempNodes(){
         /*remove a node from the map and all the streets connected to it*/
         for (Node n:tempNodes){
@@ -449,10 +453,10 @@ public class Graph {
 	 * @param numx : the number of NS streets
 	 * @param numy : the nomber of WE streets
 	 * @post the map is initialized with those number of streets. 
+	 * distance between streets is 10. the position of the streets
+	 * start at 0, and go to (numx-1)*10
 	 */
     public void setStreets(int numx, int numy) {
-        //this.streetCountx = numx;
-        //this.streetCounty = numy;
         int i = numx;
         int j = numy;
         crossroad = new Node[numx][numy];
@@ -477,9 +481,5 @@ public class Graph {
                 }
             }
         }
-    }
-    public static void main(String[] args){
-    	//Graph map = new Graph(10,10);
-    	//Point p = new map.Point(10,10);
     }
 }

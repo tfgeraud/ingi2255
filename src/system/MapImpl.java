@@ -67,7 +67,19 @@ public class MapImpl implements Map{
 	 * @see system.Map#coordToAddress(system.Coord)
 	 */
     public String coordToAddress(Coord loc) {
-        return coordToAddressMap.get(loc);
+    	int min_dist = Integer.MAX_VALUE;
+    	Coord min_coord = null;
+    	for(Coord c: coordToAddressMap.keySet()){
+    		if(c.dist(loc)<min_dist){
+    			min_dist = c.dist(loc);
+    			min_coord = c;
+    		}
+    	}
+    	if(min_coord == null){
+    		return null;
+    	}else{
+    		return coordToAddressMap.get(min_coord);
+    	}
     }
     /*
      * (non-Javadoc)

@@ -3,7 +3,7 @@ package system;
 /**
  * This interface represents coordinates on the map.
  * 
- * @author Simon Busard
+ * @author fred
  */
 public interface Coord {
 
@@ -11,7 +11,7 @@ public interface Coord {
 	 * Return x coordinate.
 	 *
 	 * @pre		-
-	 * @post	return x coordinate in meters
+	 * @post	return x coordinate
 	 */
 	public int getX();
 	
@@ -19,14 +19,14 @@ public interface Coord {
 	 * Return y coordinate.
 	 *
 	 * @pre		-
-	 * @post	return y coordinate in meters
+	 * @post	return y coordinate
 	 */
 	public int getY();
 	
 	/**
 	 * Set x coordinate to x.
 	 * 
-	 * @pre		x a valid x coordinate in meters
+	 * @pre		x a valid x coordinate 
 	 * @post	x coordinate is set to x
 	 */
 	public void setX(int x);
@@ -34,7 +34,7 @@ public interface Coord {
 	/**
 	 * Set y coordinate to y.
 	 * 
-	 * @pre		y a valid y coordinate in meters
+	 * @pre		y a valid y coordinate 
 	 * @post	y coordinate is set to y
 	 */
 	public void setY(int y);
@@ -52,7 +52,7 @@ public interface Coord {
      * Sets the coordinate from astring representation
      * @pre loc has for prefix (x,y) where x,y are the coordinates as integers in meters.
      * @post the coord fits the data in loc if the format and localisation
-     * are valid, else it is unchanged.
+     * are valid, else it is unchanged and an exception is thrown.
      **/
     public void fromString(String loc) throws Exception;
     /**

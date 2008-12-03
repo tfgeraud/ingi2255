@@ -6,8 +6,13 @@ import java.io.BufferedReader;
  * This interface represents the map of the world known by the system.
  * It knows all paths in the world.  Obstacles that can occur are also
  * taken into account.
+ *	
+ *	Example of instanciation : 
+ *	Map = new Map();
+ *	Map.setStreets(5,6);
+ *	Map.addAddress("toto", new Coord(10,15));
  *
- * @author Simon Busard
+ * @author fred
  */
 public interface Map {
 
@@ -16,7 +21,9 @@ public interface Map {
 	 * 
 	 * @pre		coord1 valid coordinates
 	 * 			coord2 valid coordinates
-	 * @post	return distance between coord1 and coord2
+	 * @post	return distance between coord1 and coord2.
+	 * 			Returns Integer.MAX_VALUE if there is no path
+	 * 			between coordinates.
 	 */
 	public int distance(Coord coord1, Coord coord2);
 	
@@ -24,14 +31,16 @@ public interface Map {
 	 * Return coordinates of a localisation.
 	 * 
 	 * @pre		address a known localisation
-	 * @post	return coordinates of the localisation
+	 * @post	return coordinates of the localisation, null
+	 * 			if the location doesn't exist.
 	 */
 	public Coord addressToCoord(String localisation);
     /**
      * Returns the address closest to the localisation
      *
      * @pre -
-     * @post returns one of the closest addresses to loc
+     * @post returns one of the closest addresses to loc, null if
+     * 		there isn't any.
      */
 	public String coordToAddress(Coord loc);
 	/**
@@ -47,7 +56,7 @@ public interface Map {
 	 * Remove an obstacle at coordinates
 	 * 
 	 * @pre		obstacleCoord must be coordinates of a recorded obstacle
-	 * @post	obstacle at obstacleCoord is removed from the system
+	 * @post	obstacles at obstacleCoord are removed from the system
 	 */
 	public void removeObstacle(Coord obstacleCoord);
     /**
@@ -68,8 +77,8 @@ public interface Map {
      * Sets the street on the map
      * @param: numx : > 0 :the amount of North-South streets.
      * @param: numy : > 0 :the amount of West-East streets.
-     * @param: blocsize : > 0 :the width of a bloc of houses in meters.
-     * @param : streetWidth : >= 0: the width of the streets in meters.
+     * @post the distance between roads is 10. the roads start at coordinate 0.
+     * so numx = 5 -> roads at x = [0,10,20,30,40]
      */
     
     public void setStreets(int numx, int numy);
