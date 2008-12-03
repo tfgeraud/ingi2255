@@ -10,13 +10,13 @@ package system;
 public interface Resolver {
 
 	/**
-	 * Close the incident with id incidentInfoId.  The ambulance with ambulanceId
-	 * id is mobilized on this incident.
-	 *
-	 * @pre		incidentInfoId a valid id
-	 * 			ambulanceId a valid id
-	 * @post	incident is closed and ambulance is demobilized
+	 * Close the incident with id incidentInfoId. It wait for incident resolved
+	 * event or problem event
+	 * 
+	 * @pre incidentInfoId a valid id
+	 * @post return true if incident is announced as resolved by the ambulance.
+	 *       false otherwise
 	 */
-	public boolean closeIncident(int incidentInfoId, int ambulanceId);
+	public boolean closeIncident(String incidentInfoId);
 
 }

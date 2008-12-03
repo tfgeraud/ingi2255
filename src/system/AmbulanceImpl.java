@@ -154,8 +154,8 @@ public class AmbulanceImpl implements Ambulance {
 		public AmbulanceInfo(String id, Coord position) {
 			this.id = id;
 			this.pos = position;
-			this.status = Ambulance.FREE;
-			this.availability = Ambulance.WORKING;
+			this.status = Ambulance.WORKING;
+			this.availability = Ambulance.FREE;
 		}
 
 		/**
@@ -304,7 +304,9 @@ public class AmbulanceImpl implements Ambulance {
 		for (String key : this.list.keySet()) {
 			AmbulanceInfo a = this.list.get(key);
 			if (a.getAvailability().equals(Ambulance.FREE)
-					&& exclusionSet.contains(a.getId())) {
+					&& !exclusionSet.contains(a.getId())
+					&& a.getKind().equals(kind)
+					&& a.getStatus().equals(Ambulance.WORKING)) {
 				result.add(a.getId());
 			}
 		}
@@ -417,5 +419,13 @@ public class AmbulanceImpl implements Ambulance {
 	 */
 	public void setPosition(String ambulanceId, Coord coord) {
 		this.list.get(ambulanceId).setPos(coord);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see system.Ambulance#getStatus(java.lang.String)
+	 */
+	public String getStatus(String ambulanceId) {
+		return this.list.get(ambulanceId).getStatus();
 	}
 }

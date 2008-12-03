@@ -10,6 +10,7 @@ public class AllTests {
 		//$JUnit-BEGIN$
 		suite.addTestSuite(EventTest.class);
 		suite.addTestSuite(BasicObjectTest.class);
+		suite.addTestSuite(AmbulanceTest.class);
 		//$JUnit-END$
 		return suite;
 	}

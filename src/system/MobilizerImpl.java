@@ -1,36 +1,73 @@
 package system;
 
+import system.exception.UnknownIncidentException;
+import events.DemobilisationOrder;
+import events.MobilisationOrder;
+
+/**
+ * This class represents the mobilizer. This module mobilizes and demobilizes
+ * ambulances for incidents.
+ * 
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
+ */
 public class MobilizerImpl implements Mobilizer {
 
-	private Incident incident;
-	private Communicator communicator;
-	
-	/* (non-Javadoc)
-	 * @see system.Mobilizer#mobilize(int, int)
+	/**
+	 * The list of incidents known by the system
 	 */
-	public boolean mobilize(int incidentInfoId, int ambulanceId) {
-		// FIXME
-		/*
-		MobilisationOrder MobilisationOrder = incident.getMobOrder(incidentInfoId);	
-		communicator.send(MobilisationOrder, ambulanceId);
-		
-		return communicator.waitForAck(MobilisationOrder, ambulanceId);
-		*/
-		return false;
+	private Incident incidents;
+
+	/**
+	 * The communicator module allowing communication with ambulances MDT
+	 */
+	private Communicator communicator;
+
+	/**
+	 * Create a new Mobilizer
+	 * 
+	 * @param communicator the communicator of the system
+	 * @param incidents the set of incidents known by the system
+	 */
+	public MobilizerImpl(Communicator communicator, Incident incidents) {
+		this.communicator = communicator;
+		this.incidents = incidents;
 	}
 
-	/* (non-Javadoc)
-	 * @see system.Mobilizer#demobilize(int, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see system.Mobilizer#mobilize(java.lang.String, java.lang.String)
 	 */
-	public boolean demobilize(int incidentInfoId, int ambulanceId) {
-		// FIXME
-		/*
-		DemobOrder demobOrder = incident.getDemobOrder(incidentInfoId);	
-		communicator.send(demobOrder, ambulanceId);
-		
-		return communicator.waitForAck(demobOrder, ambulanceId);
-		*/
-		return false;
+	public boolean mobilize(String incidentInfoId, String ambulanceId) {
+		try {
+			// Create and send mobilize order
+			MobilisationOrder mobOrder = incidents.getMobOrder(incidentInfoId);
+			communicator.send(mobOrder);
+			// Wait for acknoledgment
+			return communicator.waitForAck(mobOrder, ambulanceId);
+		} catch (UnknownIncidentException e) {
+			// TODO
+			return false;
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see system.Mobilizer#demobilize(java.lang.String, java.lang.String)
+	 */
+	public boolean demobilize(String incidentInfoId, String ambulanceId) {
+		try {
+			// Create an send demobilization order
+			DemobilisationOrder demobOrder = incidents
+					.getDemobOrder(incidentInfoId);
+			communicator.send(demobOrder);
+			// Wait for acknoledgment
+			return communicator.waitForAck(demobOrder, ambulanceId);
+		} catch (UnknownIncidentException e) {
+			// TODO
+			return false;
+		}
 	}
 
 }
