@@ -34,7 +34,6 @@ public class MapImplTest extends TestCase {
 		assertEquals(34,map.distance(new CoordImpl(20,22),new CoordImpl(20,28)));
         map.addObstacle(new CoordImpl(20,20));
         assertEquals(Integer.MAX_VALUE,map.distance(new CoordImpl(20,22),new CoordImpl(20,28)));
-        
 	}
 
 }

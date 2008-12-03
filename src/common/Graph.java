@@ -111,8 +111,8 @@ public class Graph {
     		this.y = y;
     	}
     	public int dist(Point c){
-    		return (int)Math.sqrt(	Math.pow(this.getX() + c.getX(),2) +
-    								Math.pow(this.getY() + c.getY(),2) 	);
+    		return (int)Math.sqrt(	Math.pow(this.getX() - c.getX(),2) +
+    								Math.pow(this.getY() - c.getY(),2) 	);
     	}
     	public boolean equals(Object c){
     		if (c instanceof Point){
@@ -416,5 +416,9 @@ public class Graph {
                 }
             }
         }
+    }
+    public static void main(String[] args){
+    	//Graph map = new Graph(10,10);
+    	//Point p = new map.Point(10,10);
     }
 }
