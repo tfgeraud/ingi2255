@@ -1,7 +1,9 @@
 package common;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Graph {
@@ -33,6 +35,7 @@ public class Graph {
      *
 	 */
     private Node[][] crossroad;
+    private Set<Node> tempNodes = new HashSet();
     private Set<Edge> street = new HashSet();
     private int blocSize = 10;
     /**
@@ -70,6 +73,21 @@ public class Graph {
         }
         public void connect(Edge e){	//connects the node to the street.
             street.add(e);
+        }
+        public void disconnect(Edge e){	//removes an edge from the street
+        	street.remove(e);
+        }
+        public void delete(){	//deletes the nodes and all the adj. edges
+        	for (Edge e:street){
+        		Node ns = e.getStart();
+        		Node ne = e.getEnd();
+        		if(ns != this){
+        			ns.disconnect(e);
+        		}else{
+        			ne.disconnect(e);
+        		}
+        	}
+        	street.clear();
         }
         /* returns the list of nodes reachable from this one, and
          * the distance to each.
@@ -163,6 +181,10 @@ public class Graph {
         public Node getEnd(){	//get the end node of the edge
             return M;
         }
+        public void disconnect(){
+        	N.disconnect(this);
+        	M.disconnect(this);
+        }
         public boolean obstructed(Point a, Point b){
         	/* returns true if there is an obstacle on the street between the
         	 * point a and b
@@ -206,24 +228,22 @@ public class Graph {
          * Used to compute Dijkstra (only from node to node)
          */
         Node N = new Node(c);
-        boolean connected = false;
+       // boolean connected = false;
         if (!street.obstructed(c, street.getStart().getCoord())){
             Edge e = new Edge(N,street.getStart());
         }
         if (!street.obstructed(c,street.getEnd().getCoord())){
             Edge e = new Edge(N,street.getEnd());
         }
+        tempNodes.add(N);
         return N;
     }
-    private void delTempNode(Node N){
+    private void delTempNodes(){
         /*remove a node from the map and all the streets connected to it*/
-        for(Edge e:N.street){
-            if(e.getEnd()!=N){
-                e.getEnd().street.remove(e);
-            }else{
-                e.getStart().street.remove(e);
-            }
+        for (Node n:tempNodes){
+        	n.delete();
         }
+        tempNodes.clear();
     }
     /**
      * 
@@ -237,21 +257,47 @@ public class Graph {
      */
     
     public int distance(int startx, int starty, int endx, int endy){
-    	return distance(new Point(startx,starty),new Point(endx,endy));
+    	return distance(new Point(startx,starty),new Point(endx,endy),null);
+    }
+    /**
+     * @pre : startx, starty and endx,endy represents coordinates of the starting
+     * point and ending point on the map.
+     * @post: returns the path from startxy to endxy as an array of {x,y} coordinates.
+     * the first element is startxy the last is endxy.
+     * if the destination is not reachable, it returns null.
+     */
+    public int[][] path(int startx,int starty,int endx,int endy){
+    	List<Point> P = new ArrayList();
+    	int[][] path;
+    	distance(new Point(startx,starty),new Point(endx,endy),P);
+    	if(P.isEmpty()){
+    		return null;
+    	}else{
+    		path = new int[P.size()][2];
+    		int i = 0;
+    		while(i < P.size()){
+    			int I = P.size()-1-i;
+    			path[i][0] = P.get(I).getX();
+    			path[i][1] = P.get(I).getY();
+    			i++;
+    		}
+    		return path;
+    	}
     }
     /**
      * @pre impl and incidentCoord must be on streets or on nodes.
      * @post returns the distance from impl to incidentcoord.
      * returns Integer.MAX_VALUE if unreachable 
+     * if path is not null, it will contain the path as a list of points
+     * from finish to start
      */
-	private int distance(Point impl, Point incidentCoord) {
+	private int distance(Point impl, Point incidentCoord, List<Point> path) {
         int distance = 0;
         Node startNode = findNode(impl);
         Node endNode = findNode(incidentCoord);
-        boolean isStartNodeTemp = false;
-        boolean isEndNodeTemp = false;
         Edge start = findEdge(impl);
         Edge end = findEdge(incidentCoord);
+        delTempNodes();
         if (impl.equals(incidentCoord)){
             return 0;
         }
@@ -269,10 +315,10 @@ public class Graph {
          */
         if(startNode == null){  //pos not on a crossroad
             if(start == null){      //pos not on a street
+                System.out.println("Error ambulance not on street");
                 return Integer.MAX_VALUE;
             }
             startNode = tempNode(start,impl);
-            isStartNodeTemp = true;
         }
         if(endNode == null){    //pos not on a crossroad
             if(end == null){    //pos not on a street
@@ -280,11 +326,11 @@ public class Graph {
                 return Integer.MAX_VALUE;
             }
             endNode = tempNode(end,incidentCoord);
-            isEndNodeTemp = true;
         }
         Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
         Set<Node> Unvisited = new HashSet();//Initially All the Nodes
         Hashtable<Node,Integer> Distance = new Hashtable();
+        Hashtable<Node,Node> Previous = new Hashtable();
 
         for(Node[] N:crossroad){
             for(Node n:N){
@@ -308,11 +354,17 @@ public class Graph {
 
             Hashtable<Node,Integer> NeighbourDist = CurrentNode.neighbours();
             for(Node n: NeighbourDist.keySet() ){
-                int dist = Distance.get(n);
-                int newdist = Distance.get(CurrentNode)+NeighbourDist.get(n);
-                if (newdist < dist){
-                    Distance.put(n,newdist);
-                }
+            	if(n!=null){
+	            	if(Distance.get(n) == null){ //prevents crash when graph gets corrupted
+	            		continue;
+            		}
+            		int dist = Distance.get(n);
+                	int newdist = Distance.get(CurrentNode)+NeighbourDist.get(n);
+                	if (newdist < dist){
+                    	Distance.put(n,newdist);
+                    	Previous.put(n, CurrentNode);
+                	}
+            	}
             }
             
             int minDist = Integer.MAX_VALUE;
@@ -329,13 +381,20 @@ public class Graph {
                 break;
             }
             CurrentNode = closest;
-            if(CurrentNode == null){
-                System.out.println("Destination unreachable");
+            if(CurrentNode == null){	//destination unreachable
                 return Integer.MAX_VALUE;
             }
         }
-        if(isEndNodeTemp){delTempNode(endNode);}   //disconnecting temporary nodes from the map
-        if(isStartNodeTemp){delTempNode(startNode);}
+        
+        /*creating path */
+        if(path != null){
+        	path.add(endNode.getCoord());
+        	Node n = endNode;
+        	while(Previous.get(n)!=null){
+        		n = Previous.get(n);
+        		path.add(n.getCoord());
+        	}
+        }
         return distance;
 	}
 	/**

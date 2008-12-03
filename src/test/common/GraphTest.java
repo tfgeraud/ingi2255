@@ -34,4 +34,14 @@ public class GraphTest extends TestCase {
         assertEquals(Integer.MAX_VALUE,map.distance(20,22, 20,28));
         assertEquals(230,map.distance(0,0, 90,140));
 	}
+	public void testPath(){
+		int[][] path;
+		path = map.path(0,0, 50,40);
+		for (int[] i:path){
+			if(i!=null){
+				System.out.println("("+i[0]+","+i[1]+")");
+			}
+		}
+		assertEquals(10,path.length);
+	}
 }
