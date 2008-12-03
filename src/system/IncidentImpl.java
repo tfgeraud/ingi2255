@@ -132,6 +132,7 @@ public class IncidentImpl implements Incident {
 
 		// Process additional information
 		// Position
+		// FIXME : can return null
 		inc.position = map.addressToCoord(localisation);
 		// Ambulance kind needed
 		// This is very simple for the beginning. If description is "grave"
@@ -299,6 +300,7 @@ public class IncidentImpl implements Incident {
 		if (inc == null)
 			throw new UnknownIncidentException();
 		inc.state = RESOLVED;
+		// TODO Remove incident from list?
 	}
 
 	/*
@@ -329,5 +331,6 @@ public class IncidentImpl implements Incident {
 		if (inc == null)
 			throw new UnknownIncidentException();
 		inc.mobAmb = ambulanceId;
+		// TODO verify if chosen ambulance is correct
 	}
 }
