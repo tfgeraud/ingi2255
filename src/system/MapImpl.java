@@ -5,8 +5,6 @@ import java.util.Hashtable;
 
 import common.Graph;
 
-
-
 public class MapImpl implements Map{
 	Graph map;
 	private Hashtable<String,Coord> addressToCoordMap = new Hashtable();

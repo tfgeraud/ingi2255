@@ -73,7 +73,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 		try {
 			mdtMessage = events.take();
 		} catch(InterruptedException e) {
-			
+			// TODO
 		}
 		if(mdtMessage.getSenderName() == ambulanceId) {
 			return mdtMessage;
@@ -82,7 +82,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 			try {
 				events.put(mdtMessage);
 			} catch(InterruptedException e) {
-				
+				// TODO
 			}
 			return waitForEvent(ambulanceId);
 		}
@@ -99,14 +99,14 @@ public class CommunicatorImpl implements Communicator, Runnable {
 					try {
 						mobConfirmations.put(mdtEvent);
 					} catch(InterruptedException e) {
-						
+						// TODO
 					}
 				}
 				else {
 					try {
 						events.put(mdtEvent);
 					} catch(InterruptedException e) {
-						
+						// TODO
 					}
 				}
 			}
@@ -137,7 +137,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 		try {
 			mdtMessage = mobConfirmations.take();
 		} catch(InterruptedException e) {
-			
+			// TODO
 		}
 		if(mdtMessage.getSenderName() == ambulanceId) {
 			return true;
@@ -146,7 +146,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 			try {
 				mobConfirmations.put(mdtMessage);
 			} catch(InterruptedException e) {
-				
+				// TODO
 			}
 			return waitForAck(order,ambulanceId);
 		}
