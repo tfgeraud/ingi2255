@@ -1,6 +1,6 @@
 package system;
 
-import java.util.LinkedList;
+import java.util.Set;
 
 import system.exception.UnknownIncidentException;
 
@@ -25,7 +25,7 @@ public interface AmbulanceChooser {
 	 * @throws	UnknownIncidentException if no incident with id incidentInfoId
 	 * 			is found
 	 */
-	public String chooseBestAmbulance(String incidentInfoId,LinkedList<String> exclusionSet)
+	public String chooseBestAmbulance(String incidentInfoId,Set<String> exclusionSet)
 	throws UnknownIncidentException;
 
 }

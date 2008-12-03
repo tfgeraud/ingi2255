@@ -1,6 +1,6 @@
 package system;
 
-import java.util.LinkedList;
+import java.util.Set;
 
 import system.exception.AmbulanceKindUnknownException;
 import system.exception.AmbulanceStatusUnknwownException;
@@ -98,8 +98,8 @@ public interface Ambulance {
 	 * @param exclusionSet
 	 *            The set of ambulance that cannot be chosen for this incident.
 	 */
-	public LinkedList<String> getAllFree(String kind,
-			LinkedList<String> exclusionSet);
+	public Set<String> getAllFree(String kind,
+			Set<String> exclusionSet);
 
 	/**
 	 * Return coordinates of ambulance identified by ambulanceId.

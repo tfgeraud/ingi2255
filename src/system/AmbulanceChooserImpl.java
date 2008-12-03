@@ -1,6 +1,6 @@
 package system;
 
-import java.util.LinkedList;
+import java.util.Set;
 
 import system.exception.UnknownIncidentException;
 
@@ -46,42 +46,40 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see system.AmbulanceChooser#chooseBestAmbulance(int,
-	 *      java.util.LinkedList)
+	 * @see system.AmbulanceChooser#chooseBestAmbulance(java.lang.String, java.util.Set)
 	 */
 	public String chooseBestAmbulance(String incidentInfoId,
-			LinkedList<String> exclusionSet) throws UnknownIncidentException {
-		String kind = incident.getAmbulanceKindNeeded(incidentInfoId);
-		Coord coord = incident.getPosition(incidentInfoId);
-		LinkedList<String> ambulances = ambulance
+			Set<String> exclusionSet) throws UnknownIncidentException {
+		
+		String kind = this.incident.getAmbulanceKindNeeded(incidentInfoId);
+		Coord coord = this.incident.getPosition(incidentInfoId);
+		Set<String> ambulances = this.ambulance
 				.getAllFree(kind, exclusionSet);
 
-		return selectMinDist(ambulances, coord);
+		return this.selectMinDist(ambulances, coord);
 	}
 
 	/**
 	 * Return the nearest ambulance from the incident. If there is no ambulance
 	 * provided, then the returned string is null.
 	 */
-	private String selectMinDist(LinkedList<String> ambulances,
+	private String selectMinDist(Set<String> ambulances,
 			Coord incidentCoord) {
-		String ambulanceId;
+		String ambulanceId = null;
 
-		if (ambulances.size() > 0) {
-			ambulanceId = ambulances.get(0);
-		} else {
+		if (ambulances.size() <= 0) {
 			return null;
 		}
 
-		for (int i = 0; i < ambulances.size(); i++) {
-			int newDistance = map.distance(ambulance
-					.getCoord(ambulances.get(i)), incidentCoord);
-			int oldDistance = map.distance(ambulance.getCoord(ambulanceId),
+		for (String amb : ambulances) {
+			int newDistance = this.map.distance(this.ambulance
+					.getCoord(amb), incidentCoord);
+			int oldDistance = this.map.distance(this.ambulance.getCoord(amb),
 					incidentCoord);
 
-			if (newDistance < oldDistance)
-				ambulanceId = ambulances.get(i);
+			if (newDistance < oldDistance) {
+				ambulanceId = amb;
+			}
 		}
 
 		return ambulanceId;

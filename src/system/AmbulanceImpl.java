@@ -1,7 +1,8 @@
 package system;
 
+import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.LinkedList;
+import java.util.Set;
 
 import system.exception.AmbulanceAvailabilityUnknownException;
 import system.exception.AmbulanceKindUnknownException;
@@ -84,7 +85,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return the incident chosen for the ambulance
 		 */
 		public String getIncidentChosenFor() {
-			return incidentChosenFor;
+			return this.incidentChosenFor;
 		}
 
 		/**
@@ -111,7 +112,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return the incident id this ambulance is mobilized for.
 		 */
 		public String getIncidentMobilizedFor() {
-			return incidentMobilizedFor;
+			return this.incidentMobilizedFor;
 		}
 
 		/**
@@ -129,7 +130,7 @@ public class AmbulanceImpl implements Ambulance {
 		public void setIncidentMobilizedFor(String incidentMobilizedFor)
 				throws IllegalMobilizationException {
 			if (incidentMobilizedFor != null) {
-				if (incidentMobilizedFor.equals(incidentChosenFor)) {
+				if (incidentMobilizedFor.equals(this.incidentChosenFor)) {
 					this.availability = Ambulance.MOBILIZED;
 					this.incidentMobilizedFor = incidentMobilizedFor;
 				} else {
@@ -164,7 +165,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return the unique identifier of the ambulance
 		 */
 		public String getId() {
-			return id;
+			return this.id;
 		}
 
 		/**
@@ -184,7 +185,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return The kind of the ambulance
 		 */
 		public String getKind() {
-			return kind;
+			return this.kind;
 		}
 
 		/**
@@ -211,7 +212,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return The position of the ambulance
 		 */
 		public Coord getPos() {
-			return pos;
+			return this.pos;
 		}
 
 		/**
@@ -231,7 +232,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return the status of the ambulance
 		 */
 		public String getStatus() {
-			return status;
+			return this.status;
 		}
 
 		/**
@@ -260,7 +261,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * @return the availability of the ambulance
 		 */
 		public String getAvailability() {
-			return availability;
+			return this.availability;
 		}
 
 		/**
@@ -294,12 +295,11 @@ public class AmbulanceImpl implements Ambulance {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see system.Ambulance#getAllFree(int, java.util.LinkedList)
+	 * @see system.Ambulance#getAllFree(java.lang.String, java.util.Set)
 	 */
-	public LinkedList<String> getAllFree(String kind,
-			LinkedList<String> exclusionSet) {
+	public Set<String> getAllFree(String kind, Set<String> exclusionSet) {
 
-		LinkedList<String> result = new LinkedList<String>();
+		Set<String> result = new HashSet<String>();
 
 		for (String key : this.list.keySet()) {
 			AmbulanceInfo a = this.list.get(key);
@@ -423,6 +423,7 @@ public class AmbulanceImpl implements Ambulance {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see system.Ambulance#getStatus(java.lang.String)
 	 */
 	public String getStatus(String ambulanceId) {
