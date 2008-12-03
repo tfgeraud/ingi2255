@@ -1,7 +1,6 @@
 package system;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Set;
 
 import system.exception.UnknownIncidentException;
