@@ -1,5 +1,4 @@
 package system;
-import java.lang.Math.*;
 public class CoordImpl implements Coord {
 	private int x = 0;	//the x coordinate
 	private int y = 0;	// the y cordinate

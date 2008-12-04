@@ -20,10 +20,8 @@ public class BasicObjectTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		object = new BasicObject();
-		object.setName("object");
-		object2 = new BasicObject();
-		object2.setName("object2");
+		object = new BasicObject("object");
+		object2 = new BasicObject("object2");
 		observer = new DummyObserver();
 	}
 

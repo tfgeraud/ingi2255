@@ -9,16 +9,15 @@ import events.Event;
  */
 public class BasicObject extends SimObjectImpl {
 
-	public BasicObject() {
+	public BasicObject(String name) {
+		super(name);
 		/**
 		 * Initialisation of every states
 		 */
-		NextState state1 = new NextState();
-		NextState state2 = new NextState();
+		NextState state1 = new NextState("State1");
+		NextState state2 = new NextState("State2");
 		state1.setStates(state2);
-		state1.setName("State1");
 		state2.setStates(state1);
-		state2.setName("State2");
 		
 		/**
 		 * Initialisation of the state machine
@@ -36,6 +35,10 @@ public class BasicObject extends SimObjectImpl {
 	 * Definition of basic states for the object
 	 */
 	class NextState extends State {
+		public NextState(String name) {
+			super(name);
+		}
+
 		private State state2;
 		
 		

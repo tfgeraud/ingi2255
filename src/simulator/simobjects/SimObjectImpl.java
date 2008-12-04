@@ -28,7 +28,9 @@ public class SimObjectImpl implements SimObject {
 	/**
 	 * Ctor, initialisation of the state machine should go here
 	 */
-	protected SimObjectImpl() {}
+	protected SimObjectImpl(String name) {
+		this.name = name;
+	}
 
 	public void accept(Event event) {
 		eventQueue.add(event);
@@ -110,10 +112,6 @@ public class SimObjectImpl implements SimObject {
 	public String getName() {
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	/**
 	 * State Machine implementing the State Pattern, states are intended to be defined 
@@ -158,12 +156,19 @@ public class SimObjectImpl implements SimObject {
 	}
 	
 	protected class State {
-		private String name = "";
+		protected String name = "";
+		
+		public State(String name) {
+			this.name = name;
+		}
 		
 		/** 
-		 * Process the event and return the new state
-		 * @pre Event is valid
-		 * @post A new state is returned
+		 * Process the event and return the new state,
+		 * by default, the event returns null, meaning
+		 * event not understood
+		 * 
+		 * @Pre Event is valid
+		 * @Post A new state is returned
 		 */
 		public State execute(Event e) {
 			return null;
@@ -172,13 +177,13 @@ public class SimObjectImpl implements SimObject {
 		
 		/** 
 		 * Name used for debugging purposes
-		 */
-		public void setName(String name) {
-			this.name = name;
-		}
-		
+		 */		
 		public String getName() {
 			return name;
+		}
+		
+		public String toString() {
+			return this.getClass() + " " + this.name;
 		}
 		
 	}

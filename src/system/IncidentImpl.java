@@ -123,14 +123,16 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#addIncident(int, boolean, java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void addIncident(int age, boolean pregnant, String localisation,
+	public String addIncident(int age, boolean pregnant, String localisation,
 			String description) {
 		IncidentInfo inc = new IncidentInfo(age, pregnant, localisation,
 				description);
-		incidents.put("incident" + nextIncidentId, inc);
+		String incidentId = "incident" + nextIncidentId++;
+		incidents.put(incidentId, inc);
 
 		// Process additional information
 		// Position
+		// FIXME : can return null
 		inc.position = map.addressToCoord(localisation);
 		// Ambulance kind needed
 		// This is very simple for the beginning. If description is "grave"
@@ -141,6 +143,8 @@ public class IncidentImpl implements Incident {
 			inc.ambKindNeeded = Ambulance.MEDICALIZED;
 		else
 			inc.ambKindNeeded = Ambulance.NORMAL;
+		
+		return incidentId;
 	}
 
 	/*
@@ -296,6 +300,7 @@ public class IncidentImpl implements Incident {
 		if (inc == null)
 			throw new UnknownIncidentException();
 		inc.state = RESOLVED;
+		// TODO Remove incident from list?
 	}
 
 	/*
@@ -326,5 +331,6 @@ public class IncidentImpl implements Incident {
 		if (inc == null)
 			throw new UnknownIncidentException();
 		inc.mobAmb = ambulanceId;
+		// TODO verify if chosen ambulance is correct
 	}
 }

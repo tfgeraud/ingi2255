@@ -1,49 +1,87 @@
 package system;
 
-import java.util.LinkedList;
+import java.util.Set;
 
+import system.exception.UnknownIncidentException;
+
+/**
+ * The ambulance choser is responsible of the choice of the best ambulance. See
+ * {@link AmbulanceChooser} for more details.
+ * 
+ * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
+ */
 public class AmbulanceChooserImpl implements AmbulanceChooser {
 
-	private Incident incident;
-	private Ambulance ambulance;
-	private Map map;
-	
-	/* (non-Javadoc)
-	 * @see system.AmbulanceChooser#chooseBestAmbulance(int, java.util.LinkedList)
+	/**
+	 * The incident we are interrested in
 	 */
-	public int chooseBestAmbulance(int incidentInfoId, LinkedList<Integer> exclusionSet) {
-		
-        String kind = incident.getAmbulanceKindNeeded(incidentInfoId);
-        Coord coord = incident.getPosition(incidentInfoId);
-        LinkedList ambulances = ambulance.getAllFree(kind, exclusionSet);
-        
-		Coord[] ambulancesCoord = getAmbulancesCoord(ambulances);
-		return selectMinDist(ambulancesCoord,coord);
+	private Incident incident;
+
+	/**
+	 * The set of all ambulance (including non-free)
+	 */
+	private Ambulance ambulance;
+
+	/**
+	 * The map we use to compute shortest path
+	 */
+	private Map map;
+
+	/**
+	 * Create a new incident chooser based on a incident, a set of ambulance and
+	 * a map.
+	 * 
+	 * @param incident
+	 *            The incident we want to find the nearest ambulance
+	 * @param ambulance
+	 *            The set of all ambulances
+	 * @param map
+	 *            The map used to compute shortest path
+	 */
+	public AmbulanceChooserImpl(Incident incident, Ambulance ambulance, Map map) {
+		this.incident = incident;
+		this.ambulance = ambulance;
+		this.map = map;
 	}
-	
-	private Coord[] getAmbulancesCoord(LinkedList ambulances) {
-		Coord[] coords = new Coord[ambulances.size()];
+
+	/*
+	 * (non-Javadoc)
+	 * @see system.AmbulanceChooser#chooseBestAmbulance(java.lang.String, java.util.Set)
+	 */
+	public String chooseBestAmbulance(String incidentInfoId,
+			Set<String> exclusionSet) throws UnknownIncidentException {
 		
-		for(int i = 0;i < coords.length;i++) {
-			coords[i] = ambulance.getCoord(((Integer)ambulances.get(i)).intValue());
-		}
-		
-		return coords;
+		String kind = this.incident.getAmbulanceKindNeeded(incidentInfoId);
+		Coord coord = this.incident.getPosition(incidentInfoId);
+		Set<String> ambulances = this.ambulance
+				.getAllFree(kind, exclusionSet);
+
+		return this.selectMinDist(ambulances, coord);
 	}
-	
-	private int selectMinDist(Coord[] ambulancesCoord, Coord incidentCoord) {
-		
-		int ambulanceId = 0;
-		
-		for(int i = 0;i < ambulancesCoord.length;i++) {
-			if(	map.distance(	ambulancesCoord[i],
-								incidentCoord)
-				<
-				map.distance(	ambulancesCoord[ambulanceId],
-								incidentCoord))
-				ambulanceId = i;
+
+	/**
+	 * Return the nearest ambulance from the incident. If there is no ambulance
+	 * provided, then the returned string is null.
+	 */
+	private String selectMinDist(Set<String> ambulances,
+			Coord incidentCoord) {
+		String ambulanceId = null;
+
+		if (ambulances.size() <= 0) {
+			return null;
 		}
-		
+
+		for (String amb : ambulances) {
+			int newDistance = this.map.distance(this.ambulance
+					.getCoord(amb), incidentCoord);
+			int oldDistance = this.map.distance(this.ambulance.getCoord(amb),
+					incidentCoord);
+
+			if (newDistance < oldDistance) {
+				ambulanceId = amb;
+			}
+		}
+
 		return ambulanceId;
 	}
 

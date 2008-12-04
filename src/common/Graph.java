@@ -42,7 +42,7 @@ public class Graph {
          * computed from node to node !
          */
         private Point pos;	//the pos of the node
-        private Set<Edge> street = new HashSet();	//the streets connected to this node
+        private Set<Edge> street = new HashSet<Edge>();	//the streets connected to this node
         private boolean obstacle; //true if there is an obstacle on the node
         public Node(Point c){	//creates a new node at point c.
             pos = c;
@@ -82,7 +82,7 @@ public class Graph {
          * obstacled nodes are also excluded
          */
         public Hashtable<Node,Integer> neighbours(){
-            Hashtable<Node,Integer> t = new Hashtable();
+            Hashtable<Node,Integer> t = new Hashtable<Node,Integer>();
             for (Edge e: street){
                 if(!e.obstructed()){    //exclude unreachable nodes
                     if (e.getStart() != this){      //don't add yourself.
@@ -139,11 +139,11 @@ public class Graph {
     private class Edge{
         /* Edges are streets in the map*/
         private Node N,M;	//start and end node of the edte
-        private Set<Point> obstacle = new HashSet();	//sets of obstacles in the street.
+        private Set<Point> obstacle = new HashSet<Point>();	//sets of obstacles in the street.
         public Edge(Node N, Node M){	//create a new edge from N to M
             this.N = N;
             this.M = M;
-            obstacle = new HashSet();
+            obstacle = new HashSet<Point>();
             N.connect(this);
             M.connect(this);
         }
@@ -228,7 +228,6 @@ public class Graph {
      */
     private Node tempNode(Edge street, Point c){
         Node N = new Node(c);
-       // boolean connected = false;
         if (!street.obstructed(c, street.getStart().getCoord())){
             Edge e = new Edge(N,street.getStart());
         }
@@ -331,11 +330,10 @@ public class Graph {
             }
             endNode = tempNode(end,incidentCoord);
         }
-        Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
-        Set<Node> Unvisited = new HashSet();//Initially All the Nodes
-        Hashtable<Node,Integer> Distance = new Hashtable();
-        Hashtable<Node,Node> Previous = new Hashtable();
-
+        Set<Node> Visited = new HashSet<Node>();  //Node where we know the smallest dist
+        Set<Node> Unvisited = new HashSet<Node>();//Initially All the Nodes
+        Hashtable<Node,Integer> Distance = new Hashtable<Node,Integer>();
+        Hashtable<Node,Node> Previous = new Hashtable<Node,Node>();
         for(Node[] N:crossroad){
             for(Node n:N){
                 Unvisited.add(n);

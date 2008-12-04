@@ -6,12 +6,13 @@ import java.io.BufferedReader;
  * This interface represents the map of the world known by the system.
  * It knows all paths in the world.  Obstacles that can occur are also
  * taken into account.
- *	
+ *		
  *	Example of instanciation : 
+ *	<pre>
  *	Map = new Map();
  *	Map.setStreets(5,6);
  *	Map.addAddress("toto", new Coord(10,15));
- *
+ *	</pre>
  * @author fred
  */
 public interface Map {
@@ -26,7 +27,7 @@ public interface Map {
 	 * 			between coordinates.
 	 */
 	public int distance(Coord coord1, Coord coord2);
-	
+
 	/**
 	 * Return coordinates of a localisation.
 	 * 
@@ -35,23 +36,24 @@ public interface Map {
 	 * 			if the location doesn't exist.
 	 */
 	public Coord addressToCoord(String localisation);
-    /**
-     * Returns the address closest to the localisation
-     *
-     * @pre -
-     * @post returns one of the closest addresses to loc, null if
-     * 		there isn't any.
-     */
+    	/**
+    	* Returns the address closest to the localisation
+    	*
+    	* @pre -
+    	* @post returns one of the closest addresses to loc, null if
+     	* 		there isn't any.
+     	*/
 	public String coordToAddress(Coord loc);
+
 	/**
 	 * Add an obstacle at coordinates
-	 *
-	 * @pre		obstacleCoord coordinates of the new obstacle.  Must be valid
-	 * @post	a new obstacle is added at obstacleCoord
+	 * 
+	 * @pre obstacleCoord coordinates of the new obstacle. Must be valid
+	 * @post a new obstacle is added at obstacleCoord
 	 */
 
 	public void addObstacle(Coord obstacleCoord);
-	
+
 	/**
 	 * Remove an obstacle at coordinates
 	 * 

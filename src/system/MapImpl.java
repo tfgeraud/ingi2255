@@ -2,11 +2,10 @@ package system;
 
 import java.io.BufferedReader;
 import java.util.Hashtable;
+import java.util.HashSet;
+import java.util.Set;
 
 import common.Graph;
-
-
-
 public class MapImpl implements Map{
 	Graph map;	// implémentation de la map, see Map.
 	// permet de récupérer la coordonnée d'une addresse.

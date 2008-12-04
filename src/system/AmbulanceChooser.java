@@ -1,6 +1,8 @@
 package system;
 
-import java.util.LinkedList;
+import java.util.Set;
+
+import system.exception.UnknownIncidentException;
 
 /**
  * This interface represents ambulance chooser module.  It is able to
@@ -20,7 +22,10 @@ public interface AmbulanceChooser {
 	 * 			exclusionSet set of ids of ambulances not to take into account
 	 * @post	return id of the best ambulance or -1 if no such ambulance
 	 * 			is found
+	 * @throws	UnknownIncidentException if no incident with id incidentInfoId
+	 * 			is found
 	 */
-	public int chooseBestAmbulance(int incidentInfoId,LinkedList<Integer> exclusionSet);
+	public String chooseBestAmbulance(String incidentInfoId,Set<String> exclusionSet)
+	throws UnknownIncidentException;
 
 }
