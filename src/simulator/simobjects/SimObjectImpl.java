@@ -166,11 +166,9 @@ public class SimObjectImpl implements SimObject {
 		 * Process the event and return the new state,
 		 * by default, the event returns null, meaning
 		 * event not understood
-		 * Process the event and return the new state
 		 * 
 		 * @pre Event is valid
 		 * @post A new state is returned
-
 		 */
 		public State execute(Event e) {
 			return null;

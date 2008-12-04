@@ -12,27 +12,23 @@ import events.Event;
 public interface Communication {
 
 	/**
-	 * Send an event to the software system.
+	 * Send an event to the legacy software.
 	 * 
-	 * @pre		event a valid event
-	 * @post	event is sent to the system
+	 * @pre event a valid event
+	 * @post event is sent to the legacy software
+	 * 
+	 * @param event
+	 *            The event to send to the device
 	 */
 	public void send(Event event);
-	
+
 	/**
-	 * Receive an event from the system.
-	 *
-	 * @pre		-
-	 * @post	return the received event
+	 * Receive an event from the legacy software.
+	 * 
+	 * @pre -
+	 * @post return the received event, null if no event is pending
+	 * 
+	 * @return The event should be delivered to the application
 	 */
 	public Event receive();
-	
-	/**
-	 * Plug communication channel with simulation objects (implement
-	 * observer interface).
-	 * 
-	 * @pre		event a valid event
-	 * @post	communication channel is plugged
-	 */
-	public void accept(Event event);
 }
