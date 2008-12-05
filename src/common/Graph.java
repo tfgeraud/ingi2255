@@ -23,26 +23,33 @@ public class Graph {
 	 */
 	
     private Node[][] crossroad;	// the set of nodes at the crossroads.
-    private Set<Node> tempNodes = new HashSet();	// temporary nodes used for distance computation.
-    private Set<Edge> street = new HashSet();	//the set of streets 
+    private Set<Node> tempNodes = new HashSet<Node>();	// temporary nodes used for distance computation.
+    private Set<Edge> street = new HashSet<Edge>();	//the set of streets 
     private int blocSize = 10;	//distance between roads.
     /**
-     * @pre cx,cy are > 0. they are the number of streets NS,WE respectively.
-     * @post a new Graph is returned with the number of streets separated by 10 units
+     * Construct of graph :
+     * a new Graph is returned with the number of streets separated by 10 units
      * each, from (0,0) to ((cx-1)*10,(cy-1)*10)
-     * Example of Instanciation : 
-     * Graph g = new Graph(5,6);
+     * 
+     * Example : 
+     * <pre>
+     * 	Graph g = new Graph(5,6);
+     * </pre>
+     * @param cx > 0 the number of streets NS
+     * @param cy > 0 the number of streets WE 
+     * 
      */
     public Graph(int cx,int cy){
     	this.setStreets(cx, cy);
     }
     private class Node {
-        /* Nodes are crossroads in the map
+        /*
+         * Nodes are crossroads in the map
          * Nodes are also point of interests : Distance can only be
          * computed from node to node !
          */
         private Point pos;	//the pos of the node
-        private Set<Edge> street = new HashSet();	//the streets connected to this node
+        private Set<Edge> street = new HashSet<Edge>();	//the streets connected to this node
         private boolean obstacle; //true if there is an obstacle on the node
         public Node(Point c){	//creates a new node at point c.
             pos = c;
@@ -139,7 +146,7 @@ public class Graph {
     private class Edge{
         /* Edges are streets in the map*/
         private Node N,M;	//start and end node of the edte
-        private Set<Point> obstacle = new HashSet();	//sets of obstacles in the street.
+        private Set<Point> obstacle = new HashSet<Point>();	//sets of obstacles in the street.
         public Edge(Node N, Node M){	//create a new edge from N to M
             this.N = N;
             this.M = M;
@@ -190,8 +197,8 @@ public class Graph {
         }
     }
     /**
-     * @pre: a Point c not null
-     * @post : returns a edge containing the point c, 
+     * @param c a Point not null
+     * @return returns a edge containing the point c, 
      * null if there isn't any.
      */
     private Edge findEdge(Point c){
@@ -204,8 +211,8 @@ public class Graph {
         return null;    
     }
     /**
-     * @pre: a Point c not null
-     * @post:returns the point located at c, null if there isn't any
+     * @param c a Point not null
+     * @return returns the point located at c, null if there isn't any
      * */
     private Node findNode(Point c){
         for (Node[] N:crossroad){
@@ -222,13 +229,13 @@ public class Graph {
      * the street connected to the nodes of the original
      * street.
      * Used to compute Dijkstra (only from node to node)
-     * @pre : a street and a point on the street.
-     * @post : a node at c connected to the ends of the streets
+     * @param street : the street where you want to add a temporary node
+     * @param c 	 : the coordinate of the temp. node
+     * @return 	 a node at c connected to the ends of the streets
      * if there isn't any obstacles. 
      */
     private Node tempNode(Edge street, Point c){
         Node N = new Node(c);
-       // boolean connected = false;
         if (!street.obstructed(c, street.getStart().getCoord())){
             Edge e = new Edge(N,street.getStart());
         }
@@ -239,7 +246,7 @@ public class Graph {
         return N;
     }
     /**
-     * @post : removes all temporary nodes from the map. 
+     * removes all temporary nodes from the map. 
      *
      */
     private void delTempNodes(){
@@ -264,9 +271,13 @@ public class Graph {
     	return distance(new Point(startx,starty),new Point(endx,endy),null);
     }
     /**
-     * @pre : startx, starty and endx,endy represents coordinates of the starting
-     * point and ending point on the map.
-     * @post: returns the path from startxy to endxy as an array of {x,y} coordinates.
+     * Computes the shortest path from 'start' to 'end'
+     * 
+     * @param startx : coordinate x of the starting point
+     * @param starty : coordinate y of the starting point 
+     * @param endx	 : coordinate x of the ending point
+     * @param endy 	 : coordinate y of the ending point
+     * @return returns the path from startxy to endxy as an array of {x,y} coordinates.
      * the first element is startxy the last is endxy.
      * if the destination is not reachable, it returns null.
      */
@@ -289,8 +300,11 @@ public class Graph {
     	}
     }
     /**
-     * @pre impl and incidentCoord must be on streets or on nodes.
-     * @post returns the distance from impl to incidentcoord.
+     * Computes the distance from impl to incidentCoord
+     * 
+     * @param impl starting point must be on a street or a node.
+     * @param incidentCoord end point must be on streets or on nodes.
+     * @return returns the distance from impl to incidentcoord.
      * returns Integer.MAX_VALUE if unreachable 
      * if path is not null, it will contain the path as a list of points
      * from finish to start
@@ -331,11 +345,10 @@ public class Graph {
             }
             endNode = tempNode(end,incidentCoord);
         }
-        Set<Node> Visited = new HashSet();  //Node where we know the smallest dist
-        Set<Node> Unvisited = new HashSet();//Initially All the Nodes
-        Hashtable<Node,Integer> Distance = new Hashtable();
-        Hashtable<Node,Node> Previous = new Hashtable();
-
+        Set<Node> Visited = new HashSet<Node>();  //Node where we know the smallest dist
+        Set<Node> Unvisited = new HashSet<Node>();//Initially All the Nodes
+        Hashtable<Node,Integer> Distance = new Hashtable<Node,Integer>();
+        Hashtable<Node,Node> Previous = new Hashtable<Node,Node>();
         for(Node[] N:crossroad){
             for(Node n:N){
                 Unvisited.add(n);
@@ -402,12 +415,18 @@ public class Graph {
         return distance;
 	}
 	/**
-	 * @pre x,y are the coordinates of a point on the map
-	 * @post an obstacle is added on that point.  
+	 * an obstacle is added on the point. 
+	 * @param x	the x coordinate of a point on the map
+	 * @param y the y coordinate of a point on the map
+	 *   
 	 */
 	public void addObstacle(int x,int y){
 		this.addObstacle(new Point(x,y));
 	}
+	/**
+	 * an obstacle is added on the point
+	 * @param c : the coordinate of the point
+	 */
 	private void addObstacle(Point c) {
         for (Node[] m : crossroad){
             for (Node n : m){
@@ -425,13 +444,21 @@ public class Graph {
         }
 	}
 	/**
-	 * @pre x,y are the coordinates of a point on the map where there
-	 * is at least an obstacle.
-	 * @post removes all the obstacles on that point.
+	 * removes all obstacle on a point. 
+	 * There must be at least
+	 * an existing obstacle on the point. 
+	 * @param x the coordinate of a point 
+	 * @param y the coordinate of a point
+	 * 
 	 */
 	public void removeObstacle(int x, int y){
 		removeObstacle(new Point(x,y));
 	}
+	/**
+	 * removes the obstacle on the point
+	 * @param c : the point where obstacle are removed.
+	 * 			there must be at least one obstacle on the point
+	 */
 	private void removeObstacle(Point c) {
         for (Node[] m : crossroad){
             for (Node n : m){
@@ -449,12 +476,16 @@ public class Graph {
         }
 	}
 	/**
-	 * @pre the map must be uninitialized.
-	 * @param numx : the number of NS streets
-	 * @param numy : the nomber of WE streets
-	 * @post the map is initialized with those number of streets. 
+	 * sets the number of streets on the map
+	 * 
+	 * the map is initialized with those number of streets. 
 	 * distance between streets is 10. the position of the streets
 	 * start at 0, and go to (numx-1)*10
+	 * 
+	 * @pre the map must be uninitialized.
+	 * @param numx : > 0, the number of NS streets
+	 * @param numy : > 0, the nomber of WE streets
+	 * 
 	 */
     public void setStreets(int numx, int numy) {
         int i = numx;

@@ -1,15 +1,22 @@
-package system;
-public class CoordImpl implements Coord {
+package simulator;
+
+import system.Coord;
+/**
+ * Implementation of Pos.
+ * @author fred
+ *
+ */
+public class PosImpl implements Pos{
 	private int x = 0;	//the x coordinate
 	private int y = 0;	// the y cordinate
 	
 	/**
-	 * Constructor of Coord.
+	 * Constructor of Pos.
 	 * Creates a new coordinate with coordinates x,y
 	 * @param x the new x coordinate
 	 * @param y the new y coordinate 
 	 */
-	public CoordImpl(int x,int y) {
+	public PosImpl(int x,int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -66,7 +73,7 @@ public class CoordImpl implements Coord {
      * (non-Javadoc)
      * @see system.Coord#dist(system.Coord)
      */
-    public int dist(Coord b){
+    public int dist(Pos b){
         return (int)Math.sqrt(   Math.pow( this.getX() - b.getX(), 2)
                            +Math.pow(this.getY() - b.getY(), 2));
     }
@@ -79,8 +86,8 @@ public class CoordImpl implements Coord {
     	/* http://www.javaspecialists.co.za/archive/Issue009.html
     	 * solves issues with assertEquals in testUnits
     	 */
-    	if( c instanceof Coord ){
-    		return this.equals((Coord)c);
+    	if( c instanceof Pos ){
+    		return this.equals((Pos)c);
     	}else{
     		return false;
     	}
@@ -89,7 +96,7 @@ public class CoordImpl implements Coord {
      * (non-Javadoc)
      * @see system.Coord#equals(system.Coord)
      */
-    public boolean equals(Coord c){
+    public boolean equals(Pos c){
         return (c.getX() == this.getX()) && (c.getY() == this.getY());
     }
     /*
@@ -99,4 +106,5 @@ public class CoordImpl implements Coord {
     public int hashCode(){
     	return this.toString().hashCode();
     }
+
 }
