@@ -4,6 +4,7 @@
 package simulator.events;
 
 import simulator.Pos;
+import simulator.simobjects.SimObject;
 import events.Event;
 
 /**
@@ -15,17 +16,23 @@ import events.Event;
  */
 public class NewPosition extends Event {
 	private Pos position;
+	private SimObject simObject;
 
 	/**
 	 * @param senderName
 	 */
-	public NewPosition(String senderName, Pos position) {
+	public NewPosition(String senderName, Pos position, SimObject simObject) {
 		super(senderName);
 		this.position=position;
+		this.simObject = simObject;
 	}
 	
 	public Pos getPosition() {
 		return this.position;
+	}
+	
+	public SimObject getSimObject() {
+		return this.simObject;
 	}
 
 }
