@@ -44,7 +44,7 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 				do {
 					// Search for the best ambulance
 					try {
-					ambulanceId = chooser.chooseBestAmbulance(incidentInfoId,
+					ambulanceId = this.chooser.chooseBestAmbulance(incidentInfoId,
 							exclusionSet);
 					} catch (UnknownIncidentException err) {
 						// TODO
@@ -57,10 +57,10 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 				// again on case of denial of mobilization
 				exclusionSet.add(ambulanceId);
 
-			} while (mobilizer.mobilize(incidentInfoId, ambulanceId) == false);
+			} while (this.mobilizer.mobilize(incidentInfoId, ambulanceId) == false);
 
 			// Close the incident
-			e = resolver.closeIncident(incidentInfoId);
+			e = this.resolver.closeIncident(incidentInfoId);
 
 			// The ambulance was not able to close the incident. This ambulance
 			// may be broken, etc. We need to exclude from next searches.
@@ -69,7 +69,7 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 
 			// Demobilize the ambulance since the incident is either closed or
 			// the ambulance is not available
-			mobilizer.demobilize(incidentInfoId, ambulanceId);
+			this.mobilizer.demobilize(incidentInfoId, ambulanceId);
 
 		} while (e == false);
 

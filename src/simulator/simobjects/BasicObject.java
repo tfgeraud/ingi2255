@@ -27,7 +27,7 @@ public class BasicObject extends SimObjectImpl {
 		/**
 		 * Only one state machine for this object
 		 */
-		stateMachineList.add(sm);
+		this.stateMachineList.add(sm);
 		
 	}
 	
@@ -53,7 +53,7 @@ public class BasicObject extends SimObjectImpl {
 				 * On receiving the "ball" send it back and change state
 				 */
 				BasicObject.this.notify(e);
-				return state2;
+				return this.state2;
 			} else {
 				/**
 				 * Event not understood

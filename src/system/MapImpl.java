@@ -9,10 +9,10 @@ public class MapImpl implements Map {
 	Graph map; // implémentation de la map, see Map.
 
 	// permet de récupérer la coordonnée d'une addresse.
-	private Hashtable<String, Coord> addressToCoordMap = new Hashtable();
+	private Hashtable<String, Coord> addressToCoordMap = new Hashtable<String, Coord>();
 
 	// permet de récupérer l'addrese d'une coordonnée.
-	private Hashtable<Coord, String> coordToAddressMap = new Hashtable();
+	private Hashtable<Coord, String> coordToAddressMap = new Hashtable<Coord, String>();
 
 	/**
 	 * Renvoie une instance de Map
@@ -25,7 +25,7 @@ public class MapImpl implements Map {
 	 */
 
 	public MapImpl(int streetsx, int streetsy) {
-		map = new Graph(streetsx, streetsy);
+		this.map = new Graph(streetsx, streetsy);
 	}
 
 	/*
@@ -34,7 +34,7 @@ public class MapImpl implements Map {
 	 * @see system.Map#addObstacle(system.Coord)
 	 */
 	public void addObstacle(Coord obstacleCoord) {
-		map.addObstacle(obstacleCoord.getX(), obstacleCoord.getY());
+		this.map.addObstacle(obstacleCoord.getX(), obstacleCoord.getY());
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class MapImpl implements Map {
 	 * @see system.Map#distance(system.Coord, system.Coord)
 	 */
 	public int distance(Coord coord1, Coord coord2) {
-		return map.distance(coord1.getX(), coord1.getY(), coord2.getX(), coord2
+		return this.map.distance(coord1.getX(), coord1.getY(), coord2.getX(), coord2
 				.getY());
 	}
 
@@ -53,7 +53,7 @@ public class MapImpl implements Map {
 	 * @see system.Map#removeObstacle(system.Coord)
 	 */
 	public void removeObstacle(Coord obstacleCoord) {
-		map.removeObstacle(obstacleCoord.getX(), obstacleCoord.getY());
+		this.map.removeObstacle(obstacleCoord.getX(), obstacleCoord.getY());
 	}
 
 	/*
@@ -62,7 +62,7 @@ public class MapImpl implements Map {
 	 * @see system.Map#setStreets(int, int)
 	 */
 	public void setStreets(int numx, int numy) {
-		map.setStreets(numx, numy);
+		this.map.setStreets(numx, numy);
 
 	}
 
@@ -72,7 +72,7 @@ public class MapImpl implements Map {
 	 * @see system.Map#addressToCoord(java.lang.String)
 	 */
 	public Coord addressToCoord(String localisation) {
-		return addressToCoordMap.get(localisation);
+		return this.addressToCoordMap.get(localisation);
 	}
 
 	/*
@@ -83,7 +83,7 @@ public class MapImpl implements Map {
 	public String coordToAddress(Coord loc) {
 		int min_dist = Integer.MAX_VALUE;
 		Coord min_coord = null;
-		for (Coord c : coordToAddressMap.keySet()) {
+		for (Coord c : this.coordToAddressMap.keySet()) {
 			if (c.dist(loc) < min_dist) {
 				min_dist = c.dist(loc);
 				min_coord = c;
@@ -92,7 +92,7 @@ public class MapImpl implements Map {
 		if (min_coord == null) {
 			return null;
 		} else {
-			return coordToAddressMap.get(min_coord);
+			return this.coordToAddressMap.get(min_coord);
 		}
 	}
 
@@ -116,8 +116,8 @@ public class MapImpl implements Map {
 						errors = errors + line;
 						continue;
 					}
-					addressToCoordMap.put(address, c);
-					coordToAddressMap.put(c, address);
+					this.addressToCoordMap.put(address, c);
+					this.coordToAddressMap.put(c, address);
 				} else {
 					break;
 				}
@@ -134,8 +134,8 @@ public class MapImpl implements Map {
 	 * @see system.Map#addAddress(java.lang.String, system.Coord)
 	 */
 	public void addAddress(String address, Coord coord) {
-		addressToCoordMap.put(address, coord);
-		coordToAddressMap.put(coord, address);
+		this.addressToCoordMap.put(address, coord);
+		this.coordToAddressMap.put(coord, address);
 
 	}
 

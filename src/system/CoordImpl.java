@@ -32,7 +32,7 @@ public class CoordImpl implements Coord {
 	 */
 
 	public int getX() {
-		return x;
+		return this.x;
 	}
 
 	/*
@@ -42,7 +42,7 @@ public class CoordImpl implements Coord {
 	 */
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 
 	/*
@@ -69,8 +69,9 @@ public class CoordImpl implements Coord {
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "(" + this.x + "," + this.y + ")";
 	}
 
 	/*
@@ -102,6 +103,7 @@ public class CoordImpl implements Coord {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 
+	@Override
 	public boolean equals(Object c) {
 		/*
 		 * http://www.javaspecialists.co.za/archive/Issue009.html solves issues
@@ -128,6 +130,7 @@ public class CoordImpl implements Coord {
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
+	@Override
 	public int hashCode() {
 		return this.toString().hashCode();
 	}

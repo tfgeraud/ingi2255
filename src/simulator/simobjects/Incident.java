@@ -3,8 +3,6 @@ package simulator.simobjects;
 import simulator.Pos;
 import simulator.events.AmbulanceOnScene;
 import simulator.events.NewPosition;
-import simulator.simobjects.BasicObject.NextState;
-import simulator.simobjects.SimObjectImpl.StateMachine;
 import events.Event;
 import events.IncidentResolved;
 
@@ -36,7 +34,7 @@ public class Incident extends SimObjectImpl {
 		/**
 		 * Only one state machine for this object
 		 */
-		stateMachineList.add(sm);
+		this.stateMachineList.add(sm);
 		
 	}
 	
@@ -65,7 +63,7 @@ public class Incident extends SimObjectImpl {
 				 * If it is the case, listen for that object to resolve the incident.
 				 */
 				NewPosition newpos = (NewPosition)e;
-				if(newpos.getPosition().equals(pos)) {
+				if(newpos.getPosition().equals(Incident.this.pos)) {
 					newpos.getSimObject().accept(new AmbulanceOnScene(Incident.this.getName()));
 					newpos.getSimObject().attach(Incident.this, IncidentResolved.class);
 				}
@@ -74,8 +72,8 @@ public class Incident extends SimObjectImpl {
 				/**
 				 * Disconnect from everything to stop receiving events
 				 */
-				disconnect();
-				return resolved;
+				Incident.this.disconnect();
+				return this.resolved;
 			} else {
 				/**
 				 * Event not understood

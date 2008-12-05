@@ -53,16 +53,16 @@ public class ResolverImpl implements Resolver {
 	 */
 	public boolean closeIncident(String incidentInfoId) {
 		// Wait for interesting event
-		Event e = communicator.waitForEvent(incidentInfoId);
+		Event e = this.communicator.waitForEvent(incidentInfoId);
 		try {
 			// Get corresponding ambulance
-			String ambulanceId = incidents
+			String ambulanceId = this.incidents
 					.getMobilizedAmbulance(incidentInfoId);
 
 			// Manage event
 			// Ambulance broken
 			if (e.getClass().equals(AmbulanceBroken.class)) {
-				ambulances.markAsBroken(ambulanceId);
+				this.ambulances.markAsBroken(ambulanceId);
 				return false;
 			}
 			// Destination unreachable
