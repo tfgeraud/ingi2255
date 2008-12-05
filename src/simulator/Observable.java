@@ -29,5 +29,7 @@ public interface Observable {
 	 * @post Every observer had received the event through its accept method
 	 */
 	public void notify(Event event);
+	
+
 
 }
