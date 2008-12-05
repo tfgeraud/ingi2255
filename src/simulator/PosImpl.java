@@ -1,6 +1,5 @@
 package simulator;
 
-import system.Coord;
 /**
  * Implementation of Pos.
  * @author fred
@@ -25,6 +24,10 @@ public class PosImpl implements Pos{
 	 * @see system.Coord#getX()
 	 */
 	
+	public PosImpl(String incidentPos) {
+		fromString(incidentPos);
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -58,11 +61,15 @@ public class PosImpl implements Pos{
 	public String toString() {
 		return "(" + x + "," + y + ")";
 	}
-	/*
-	 * (non-Javadoc)
-	 * @see system.Coord#fromString(java.lang.String)
-	 */
-    public void fromString(String s) throws NumberFormatException{
+    /**
+     * Sets the coordinate from a string representation
+     * 
+     * @param loc String that has for prefix (x,y) 
+     * 		  where x,y are the coordinates as integers in meters.
+     * @throws Exception if the format is invalid. in this case the object
+     * 		   is unchanged.
+     **/
+    private void fromString(String s) throws NumberFormatException{
         s = s.trim();
         String Sx = s.substring(s.indexOf("(")+1,s.indexOf(","));
         String Sy = s.substring(s.indexOf(",")+1,s.indexOf(")"));

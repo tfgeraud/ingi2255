@@ -212,7 +212,7 @@ public class AmbulanceImpl implements Ambulance {
 		 * 
 		 * @return The position of the ambulance
 		 */
-		public Coord getPos() {
+		public Coord getPosition() {
 			return this.pos;
 		}
 
@@ -320,7 +320,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * @see system.Ambulance#getCoord(int)
 	 */
 	public Coord getPosition(String ambulanceId) {
-		return this.list.get(ambulanceId).getPos();
+		return this.list.get(ambulanceId).getPosition();
 	}
 
 	/*
