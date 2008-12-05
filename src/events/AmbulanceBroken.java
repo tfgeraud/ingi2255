@@ -1,7 +1,8 @@
 package events;
 
 /**
- * Sent by simulated ambulance to the LAS.
+ * Used both by the simulator to make an ambulance change its state to 
+ * broken and to notify the LAS from the ambulance that it is broken.
  * 
  * @author Erick Lavoie
  *

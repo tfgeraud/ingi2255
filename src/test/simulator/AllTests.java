@@ -11,6 +11,7 @@ public class AllTests {
 		suite.addTestSuite(EventTest.class);
 		suite.addTestSuite(BasicObjectTest.class);
 		suite.addTestSuite(AmbulanceTest.class);
+		suite.addTestSuite(PosImplTest.class);
 		//$JUnit-END$
 		return suite;
 	}

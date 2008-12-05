@@ -17,7 +17,19 @@ public interface Observer {
 	public void accept(Event event);
 	
 	
+	/**
+	 * Add to the observer object the reference to the object it is observing.
+	 */
+	public void observing(Observable observable);
 	
+	/**
+	 * Disconnect the observer from every object it is observing.
+	 */
+	public void disconnect(Observable observable);
 	
-
+	/**
+	 * Disconnect the observer from every object it is observing.
+	 */
+	public void disconnect();
+	
 }
