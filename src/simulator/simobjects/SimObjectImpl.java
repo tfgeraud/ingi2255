@@ -14,6 +14,7 @@ import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
 import simulator.events.StepDelimiter;
+import simulator.simobjects.SimObject;
 import events.Event;
 
 public class SimObjectImpl implements SimObject {
