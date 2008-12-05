@@ -73,8 +73,8 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 
 		for (String amb : ambulances) {
 			int newDistance = this.map.distance(this.ambulance
-					.getCoord(amb), incidentCoord);
-			int oldDistance = this.map.distance(this.ambulance.getCoord(amb),
+					.getPosition(amb), incidentCoord);
+			int oldDistance = this.map.distance(this.ambulance.getPosition(amb),
 					incidentCoord);
 
 			if (newDistance < oldDistance) {
