@@ -238,10 +238,10 @@ public class Graph {
     private Node tempNode(Edge street, Point c){
         Node N = new Node(c);
         if (!street.obstructed(c, street.getStart().getCoord())){
-            Edge e = new Edge(N,street.getStart());
+            new Edge(N,street.getStart());
         }
         if (!street.obstructed(c,street.getEnd().getCoord())){
-            Edge e = new Edge(N,street.getEnd());
+            new Edge(N,street.getEnd());
         }
         this.tempNodes.add(N);
         return N;
