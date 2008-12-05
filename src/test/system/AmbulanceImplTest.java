@@ -18,6 +18,7 @@ import system.exception.AmbulanceKindUnknownException;
 import system.exception.AmbulanceStatusUnknwownException;
 import system.exception.IllegalMobilizationException;
 import system.exception.UnknownIncidentException;
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 /**
@@ -35,17 +36,19 @@ public class AmbulanceImplTest extends TestCase {
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		  ambulance = new AmbulanceImpl();
-		  position = new CoordImpl(1,1);
-		  map = new MapImpl(5,5);
-		  incident = new IncidentImpl(map);
+		  this.ambulance = new AmbulanceImpl();
+		  this.position = new CoordImpl(1,1);
+		  this.map = new MapImpl(5,5);
+		  this.incident = new IncidentImpl(this.map);
 	}
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
@@ -58,44 +61,44 @@ public class AmbulanceImplTest extends TestCase {
 		Set<String> result = new HashSet<String>();
 		
 		try {
-			assertEquals(result, ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
-			assertEquals(result, ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
 			
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			ambulance.addAmbulance("amb2", position, Ambulance.NORMAL, Ambulance.WORKING);
-			ambulance.addAmbulance("amb3", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
-			ambulance.addAmbulance("amb4", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
-			ambulance.addAmbulance("amb5", position, Ambulance.NORMAL, Ambulance.BROKEN);
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb2", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb3", this.position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb4", this.position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb5", this.position, Ambulance.NORMAL, Ambulance.BROKEN);
 			
 			result.add("amb1");
 			result.add("amb2");
-			assertEquals(result, ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
 			
 			result.remove("amb1");
 			result.remove("amb2");
 			result.remove("amb5");
 			result.add("amb3");
 			result.add("amb4");
-			assertEquals(result, ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
 		
 			exclusionSet.add("amb1");
 			result.remove("amb1");
-			assertEquals(result, ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.MEDICALIZED, exclusionSet));
 			
 			result.add("amb2");
 			result.remove("amb3");
 			result.remove("amb4");
-			assertEquals(result, ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
+			Assert.assertEquals(result, this.ambulance.getAllFree(Ambulance.NORMAL, exclusionSet));
 			
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			
 		}
 		
@@ -107,18 +110,18 @@ public class AmbulanceImplTest extends TestCase {
 	public void testGetCoord() {
 		
 		try {
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			assertEquals(position, ambulance.getPosition("amb1"));
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			Assert.assertEquals(this.position, this.ambulance.getPosition("amb1"));
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 		}
 		
 	}
@@ -129,19 +132,19 @@ public class AmbulanceImplTest extends TestCase {
 	public void testMarkAsBroken() {
 		
 		try {
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			ambulance.markAsBroken("amb1");
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.markAsBroken("amb1");
 			
-			assertEquals(((AmbulanceImpl) ambulance).getStatus("amb1"), Ambulance.BROKEN );
+			Assert.assertEquals(((AmbulanceImpl) this.ambulance).getStatus("amb1"), Ambulance.BROKEN );
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 		}
 		
@@ -155,19 +158,19 @@ public class AmbulanceImplTest extends TestCase {
 		
 		try {
 			result.add("amb1");
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
 			//FIXME Equals do not work (add getAmbulance, getId, dans ambulanceImpl)
 			//assertEquals(result,ambulance);
 			
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 		}
 		
@@ -180,33 +183,33 @@ public class AmbulanceImplTest extends TestCase {
 		try {
 			String incId;
 			
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			ambulance.addAmbulance("amb2", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb2", this.position, Ambulance.MEDICALIZED, Ambulance.WORKING);
 			
-			incId = incident.addIncident(20, false, "1 3", "Chute de poney, douleur violente au coxis");
-			ambulance.setIncidentChosenFor("amb1", incId);
-			incident.setChosenAmbulance(incId, "amb1");
+			incId = this.incident.addIncident(20, false, "1 3", "Chute de poney, douleur violente au coxis");
+			this.ambulance.setIncidentChosenFor("amb1", incId);
+			this.incident.setChosenAmbulance(incId, "amb1");
 			
-			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'�tincelle");
-			ambulance.setIncidentChosenFor("amb2", incId);
-			incident.setChosenAmbulance(incId, "amb2");
+			incId = this.incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'�tincelle");
+			this.ambulance.setIncidentChosenFor("amb2", incId);
+			this.incident.setChosenAmbulance(incId, "amb2");
 
-			assertEquals("incident0", ambulance.getIncidentChosenFor("amb1"));
-			assertEquals("incident1", ambulance.getIncidentChosenFor("amb2"));
+			Assert.assertEquals("incident0", this.ambulance.getIncidentChosenFor("amb1"));
+			Assert.assertEquals("incident1", this.ambulance.getIncidentChosenFor("amb2"));
 		
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 			
 		} catch (UnknownIncidentException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on getIncidentChosenFor because incident is unknown");
+			Assert.fail("An exception occured on getIncidentChosenFor because incident is unknown");
 			e.printStackTrace();
 		}
 		
@@ -221,42 +224,42 @@ public class AmbulanceImplTest extends TestCase {
 		try {
 			String incId;
 			
-			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			ambulance.addAmbulance("amb2", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb1", this.position, Ambulance.NORMAL, Ambulance.WORKING);
+			this.ambulance.addAmbulance("amb2", this.position, Ambulance.MEDICALIZED, Ambulance.WORKING);
 			
-			incId = incident.addIncident(20, false, "1 3", "Chute de poney, douleur violente au coxis");
-			ambulance.setIncidentChosenFor("amb1", incId);
-			ambulance.setIncidentMobilizedFor("amb1", incId);
-			incident.setChosenAmbulance(incId, "amb1");
-			incident.setMobilizedAmbulance(incId, "amb1");
+			incId = this.incident.addIncident(20, false, "1 3", "Chute de poney, douleur violente au coxis");
+			this.ambulance.setIncidentChosenFor("amb1", incId);
+			this.ambulance.setIncidentMobilizedFor("amb1", incId);
+			this.incident.setChosenAmbulance(incId, "amb1");
+			this.incident.setMobilizedAmbulance(incId, "amb1");
 			
-			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'�tincelle");
-			ambulance.setIncidentChosenFor("amb2", incId);
-			ambulance.setIncidentMobilizedFor("amb2", incId);
-			incident.setChosenAmbulance(incId, "amb2");
-			incident.setMobilizedAmbulance(incId, "amb2");
+			incId = this.incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'�tincelle");
+			this.ambulance.setIncidentChosenFor("amb2", incId);
+			this.ambulance.setIncidentMobilizedFor("amb2", incId);
+			this.incident.setChosenAmbulance(incId, "amb2");
+			this.incident.setMobilizedAmbulance(incId, "amb2");
 
-			assertEquals("incident0", ambulance.getIncidentMobilizedFor("amb1"));
-			assertEquals("incident1", ambulance.getIncidentMobilizedFor("amb2"));
+			Assert.assertEquals("incident0", this.ambulance.getIncidentMobilizedFor("amb1"));
+			Assert.assertEquals("incident1", this.ambulance.getIncidentMobilizedFor("amb2"));
 		
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			Assert.fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			Assert.fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 			
 		} catch (UnknownIncidentException e) {
 			// TODO Auto-generated catch block
-			fail("An exception occured on getIncidentChosenFor because incident is unknown");
+			Assert.fail("An exception occured on getIncidentChosenFor because incident is unknown");
 			e.printStackTrace();
 			
 		} catch (IllegalMobilizationException e) {
 			// TODO Auto-generated catch block
-			fail("IllegalMobilizationException occured: ambulance cannot be mobilizied before chosen");
+			Assert.fail("IllegalMobilizationException occured: ambulance cannot be mobilizied before chosen");
 			e.printStackTrace();
 		}
 		

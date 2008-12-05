@@ -11,7 +11,7 @@ public class DestinationOrder extends Event {
 	}
 	
 	public Pos getDestination() {
-		return destination;
+		return this.destination;
 	}
 
 }

@@ -25,11 +25,11 @@ public class PosImpl implements Pos{
 	 */
 	
 	public PosImpl(String incidentPos) {
-		fromString(incidentPos);
+		this.fromString(incidentPos);
 	}
 
 	public int getX() {
-		return x;
+		return this.x;
 	}
 	/*
 	 * (non-Javadoc)
@@ -37,7 +37,7 @@ public class PosImpl implements Pos{
 	 */
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 	/*
 	 * (non-Javadoc)
@@ -58,8 +58,9 @@ public class PosImpl implements Pos{
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "(" + this.x + "," + this.y + ")";
 	}
     /**
      * Sets the coordinate from a string representation
@@ -89,7 +90,8 @@ public class PosImpl implements Pos{
      * @see java.lang.Object#equals(java.lang.Object)
      */
     
-    public boolean equals(Object c){
+    @Override
+	public boolean equals(Object c){
     	/* http://www.javaspecialists.co.za/archive/Issue009.html
     	 * solves issues with assertEquals in testUnits
     	 */
@@ -110,7 +112,8 @@ public class PosImpl implements Pos{
      * (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
-    public int hashCode(){
+    @Override
+	public int hashCode(){
     	return this.toString().hashCode();
     }
 
