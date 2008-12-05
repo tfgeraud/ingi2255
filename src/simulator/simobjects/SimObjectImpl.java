@@ -10,10 +10,13 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 
+import simulator.Observable;
 import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
 import simulator.events.StepDelimiter;
+import simulator.simobjects.EventNotUnderstoodException;
+import simulator.simobjects.SimObject;
 import events.Event;
 
 public class SimObjectImpl implements SimObject {
@@ -24,6 +27,7 @@ public class SimObjectImpl implements SimObject {
 	@SuppressWarnings("unchecked")
 	private Map<Class, List<Observer>> eventObserverMap = new Hashtable<Class, List<Observer>>();
 	public List<StateMachine> stateMachineList = new Vector<StateMachine>();
+	public Set<Observable> observingSet = new HashSet<Observable>();
 	
 	/**
 	 * Ctor, initialisation of the state machine should go here
@@ -38,16 +42,18 @@ public class SimObjectImpl implements SimObject {
 
 	public void attach(Observer observer) {
 		observerList.add(observer);
+		observer.observing(this);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void attach(Observer object, Class eventClass) {
+	public void attach(Observer observer, Class eventClass) {
 		if(eventObserverMap.containsKey(eventClass)) {
-			eventObserverMap.get(eventClass).add(object);
+			eventObserverMap.get(eventClass).add(observer);
 		} else {
 			eventObserverMap.put(eventClass, new Vector<Observer>());
-			eventObserverMap.get(eventClass).add(object);
+			eventObserverMap.get(eventClass).add(observer);
 		}
+		observer.observing(this);
 	}
 
 	public void detach(Observer observer) {
@@ -55,6 +61,7 @@ public class SimObjectImpl implements SimObject {
 		for(List<Observer> l: eventObserverMap.values()) {
 			l.remove(observer);
 		}
+		observer.disconnect(this);
 	}
 
 	public void notify(Event event) {
@@ -68,6 +75,22 @@ public class SimObjectImpl implements SimObject {
 			}
 		}
 
+	}
+	
+	public void disconnect() {
+		for(Observable o : observingSet) {
+			o.detach(this);
+		}
+	}
+
+	public void observing(Observable observable) {
+		if(!observingSet.contains(observable)) {
+			observingSet.add(observable);
+		}
+	}
+	
+	public void disconnect(Observable observable) {
+		observingSet.remove(observable);
 	}
 
 	public void step() {
@@ -167,8 +190,8 @@ public class SimObjectImpl implements SimObject {
 		 * by default, the event returns null, meaning
 		 * event not understood
 		 * 
-		 * @Pre Event is valid
-		 * @Post A new state is returned
+		 * @pre Event is valid
+		 * @post A new state is returned
 		 */
 		public State execute(Event e) {
 			return null;
@@ -187,4 +210,6 @@ public class SimObjectImpl implements SimObject {
 		}
 		
 	}
+
+
 }

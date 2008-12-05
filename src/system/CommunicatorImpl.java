@@ -115,7 +115,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 			AmbulancePosition avlsMessage = (AmbulancePosition)avls.receive();
 			if(avlsMessage != null) {
 				ambulances.setPosition(	avlsMessage.getSenderName(), 
-										avlsMessage.getPosition());
+										new CoordImpl(avlsMessage.getPosition()));
 			}
 		}
 	}

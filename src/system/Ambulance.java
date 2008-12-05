@@ -111,7 +111,7 @@ public interface Ambulance {
 	 *            The unique identifier of the ambulance
 	 * @return the coordinate of the ambulance
 	 */
-	public Coord getCoord(String ambulanceId);
+	public Coord getPosition(String ambulanceId);
 
 	/**
 	 * Mark ambulance as broken.

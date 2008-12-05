@@ -102,13 +102,13 @@ public class AmbulanceImplTest extends TestCase {
 	}
 
 	/**
-	 * Test method for {@link system.AmbulanceImpl#getCoord(java.lang.String)}.
+	 * Test method for {@link system.AmbulanceImpl#getPosition(java.lang.String)}.
 	 */
 	public void testGetCoord() {
 		
 		try {
 			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			assertEquals(position, ambulance.getCoord("amb1"));
+			assertEquals(position, ambulance.getPosition("amb1"));
 			
 		} catch (AmbulanceStatusUnknwownException e) {
 			// TODO Auto-generated catch block
@@ -187,7 +187,7 @@ public class AmbulanceImplTest extends TestCase {
 			ambulance.setIncidentChosenFor("amb1", incId);
 			incident.setChosenAmbulance(incId, "amb1");
 			
-			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'étincelle");
+			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'ï¿½tincelle");
 			ambulance.setIncidentChosenFor("amb2", incId);
 			incident.setChosenAmbulance(incId, "amb2");
 
@@ -230,7 +230,7 @@ public class AmbulanceImplTest extends TestCase {
 			incident.setChosenAmbulance(incId, "amb1");
 			incident.setMobilizedAmbulance(incId, "amb1");
 			
-			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'étincelle");
+			incId = incident.addIncident(35, false, "2 2", "Contorsion du nombryl avec production d'ï¿½tincelle");
 			ambulance.setIncidentChosenFor("amb2", incId);
 			ambulance.setIncidentMobilizedFor("amb2", incId);
 			incident.setChosenAmbulance(incId, "amb2");

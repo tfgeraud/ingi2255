@@ -3,19 +3,25 @@ package test.simulator;
 import events.AmbulanceBroken;
 import events.Event;
 import events.MobilisationOrder;
+import simulator.Observable;
 import simulator.Observer;
+import simulator.Pos;
+import simulator.PosImpl;
 import simulator.events.DestinationOrder;
 import simulator.events.StepDelimiter;
 import simulator.simobjects.Ambulance;
+import simulator.simobjects.Map;
 import junit.framework.TestCase;
 
 public class AmbulanceTest extends TestCase {
 	private Ambulance ambulance; 
 	private DummyObserver observer;
+	private Map map;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		ambulance = new Ambulance("alpha1");
+		map = new Map("simulatorMap", 10, 10);
+		ambulance = new Ambulance("alpha1", map, new PosImpl(0,0));
 		observer = new DummyObserver();
 		ambulance.attach(observer);
 	}
@@ -44,7 +50,7 @@ public class AmbulanceTest extends TestCase {
 		/**
 		 * On mobilization, ambulance get mobilized
 		 */
-		ambulance.accept(new MobilisationOrder("incident1", "pos1", "alpha1"));
+		ambulance.accept(new MobilisationOrder("incident1", "(0,0)", "alpha1"));
 		ambulance.accept(StepDelimiter.getInstance());
 		ambulance.step();
 		assertEquals(true, ambulance.getCurrentStateNames().contains("Mobilized"));
@@ -69,7 +75,7 @@ public class AmbulanceTest extends TestCase {
 		assertEquals(true, ambulance.getCurrentStateNames().contains("Free"));
 		assertEquals(true, ambulance.getCurrentStateNames().contains("NotMoving"));
 		
-		ambulance.accept(new DestinationOrder("unittester"));
+		ambulance.accept(new DestinationOrder("unittester", new PosImpl(0,0)));
 		ambulance.step();
 		assertEquals(true, ambulance.getCurrentStateNames().contains("Free"));
 		assertEquals(true, ambulance.getCurrentStateNames().contains("Moving"));		
@@ -99,7 +105,7 @@ public class AmbulanceTest extends TestCase {
 		/**
 		 * On destination order, ambulance doesn't move
 		 */
-		ambulance.accept(new DestinationOrder("unittester"));
+		ambulance.accept(new DestinationOrder("unittester", new PosImpl(0,0)));
 		ambulance.accept(StepDelimiter.getInstance());
 		ambulance.step();
 		assertEquals(true, ambulance.getCurrentStateNames().contains("Broken"));
@@ -111,6 +117,21 @@ public class AmbulanceTest extends TestCase {
 
 		public void accept(Event event) {
 			receivedEvent = event;
+		}
+
+		public void disconnect(Observable observable) {
+			// Not used
+			
+		}
+
+		public void disconnect() {
+			// Not used
+			
+		}
+
+		public void observing(Observable observable) {
+			// Not used
+			
 		}
 	}
 

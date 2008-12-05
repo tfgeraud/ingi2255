@@ -1,7 +1,10 @@
 package simulator.simobjects;
 
+import simulator.Pos;
+import simulator.PosImpl;
 import simulator.events.AmbulanceOnScene;
 import simulator.events.DestinationOrder;
+import simulator.events.NewPosition;
 import events.*;
 
 /**
@@ -10,9 +13,15 @@ import events.*;
  *
  */
 public class Ambulance extends SimObjectImpl {
-
-	public Ambulance(String name) {
+	private Map map;
+	private Pos pos;
+	private String incidentID;
+	private final int speed = 1;
+	
+	public Ambulance(String name, Map map, Pos initialPos) {
 		super(name);
+		this.map = map;
+		this.pos = initialPos;
 		
 		/**
 		 * Initialization of every states
@@ -66,12 +75,43 @@ public class Ambulance extends SimObjectImpl {
 		@Override
 		public State execute(Event e) {
 			if(e.getClass() == AmbulanceOnScene.class) {
+				/**
+				 * Incident is automatically resolved when the ambulance is on scene
+				 */
+				Ambulance.this.notify(new IncidentResolved(incidentID, Ambulance.this.getName()));
 				return notMoving;
 			} else if(e.getClass() == AmbulanceBroken.class ){
+				/**
+				 * Stop moving when broken
+				 */
 				return notMoving;
 			} else if(e.getClass() == DestinationUnreachable.class) {
+				/**
+				 * Stop when unable to reach the destination, further movements will need
+				 * to be reinitiated.
+				 */
 				return notMoving;
 			} else if(e.getClass() == DestinationOrder.class) {
+				/**
+				 * Move one step further until destination reached.  Resend the event to self
+				 * until done.  Notify for new position when position changed.
+				 */
+				DestinationOrder dest = (DestinationOrder)e;
+				Pos temp = map.nextPos(pos, dest.getDestination(), speed);
+				if(temp == null) {
+					Ambulance.this.notify(new DestinationUnreachable(incidentID, Ambulance.this.getName()));
+				} else {
+					if(temp != pos) {
+						temp=pos;
+						/**
+						 *  Both events have the same semantic but NewPosition is conserved to pass
+						 *  the reference of the ambulance to the incident.
+						 */
+						Ambulance.this.notify(new NewPosition(Ambulance.this.getName(), pos, Ambulance.this));
+						Ambulance.this.notify(new AmbulancePosition(Ambulance.this.getName(), pos.toString()));
+						Ambulance.this.notify(e);
+					}
+				}
 				return this;
 			} else {
 			/**
@@ -96,9 +136,13 @@ public class Ambulance extends SimObjectImpl {
 		@Override
 		public State execute(Event e) {
 			if(e.getClass() == DestinationOrder.class) {
+				/**
+				 * Start moving only on DestinationOrder and not broken.
+				 */
 				if(Ambulance.this.getCurrentStateNames().contains("Broken")) {
 					return this;
 				} else {
+					Ambulance.this.notify(e);
 					return moving;
 				}
 			}  else {
@@ -130,17 +174,41 @@ public class Ambulance extends SimObjectImpl {
 		@Override
 		public State execute(Event e) {
 			if(e.getClass() == MobilisationOrder.class) {
+				/**
+				 * On mobilization, confirm reception and start moving toward
+				 * destination.  Currently, always accept mobilization.
+				 */
 				MobilisationOrder mobOrder = (MobilisationOrder)e;
 				if (mobOrder.getAmbulanceID() == Ambulance.this.getName()) {
+					incidentID=mobOrder.getIncidentID();
+					Ambulance.this.notify(new MobilisationConfirmation(mobOrder.getIncidentID(), 
+							mobOrder.getAmbulanceID(), true));
+					Ambulance.this.notify(new DestinationOrder(Ambulance.this.getName(), 
+							new PosImpl(mobOrder.getIncidentPos())));
 					return this.mobilized; 
 				} else {
 					return this;
 				}
 			} else if (e.getClass() == DestinationOrder.class ){
+				/**
+				 * On Destination Order stay free.
+				 * Allows moving to somewhere will not being mobilized
+				 * to optimize placement of the ambulances.
+				 */
 				return this;
 			} else if (e.getClass() == AmbulanceOnScene.class) {
+				/**
+				 * FIXME: This is where we can handle the case where an 
+				 *        ambulance arrives on an incident scene it was
+				 *        not mobilized on.  For the moment, the 
+				 *        ambulance will ignore it.
+				 */
 				return this;
 			} else if (e.getClass() == AmbulanceBroken.class) {
+				/**
+				 * Propagate the event and change the sender to this ambulance
+				 */
+				Ambulance.this.notify(new AmbulanceBroken(Ambulance.this.getName()));
 				return broken;
 			} else {
 		
@@ -167,6 +235,13 @@ public class Ambulance extends SimObjectImpl {
 		@Override
 		public State execute(Event e) {
 			if(e.getClass() == AmbulanceRepaired.class) {
+				/**
+				 * The only thing that can move an ambulance out of 
+				 * a broken state, is a repaired event.  Notify
+				 * everyone after that the ambulance is repaired and
+				 * change the sender to this ambulance.
+				 */
+				Ambulance.this.notify(new AmbulanceRepaired(Ambulance.this.getName()));
 				return free;
 			} else {
 		
@@ -194,12 +269,26 @@ public class Ambulance extends SimObjectImpl {
 		@Override
 		public State execute(Event e) {
 			if(e.getClass() == AmbulanceOnScene.class) {
+				/**
+				 * When arriving on scene, stay mobilized until IncidentResolved
+				 */
 				return this;
 			} else if(e.getClass() == DemobilisationOrder.class){
+				/**
+				 * Become free again if requested, even if incident is not resolved
+				 */
+				incidentID=null;
 				return this.free;
 			} else if(e.getClass() == IncidentResolved.class) {
+				/**
+				 * Become free again when incident is resolved.
+				 * FIXME: Maybe should wait for LAS to become free again.
+				 */
 				return this.free;
 			} else if(e.getClass() == AmbulanceBroken.class) {
+				/**
+				 * 
+				 */
 				return this.broken;
 			}else {
 				/**
