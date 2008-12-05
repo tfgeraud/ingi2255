@@ -319,7 +319,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#getCoord(int)
 	 */
-	public Coord getPosistion(String ambulanceId) {
+	public Coord getPosition(String ambulanceId) {
 		return this.list.get(ambulanceId).getPos();
 	}
 

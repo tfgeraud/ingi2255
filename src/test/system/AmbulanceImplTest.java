@@ -89,11 +89,10 @@ public class AmbulanceImplTest extends TestCase {
 			
 			
 		} catch (AmbulanceStatusUnknwownException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			
 		} catch (AmbulanceKindUnknownException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			
@@ -104,19 +103,17 @@ public class AmbulanceImplTest extends TestCase {
 	/**
 	 * Test method for {@link system.AmbulanceImpl#getCoord(java.lang.String)}.
 	 */
-	public void testGetCoord() {
+	public void testGetPosition() {
 		
 		try {
 			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
-			assertEquals(position, ambulance.getCoord("amb1"));
+			assertEquals(position, ambulance.getPosition("amb1"));
 			
 		} catch (AmbulanceStatusUnknwownException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			
 		} catch (AmbulanceKindUnknownException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 		}
@@ -130,17 +127,20 @@ public class AmbulanceImplTest extends TestCase {
 		
 		try {
 			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
+			ambulance.addAmbulance("amb2", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			
 			ambulance.markAsBroken("amb1");
+			ambulance.markAsBroken("amb2");
 			
 			assertEquals(((AmbulanceImpl) ambulance).getStatus("amb1"), Ambulance.BROKEN );
+			assertEquals(((AmbulanceImpl) ambulance).getStatus("amb2"), Ambulance.BROKEN );
+
 			
 		} catch (AmbulanceStatusUnknwownException e) {
-			// TODO Auto-generated catch block
 			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
-			// TODO Auto-generated catch block
 			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 		}
@@ -159,14 +159,11 @@ public class AmbulanceImplTest extends TestCase {
 			//FIXME Equals do not work (add getAmbulance, getId, dans ambulanceImpl)
 			//assertEquals(result,ambulance);
 			
-			
 		} catch (AmbulanceStatusUnknwownException e) {
-			// TODO Auto-generated catch block
 			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
 			e.printStackTrace();
 			
 		} catch (AmbulanceKindUnknownException e) {
-			// TODO Auto-generated catch block
 			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
 			e.printStackTrace();
 		}
@@ -266,7 +263,22 @@ public class AmbulanceImplTest extends TestCase {
 	 * Test method for {@link system.AmbulanceImpl#getKind(java.lang.String)}.
 	 */
 	public void testGetKind() {
-		
+		try {
+			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.WORKING);
+			ambulance.addAmbulance("amb2", position, Ambulance.MEDICALIZED, Ambulance.WORKING);
+			
+			assertEquals(Ambulance.NORMAL, ambulance.getKind("amb1"));
+			assertEquals(Ambulance.MEDICALIZED, ambulance.getKind("amb2"));
+			
+		} catch (AmbulanceStatusUnknwownException e) {
+			// TODO Auto-generated catch block
+			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			e.printStackTrace();
+		} catch (AmbulanceKindUnknownException e) {
+			// TODO Auto-generated catch block
+			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -274,6 +286,25 @@ public class AmbulanceImplTest extends TestCase {
 	 * Test method for {@link system.AmbulanceImpl#markAsRepaired(java.lang.String)}.
 	 */
 	public void testMarkAsRepaired() {
+		try {
+			ambulance.addAmbulance("amb1", position, Ambulance.NORMAL, Ambulance.BROKEN);
+			ambulance.addAmbulance("amb2", position, Ambulance.MEDICALIZED, Ambulance.BROKEN);
+			
+			ambulance.markAsRepaired("amb1");
+			ambulance.markAsRepaired("amb2");
+			
+			assertEquals(((AmbulanceImpl) ambulance).getStatus("amb1"), Ambulance.WORKING );
+			assertEquals(((AmbulanceImpl) ambulance).getStatus("amb2"), Ambulance.WORKING );
+			
+		} catch (AmbulanceStatusUnknwownException e) {
+			// TODO Auto-generated catch block
+			fail("An exception occured on addAmbulance because ambulance's status is unknown ");
+			e.printStackTrace();
+		} catch (AmbulanceKindUnknownException e) {
+			// TODO Auto-generated catch block
+			fail("An exception occured on addAmbulance because ambulance's kind is unknown");
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -281,20 +312,21 @@ public class AmbulanceImplTest extends TestCase {
 	 * Test method for {@link system.AmbulanceImpl#setIncidentChosenFor(java.lang.String, java.lang.String)}.
 	 */
 	public void testSetIncidentChosenFor() {
-		
+		//already tested in testGetIncidentChosenFor		
 	}
 
 	/**
 	 * Test method for {@link system.AmbulanceImpl#setIncidentMobilizedFor(java.lang.String, java.lang.String)}.
 	 */
 	public void testSetIncidentMobilizedFor() {
-		
+		//already tested in testGetIncidentMobiliziedFor
 	}
 
 	/**
 	 * Test method for {@link system.AmbulanceImpl#setPosition(java.lang.String, system.Coord)}.
 	 */
 	public void testSetPosition() {
+		//already tested in testGetPosition
 		
 	}
 
