@@ -26,6 +26,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * the ambulances
 	 * 
 	 * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
+	 * @author Quentin Pirmez <quentin.pirmez@student.uclouvain.be>
 	 */
 	private class AmbulanceInfo {
 
@@ -318,7 +319,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#getCoord(int)
 	 */
-	public Coord getCoord(String ambulanceId) {
+	public Coord getPosistion(String ambulanceId) {
 		return this.list.get(ambulanceId).getPos();
 	}
 
