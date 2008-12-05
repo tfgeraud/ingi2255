@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import events.Event;
+import simulator.Observable;
 import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
@@ -197,12 +198,7 @@ public class BasicObjectTest extends TestCase {
 		@SuppressWarnings("unchecked")
 		Map<Class, List<Observer>> eventObserverMap = new Hashtable<Class, List<Observer>>();
 		eventObserverMap.put(ChangingToState.class, new Vector<Observer>());
-		eventObserverMap.get(ChangingToState.class).add(new Observer(){
-
-			public void accept(Event event) {
-				// TODO Auto-generated method stub
-				
-			}});
+		eventObserverMap.get(ChangingToState.class).add(observer);
 		assertEquals(1, eventObserverMap.get(ChangingToState.class).size());
 	}
 	
@@ -211,6 +207,18 @@ public class BasicObjectTest extends TestCase {
 
 		public void accept(Event event) {
 			receivedEvent = event;
+		}
+
+		public void disconnect(Observable observable) {
+			// Not used
+		}
+
+		public void disconnect() {
+			// Not used
+		}
+
+		public void observing(Observable observable) {
+			// Not used
 		}
 	}
 
