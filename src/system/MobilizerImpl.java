@@ -41,10 +41,10 @@ public class MobilizerImpl implements Mobilizer {
 	public boolean mobilize(String incidentInfoId, String ambulanceId) {
 		try {
 			// Create and send mobilize order
-			MobilisationOrder mobOrder = incidents.getMobOrder(incidentInfoId);
-			communicator.send(mobOrder);
+			MobilisationOrder mobOrder = this.incidents.getMobOrder(incidentInfoId);
+			this.communicator.send(mobOrder);
 			// Wait for acknoledgment
-			return communicator.waitForAck(mobOrder, ambulanceId);
+			return this.communicator.waitForAck(mobOrder, ambulanceId);
 		} catch (UnknownIncidentException e) {
 			// TODO
 			return false;
@@ -59,11 +59,11 @@ public class MobilizerImpl implements Mobilizer {
 	public boolean demobilize(String incidentInfoId, String ambulanceId) {
 		try {
 			// Create an send demobilization order
-			DemobilisationOrder demobOrder = incidents
+			DemobilisationOrder demobOrder = this.incidents
 					.getDemobOrder(incidentInfoId);
-			communicator.send(demobOrder);
+			this.communicator.send(demobOrder);
 			// Wait for acknoledgment
-			return communicator.waitForAck(demobOrder, ambulanceId);
+			return this.communicator.waitForAck(demobOrder, ambulanceId);
 		} catch (UnknownIncidentException e) {
 			// TODO
 			return false;

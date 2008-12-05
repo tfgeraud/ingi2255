@@ -1,11 +1,17 @@
 package simulator.events;
 
+import simulator.Pos;
 import events.Event;
 
 public class DestinationOrder extends Event {
-
-	public DestinationOrder(String senderName) {
+	private Pos destination;
+	public DestinationOrder(String senderName, Pos destination) {
 		super(senderName);
+		this.destination = destination;
+	}
+	
+	public Pos getDestination() {
+		return this.destination;
 	}
 
 }

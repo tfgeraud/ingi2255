@@ -1,6 +1,5 @@
 package simulator;
 
-import system.Coord;
 /**
  * Implementation of Pos.
  * @author fred
@@ -25,8 +24,12 @@ public class PosImpl implements Pos{
 	 * @see system.Coord#getX()
 	 */
 	
+	public PosImpl(String incidentPos) {
+		this.fromString(incidentPos);
+	}
+
 	public int getX() {
-		return x;
+		return this.x;
 	}
 	/*
 	 * (non-Javadoc)
@@ -34,7 +37,7 @@ public class PosImpl implements Pos{
 	 */
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 	/*
 	 * (non-Javadoc)
@@ -55,14 +58,19 @@ public class PosImpl implements Pos{
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "(" + this.x + "," + this.y + ")";
 	}
-	/*
-	 * (non-Javadoc)
-	 * @see system.Coord#fromString(java.lang.String)
-	 */
-    public void fromString(String s) throws NumberFormatException{
+    /**
+     * Sets the coordinate from a string representation
+     * 
+     * @param loc String that has for prefix (x,y) 
+     * 		  where x,y are the coordinates as integers in meters.
+     * @throws Exception if the format is invalid. in this case the object
+     * 		   is unchanged.
+     **/
+    private void fromString(String s) throws NumberFormatException{
         s = s.trim();
         String Sx = s.substring(s.indexOf("(")+1,s.indexOf(","));
         String Sy = s.substring(s.indexOf(",")+1,s.indexOf(")"));
@@ -82,7 +90,8 @@ public class PosImpl implements Pos{
      * @see java.lang.Object#equals(java.lang.Object)
      */
     
-    public boolean equals(Object c){
+    @Override
+	public boolean equals(Object c){
     	/* http://www.javaspecialists.co.za/archive/Issue009.html
     	 * solves issues with assertEquals in testUnits
     	 */
@@ -103,7 +112,8 @@ public class PosImpl implements Pos{
      * (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
-    public int hashCode(){
+    @Override
+	public int hashCode(){
     	return this.toString().hashCode();
     }
 

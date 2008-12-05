@@ -6,59 +6,59 @@ import java.io.BufferedReader;
  * This interface represents the map of the world known by the system.
  * It knows all paths in the world.  Obstacles that can occur are also
  * taken into account.
- *		
- *	Example of instanciation : 
- *	<pre>
- *	Map = new Map();
- *	Map.setStreets(5,6);
- *	Map.addAddress("toto", new Coord(10,15));
- *	</pre>
+ *                
+ *        Example of instanciation : 
+ *        <pre>
+ *        Map = new Map();
+ *        Map.setStreets(5,6);
+ *        Map.addAddress("toto", new Coord(10,15));
+ *        </pre>
  * @author fred
  */
 public interface Map {
-	/**
-	 * Return the distance between two coordinates.
-	 * 
-	 * @param	coord1 valid coordinates
-	 * @param	coord2 valid coordinates
-	 * @return	return distance between coord1 and coord2.
-	 * 			Returns Integer.MAX_VALUE if there is no path
-	 * 			between coordinates.
-	 */
-	public int distance(Coord coord1, Coord coord2);
+        /**
+         * Return the distance between two coordinates.
+         * 
+         * @param        coord1 valid coordinates
+         * @param        coord2 valid coordinates
+         * @return        return distance between coord1 and coord2.
+         *                         Returns Integer.MAX_VALUE if there is no path
+         *                         between coordinates.
+         */
+        public int distance(Coord coord1, Coord coord2);
 
-	/**
-	 * Return coordinates of a localisation.
-	 * 
-	 * @param	address a known localisation
-	 * @param	return coordinates of the localisation, null
-	 * 			if the location doesn't exist.
-	 */
-	public Coord addressToCoord(String localisation);
-    	/**
-    	* Returns the address closest to the localisation
-    	*
-    	* @param loc : the concerned localisation 
-    	* @post returns one of the closest addresses to loc, null if
-     	* 		there isn't any.
-     	*/
-	public String coordToAddress(Coord loc);
+        /**
+         * Return coordinates of a localisation.
+         * 
+         * @param        address a known localisation
+         * @param        return coordinates of the localisation, null
+         *                         if the location doesn't exist.
+         */
+        public Coord addressToCoord(String localisation);
+            /**
+            * Returns the address closest to the localisation
+            *
+            * @param loc : the concerned localisation 
+            * @post returns one of the closest addresses to loc, null if
+             *                 there isn't any.
+             */
+        public String coordToAddress(Coord loc);
 
-	/**
-	 * Add an obstacle at coordinate obstacleCoord
-	 * 
-	 * @param obstacleCoord coordinates of the new obstacle. Must be valid
-	 * 
-	 */
+        /**
+         * Add an obstacle at coordinate obstacleCoord
+         * 
+         * @param obstacleCoord coordinates of the new obstacle. Must be valid
+         * 
+         */
 
-	public void addObstacle(Coord obstacleCoord);
+        public void addObstacle(Coord obstacleCoord);
 
-	/**
-	 * Remove an obstacle at coordinates
-	 * 
-	 * @param		obstacleCoord must be coordinates of a recorded obstacle
-	 */
-	public void removeObstacle(Coord obstacleCoord);
+        /**
+         * Remove an obstacle at coordinates
+         * 
+         * @param                obstacleCoord must be coordinates of a recorded obstacle
+         */
+        public void removeObstacle(Coord obstacleCoord);
     /**
      * Adds a list of addresses->localisations in the map.
      *

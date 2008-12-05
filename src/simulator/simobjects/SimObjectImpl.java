@@ -10,10 +10,13 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 
+import simulator.Observable;
 import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
 import simulator.events.StepDelimiter;
+import simulator.simobjects.EventNotUnderstoodException;
+import simulator.simobjects.SimObject;
 import events.Event;
 
 public class SimObjectImpl implements SimObject {
@@ -21,9 +24,9 @@ public class SimObjectImpl implements SimObject {
 	private String name = "default";
 	private Queue<Event> eventQueue = new ConcurrentLinkedQueue<Event>();
 	private List<Observer> observerList = new Vector<Observer>();
-	@SuppressWarnings("unchecked")
 	private Map<Class, List<Observer>> eventObserverMap = new Hashtable<Class, List<Observer>>();
 	public List<StateMachine> stateMachineList = new Vector<StateMachine>();
+	public Set<Observable> observingSet = new HashSet<Observable>();
 	
 	/**
 	 * Ctor, initialisation of the state machine should go here
@@ -33,48 +36,67 @@ public class SimObjectImpl implements SimObject {
 	}
 
 	public void accept(Event event) {
-		eventQueue.add(event);
+		this.eventQueue.add(event);
 	}
 
 	public void attach(Observer observer) {
-		observerList.add(observer);
+		this.observerList.add(observer);
+		observer.observing(this);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void attach(Observer object, Class eventClass) {
-		if(eventObserverMap.containsKey(eventClass)) {
-			eventObserverMap.get(eventClass).add(object);
+	public void attach(Observer observer, Class eventClass) {
+		if(this.eventObserverMap.containsKey(eventClass)) {
+			this.eventObserverMap.get(eventClass).add(observer);
 		} else {
-			eventObserverMap.put(eventClass, new Vector<Observer>());
-			eventObserverMap.get(eventClass).add(object);
+			this.eventObserverMap.put(eventClass, new Vector<Observer>());
+			this.eventObserverMap.get(eventClass).add(observer);
 		}
+		observer.observing(this);
 	}
 
 	public void detach(Observer observer) {
-		observerList.remove(observer);
-		for(List<Observer> l: eventObserverMap.values()) {
+		this.observerList.remove(observer);
+		for(List<Observer> l: this.eventObserverMap.values()) {
 			l.remove(observer);
 		}
+		observer.disconnect(this);
 	}
 
 	public void notify(Event event) {
-		for(Observer o: observerList) {
+		for(Observer o: this.observerList) {
 			o.accept(event);
 		}
 		
-		if(eventObserverMap.containsKey(event.getClass())) {
-			for(Observer o: eventObserverMap.get(event.getClass())) {
+		if(this.eventObserverMap.containsKey(event.getClass())) {
+			for(Observer o: this.eventObserverMap.get(event.getClass())) {
 				o.accept(event);
 			}
 		}
 
 	}
+	
+	public void disconnect() {
+		for(Observable o : this.observingSet) {
+			o.detach(this);
+		}
+	}
+
+	public void observing(Observable observable) {
+		if(!this.observingSet.contains(observable)) {
+			this.observingSet.add(observable);
+		}
+	}
+	
+	public void disconnect(Observable observable) {
+		this.observingSet.remove(observable);
+	}
 
 	public void step() {
 		Event e = null;
-		while((e=eventQueue.poll()) != null) {
+		while((e=this.eventQueue.poll()) != null) {
 			if(e != StepDelimiter.getInstance()) {
-				dispatch(e);
+				this.dispatch(e);
 			} else {
 				break;
 			}
@@ -89,7 +111,7 @@ public class SimObjectImpl implements SimObject {
 		 */
 		boolean allEventsNotUnderstood = true;
 		
-		for(StateMachine sm: stateMachineList) {
+		for(StateMachine sm: this.stateMachineList) {
 			try {
 				sm.dispatch(e);
 				allEventsNotUnderstood = allEventsNotUnderstood && false;
@@ -103,14 +125,14 @@ public class SimObjectImpl implements SimObject {
 	public Set<String> getCurrentStateNames() {
 		Set<String> names = new HashSet<String>();
 		
-		for(StateMachine sm: stateMachineList) {
+		for(StateMachine sm: this.stateMachineList) {
 			names.add(sm.getCurrentState().getName());
 		}
 		return names;
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	/**
@@ -124,7 +146,7 @@ public class SimObjectImpl implements SimObject {
 		protected Set<Event> understoodEvents;
 		
 		public StateMachine(State initial) {
-			currentState=initial;
+			this.currentState=initial;
 		}
 		
 		
@@ -134,23 +156,23 @@ public class SimObjectImpl implements SimObject {
 		 * @post The new state resulting from the execution of the event is stored in currentState
 		 */
 		public void dispatch(Event e) throws EventNotUnderstoodException {
-			State newState = currentState.execute(e);
+			State newState = this.currentState.execute(e);
 			
 			if (newState == null) {
 				throw new EventNotUnderstoodException();
-			} else if(newState != currentState) {
+			} else if(newState != this.currentState) {
 				SimObjectImpl.this.notify(new ChangingToState(SimObjectImpl.this.getName(), newState.getName()));
-				currentState=newState;
+				this.currentState=newState;
 			} 
 			
 		}
 		
 		public void setCurrentState(State state) {
-			currentState = state;
+			this.currentState = state;
 		}
 		
 		public State getCurrentState() {
-			return currentState;
+			return this.currentState;
 		}
 		
 	}
@@ -167,8 +189,8 @@ public class SimObjectImpl implements SimObject {
 		 * by default, the event returns null, meaning
 		 * event not understood
 		 * 
-		 * @Pre Event is valid
-		 * @Post A new state is returned
+		 * @pre Event is valid
+		 * @post A new state is returned
 		 */
 		public State execute(Event e) {
 			return null;
@@ -179,12 +201,15 @@ public class SimObjectImpl implements SimObject {
 		 * Name used for debugging purposes
 		 */		
 		public String getName() {
-			return name;
+			return this.name;
 		}
 		
+		@Override
 		public String toString() {
 			return this.getClass() + " " + this.name;
 		}
 		
 	}
+
+
 }
