@@ -21,10 +21,10 @@ public class AmbulancePosition extends Event {
 	}
 	
 	public String getAmbulanceID() {
-		return ambulanceID;
+		return this.ambulanceID;
 	}
 
 	public Coord getPosition() {
-		return ambulancePosition;
+		return this.ambulancePosition;
 	}
 }

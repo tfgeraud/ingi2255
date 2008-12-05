@@ -15,7 +15,7 @@ public class AmbulanceBroken extends Event {
 	}
 	
 	public String getAmbulanceID() {
-		return ambulanceID;
+		return this.ambulanceID;
 	}
 
 }
