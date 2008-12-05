@@ -371,8 +371,6 @@ public class IncidentImplTest {
 		String localisation = "Rue Fleurie no4";
 		String description = "grave";
 
-		String ambId = "mike3";
-
 		// Add incident
 		String incId = incidents.addIncident(age, pregnant, localisation,
 				description);
