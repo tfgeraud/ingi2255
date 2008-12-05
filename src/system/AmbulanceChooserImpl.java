@@ -9,6 +9,7 @@ import system.exception.UnknownIncidentException;
  * {@link AmbulanceChooser} for more details.
  * 
  * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
  */
 public class AmbulanceChooserImpl implements AmbulanceChooser {
 
@@ -46,15 +47,16 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 
 	/*
 	 * (non-Javadoc)
-	 * @see system.AmbulanceChooser#chooseBestAmbulance(java.lang.String, java.util.Set)
+	 * 
+	 * @see system.AmbulanceChooser#chooseBestAmbulance(java.lang.String,
+	 *      java.util.Set)
 	 */
 	public String chooseBestAmbulance(String incidentInfoId,
 			Set<String> exclusionSet) throws UnknownIncidentException {
-		
+
 		String kind = this.incident.getAmbulanceKindNeeded(incidentInfoId);
 		Coord coord = this.incident.getPosition(incidentInfoId);
-		Set<String> ambulances = this.ambulance
-				.getAllFree(kind, exclusionSet);
+		Set<String> ambulances = this.ambulance.getAllFree(kind, exclusionSet);
 
 		return this.selectMinDist(ambulances, coord);
 	}
@@ -63,22 +65,27 @@ public class AmbulanceChooserImpl implements AmbulanceChooser {
 	 * Return the nearest ambulance from the incident. If there is no ambulance
 	 * provided, then the returned string is null.
 	 */
-	private String selectMinDist(Set<String> ambulances,
-			Coord incidentCoord) {
+	private String selectMinDist(Set<String> ambulances, Coord incidentCoord) {
 		String ambulanceId = null;
+		boolean first = true;
 
 		if (ambulances.size() <= 0) {
 			return null;
 		}
 
 		for (String amb : ambulances) {
-			int newDistance = this.map.distance(this.ambulance
-					.getCoord(amb), incidentCoord);
-			int oldDistance = this.map.distance(this.ambulance.getCoord(amb),
-					incidentCoord);
-
-			if (newDistance < oldDistance) {
+			if (first) {
 				ambulanceId = amb;
+				first = false;
+			} else {
+				int newDistance = this.map.distance(this.ambulance
+						.getCoord(amb), incidentCoord);
+				int oldDistance = this.map.distance(this.ambulance
+						.getCoord(ambulanceId), incidentCoord);
+
+				if (newDistance < oldDistance) {
+					ambulanceId = amb;
+				}
 			}
 		}
 
