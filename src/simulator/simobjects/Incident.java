@@ -14,7 +14,7 @@ import events.IncidentResolved;
 public class Incident extends SimObjectImpl {
 	private Pos pos;
 
-	protected Incident(String name, Pos pos) {
+	public Incident(String name, Pos pos) {
 		super(name);
 		this.pos = pos;
 		
