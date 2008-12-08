@@ -10,7 +10,6 @@ import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
 import simulator.events.StepDelimiter;
-import simulator.simobjects.BasicObject;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

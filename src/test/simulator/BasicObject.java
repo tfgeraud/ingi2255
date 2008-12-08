@@ -1,5 +1,6 @@
-package simulator.simobjects;
+package test.simulator;
 
+import simulator.simobjects.SimObjectImpl;
 import events.Event;
 
 /**

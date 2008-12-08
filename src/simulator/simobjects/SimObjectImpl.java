@@ -81,15 +81,15 @@ public class SimObjectImpl implements SimObject {
 			o.detach(this);
 		}
 	}
+	
+	public void disconnect(Observable observable) {
+		this.observingSet.remove(observable);
+	}
 
 	public void observing(Observable observable) {
 		if(!this.observingSet.contains(observable)) {
 			this.observingSet.add(observable);
 		}
-	}
-	
-	public void disconnect(Observable observable) {
-		this.observingSet.remove(observable);
 	}
 
 	public void step() {
