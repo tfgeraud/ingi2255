@@ -12,6 +12,7 @@ public class AllTests {
 		suite.addTestSuite(BasicObjectTest.class);
 		suite.addTestSuite(AmbulanceTest.class);
 		suite.addTestSuite(PosImplTest.class);
+		suite.addTestSuite(SimObjectImplTest.class);
 		//$JUnit-END$
 		return suite;
 	}

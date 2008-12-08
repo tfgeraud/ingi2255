@@ -1,8 +1,8 @@
 package common;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 
@@ -52,28 +52,28 @@ public class Graph {
         private Set<Edge> street = new HashSet<Edge>();	//the streets connected to this node
         private boolean obstacle; //true if there is an obstacle on the node
         public Node(Point c){	//creates a new node at point c.
-            pos = c;
+            this.pos = c;
         }
         public boolean isOnNode(Point c){	//return true if c is on this node
-            return pos.equals(c);
+            return this.pos.equals(c);
         }
         public Point getCoord(){	//returns the coordinates of this node
-            return pos;
+            return this.pos;
         }
         public void addObstacle(){	//adds an obstacle to the map
-            obstacle = true;
+            this.obstacle = true;
         }
         public void remObstacle(){	//removes an obstacle from the map
-            obstacle = false;
+            this.obstacle = false;
         }
         public void connect(Edge e){	//connects the node to the street.
-            street.add(e);
+            this.street.add(e);
         }
         public void disconnect(Edge e){	//removes an edge from the street
-        	street.remove(e);
+        	this.street.remove(e);
         }
         public void delete(){	//deletes the nodes and all the adj. edges
-        	for (Edge e:street){
+        	for (Edge e:this.street){
         		Node ns = e.getStart();
         		Node ne = e.getEnd();
         		if(ns != this){
@@ -82,7 +82,7 @@ public class Graph {
         			ne.disconnect(e);
         		}
         	}
-        	street.clear();
+        	this.street.clear();
         }
         /* returns the list of nodes reachable from this one, and
          * the distance to each.
@@ -90,7 +90,7 @@ public class Graph {
          */
         public Hashtable<Node,Integer> neighbours(){
             Hashtable<Node,Integer> t = new Hashtable<Node,Integer>();
-            for (Edge e: street){
+            for (Edge e: this.street){
                 if(!e.obstructed()){    //exclude unreachable nodes
                     if (e.getStart() != this){      //don't add yourself.
                         if(!e.getStart().obstacle){ //remove obstacled nodes
@@ -114,10 +114,10 @@ public class Graph {
     		this.y = y;
     	}
     	public int getX(){
-    		return x;
+    		return this.x;
     	}
     	public int getY(){
-    		return y;
+    		return this.y;
     	}
     	public void setX(int x){
     		this.x = x;
@@ -129,7 +129,8 @@ public class Graph {
     		return (int)Math.sqrt(	Math.pow(this.getX() - c.getX(),2) +
     								Math.pow(this.getY() - c.getY(),2) 	);
     	}
-    	public boolean equals(Object c){
+    	@Override
+		public boolean equals(Object c){
     		if (c instanceof Point){
     			return this.equals((Point)c);
     		}else{
@@ -150,44 +151,44 @@ public class Graph {
         public Edge(Node N, Node M){	//create a new edge from N to M
             this.N = N;
             this.M = M;
-            obstacle = new HashSet<Point>();
+            this.obstacle = new HashSet<Point>();
             N.connect(this);
             M.connect(this);
         }
         public boolean isOnEdge(Point c){	//returns true if point is on this street
             /* triangular inequality; could go wrong */
-            return c.dist(N.getCoord())+c.dist(M.getCoord()) <= M.getCoord().dist(N.getCoord()) + 1;
+            return c.dist(this.N.getCoord())+c.dist(this.M.getCoord()) <= this.M.getCoord().dist(this.N.getCoord()) + 1;
         }
         public void addObstacle(Point c){	//adds an obstacle to the street at coords c
-            obstacle.add(c);
+            this.obstacle.add(c);
         }
         public void remObstacle(Point c){	//removes the obstacle at coordinates c
-            obstacle.remove(c);
+            this.obstacle.remove(c);
         }
         public int getLength(){	//returns the length of the street.
-            return N.getCoord().dist(M.getCoord());
+            return this.N.getCoord().dist(this.M.getCoord());
         }
         public boolean obstructed(){	//return true if there is an obstacle on the road.
-            return !obstacle.isEmpty();
+            return !this.obstacle.isEmpty();
         }
         public Node getStart(){	//get the starting node of the edge
-            return N;
+            return this.N;
         }
         public Node getEnd(){	//get the end node of the edge
-            return M;
+            return this.M;
         }
         public void disconnect(){
-        	N.disconnect(this);
-        	M.disconnect(this);
+        	this.N.disconnect(this);
+        	this.M.disconnect(this);
         }
         public boolean obstructed(Point a, Point b){
         	/* returns true if there is an obstacle on the street between the
         	 * point a and b
         	 */
-            if (!obstructed()){
+            if (!this.obstructed()){
                 return false;
             }else{
-                for (Point c: obstacle){
+                for (Point c: this.obstacle){
                     if(c.dist(a) + c.dist(b) <= a.dist(b)){
                         return true;
                     }
@@ -203,7 +204,7 @@ public class Graph {
      */
     private Edge findEdge(Point c){
         /*returns a street located at c, null if no street at c*/
-        for (Edge e: street){
+        for (Edge e: this.street){
             if (e.isOnEdge(c)){
                 return e;
             }
@@ -215,7 +216,7 @@ public class Graph {
      * @return returns the point located at c, null if there isn't any
      * */
     private Node findNode(Point c){
-        for (Node[] N:crossroad){
+        for (Node[] N:this.crossroad){
             for (Node n:N){
                 if (n.isOnNode(c)){
                     return n;
@@ -237,12 +238,12 @@ public class Graph {
     private Node tempNode(Edge street, Point c){
         Node N = new Node(c);
         if (!street.obstructed(c, street.getStart().getCoord())){
-            Edge e = new Edge(N,street.getStart());
+            new Edge(N,street.getStart());
         }
         if (!street.obstructed(c,street.getEnd().getCoord())){
-            Edge e = new Edge(N,street.getEnd());
+            new Edge(N,street.getEnd());
         }
-        tempNodes.add(N);
+        this.tempNodes.add(N);
         return N;
     }
     /**
@@ -251,10 +252,10 @@ public class Graph {
      */
     private void delTempNodes(){
         /*remove a node from the map and all the streets connected to it*/
-        for (Node n:tempNodes){
+        for (Node n:this.tempNodes){
         	n.delete();
         }
-        tempNodes.clear();
+        this.tempNodes.clear();
     }
     /**
      * 
@@ -268,7 +269,7 @@ public class Graph {
      */
     
     public int distance(int startx, int starty, int endx, int endy){
-    	return distance(new Point(startx,starty),new Point(endx,endy),null);
+    	return this.distance(new Point(startx,starty),new Point(endx,endy),null);
     }
     /**
      * Computes the shortest path from 'start' to 'end'
@@ -282,9 +283,9 @@ public class Graph {
      * if the destination is not reachable, it returns null.
      */
     public int[][] path(int startx,int starty,int endx,int endy){
-    	List<Point> P = new ArrayList();
+    	List<Point> P = new ArrayList<Point>();
     	int[][] path;
-    	distance(new Point(startx,starty),new Point(endx,endy),P);
+    	this.distance(new Point(startx,starty),new Point(endx,endy),P);
     	if(P.isEmpty()){
     		return null;
     	}else{
@@ -311,11 +312,11 @@ public class Graph {
      */
 	private int distance(Point impl, Point incidentCoord, List<Point> path) {
         int distance = 0;
-        Node startNode = findNode(impl);
-        Node endNode = findNode(incidentCoord);
-        Edge start = findEdge(impl);
-        Edge end = findEdge(incidentCoord);
-        delTempNodes();
+        Node startNode = this.findNode(impl);
+        Node endNode = this.findNode(incidentCoord);
+        Edge start = this.findEdge(impl);
+        Edge end = this.findEdge(incidentCoord);
+        this.delTempNodes();
         if (impl.equals(incidentCoord)){
             return 0;
         }
@@ -336,20 +337,20 @@ public class Graph {
                 System.out.println("Error ambulance not on street");
                 return Integer.MAX_VALUE;
             }
-            startNode = tempNode(start,impl);
+            startNode = this.tempNode(start,impl);
         }
         if(endNode == null){    //pos not on a crossroad
             if(end == null){    //pos not on a street
                 System.out.println("Error destination not on street");
                 return Integer.MAX_VALUE;
             }
-            endNode = tempNode(end,incidentCoord);
+            endNode = this.tempNode(end,incidentCoord);
         }
         Set<Node> Visited = new HashSet<Node>();  //Node where we know the smallest dist
         Set<Node> Unvisited = new HashSet<Node>();//Initially All the Nodes
         Hashtable<Node,Integer> Distance = new Hashtable<Node,Integer>();
         Hashtable<Node,Node> Previous = new Hashtable<Node,Node>();
-        for(Node[] N:crossroad){
+        for(Node[] N:this.crossroad){
             for(Node n:N){
                 Unvisited.add(n);
             }
@@ -428,7 +429,7 @@ public class Graph {
 	 * @param c : the coordinate of the point
 	 */
 	private void addObstacle(Point c) {
-        for (Node[] m : crossroad){
+        for (Node[] m : this.crossroad){
             for (Node n : m){
                 if (n.isOnNode(c)){
                     n.addObstacle();
@@ -436,7 +437,7 @@ public class Graph {
                 }
             }
         }
-        for (Edge e : street){
+        for (Edge e : this.street){
             if (e.isOnEdge(c)){
                 e.addObstacle(c);
                 return;
@@ -452,7 +453,7 @@ public class Graph {
 	 * 
 	 */
 	public void removeObstacle(int x, int y){
-		removeObstacle(new Point(x,y));
+		this.removeObstacle(new Point(x,y));
 	}
 	/**
 	 * removes the obstacle on the point
@@ -460,7 +461,7 @@ public class Graph {
 	 * 			there must be at least one obstacle on the point
 	 */
 	private void removeObstacle(Point c) {
-        for (Node[] m : crossroad){
+        for (Node[] m : this.crossroad){
             for (Node n : m){
                 if(n.isOnNode(c)){
                     n.remObstacle();
@@ -468,7 +469,7 @@ public class Graph {
                 }
             }
         }
-        for (Edge e : street){
+        for (Edge e : this.street){
             if(e.isOnEdge(c)){
                 e.remObstacle(c);
                 return;
@@ -490,11 +491,11 @@ public class Graph {
     public void setStreets(int numx, int numy) {
         int i = numx;
         int j = numy;
-        crossroad = new Node[numx][numy];
+        this.crossroad = new Node[numx][numy];
         while(i-- > 0){
             j = numy;
             while(j-- > 0){
-                crossroad[i][j] = new Node(new Point(i*blocSize,j*blocSize));
+                this.crossroad[i][j] = new Node(new Point(i*this.blocSize,j*this.blocSize));
             }
         }
         i = numx;
@@ -503,12 +504,12 @@ public class Graph {
             j = numy;
             while(j-- > 0){
                 if(i + 1 < numx){
-                    Edge e = new Edge(crossroad[i][j],crossroad[i+1][j]);
-                    street.add(e);
+                    Edge e = new Edge(this.crossroad[i][j],this.crossroad[i+1][j]);
+                    this.street.add(e);
                 }
                 if(j + 1 < numy){
-                    Edge e = new Edge(crossroad[i][j],crossroad[i][j+1]);
-                    street.add(e);
+                    Edge e = new Edge(this.crossroad[i][j],this.crossroad[i][j+1]);
+                    this.street.add(e);
                 }
             }
         }

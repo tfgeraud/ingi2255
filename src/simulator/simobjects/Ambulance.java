@@ -48,8 +48,8 @@ public class Ambulance extends SimObjectImpl {
 		StateMachine sm1 = new StateMachine(notMoving);
 		StateMachine sm2 = new StateMachine(free);
 		
-		stateMachineList.add(sm1);
-		stateMachineList.add(sm2);
+		this.stateMachineList.add(sm1);
+		this.stateMachineList.add(sm2);
 		
 	}
 	
@@ -78,37 +78,37 @@ public class Ambulance extends SimObjectImpl {
 				/**
 				 * Incident is automatically resolved when the ambulance is on scene
 				 */
-				Ambulance.this.notify(new IncidentResolved(incidentID, Ambulance.this.getName()));
-				return notMoving;
+				Ambulance.this.notify(new IncidentResolved(Ambulance.this.incidentID, Ambulance.this.getName()));
+				return this.notMoving;
 			} else if(e.getClass() == AmbulanceBroken.class ){
 				/**
 				 * Stop moving when broken
 				 */
-				return notMoving;
+				return this.notMoving;
 			} else if(e.getClass() == DestinationUnreachable.class) {
 				/**
 				 * Stop when unable to reach the destination, further movements will need
 				 * to be reinitiated.
 				 */
-				return notMoving;
+				return this.notMoving;
 			} else if(e.getClass() == DestinationOrder.class) {
 				/**
 				 * Move one step further until destination reached.  Resend the event to self
 				 * until done.  Notify for new position when position changed.
 				 */
 				DestinationOrder dest = (DestinationOrder)e;
-				Pos temp = map.nextPos(pos, dest.getDestination(), speed);
+				Pos temp = Ambulance.this.map.nextPos(Ambulance.this.pos, dest.getDestination(), Ambulance.this.speed);
 				if(temp == null) {
-					Ambulance.this.notify(new DestinationUnreachable(incidentID, Ambulance.this.getName()));
+					Ambulance.this.notify(new DestinationUnreachable(Ambulance.this.incidentID, Ambulance.this.getName()));
 				} else {
-					if(temp != pos) {
-						temp=pos;
+					if(temp != Ambulance.this.pos) {
+						temp=Ambulance.this.pos;
 						/**
 						 *  Both events have the same semantic but NewPosition is conserved to pass
 						 *  the reference of the ambulance to the incident.
 						 */
-						Ambulance.this.notify(new NewPosition(Ambulance.this.getName(), pos, Ambulance.this));
-						Ambulance.this.notify(new AmbulancePosition(Ambulance.this.getName(), pos.toString()));
+						Ambulance.this.notify(new NewPosition(Ambulance.this.getName(), Ambulance.this.pos, Ambulance.this));
+						Ambulance.this.notify(new AmbulancePosition(Ambulance.this.getName(), Ambulance.this.pos.toString()));
 						Ambulance.this.notify(e);
 					}
 				}
@@ -143,7 +143,7 @@ public class Ambulance extends SimObjectImpl {
 					return this;
 				} else {
 					Ambulance.this.notify(e);
-					return moving;
+					return this.moving;
 				}
 			}  else {
 			/**
@@ -180,7 +180,7 @@ public class Ambulance extends SimObjectImpl {
 				 */
 				MobilisationOrder mobOrder = (MobilisationOrder)e;
 				if (mobOrder.getAmbulanceID() == Ambulance.this.getName()) {
-					incidentID=mobOrder.getIncidentID();
+					Ambulance.this.incidentID=mobOrder.getIncidentID();
 					Ambulance.this.notify(new MobilisationConfirmation(mobOrder.getIncidentID(), 
 							mobOrder.getAmbulanceID(), true));
 					Ambulance.this.notify(new DestinationOrder(Ambulance.this.getName(), 
@@ -209,7 +209,7 @@ public class Ambulance extends SimObjectImpl {
 				 * Propagate the event and change the sender to this ambulance
 				 */
 				Ambulance.this.notify(new AmbulanceBroken(Ambulance.this.getName()));
-				return broken;
+				return this.broken;
 			} else {
 		
 			/**
@@ -242,7 +242,7 @@ public class Ambulance extends SimObjectImpl {
 				 * change the sender to this ambulance.
 				 */
 				Ambulance.this.notify(new AmbulanceRepaired(Ambulance.this.getName()));
-				return free;
+				return this.free;
 			} else {
 		
 			/**
@@ -277,7 +277,7 @@ public class Ambulance extends SimObjectImpl {
 				/**
 				 * Become free again if requested, even if incident is not resolved
 				 */
-				incidentID=null;
+				Ambulance.this.incidentID=null;
 				return this.free;
 			} else if(e.getClass() == IncidentResolved.class) {
 				/**

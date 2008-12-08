@@ -71,7 +71,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 	public Event waitForEvent(String ambulanceId) {
 		Event mdtMessage = null;
 		try {
-			mdtMessage = events.take();
+			mdtMessage = this.events.take();
 		} catch(InterruptedException e) {
 			// TODO
 		}
@@ -80,31 +80,31 @@ public class CommunicatorImpl implements Communicator, Runnable {
 		}
 		else {
 			try {
-				events.put(mdtMessage);
+				this.events.put(mdtMessage);
 			} catch(InterruptedException e) {
 				// TODO
 			}
-			return waitForEvent(ambulanceId);
+			return this.waitForEvent(ambulanceId);
 		}
 	}
 	/**
 	 * Main loop of the thread.  Get and dispatch messages
 	 */
 	private void mainLoop() {
-		while(finished) {
+		while(this.finished) {
 			// Get MDT messages
-			Event mdtEvent = mdt.receive();
+			Event mdtEvent = this.mdt.receive();
 			if(mdtEvent != null) {
 				if(mdtEvent.getClass() == MobilisationConfirmation.class) {
 					try {
-						mobConfirmations.put(mdtEvent);
+						this.mobConfirmations.put(mdtEvent);
 					} catch(InterruptedException e) {
 						// TODO
 					}
 				}
 				else {
 					try {
-						events.put(mdtEvent);
+						this.events.put(mdtEvent);
 					} catch(InterruptedException e) {
 						// TODO
 					}
@@ -112,9 +112,9 @@ public class CommunicatorImpl implements Communicator, Runnable {
 			}
 			
 			// Get AVLS messages
-			AmbulancePosition avlsMessage = (AmbulancePosition)avls.receive();
+			AmbulancePosition avlsMessage = (AmbulancePosition)this.avls.receive();
 			if(avlsMessage != null) {
-				ambulances.setPosition(	avlsMessage.getSenderName(), 
+				this.ambulances.setPosition(	avlsMessage.getSenderName(), 
 										avlsMessage.getPosition());
 			}
 		}
@@ -125,7 +125,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 	 * @see system.Communicator#send(events.Event)
 	 */
 	public void send(Event order) {
-		mdt.send(order);
+		this.mdt.send(order);
 	}
 
 	/*
@@ -135,7 +135,7 @@ public class CommunicatorImpl implements Communicator, Runnable {
 	public boolean waitForAck(Event order, String ambulanceId) {
 		Event mdtMessage = null;
 		try {
-			mdtMessage = mobConfirmations.take();
+			mdtMessage = this.mobConfirmations.take();
 		} catch(InterruptedException e) {
 			// TODO
 		}
@@ -144,11 +144,11 @@ public class CommunicatorImpl implements Communicator, Runnable {
 		}
 		else {
 			try {
-				mobConfirmations.put(mdtMessage);
+				this.mobConfirmations.put(mdtMessage);
 			} catch(InterruptedException e) {
 				// TODO
 			}
-			return waitForAck(order,ambulanceId);
+			return this.waitForAck(order,ambulanceId);
 		}
 	}
 	
@@ -156,13 +156,13 @@ public class CommunicatorImpl implements Communicator, Runnable {
 	 * Stop the thread
 	 */
 	public void stop() {
-		finished = true;
+		this.finished = true;
 	}
 
 	/**
 	 * Method runned by the thread
 	 */
 	public void run() {
-		mainLoop();
+		this.mainLoop();
 	}
 }

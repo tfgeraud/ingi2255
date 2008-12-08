@@ -18,10 +18,10 @@ public class StepDelimiter extends Event {
 	}
 	
 	public static StepDelimiter getInstance() {
-		if(instance == null) {
-			instance = new StepDelimiter();
+		if(StepDelimiter.instance == null) {
+			StepDelimiter.instance = new StepDelimiter();
 		}
-		return instance;	
+		return StepDelimiter.instance;	
 	}
 	
 }

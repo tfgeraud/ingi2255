@@ -23,7 +23,7 @@ public class BrokerImpl implements Broker {
 	 */
 	public void addIncidentInfo(String description, String localisation,
 			int victimAge, boolean victimPregnant) {
-		incidentList.addIncident(victimAge, victimPregnant, localisation, description);
+		this.incidentList.addIncident(victimAge, victimPregnant, localisation, description);
 		
 	}
 

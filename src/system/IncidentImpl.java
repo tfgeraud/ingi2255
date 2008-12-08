@@ -127,22 +127,23 @@ public class IncidentImpl implements Incident {
 			String description) {
 		IncidentInfo inc = new IncidentInfo(age, pregnant, localisation,
 				description);
-		String incidentId = "incident" + nextIncidentId++;
-		incidents.put(incidentId, inc);
+		String incidentId = "incident" + this.nextIncidentId++;
+		this.incidents.put(incidentId, inc);
 
 		// Process additional information
 		// Position
 		// FIXME : can return null
-		inc.position = map.addressToCoord(localisation);
+		inc.position = this.map.addressToCoord(localisation);
 		// Ambulance kind needed
 		// This is very simple for the beginning. If description is "grave"
 		// then a medicalized ambulance is needed, else a normal ambulance
 		// is needed.
 		// TODO : implement more complex and usefull process
-		if (description.equals("grave"))
+		if (description.equals("grave")) {
 			inc.ambKindNeeded = Ambulance.MEDICALIZED;
-		else
+		} else {
 			inc.ambKindNeeded = Ambulance.NORMAL;
+		}
 		
 		return incidentId;
 	}
@@ -153,10 +154,11 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#getAge(java.lang.String)
 	 */
 	public int getAge(String incidentInfoId) throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.age;
 	}
 
@@ -167,10 +169,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public String getAmbulanceKindNeeded(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.ambKindNeeded;
 	}
 
@@ -181,10 +184,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public String getChosenAmbulance(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.chosenAmb;
 	}
 
@@ -195,10 +199,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public DemobilisationOrder getDemobOrder(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return new DemobilisationOrder(incidentInfoId, inc.position.toString(),
 				inc.mobAmb);
 	}
@@ -210,10 +215,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public String getDescription(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.description;
 	}
 
@@ -224,10 +230,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public String getLocalisation(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.localisation;
 	}
 
@@ -238,10 +245,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public MobilisationOrder getMobOrder(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return new MobilisationOrder(incidentInfoId, inc.position.toString(),
 				inc.chosenAmb);
 	}
@@ -253,10 +261,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public String getMobilizedAmbulance(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.mobAmb;
 	}
 
@@ -267,10 +276,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public Coord getPosition(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.position;
 	}
 
@@ -281,10 +291,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public boolean getPregnant(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		return inc.pregnant;
 	}
 
@@ -295,11 +306,12 @@ public class IncidentImpl implements Incident {
 	 */
 	public void setAsResolved(String incidentInfoId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
-		inc.state = RESOLVED;
+		}
+		inc.state = Incident.RESOLVED;
 		// TODO Remove incident from list?
 	}
 
@@ -311,10 +323,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public void setChosenAmbulance(String incidentInfoId, String ambulanceId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		inc.chosenAmb = ambulanceId;
 	}
 
@@ -326,10 +339,11 @@ public class IncidentImpl implements Incident {
 	 */
 	public void setMobilizedAmbulance(String incidentInfoId, String ambulanceId)
 			throws UnknownIncidentException {
-		IncidentInfo inc = incidents.get(incidentInfoId);
+		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
-		if (inc == null)
+		if (inc == null) {
 			throw new UnknownIncidentException();
+		}
 		inc.mobAmb = ambulanceId;
 		// TODO verify if chosen ambulance is correct
 	}

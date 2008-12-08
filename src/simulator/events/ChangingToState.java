@@ -12,6 +12,6 @@ public class ChangingToState extends Event {
 	}
 	
 	public String getStateName() {
-		return stateName;
+		return this.stateName;
 	}
 }

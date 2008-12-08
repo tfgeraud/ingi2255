@@ -3,13 +3,10 @@
  */
 package test.system;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import events.DemobilisationOrder;
 
 import system.Ambulance;
 import system.Incident;
@@ -33,8 +30,8 @@ public class IncidentImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		map = new MapImpl(3,4);
-		incidents = new IncidentImpl(map);
+		this.map = new MapImpl(3,4);
+		this.incidents = new IncidentImpl(this.map);
 	}
 
 	/**
@@ -61,18 +58,18 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getAge(incId),age);}
+		try {Assert.assertEquals(this.incidents.getAge(incId),age);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
-		try {assertEquals(incidents.getPregnant(incId),pregnant);}
+		try {Assert.assertEquals(this.incidents.getPregnant(incId),pregnant);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
-		try {assertEquals(incidents.getDescription(incId),description);}
+		try {Assert.assertEquals(this.incidents.getDescription(incId),description);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
-		try {assertEquals(incidents.getLocalisation(incId),localisation);}
+		try {Assert.assertEquals(this.incidents.getLocalisation(incId),localisation);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -86,9 +83,9 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getAge(incId),age);}
+		try {Assert.assertEquals(this.incidents.getAge(incId),age);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -102,14 +99,14 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getAmbulanceKindNeeded(incId),Ambulance.MEDICALIZED);}
+		try {Assert.assertEquals(this.incidents.getAmbulanceKindNeeded(incId),Ambulance.MEDICALIZED);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
-		String incId2 = incidents.addIncident(age, pregnant, localisation, "pas grave");
+		String incId2 = this.incidents.addIncident(age, pregnant, localisation, "pas grave");
 		
-		try {assertEquals(incidents.getAmbulanceKindNeeded(incId2),Ambulance.NORMAL);}
+		try {Assert.assertEquals(this.incidents.getAmbulanceKindNeeded(incId2),Ambulance.NORMAL);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -123,26 +120,26 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
 		// Assert null
-		try {assertEquals(incidents.getChosenAmbulance(incId), null);}
+		try {Assert.assertEquals(this.incidents.getChosenAmbulance(incId), null);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Set chosen ambulance
-		try {incidents.setChosenAmbulance(incId, "mike3");}
+		try {this.incidents.setChosenAmbulance(incId, "mike3");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Assert good ambulance
-		try {assertEquals(incidents.getChosenAmbulance(incId), "mike3");}
+		try {Assert.assertEquals(this.incidents.getChosenAmbulance(incId), "mike3");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 
 		// Change chosen ambulance
-		try {incidents.setChosenAmbulance(incId, "mike5");}
+		try {this.incidents.setChosenAmbulance(incId, "mike5");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Assert good ambulance
-		try {assertEquals(incidents.getChosenAmbulance(incId), "mike5");}
+		try {Assert.assertEquals(this.incidents.getChosenAmbulance(incId), "mike5");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -159,17 +156,17 @@ public class IncidentImplTest {
 		String ambId = "mike3";
 		
 		// Add incident
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
 		// Chose ambulance
-		try {incidents.setChosenAmbulance(incId, ambId);}
+		try {this.incidents.setChosenAmbulance(incId, ambId);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Assert good demob order
 		// FIXME : cannot tested now because no valid address in map
 		//try {assertTrue(incidents.getDemobOrder(incId).equals(new DemobilisationOrder(incId,incidents.getPosition(incId).toString(),ambId)));}
 		//catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
-		fail("Not yet implemented");
+		Assert.fail("Not yet implemented");
 	}
 
 	/**
@@ -182,9 +179,9 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getDescription(incId),description);}
+		try {Assert.assertEquals(this.incidents.getDescription(incId),description);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -198,9 +195,9 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getLocalisation(incId),localisation);}
+		try {Assert.assertEquals(this.incidents.getLocalisation(incId),localisation);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -209,7 +206,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetMobOrder() {
-		fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
+		Assert.fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
 	}
 
 	/**
@@ -222,26 +219,26 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
 		// Assert null
-		try {assertEquals(incidents.getMobilizedAmbulance(incId), null);}
+		try {Assert.assertEquals(this.incidents.getMobilizedAmbulance(incId), null);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Set chosen ambulance
-		try {incidents.setMobilizedAmbulance(incId, "mike3");}
+		try {this.incidents.setMobilizedAmbulance(incId, "mike3");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Assert good ambulance
-		try {assertEquals(incidents.getMobilizedAmbulance(incId), "mike3");}
+		try {Assert.assertEquals(this.incidents.getMobilizedAmbulance(incId), "mike3");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 
 		// Change chosen ambulance
-		try {incidents.setMobilizedAmbulance(incId, "mike5");}
+		try {this.incidents.setMobilizedAmbulance(incId, "mike5");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 		
 		// Assert good ambulance
-		try {assertEquals(incidents.getMobilizedAmbulance(incId), "mike5");}
+		try {Assert.assertEquals(this.incidents.getMobilizedAmbulance(incId), "mike5");}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -250,7 +247,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testGetPosition() {
-		fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
+		Assert.fail("Not yet implemented"); // TODO not testable without good map (there is now not good address)
 	}
 
 	/**
@@ -263,9 +260,9 @@ public class IncidentImplTest {
 		String localisation = "Broadway";
 		String description = "grave";
 		
-		String incId = incidents.addIncident(age, pregnant, localisation, description);
+		String incId = this.incidents.addIncident(age, pregnant, localisation, description);
 		
-		try {assertEquals(incidents.getPregnant(incId),pregnant);}
+		try {Assert.assertEquals(this.incidents.getPregnant(incId),pregnant);}
 		catch(UnknownIncidentException e) {System.err.println("Unknown incident");}
 	}
 
@@ -274,7 +271,7 @@ public class IncidentImplTest {
 	 */
 	@Test
 	public final void testSetAsResolved() {
-		fail("Not yet implemented"); // TODO Cannot verify an incident is set as resolved
+		Assert.fail("Not yet implemented"); // TODO Cannot verify an incident is set as resolved
 	}
 
 	/**

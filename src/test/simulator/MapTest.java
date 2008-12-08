@@ -1,15 +1,20 @@
 package test.simulator;
 
+
+import junit.framework.Assert;
+import junit.framework.TestCase;
 import simulator.*;
 import simulator.simobjects.*;
-import junit.framework.TestCase;
 
 public class MapTest extends TestCase {
-	Map map = new Map("square city",9,13);
+	private Map map = new Map("square city",9,13);
+	
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
@@ -58,7 +63,6 @@ public class MapTest extends TestCase {
 		map.removeObstacle(new PosImpl(10,0));
 		next = map.nextPos(start, end, 10);
 		assertNotNull(next);
-		
 	}
 
 }

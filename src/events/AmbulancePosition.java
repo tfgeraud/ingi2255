@@ -1,5 +1,8 @@
 package events;
 
+import system.Coord;
+import system.CoordImpl;
+
 
 /**
  * Sent by simulated ambulance to the LAS.
@@ -18,10 +21,10 @@ public class AmbulancePosition extends Event {
 	}
 	
 	public String getAmbulanceID() {
-		return ambulanceID;
+		return this.ambulanceID;
 	}
 
-	public String getPosition() {
-		return ambulancePosition;
+	public Coord getPosition() {
+		return new CoordImpl(this.ambulancePosition);
 	}
 }

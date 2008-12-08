@@ -28,7 +28,7 @@ public class Map extends SimObjectImpl {
 	 */
 	public Map(String name, int streetx, int streety){
 		super(name);
-		map = new Graph(streetx,streety);
+		this.map = new Graph(streetx,streety);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class Map extends SimObjectImpl {
 	 
 	 */
 	public Pos nextPos(Pos currentPos, Pos nextPos, int dist) {
-		int[][] path = map.path(currentPos.getX(),currentPos.getY(),
+		int[][] path = this.map.path(currentPos.getX(),currentPos.getY(),
 								nextPos.getX(), nextPos.getY());
 		if(path == null){
 			return null;
@@ -77,7 +77,7 @@ public class Map extends SimObjectImpl {
 	 * @param obstacle the position where the new obstacle will be added.
 	 */
 	public void addObstacle(Pos obstacle){
-		map.addObstacle(obstacle.getX(), obstacle.getY());
+		this.map.addObstacle(obstacle.getX(), obstacle.getY());
 	}
 	/**
 	 * Removes an obstacle from the map.
@@ -85,6 +85,6 @@ public class Map extends SimObjectImpl {
 	 * 					be removed
 	 */
 	public void removeObstacle(Pos obstacle){
-		map.removeObstacle(obstacle.getX(), obstacle.getY());
+		this.map.removeObstacle(obstacle.getX(), obstacle.getY());
 	}
 }
