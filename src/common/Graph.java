@@ -318,6 +318,8 @@ public class Graph {
         Edge end = this.findEdge(incidentCoord);
         this.delTempNodes();
         if (impl.equals(incidentCoord)){
+        	path.add(incidentCoord);
+        	path.add(impl);
             return 0;
         }
         if (startNode != null && endNode != null){
