@@ -325,6 +325,8 @@ public class Graph {
         }
         if (start != null && start == end){  /*if ambulance is on same street as incident */
             if(!start.obstructed(impl, incidentCoord)){ /*check no obstacle in between*/
+            	path.add(incidentCoord);
+            	path.add(impl);
                 return impl.dist(incidentCoord);
             }
         }
