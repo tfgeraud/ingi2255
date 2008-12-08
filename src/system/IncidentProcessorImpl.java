@@ -7,9 +7,11 @@ import system.exception.UnknownIncidentException;
 
 /**
  * This class implement the incident info processor. See
- * {@link IncidentProcessor} for more details.
+ * {@link IncidentProcessor} for more details. This class runs in its own thread
+ * and call other system modules like ambulance chooser, mobilizer, resolver.
  * 
  * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
  */
 public class IncidentProcessorImpl implements IncidentProcessor {
 
@@ -28,6 +30,35 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 	 */
 	private Resolver resolver;
 
+	/**
+	 * The id of the incident processed by this processor
+	 */
+	private String incidentId;
+
+	/**
+	 * Create a new incident processor
+	 * 
+	 * @param chooser
+	 *            The ambulance chooser of the system
+	 * @param mobilizer
+	 *            The mobilizer of the system
+	 * @param resolver
+	 *            The resolver of the system
+	 * @param incidentId
+	 *            The id of the incident to process
+	 */
+	public IncidentProcessorImpl(AmbulanceChooser chooser, Mobilizer mobilizer,
+			Resolver resolver, String incidentId) {
+		this.chooser = chooser;
+		this.mobilizer = mobilizer;
+		this.resolver = resolver;
+		this.incidentId = incidentId;
+
+		// Launch a thread
+		Thread thread = new Thread(this);
+		thread.start();
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -44,10 +75,10 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 				do {
 					// Search for the best ambulance
 					try {
-					ambulanceId = this.chooser.chooseBestAmbulance(incidentInfoId,
-							exclusionSet);
+						ambulanceId = this.chooser.chooseBestAmbulance(
+								incidentInfoId, exclusionSet);
 					} catch (UnknownIncidentException err) {
-						// TODO
+						// TODO Catching exception
 					}
 
 				} while (!ambulanceId.equals(""));
@@ -73,5 +104,12 @@ public class IncidentProcessorImpl implements IncidentProcessor {
 
 		} while (e == false);
 
+	}
+
+	/**
+	 * Run this processor
+	 */
+	public void run() {
+		main(this.incidentId);
 	}
 }

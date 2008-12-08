@@ -7,7 +7,7 @@ package system;
  * @author Simon Busard <simon.busard@student.uclouvain.be>
  * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
  */
-public interface IncidentProcessor {
+public interface IncidentProcessor extends Runnable {
 
 	/**
 	 * Resolve an incident.
