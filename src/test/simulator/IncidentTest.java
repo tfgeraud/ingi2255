@@ -27,7 +27,7 @@ public class IncidentTest extends TestCase {
 		assert(incident.getCurrentStateNames().contains("Occured"));
 		
 		// Object move but not at incident position
-		incident.accept(new NewPosition(simObject.getName(), new PosImpl(5,5), simObject));
+		incident.accept(new NewPosition(simObject.getName(), new PosImpl(5,0), simObject));
 		incident.step();
 		
 		// Make sure that the incident didn't change its state
