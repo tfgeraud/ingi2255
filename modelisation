@@ -1,0 +1,58 @@
+VirtuallyMobilized => IncidentInfoKnown
+Mobilized => VirtuallyMobilized
+MobilizationOrderConfirmed
+AmbulanceDestinationKnown => AmbulanceOnScene
+IncidentInfoKnown => AmbulanceMobilized
+AmbulanceChosen => IncidentClosed
+Closed = CareGiven OR AtHospital OR Cancelled
+CallReceived => IncidentClosed
+CallReceived => CallRecorded
+AmbulanceChosen => MoblizationOrderTransmitted (Sent + Received)
+IncidentInfoRecorded => IncidentInfoProcessed
+AmbulanceMobilized => IncidentClosed
+MobilizationOrderConfirmed ?
+AmbulanceOnScene in 11 minutes => Lack of satisf
+MoblizationOrderPrinted
+MobilizationOrderReceived
+MobilizationOrderSent
+AmbulanceMobilized
+AmbulanceAtStation
+AmbulanceDestinationKnown
+AmbulanceVirtuallyMobilized => AmbulanceMobilized
+IncidentInfoKnown => IncidentClosed
+AmbulanceOnScene => IncidentClosed
+IncidentInfoKnown => IncidentInfoProcessed
+AmbulanceChosen
+AmbulanceMobilized => AmbulanceOnScene
+MobilizationOrderTransmitted => MobilizationOrderConfirmed
+IncidentInfoKnown => AmbulanceMobilized (<= 3 min)
+AmbulanceOnRoad
+MobilizationOrderSent
+IncidentInfoKnown => VirtuallyMobilized
+AmbulanceVirtuallyMobilized when >= 11 minutes to be scene
+AmbulanceVirtuallyMobilized when < 11 minutes to be scene
+AccuratePositionKnown
+Maintain AmbulanceTracked
+AccurateAtStationInfo
+MaintainAmbulanceAt11Minutes
+AmbulanceKindKnown
+CallReceived => IncidentClosed
+IncidentInfoProcessed = IncidentInfoKnown
+CallReceived => IncidentInfoKnown
+IncidentInfoRecorded => IncidentInfoProcessed
+IncidentCallReceived => IncidentInfoRecorded
+AvoidDuplicateIncidentInfo
+KeepMaximumAmbulanceAvailable
+AmbulanceMobilized AND AmbulanceKnown => IncidentClosed in <= 11 minutes
+JourneyCompleted
+PatientAtHospital
+IncidentClosed
+MedicalCareGiven
+FalseCallReceived
+AmbulanceMobilized => AmbulanceMobilized UNTIL IncidentClosed
+AvoidDuplicateMobilization
+AmbulanceMobilized
+MobilizationOrderConfirmed
+MobilizationOrderReceived
+MobilizationOrderRead
+
