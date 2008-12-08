@@ -28,11 +28,37 @@ public class MapTest extends TestCase {
 	}
 
 	public void testAddObstacle() {
-		map.addObstacle(new PosImpl(10,10));
+		Pos start = new PosImpl(10,10);
+		Pos end = new PosImpl(10,20);
+		Pos next = null;
+		map.addObstacle(new PosImpl(0,10));
+		map.addObstacle(new PosImpl(10,15));
+		next = map.nextPos(start, end, 5);
+		assertEquals(new PosImpl(15,10),next);
+		next = map.nextPos(start, end, 15);
+		assertEquals(new PosImpl(20,15),next);
+		map.addObstacle(new PosImpl(10,0));
+		map.addObstacle(new PosImpl(15,10));
+		next = map.nextPos(start, end, 10);
+		assertNull(next);
+		
+		
 	}
 
 	public void testRemoveObstacle() {
-		fail("Not yet implemented");
+		Pos start = new PosImpl(10,10);
+		Pos end = new PosImpl(10,20);
+		Pos next = null;
+		map.addObstacle(new PosImpl(0,10));
+		map.addObstacle(new PosImpl(10,15));
+		map.addObstacle(new PosImpl(10,0));
+		map.addObstacle(new PosImpl(15,10));
+		next = map.nextPos(start, end, 10);
+		assertNull(next);
+		map.removeObstacle(new PosImpl(10,0));
+		next = map.nextPos(start, end, 10);
+		assertNotNull(next);
+		
 	}
 
 }
