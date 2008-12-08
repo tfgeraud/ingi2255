@@ -1,10 +1,14 @@
 package test.simulator;
 
+
 import junit.framework.Assert;
 import junit.framework.TestCase;
+import simulator.*;
+import simulator.simobjects.*;
 
 public class MapTest extends TestCase {
-
+	private Map map = new Map("square city",9,13);
+	
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -16,11 +20,20 @@ public class MapTest extends TestCase {
 	}
 
 	public void testNextPos() {
-		Assert.fail("Not yet implemented");
+		Pos start = new PosImpl(10,10);
+		Pos end = new PosImpl(10,20);
+		Pos next = map.nextPos(start, end, 5);
+		assertEquals(new PosImpl(10,15),next);
+		next = map.nextPos(start, end, 0);
+		assertEquals(start,next);
+		next = map.nextPos(start, end, 10);
+		assertEquals(end,next);
+		next = map.nextPos(start,end, 15);
+		assertEquals(end,next);
 	}
 
 	public void testAddObstacle() {
-		Assert.fail("Not yet implemented");
+		map.addObstacle(new PosImpl(10,10));
 	}
 
 	public void testRemoveObstacle() {

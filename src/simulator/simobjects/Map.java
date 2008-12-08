@@ -48,6 +48,7 @@ public class Map extends SimObjectImpl {
 			int i = 0;
 			int tmp_dist = 0;
 			Pos current = currentPos;	//current at each iteration.
+			//System.out.println("Path length :" + path.length);
 			while(i < path.length){
 				if(i > 0){
 					current = new PosImpl(path[i][0],path[i][1]);
@@ -55,16 +56,16 @@ public class Map extends SimObjectImpl {
 				}
 				if(tmp_dist == dist){
 					return current;
-				}else if (i <path.length -1 && tmp_dist > dist){	//we interpolate between previous and next crossroad pos.
+				}else if (i < path.length && tmp_dist > dist){	//we interpolate between previous and next crossroad pos.
 					tmp_dist -= dist;
-					Pos next = new PosImpl(path[i+1][0],path[i+1][1]);
-					if(next.equals(current)){
+					Pos prev = new PosImpl(path[i-1][0],path[i-1][1]);
+					if(prev.equals(current)){
 						return current;	//avoid division by zero.
 					}
-					double dx = (next.getX() - current.getX())/(double)next.dist(current);
-					double dy = (next.getY() - current.getY())/(double)next.dist(current);
-					return new PosImpl(	(int)(current.getX() + dx*tmp_dist),
-										(int)(current.getY() + dy*tmp_dist)		);
+					double dx = (current.getX() - prev.getX())/(double)prev.dist(current);
+					double dy = (current.getY() - prev.getY())/(double)prev.dist(current);
+					return new PosImpl(	(int)(prev.getX() + dx*tmp_dist),
+										(int)(prev.getY() + dy*tmp_dist)		);
 				}
 				i++;
 			}
