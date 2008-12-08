@@ -51,8 +51,19 @@ public class Ambulance extends SimObjectImpl {
 		this.stateMachineList.add(sm1);
 		this.stateMachineList.add(sm2);
 		
+		/**
+		 * Connect to itself for moving
+		 */
+		this.attach(this, DestinationOrder.class);
+		
 	}
 	
+	/**
+	 * Getters and setters
+	 */
+	public Pos getCurrentPos() {
+		return this.pos;
+	}
 	
 	/**
 	 * Definition of states for the ambulance
@@ -74,13 +85,7 @@ public class Ambulance extends SimObjectImpl {
 		
 		@Override
 		public State execute(Event e) {
-			if(e.getClass() == AmbulanceOnScene.class) {
-				/**
-				 * Incident is automatically resolved when the ambulance is on scene
-				 */
-				Ambulance.this.notify(new IncidentResolved(Ambulance.this.incidentID, Ambulance.this.getName()));
-				return this.notMoving;
-			} else if(e.getClass() == AmbulanceBroken.class ){
+			if(e.getClass() == AmbulanceBroken.class ){
 				/**
 				 * Stop moving when broken
 				 */
@@ -101,8 +106,8 @@ public class Ambulance extends SimObjectImpl {
 				if(temp == null) {
 					Ambulance.this.notify(new DestinationUnreachable(Ambulance.this.incidentID, Ambulance.this.getName()));
 				} else {
-					if(temp != Ambulance.this.pos) {
-						temp=Ambulance.this.pos;
+					if(!Ambulance.this.pos.equals(temp)) {
+						Ambulance.this.pos = temp;
 						/**
 						 *  Both events have the same semantic but NewPosition is conserved to pass
 						 *  the reference of the ambulance to the incident.
@@ -110,6 +115,10 @@ public class Ambulance extends SimObjectImpl {
 						Ambulance.this.notify(new NewPosition(Ambulance.this.getName(), Ambulance.this.pos, Ambulance.this));
 						Ambulance.this.notify(new AmbulancePosition(Ambulance.this.getName(), Ambulance.this.pos.toString()));
 						Ambulance.this.notify(e);
+						
+						return this;
+					} else {
+						return notMoving;
 					}
 				}
 				return this;
@@ -142,8 +151,10 @@ public class Ambulance extends SimObjectImpl {
 				if(Ambulance.this.getCurrentStateNames().contains("Broken")) {
 					return this;
 				} else {
-					Ambulance.this.notify(e);
-					return this.moving;
+					/**
+					 * Start moving at once
+					 */
+					return this.moving.execute(e);
 				}
 			}  else {
 			/**
@@ -271,7 +282,9 @@ public class Ambulance extends SimObjectImpl {
 			if(e.getClass() == AmbulanceOnScene.class) {
 				/**
 				 * When arriving on scene, stay mobilized until IncidentResolved
+				 * and resolve event
 				 */
+				Ambulance.this.notify(new IncidentResolved(Ambulance.this.incidentID, Ambulance.this.getName()));
 				return this;
 			} else if(e.getClass() == DemobilisationOrder.class){
 				/**
