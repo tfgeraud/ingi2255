@@ -38,6 +38,12 @@ public class MapTest extends TestCase {
 		assertEquals(new PosImpl(1,0), next);
 	}
 	
+	public void testMoveToCurrentPosition() {
+		Pos start = new PosImpl(0,0);
+		Pos dest = new PosImpl(0,0);
+		Pos next = map.nextPos(start, dest, 1);
+		assertEquals(new PosImpl(0,0), next);
+	}
 	
 	public void testMoveOnePositionInXWithDest10PosAway() {
 		Pos start = new PosImpl(0,0);
