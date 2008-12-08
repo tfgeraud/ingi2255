@@ -17,8 +17,8 @@ import system.Ambulance;
 public class IncidentImpl implements Incident {
 
 	/**
-	 * This class represent all the information stored by
-	 * the system about the incidents
+	 * This class represent all the information stored by the system about the
+	 * incidents
 	 * 
 	 * @author Simon Busard <simon.busard@student.uclouvain.be>
 	 * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
@@ -45,14 +45,14 @@ public class IncidentImpl implements Incident {
 		String description = null;
 
 		/**
-		 * The position of the incident. Computed when 
-		 * we set the localisation of the incident
+		 * The position of the incident. Computed when we set the localisation
+		 * of the incident
 		 */
 		Coord position = null;
 
 		/**
-		 * The kind of the ambulance needed for the incident.
-		 * Computed when we set the description of the incident
+		 * The kind of the ambulance needed for the incident. Computed when we
+		 * set the description of the incident
 		 */
 		String ambKindNeeded = null;
 
@@ -67,21 +67,26 @@ public class IncidentImpl implements Incident {
 		String mobAmb = null;
 
 		/**
-		 * The state of the incident. Either {@link Incident#KNOWN},
-		 * either {@link Incident#PROCESSED}, either {@link Incident#CHOSEN},
-		 * either {@link Incident#MOBILIZED}, either {@link Incident#RESOLVED}.
+		 * The state of the incident. Either {@link Incident#KNOWN}, either
+		 * {@link Incident#PROCESSED}, either {@link Incident#CHOSEN}, either
+		 * {@link Incident#MOBILIZED}, either {@link Incident#RESOLVED}.
 		 */
 		String state = null;
 
 		/**
 		 * Create a new incident
 		 * 
-		 * @param age The age of the victim
-		 * @param pregnant True if the victim is pregrant, false otherwise
-		 * @param localisation The localisation of the incident
-		 * @param description The description of the incident
+		 * @param age
+		 *            The age of the victim
+		 * @param pregnant
+		 *            True if the victim is pregrant, false otherwise
+		 * @param localisation
+		 *            The localisation of the incident
+		 * @param description
+		 *            The description of the incident
 		 */
-		public IncidentInfo(int age, boolean pregnant, String localisation, String description) {
+		public IncidentInfo(int age, boolean pregnant, String localisation,
+				String description) {
 			this.age = age;
 			this.pregnant = pregnant;
 			this.localisation = localisation;
@@ -100,8 +105,8 @@ public class IncidentImpl implements Incident {
 	private Map map = null;
 
 	/**
-	 * The counter of incident, this number is the next number
-	 * to use (so, not yet used)
+	 * The counter of incident, this number is the next number to use (so, not
+	 * yet used)
 	 */
 	private int nextIncidentId = 0;
 
@@ -123,8 +128,8 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#addIncident(int, boolean, java.lang.String,
 	 *      java.lang.String)
 	 */
-	public String addIncident(int age, boolean pregnant, String localisation,
-			String description) {
+	synchronized public String addIncident(int age, boolean pregnant,
+			String localisation, String description) {
 		IncidentInfo inc = new IncidentInfo(age, pregnant, localisation,
 				description);
 		String incidentId = "incident" + this.nextIncidentId++;
@@ -144,7 +149,7 @@ public class IncidentImpl implements Incident {
 		} else {
 			inc.ambKindNeeded = Ambulance.NORMAL;
 		}
-		
+
 		return incidentId;
 	}
 
@@ -304,7 +309,7 @@ public class IncidentImpl implements Incident {
 	 * 
 	 * @see system.Incident#setAsResolved(java.lang.String)
 	 */
-	public void setAsResolved(String incidentInfoId)
+	synchronized public void setAsResolved(String incidentInfoId)
 			throws UnknownIncidentException {
 		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
@@ -321,8 +326,8 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#setChosenAmbulance(java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void setChosenAmbulance(String incidentInfoId, String ambulanceId)
-			throws UnknownIncidentException {
+	synchronized public void setChosenAmbulance(String incidentInfoId,
+			String ambulanceId) throws UnknownIncidentException {
 		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
 		if (inc == null) {
@@ -337,8 +342,8 @@ public class IncidentImpl implements Incident {
 	 * @see system.Incident#setMobilizedAmbulance(java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void setMobilizedAmbulance(String incidentInfoId, String ambulanceId)
-			throws UnknownIncidentException {
+	synchronized public void setMobilizedAmbulance(String incidentInfoId,
+			String ambulanceId) throws UnknownIncidentException {
 		IncidentInfo inc = this.incidents.get(incidentInfoId);
 		// Exception if not known
 		if (inc == null) {

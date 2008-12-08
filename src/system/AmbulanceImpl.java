@@ -13,6 +13,7 @@ import system.exception.IllegalMobilizationException;
  * This class represent the list of the ambulances known by the system.
  * 
  * @author Antoine Cailliau <antoine.cailliau@student.uclouvain.be>
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
  */
 public class AmbulanceImpl implements Ambulance {
 
@@ -298,7 +299,8 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#getAllFree(java.lang.String, java.util.Set)
 	 */
-	public Set<String> getAllFree(String kind, Set<String> exclusionSet) {
+	synchronized public Set<String> getAllFree(String kind,
+			Set<String> exclusionSet) {
 
 		Set<String> result = new HashSet<String>();
 
@@ -328,7 +330,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#markAsBroken(int)
 	 */
-	public void markAsBroken(String ambulanceId) {
+	synchronized public void markAsBroken(String ambulanceId) {
 		try {
 			this.list.get(ambulanceId).setStatus(Ambulance.BROKEN);
 		} catch (AmbulanceStatusUnknwownException e) {
@@ -343,8 +345,9 @@ public class AmbulanceImpl implements Ambulance {
 	 * @see system.Ambulance#addAmbulance(java.lang.String, system.Coord,
 	 *      java.lang.String, java.lang.String)
 	 */
-	public void addAmbulance(String ambulanceId, Coord coord, String kind,
-			String status) throws AmbulanceStatusUnknwownException,
+	synchronized public void addAmbulance(String ambulanceId, Coord coord,
+			String kind, String status)
+			throws AmbulanceStatusUnknwownException,
 			AmbulanceKindUnknownException {
 		this.list.put(ambulanceId, new AmbulanceInfo(ambulanceId, coord));
 		this.list.get(ambulanceId).setKind(kind);
@@ -383,7 +386,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#markAsRepaired(java.lang.String)
 	 */
-	public void markAsRepaired(String ambulanceId) {
+	synchronized public void markAsRepaired(String ambulanceId) {
 		try {
 			this.list.get(ambulanceId).setStatus(Ambulance.WORKING);
 		} catch (AmbulanceStatusUnknwownException e) {
@@ -398,7 +401,8 @@ public class AmbulanceImpl implements Ambulance {
 	 * @see system.Ambulance#setIncidentChosenFor(java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void setIncidentChosenFor(String ambulanceId, String incidentInfoId) {
+	synchronized public void setIncidentChosenFor(String ambulanceId,
+			String incidentInfoId) {
 		this.list.get(ambulanceId).setIncidentChosenFor(incidentInfoId);
 	}
 
@@ -408,7 +412,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * @see system.Ambulance#setIncidentMobilizedFor(java.lang.String,
 	 *      java.lang.String)
 	 */
-	public void setIncidentMobilizedFor(String ambulanceId,
+	synchronized public void setIncidentMobilizedFor(String ambulanceId,
 			String incidentInfoId) throws IllegalMobilizationException {
 		this.list.get(ambulanceId).setIncidentMobilizedFor(incidentInfoId);
 	}
@@ -418,7 +422,7 @@ public class AmbulanceImpl implements Ambulance {
 	 * 
 	 * @see system.Ambulance#setPosition(java.lang.String, system.Coord)
 	 */
-	public void setPosition(String ambulanceId, Coord coord) {
+	synchronized public void setPosition(String ambulanceId, Coord coord) {
 		this.list.get(ambulanceId).setPos(coord);
 	}
 

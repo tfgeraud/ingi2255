@@ -5,6 +5,12 @@ import java.util.Hashtable;
 
 import common.Graph;
 
+/**
+ * This class represents the map of the real world known by the system.
+ * 
+ * @author Frédéric van der Essn <frederic.vanderessen@student.uclouvain.be>
+ * @author Simon Busard <simon.busard@student.uclouvain.be>
+ */
 public class MapImpl implements Map {
 	Graph map; // implémentation de la map, see Map.
 
@@ -33,7 +39,7 @@ public class MapImpl implements Map {
 	 * 
 	 * @see system.Map#addObstacle(system.Coord)
 	 */
-	public void addObstacle(Coord obstacleCoord) {
+	synchronized public void addObstacle(Coord obstacleCoord) {
 		this.map.addObstacle(obstacleCoord.getX(), obstacleCoord.getY());
 	}
 
@@ -43,8 +49,8 @@ public class MapImpl implements Map {
 	 * @see system.Map#distance(system.Coord, system.Coord)
 	 */
 	public int distance(Coord coord1, Coord coord2) {
-		return this.map.distance(coord1.getX(), coord1.getY(), coord2.getX(), coord2
-				.getY());
+		return this.map.distance(coord1.getX(), coord1.getY(), coord2.getX(),
+				coord2.getY());
 	}
 
 	/*
@@ -52,7 +58,7 @@ public class MapImpl implements Map {
 	 * 
 	 * @see system.Map#removeObstacle(system.Coord)
 	 */
-	public void removeObstacle(Coord obstacleCoord) {
+	synchronized public void removeObstacle(Coord obstacleCoord) {
 		this.map.removeObstacle(obstacleCoord.getX(), obstacleCoord.getY());
 	}
 
@@ -61,7 +67,7 @@ public class MapImpl implements Map {
 	 * 
 	 * @see system.Map#setStreets(int, int)
 	 */
-	public void setStreets(int numx, int numy) {
+	synchronized public void setStreets(int numx, int numy) {
 		this.map.setStreets(numx, numy);
 
 	}
@@ -101,7 +107,7 @@ public class MapImpl implements Map {
 	 * 
 	 * @see system.Map#addAddressList(java.io.BufferedReader)
 	 */
-	public String addAddressList(BufferedReader addresslist) {
+	synchronized public String addAddressList(BufferedReader addresslist) {
 		String errors = "";
 		while (true) {
 			try {
@@ -133,7 +139,7 @@ public class MapImpl implements Map {
 	 * 
 	 * @see system.Map#addAddress(java.lang.String, system.Coord)
 	 */
-	public void addAddress(String address, Coord coord) {
+	synchronized public void addAddress(String address, Coord coord) {
 		this.addressToCoordMap.put(address, coord);
 		this.coordToAddressMap.put(coord, address);
 
