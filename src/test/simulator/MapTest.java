@@ -1,7 +1,6 @@
 package test.simulator;
 
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import simulator.*;
 import simulator.simobjects.*;
@@ -32,7 +31,15 @@ public class MapTest extends TestCase {
 		assertEquals(end,next);
 	}
 	
-	public void testMoveOnePositionInX() {
+	public void testMoveOnePositionInXWithDest1PosAway() {
+		Pos start = new PosImpl(0,0);
+		Pos dest = new PosImpl(1,0);
+		Pos next = map.nextPos(start, dest, 1);
+		assertEquals(new PosImpl(1,0), next);
+	}
+	
+	
+	public void testMoveOnePositionInXWithDest10PosAway() {
 		Pos start = new PosImpl(0,0);
 		Pos dest = new PosImpl(10,0);
 		Pos next = map.nextPos(start, dest, 1);
