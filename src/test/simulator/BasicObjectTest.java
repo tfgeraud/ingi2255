@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Vector;
 
 import events.Event;
-import simulator.Observable;
 import simulator.Observer;
 import simulator.events.ChangingToState;
 import simulator.events.EventNotUnderstood;
@@ -204,25 +203,4 @@ public class BasicObjectTest extends TestCase {
 		eventObserverMap.get(ChangingToState.class).add(this.observer);
 		Assert.assertEquals(1, eventObserverMap.get(ChangingToState.class).size());
 	}
-	
-	private class DummyObserver implements Observer {
-		public Event receivedEvent = null;
-
-		public void accept(Event event) {
-			this.receivedEvent = event;
-		}
-
-		public void disconnect(Observable observable) {
-			// Not used
-		}
-
-		public void disconnect() {
-			// Not used
-		}
-
-		public void observing(Observable observable) {
-			// Not used
-		}
-	}
-
 }

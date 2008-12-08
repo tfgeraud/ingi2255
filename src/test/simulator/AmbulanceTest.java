@@ -2,15 +2,12 @@ package test.simulator;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import simulator.Observable;
-import simulator.Observer;
 import simulator.PosImpl;
 import simulator.events.DestinationOrder;
 import simulator.events.StepDelimiter;
 import simulator.simobjects.Ambulance;
 import simulator.simobjects.Map;
 import events.AmbulanceBroken;
-import events.Event;
 import events.MobilisationOrder;
 
 public class AmbulanceTest extends TestCase {
@@ -114,27 +111,6 @@ public class AmbulanceTest extends TestCase {
 		Assert.assertEquals(true, this.ambulance.getCurrentStateNames().contains("NotMoving"));	
 	}
 	
-	class DummyObserver implements Observer {
-		public Event receivedEvent = null;
 
-		public void accept(Event event) {
-			this.receivedEvent = event;
-		}
-
-		public void disconnect(Observable observable) {
-			// Not used
-			
-		}
-
-		public void disconnect() {
-			// Not used
-			
-		}
-
-		public void observing(Observable observable) {
-			// Not used
-			
-		}
-	}
 
 }
