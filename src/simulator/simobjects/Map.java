@@ -57,8 +57,8 @@ public class Map extends SimObjectImpl {
 				if(tmp_dist == dist){
 					return current;
 				}else if (i < path.length && tmp_dist > dist){	//we interpolate between previous and next crossroad pos.
-					tmp_dist -= dist;
 					Pos prev = new PosImpl(path[i-1][0],path[i-1][1]);
+					tmp_dist = dist - (tmp_dist - prev.dist(current));
 					if(prev.equals(current)){
 						return current;	//avoid division by zero.
 					}
