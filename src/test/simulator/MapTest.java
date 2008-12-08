@@ -31,6 +31,20 @@ public class MapTest extends TestCase {
 		next = map.nextPos(start,end, 15);
 		assertEquals(end,next);
 	}
+	
+	public void testMoveOnePositionInX() {
+		Pos start = new PosImpl(0,0);
+		Pos dest = new PosImpl(10,0);
+		Pos next = map.nextPos(start, dest, 1);
+		assertEquals(new PosImpl(1,0), next);
+	}
+	
+	public void testEdge() {
+		Pos start = new PosImpl(0,0);
+		Pos end = new PosImpl(0,10);
+		Pos next = map.nextPos(start, end, 10);
+		assertEquals(new PosImpl(0,10), next);
+	}
 
 	public void testAddObstacle() {
 		map.addObstacle(new PosImpl(10,10));
